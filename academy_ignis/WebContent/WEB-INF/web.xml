@@ -10,6 +10,19 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+	<error-page>
+		<error-code>404</error-code>
+		<location>/error</location>
+	</error-page>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/error</location>
+	</error-page>
+	<!-- 예비로 넣어놓음 제거하지말것<error-page>
+		<exception-type>java.lang.NullPointerException</exception-type>
+		<location>/error</location>
+	</error-page> -->
+  
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>ignis.servlet.EncodingFilter</filter-class>
@@ -29,7 +42,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>
-    <url-pattern>*.bo</url-pattern>
+    <url-pattern>/*</url-pattern>
   </servlet-mapping>
   
 </web-app>
