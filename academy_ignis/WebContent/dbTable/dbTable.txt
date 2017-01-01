@@ -1,1 +1,4 @@
-create
+create create user ignis identified by 1234;
+grant resource, connect to ignis;
+
+//////////////////유저 생성 및 권한부여
