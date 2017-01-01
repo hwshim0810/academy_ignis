@@ -37,10 +37,10 @@ public class FrontController extends HttpServlet {
 		
 		switch (command) {
 		
-		case "" :
+		case "/error" :
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./");
+			forward.setPath("./error/errorPage.jsp");
 			break;
 //		case "/" :
 //			action = new Action();
