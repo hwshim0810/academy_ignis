@@ -52,16 +52,18 @@ public class FrontController extends HttpServlet {
 //			}
 //			break;
 //		default:
-//			if (forward != null) {
-//				if (forward.isRedirect()) {
-//					response.sendRedirect(forward.getPath());
-//				} else {
-//					RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-//					dispatcher.forward(request, response);
-//				}
-//			}
 //			break;
 		}
+		
+		
+//		if (forward != null) {
+//			if (forward.isRedirect()) {
+//				response.sendRedirect(forward.getPath());
+//			} else {
+//				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+//				dispatcher.forward(request, response);
+//			}
+//		}
 		
 	}
 }
