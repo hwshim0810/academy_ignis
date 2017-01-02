@@ -1,4 +1,84 @@
-create create user ignis identified by 1234;
+create user ignis identified by 1234 default tablespace users;
 grant resource, connect to ignis;
 
 //////////////////유저 생성 및 권한부여
+
+create table ig_member  (
+				m_id VARCHAR2(30) PRIMARY KEY, 
+				m_pass VARCHAR2(30) NOT NULL, 
+				m_name VARCHAR2(20) NOT NULL, 
+				m_birth NUMBER NOT NULL, 
+				m_addr VARCHAR2(100) NOT NULL,
+				m_phone NUMBER NOT NULL,
+				m_email VARCHAR2(50), 
+				m_level NUMBER NOT NULL,
+				m_enterdate) SEGMENT CREATION IMMEDIATE;
+				
+create table ig_reserv  (
+				r_num VARCHAR2(30) PRIMARY KEY, 
+				r_guide VARCHAR2(30) NOT NULL, 
+				r_day DATE NOT NULL, 
+				r_time DATE NOT NULL, 
+				r_resdate DATE NOT NULL,
+				r_content VARCHAR2(450),
+				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;
+				
+create sequence r_num;
+
+
+create table ig_notice  (
+				nb_num VARCHAR2(30) PRIMARY KEY, 
+				nb_title VARCHAR2(100) NOT NULL, 
+				nb_content VARCHAR2(2000) NOT NULL, 
+				nb_readcount NUMBER NOT NULL, 
+				nb_regdate DATE) SEGMENT CREATION IMMEDIATE;
+
+create sequence nb_num;
+
+
+create table ig_qna  (
+				qb_num VARCHAR2(30) PRIMARY KEY, 
+				qb_title VARCHAR2(100) NOT NULL, 
+				qb_content VARCHAR2(2000) NOT NULL, 
+				qb_groupnum NUMBER, 
+				qb_readcount NUMBER NOT NULL, 
+				qb_regdate DATE) SEGMENT CREATION IMMEDIATE;
+
+create sequence qb_num;
+
+
+create table ig_event  (
+				eb_num VARCHAR2(30) PRIMARY KEY, 
+				eb_title VARCHAR2(100) NOT NULL, 
+				eb_content VARCHAR2(2000) NOT NULL, 
+				eb_readcount NUMBER NOT NULL, 
+				eb_regdate DATE) SEGMENT CREATION IMMEDIATE;
+
+create sequence eb_num;
+
+
+create table ig_review  (
+				rb_num VARCHAR2(30) PRIMARY KEY, 
+				rb_title VARCHAR2(100) NOT NULL, 
+				m_name VARCHAR2(30) REFERENCES ig_member(m_name),
+				rb_content VARCHAR2(2000) NOT NULL, 
+				rb_replycount NUMBER,
+				rb_readcount NUMBER, 
+				rb_regdate DATE) SEGMENT CREATION IMMEDIATE;
+
+create sequence rb_num;
+
+
+create table ig_comment  (
+				co_num VARCHAR2(30) PRIMARY KEY, 
+				co_content VARCHAR2(2000) NOT NULL, 
+				m_name VARCHAR2(30) REFERENCES ig_member(m_name),
+				rb_num NUMBER REFERENCES ig_review(m_name), 
+				co_seq NUMBER,
+				co_regdate DATE) SEGMENT CREATION IMMEDIATE;
+
+create sequence co_num;
+
+
+
+
