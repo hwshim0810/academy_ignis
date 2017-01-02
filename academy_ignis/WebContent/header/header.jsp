@@ -1,17 +1,27 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-    <div class="topMenu">
-        <div class="logo"><a><img src="../image/logo.jpg" alt="로고" title="로고"></a></div>
-        <div class="topinMenu">
-        <p>
-        <a href="#">로그인</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">회원가입</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        <a href="#">사이트맵</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-        </p>
-        </div>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
     </div>
-    <div class="headNav">
-    
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
     </div>
+  </div>
+</nav>
 </header>
