@@ -5,9 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>map_to_the_ignis</title>
+<link rel = "stylesheet" type = "text/css" href="../css/ad_Login.css">
 </head>
 <body>
-<h1>asdfasdfasdfasfsafasdfsdf</h1>
 
+<jsp:include page=""></jsp:include>
+<h1>asdfasdfasdfasfsafasdfsdf</h1>
 </body>
 </html>

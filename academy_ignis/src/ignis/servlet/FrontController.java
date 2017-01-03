@@ -46,7 +46,7 @@ public class FrontController extends HttpServlet {
 		case "/map_to_the_ignis":
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./map_to_the_ignis.jsp");
+			forward.setPath("./ignisCompany_info/map_to_the_ignis.jsp");
 //		case "/" :
 //			action = new Action();
 //			
