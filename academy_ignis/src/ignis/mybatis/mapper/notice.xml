@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"	
+ 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="notice">
+	<insert id="add" parameterType="java.util.HashMap">
+		INSERT INTO IG_notice VALUES ( #{nb_num}, #{nb_title}, #{nb_content},1, SYSDATE )
+	</insert>
+	<select id="selectAll" resultType="ignis.bean.ig_notice">
+		SELECT * FROM IG_notice order by date desc
+	</select>
+</mapper>

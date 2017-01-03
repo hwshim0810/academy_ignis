@@ -2,11 +2,10 @@
 <!DOCTYPE mapper
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"	
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="memo">
+<mapper namespace="qna">
 	<insert id="add" parameterType="java.util.HashMap">
-		INSERT INTO MEMO_T ( num, writer, content, reg_date, ip )
-		VALUES ( memo_seq.NEXTVAL, #{writer}, #{content}, 
-		SYSDATE, #{ip} )
+		INSERT INTO ig_member VALUES ( #{id}, #{pass}, #{name}, #{birth}, #{addr}, 
+		 #{phone}, #{email}, 3, SYSDATE )
 	</insert>
 	<select id="selectAll" resultType="mybatis.vo.MemoVO">
 		SELECT * FROM memo_t order by num desc

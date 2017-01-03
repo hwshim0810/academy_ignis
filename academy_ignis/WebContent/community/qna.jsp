@@ -16,6 +16,40 @@
 <%pageContext.include("../header/header.jsp"); %>
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
+ <div class="col-xs-12 col-sm-9 col-md-10 ">
+<h4>궁굼한 점</h4><hr>
+ <table class="table">
+    <thead>
+      <tr class="info">
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성일</th>
+       <th>조회</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2017년 구정 휴무</td>
+        <td>2016/01/15</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2017년 구정 휴무</td>
+        <td>2016/01/15</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>2017년 구정 휴무</td>
+        <td>2016/01/15</td>
+        <td>2</td>
+      </tr>
+    </tbody>
+  </table>
+ </div>
+ 
  </div>
 </body>
 </html>

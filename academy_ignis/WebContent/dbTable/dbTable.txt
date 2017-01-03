@@ -63,7 +63,6 @@ create sequence eb_num;
 
 
 create table ig_review  (
-				
 				rb_num VARCHAR2(30) PRIMARY KEY, 
 				rb_title VARCHAR2(100) NOT NULL, 
 				m_name VARCHAR2(30) REFERENCES ig_member(m_id),

@@ -14,7 +14,7 @@
     <h1 class="well">회원 가입</h1>
 	<div class="col-lg-12 well">
 	<div class="row">
-		<form method="post" action="/joinProcess">
+		<form method="post" action="./joinProcess">
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-8 form-group">
@@ -69,7 +69,7 @@
 						<input type="email" placeholder="이메일" class="form-control">
 					</div>	
 				</div>						
-			<input type="submit" class="btn btn-lg btn-info">Submit</input>					
+			<input type="submit" class="btn btn-lg btn-info" value="회원가입">				
 			</div>
 		</form> 
 	</div>

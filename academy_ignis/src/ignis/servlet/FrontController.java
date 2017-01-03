@@ -69,6 +69,11 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./community/notice.jsp");break;	
 			
+		case "/noticeinsert":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./community/noticeinsert.jsp");break;		
+			
 		case "/qna":
 			forward = new ActionForward();
 			forward.setRedirect(false);
@@ -82,6 +87,18 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			break;
+			
+		case "/login" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/login.jsp");
+			break;
+			
+		case "/memberJoin" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/memberJoin.jsp");
 			break;
 //		case "/" :
 //			action = new Action();
