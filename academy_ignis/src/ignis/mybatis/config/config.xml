@@ -16,5 +16,7 @@
 	</environments>
 	<mappers>
 		<mapper resource="ignis/mybatis/mapper/member.xml" />
+		<mapper resource="ignis/mybatis/mapper/notice.xml" />
+		<mapper resource="ignis/mybatis/mapper/qna.xml" />
 	</mappers>
 </configuration>
