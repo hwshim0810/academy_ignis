@@ -7,7 +7,10 @@
 		INSERT INTO ig_member VALUES ( #{id}, #{pass}, #{name}, #{birth}, #{addr}, 
 		 #{phone}, #{email}, 3, SYSDATE )
 	</insert>
-	<select id="selectAll" resultType="mybatis.vo.MemoVO">
-		SELECT * FROM memo_t order by num desc
+	<select id="selectAll" resultType="ignis.bean.User">
+		SELECT * FROM ig_member order by m_level desc
+	</select>
+	<select id="selectId" resultType="ignis.bean.User">
+		SELECT * FROM ig_member where m_id = #{id}
 	</select>
 </mapper>
