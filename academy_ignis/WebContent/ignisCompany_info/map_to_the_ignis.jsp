@@ -47,9 +47,9 @@
 </header>
 
 <%pageContext.include("../header/header.jsp"); %>
-  <div class="container-fluid">
-   <div class="col-xs-12 col-sm-3 col-md-2">
-   <ul class="list-group">
+  <div class="container">
+   <div class="col-xs-12 col-sm-3 col-md-2" style="background-color:lavender;">
+   <ul class="list-group" >
   <li class="list-group-item" ><a href="abouts_us">병원소개</a></li>
   <li class="list-group-item" ><a href="Introduction_of_medical_staff">의료진 소개</a></li>
   <li class="list-group-item" ><a href="medical_procedure">진료 절차</a></li>
@@ -57,32 +57,8 @@
 </ul>
    </div>
    
-      <div class="col-xs-12 col-sm-9 col-md-10">
-<h1>1asdfasd fasdf asfsa fasdfsdf</h1>
-<h1>2asdfasd fasdfasf saf asdfsdf</h1>
-<h1>3asdfasdfasdfasfsafa sdfsdf</h1>
-<h1>4asdfasd fasdfa sfsaf asdfsdf</h1>
-<h1>5asdfasd fasdfasfs afasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
+      <div class="col-xs-12 col-sm-9 col-md-10"  style="background-color:orange;">
 
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
 </div>
 </div>
 </body>

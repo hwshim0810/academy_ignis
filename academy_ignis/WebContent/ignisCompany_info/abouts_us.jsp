@@ -12,11 +12,12 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   .list-group-item {text-align:center;}
+  .br{margin: 100px;}
   </style>
 </head>
 <body>
 <header>
-	<nav class="navbar navbar-default">
+	<nav class="navbar navbar-default ">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".myNavbar">
@@ -45,9 +46,8 @@
         </div>
 	</nav>
 </header>
-
 <%pageContext.include("../header/header.jsp"); %>
-  <div class="container-fluid">
+  <div class="container">
    <div class="col-xs-12 col-sm-3 col-md-2">
    <ul class="list-group">
   <li class="list-group-item" ><a href="abouts_us">병원소개</a></li>
@@ -58,31 +58,25 @@
    </div>
    
       <div class="col-xs-12 col-sm-9 col-md-10">
-<h1>1asdfasd fasdf asfsa fasdfsdf</h1>
-<h1>2asdfasd fasdfasf saf asdfsdf</h1>
-<h1>3asdfasdfasdfasfsafa sdfsdf</h1>
-<h1>4asdfasd fasdfa sfsaf asdfsdf</h1>
-<h1>5asdfasd fasdfasfs afasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-<h1>6asdfasdf asdfas fsafasdfsdf</h1>
+      <div class="container-fulid">
+      <div class="col-xs-12 col-sm-6">
+      <img alt="사진" src="../image/01.jpg" class="img-rounded">
+      </div>
+      <div class="col-xs-12 col-sm-6">
+      <ul  class="list-group">
+      <li class="list-group-item" >치료 프로세스에 대한 효율성</li>
+  <li class="list-group-item" >의료진 소개</li>
+  <li class="list-group-item" >진료 절차</li>
+  <li class="list-group-item " >찾아오시는 길</li>
+  </ul>
+   </div>
+</div>
+<h1>123asdfasdf asdfasdfasdf</h1>
+<h1>123asdfasdf asdfasdfasdf</h1>
+<h1>123asdfasdf asdfasdfasdf</h1>
+<h1>123asdfasdf asdfasdfasdf</h1>
+<h1>123asdfasdf asdfasdfasdf</h1>
+<h1>123asdfasdf asdfasdfasdf</h1>
 </div>
 </div>
 </body>
