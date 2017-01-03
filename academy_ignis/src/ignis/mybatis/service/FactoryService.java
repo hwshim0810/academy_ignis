@@ -12,7 +12,7 @@ public class FactoryService {
 	static {
 		try {
 			Reader r = Resources
-					.getResourceAsReader("mybatis/config/config.xml");
+					.getResourceAsReader("ignis/mybatis/config/config.xml");
 			factory = new SqlSessionFactoryBuilder().build(r);
 			r.close();
 		} catch (Exception e) { }
