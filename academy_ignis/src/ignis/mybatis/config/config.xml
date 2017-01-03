@@ -18,5 +18,9 @@
 		<mapper resource="ignis/mybatis/mapper/member.xml" />
 		<mapper resource="ignis/mybatis/mapper/notice.xml" />
 		<mapper resource="ignis/mybatis/mapper/qna.xml" />
+		<mapper resource="ignis/mybatis/mapper/reserv.xml" />
+		<mapper resource="ignis/mybatis/mapper/comment.xml" />
+		<mapper resource="ignis/mybatis/mapper/review.xml" />
+		<mapper resource="ignis/mybatis/mapper/event.xml" />
 	</mappers>
 </configuration>
