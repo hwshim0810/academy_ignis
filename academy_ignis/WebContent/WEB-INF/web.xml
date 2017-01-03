@@ -41,6 +41,10 @@
     <servlet-class>ignis.servlet.FrontController</servlet-class>
   </servlet>
   <servlet-mapping>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
     <servlet-name>jsp</servlet-name>
     <url-pattern>*.jsp</url-pattern>
   </servlet-mapping>

@@ -1,5 +1,4 @@
-@import "font-awesome.min.css";
-@import "font-awesome-ie7.min.css";
+
 /* Space out content a bit */
 body {
   padding-top: 20px;
@@ -8,7 +7,6 @@ body {
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
-.marketing,
 .footer {
   padding-right: 15px;
   padding-left: 15px;
