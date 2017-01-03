@@ -16,7 +16,7 @@ public class MemberJoinAction implements ActionInterface {
 		
 		if (result) {
 			forward.setRedirect(true);
-			forward.setPath("/login");
+			forward.setPath("./login");
 			return forward;
 		}
 		

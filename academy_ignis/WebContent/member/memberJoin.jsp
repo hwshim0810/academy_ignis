@@ -10,6 +10,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+<%
+	pageContext.include("../header/header.jsp");
+%>
 <div class="container">
     <h1 class="well">회원 가입</h1>
 	<div class="col-lg-12 well">

@@ -3,7 +3,6 @@ package ignis.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.bean.User;
 import ignis.biz.LoginBiz;
 
 public class MemberLoginAction implements ActionInterface {
