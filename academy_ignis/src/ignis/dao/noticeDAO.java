@@ -1,5 +1,6 @@
 package ignis.dao;
 
+
 import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +11,7 @@ import ignis.mybatis.service.FactoryService;
 public class noticeDAO {
 
 	public boolean insert(String nb_num, String nb_title, String nb_content) {
+		System.out.println("2");
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, String> map = new HashMap<>();
 		map.put("nb_num", nb_num);
