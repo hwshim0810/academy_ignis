@@ -27,7 +27,7 @@ public class FrontController extends HttpServlet {
 		doProcess(request, response);
 	}
 	
-	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException {
+	protected void doProcess(HttpServletRequest request, HttpServletResponse response) throws SecurityException, IOException, ServletException {
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
@@ -42,6 +42,11 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./error/errorPage.jsp");
 			break;
+			
+		case "/map_to_the_ignis":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./map_to_the_ignis.jsp");
 //		case "/" :
 //			action = new Action();
 //			
@@ -56,14 +61,14 @@ public class FrontController extends HttpServlet {
 		}
 		
 		
-//		if (forward != null) {
-//			if (forward.isRedirect()) {
-//				response.sendRedirect(forward.getPath());
-//			} else {
-//				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
-//				dispatcher.forward(request, response);
-//			}
-//		}
+		if (forward != null) {
+			if (forward.isRedirect()) {
+				response.sendRedirect(forward.getPath());
+			} else {
+				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
+				dispatcher.forward(request, response);
+			}
+		}
 		
 	}
 }
