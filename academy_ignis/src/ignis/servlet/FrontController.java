@@ -126,8 +126,9 @@ public class FrontController extends HttpServlet {
 //				e.printStackTrace();
 //			}
 //			break;
-//		default:
-//			break;
+		default:
+			System.out.println("Unexpected command: " + RequestURI);
+			break;
 		}
 		
 		
