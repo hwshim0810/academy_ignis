@@ -15,18 +15,10 @@
   </style>
 </head>
 <body>
-
+<%pageContext.include("header_noTop.jsp"); %>
 <%pageContext.include("../header/header.jsp"); %>
-  <div class="container-fluid">
-   <div class="col-xs-12 col-sm-3 col-md-2">
-   <ul class="list-group">
-  <li class="list-group-item" ><a href="abouts_us">병원소개</a></li>
-  <li class="list-group-item" ><a href="Introduction_of_medical_staff">의료진 소개</a></li>
-  <li class="list-group-item" ><a href="medical_procedure">진료 절차</a></li>
-  <li class="list-group-item " ><a href="map_to_the_ignis">찾아오시는 길</a></li>
-</ul>
-   </div>
-   
+  <div class="container">
+<%pageContext.include("leftList.jsp"); %>
       <div class="col-xs-12 col-sm-9 col-md-10">
 <h1>1asdfasd fasdf asfsa fasdfsdf</h1>
 <h1>2asdfasd fasdfasf saf asdfsdf</h1>

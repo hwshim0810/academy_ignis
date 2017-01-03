@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".myNavbar">
@@ -22,10 +22,10 @@
 		</div>
        <div class="collapse navbar-collapse myNavbar">
               <ul class="nav navbar-nav navbar-left">
-                  <li><a href="abouts_us">병원소개</a></li>
+                  <li><a href="#">병원소개</a></li>
                   <li><a href="#">진료과목</a></li>
                   <li><a href="#">상담 및 예약</a></li>
-                  <li><a href="notice">커뮤니티</a></li>
+                  <li><a href="#">커뮤니티</a></li>
               </ul>
         </div>
 	</nav>

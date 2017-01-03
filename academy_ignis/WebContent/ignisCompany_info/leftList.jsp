@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <body>
+  <style>
+  .list-group-item {text-align:center;}
+
+  </style>
 <div class="col-xs-12 col-sm-3 col-md-2" style="background-color:lavender;">
    <ul class="list-group">
   <li class="list-group-item" ><a href="abouts_us">병원소개</a></li>
@@ -9,4 +12,3 @@
   <li class="list-group-item " ><a href="map_to_the_ignis">찾아오시는 길</a></li>
 </ul>
    </div>
-   </body>

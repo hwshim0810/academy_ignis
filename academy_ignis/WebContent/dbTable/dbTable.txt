@@ -41,7 +41,8 @@ create sequence nb_num;
 
 create table ig_qna  (
 				qb_mal VARCHAR2(20),
-				qb_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_member(m_id), 
+				qb_num VARCHAR2(30) PRIMARY KEY , 
+				m_id REFERENCES ig_member(m_id),
 				qb_title VARCHAR2(100) NOT NULL, 
 				qb_content VARCHAR2(2000) NOT NULL, 
 				qb_groupnum NUMBER, 
