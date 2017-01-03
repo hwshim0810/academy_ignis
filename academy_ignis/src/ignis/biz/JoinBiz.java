@@ -7,7 +7,7 @@ import ignis.dao.MemberDAO;
 
 public class JoinBiz {
 	
-	public void insert(HttpServletRequest request, HttpServletResponse response) {
+	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = new MemberDAO();
 	
 		String id = request.getParameter("m_id");
@@ -18,7 +18,9 @@ public class JoinBiz {
 		String phone = request.getParameter("m_phone");
 		String email = request.getParameter("m_email");
 		
-		memDao.insert(id, pass, name, birth, addr, phone, email);
+		boolean result = memDao.insert(id, pass, name, birth, addr, phone, email);
 		
+		if (result) return result;
+		else return result;
 	}
 }

@@ -83,6 +83,18 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/login" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/login.jsp");
+			break;
+			
+		case "/memberJoin" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/memberJoin.jsp");
+			break;
 //		case "/" :
 //			action = new Action();
 //			

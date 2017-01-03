@@ -10,7 +10,16 @@ public class MemberJoinAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		JoinBiz joinBiz = new JoinBiz();
-		joinBiz.insert(request, response);
+		ActionForward forward = new ActionForward();
+		
+		boolean result = joinBiz.insert(request, response);
+		
+		if (result) {
+			forward.setRedirect(true);
+			forward.setPath("/login");
+			return forward;
+		}
+		
 		return null;
 	}
 
