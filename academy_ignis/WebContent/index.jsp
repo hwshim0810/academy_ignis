@@ -100,7 +100,7 @@
 </div>
   
 <div class="container text-center">    
-  <br>
+  <br><br>
   <div class="row">
   	<div class="col-sm-6">
       <div class="well">
