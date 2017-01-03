@@ -8,8 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.action.ActionInterface;
 import ignis.action.ActionForward;
+import ignis.action.ActionInterface;
+import ignis.action.MemberJoinAction;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -73,7 +74,15 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./community/qna.jsp");break;	
 			
-	
+		case "/joinProcess":
+			action = new MemberJoinAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 //		case "/" :
 //			action = new Action();
 //			
