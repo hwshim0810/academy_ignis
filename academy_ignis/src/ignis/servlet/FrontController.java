@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
 import ignis.action.MemberJoinAction;
+import ignis.action.MemberLoginAction;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -94,6 +95,15 @@ public class FrontController extends HttpServlet {
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/memberJoin.jsp");
+			break;
+		case "/loginProcess" :
+			action = new MemberLoginAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 //		case "/" :
 //			action = new Action();
