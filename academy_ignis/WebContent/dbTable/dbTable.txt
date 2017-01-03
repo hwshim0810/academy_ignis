@@ -40,6 +40,7 @@ create sequence nb_num;
 
 
 create table ig_qna  (
+				qb_mal VARCHAR2(20),
 				qb_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_member(m_id), 
 				qb_title VARCHAR2(100) NOT NULL, 
 				qb_content VARCHAR2(2000) NOT NULL, 
@@ -61,10 +62,12 @@ create sequence eb_num;
 
 
 create table ig_review  (
+				
 				rb_num VARCHAR2(30) PRIMARY KEY, 
 				rb_title VARCHAR2(100) NOT NULL, 
 				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
 				rb_content VARCHAR2(2000) NOT NULL, 
+				rb_file VARCHAR2(50),
 				rb_replycount NUMBER,
 				rb_readcount NUMBER, 
 				rb_regdate DATE) SEGMENT CREATION IMMEDIATE;
