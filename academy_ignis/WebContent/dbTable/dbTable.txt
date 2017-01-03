@@ -1,7 +1,9 @@
 create user ignis identified by 1234 default tablespace users;
 grant resource, connect to ignis;
 
-//////////////////유저 생성 및 권한부여
+
+conn ignis/1234
+
 
 create table ig_member  (
 				m_id VARCHAR2(30) PRIMARY KEY, 
@@ -12,7 +14,8 @@ create table ig_member  (
 				m_phone NUMBER NOT NULL,
 				m_email VARCHAR2(50), 
 				m_level NUMBER NOT NULL,
-				m_enterdate) SEGMENT CREATION IMMEDIATE;
+				m_enterdate DATE
+				) SEGMENT CREATION IMMEDIATE;
 				
 create table ig_reserv  (
 				r_num VARCHAR2(30) PRIMARY KEY, 
@@ -37,7 +40,8 @@ create sequence nb_num;
 
 
 create table ig_qna  (
-				qb_num VARCHAR2(30) PRIMARY KEY, 
+				qb_mal VARCHAR2(20),
+				qb_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_member(m_id), 
 				qb_title VARCHAR2(100) NOT NULL, 
 				qb_content VARCHAR2(2000) NOT NULL, 
 				qb_groupnum NUMBER, 
@@ -58,10 +62,12 @@ create sequence eb_num;
 
 
 create table ig_review  (
+				
 				rb_num VARCHAR2(30) PRIMARY KEY, 
 				rb_title VARCHAR2(100) NOT NULL, 
-				m_name VARCHAR2(30) REFERENCES ig_member(m_name),
+				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
 				rb_content VARCHAR2(2000) NOT NULL, 
+				rb_file VARCHAR2(50),
 				rb_replycount NUMBER,
 				rb_readcount NUMBER, 
 				rb_regdate DATE) SEGMENT CREATION IMMEDIATE;
@@ -70,14 +76,15 @@ create sequence rb_num;
 
 
 create table ig_comment  (
-				co_num VARCHAR2(30) PRIMARY KEY, 
+				co_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_review(rb_num), 
 				co_content VARCHAR2(2000) NOT NULL, 
-				m_name VARCHAR2(30) REFERENCES ig_member(m_name),
-				rb_num NUMBER REFERENCES ig_review(m_name), 
+				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
+				rb_num NUMBER, 
 				co_seq NUMBER,
 				co_regdate DATE) SEGMENT CREATION IMMEDIATE;
 
 create sequence co_num;
+
 
 
 
