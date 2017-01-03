@@ -9,7 +9,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="#" class="navbar-brand"><img src="../image/logo.jpg" alt="로고" title="로고"></a>
+				<a href="./" class="navbar-brand"><img src="../image/logo.jpg" alt="로고" title="로고"></a>
 			</div>
 			<div class="collapse navbar-collapse myNavbar">
 				<ul class="nav navbar-nav navbar-right nav-pills">
