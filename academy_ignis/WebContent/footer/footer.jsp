@@ -11,8 +11,8 @@
      <hr>
      <span class="bold">(주)Ignis주식회사&nbsp;&nbsp;&nbsp;대표자:홍길동&nbsp;&nbsp;&nbsp;사업자등록번호:000-00-00000</span>
      <span class="bold">대표전화(지역번호없이)</span> : 1234-5678 <br />
-    </div>        
-</div>
+    </div>
+</div> 
 
 
 
