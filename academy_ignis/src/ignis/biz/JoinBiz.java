@@ -1,7 +1,5 @@
 package ignis.biz;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -11,11 +9,6 @@ public class JoinBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = new MemberDAO();
-		try {
-			request.setCharacterEncoding("UTF-8");
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
 	
 		String id = request.getParameter("m_id");
 		String pass = request.getParameter("m_pass");
