@@ -1,4 +1,4 @@
-package vo;
+package ignis.bean;
 
 import java.sql.Date;
 

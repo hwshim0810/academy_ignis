@@ -70,6 +70,11 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./community/notice.jsp");break;	
 			
+		case "/noticeinsert":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./community/noticeinsert.jsp");break;		
+			
 		case "/qna":
 			forward = new ActionForward();
 			forward.setRedirect(false);
