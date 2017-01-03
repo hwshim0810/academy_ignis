@@ -117,6 +117,16 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/reservProcess" :
+			action = new MemberLoginAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 //		case "/" :
 //			action = new Action();
 //			
