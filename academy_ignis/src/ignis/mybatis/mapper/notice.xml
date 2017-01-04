@@ -6,10 +6,14 @@
 	<insert id="add" parameterType="java.util.HashMap">
 		INSERT INTO IG_notice VALUES ( nb_num.nextval, #{nb_title}, #{nb_content},1, SYSDATE )
 	</insert>
-	<select id="selectAll" resultType="ignis.bean.ig_notice">
-		SELECT * FROM IG_notice order by nb_regdate desc
+	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
+	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+		SELECT * FROM IG_notice order by nb_regdate desc))
+		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
-	<select id="listCount" resultType="java.lang.Integer">
+
+	<select id="listCount"  resultType="java.lang.Integer">
 		SELECT count(*) FROM IG_notice
 	</select>
 </mapper>
