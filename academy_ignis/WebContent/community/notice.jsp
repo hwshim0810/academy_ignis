@@ -8,16 +8,14 @@
 	int pageCount=10;//마지막 페이지
 	int startpage=1;//페이지 범위
 	int endpage=10;//페이지 범위
+	pagelimit=(Integer)request.getAttribute("pagelimit");
+	pageCount=(Integer)request.getAttribute("pageCount");
+	startpage=(Integer)request.getAttribute("startpage");
+	endpage=(Integer)request.getAttribute("endpage");
     if(request.getParameter("pagenum")!=null){
     	pagenum=Integer.parseInt(request.getParameter("pagenum"));
-    	pagelimit=(Integer)request.getAttribute("pagelimit");
-    	pageCount=(Integer)request.getAttribute("pageCount");
-    	startpage=(Integer)request.getAttribute("startpage");
-    	endpage=(Integer)request.getAttribute("endpage");
-    	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
     }else{pagenum=1;}
 	if(endpage>pageCount){endpage=pageCount;}
-	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
     	%>
 <!DOCTYPE html>
 <html>
