@@ -71,7 +71,7 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./ignisCompany_info/medical_procedure.jsp");
 			break;	
 			
-		case "/notice":
+		case "/community/notice":
 			action = new NoticeSelectAllAction();
 			try {
 				forward = action.execute(request, response);
