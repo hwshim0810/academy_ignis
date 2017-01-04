@@ -13,7 +13,7 @@
 <body>
 <div class="login">
     <h1>Login</h1>
-    <form method="post" action="./loginProcess">
+    <form method="post" action="../loginProcess">
     	<input type="text" name="m_id" placeholder="Username" required="required" />
         <input type="password" name="m_pass" placeholder="Password" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>

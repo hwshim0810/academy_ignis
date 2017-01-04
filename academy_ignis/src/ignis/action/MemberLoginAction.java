@@ -2,6 +2,7 @@ package ignis.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ignis.biz.LoginBiz;
 
@@ -15,9 +16,11 @@ public class MemberLoginAction implements ActionInterface {
 		LoginBiz loginBiz = new LoginBiz();
 		ActionForward forward = new ActionForward();
 		int userLevel = loginBiz.getUserLogin(request, response);
-		System.out.println(userLevel);
+
 		if (userLevel == ADMINLEVEL) {
-			forward.setRedirect(false);
+			HttpSession session = request.getSession();
+			session.setAttribute("m_id", request.getParameter("m_id"));
+			forward.setRedirect(true);
 			forward.setPath("./admin/ad_Manage.jsp");
 			return forward;
 		}

@@ -21,11 +21,8 @@ public class LoginBiz {
 		
 		if (user == null) return MemberLoginAction.GUESTLEVEL;
 		else {
-			if (passwd.equals(user.getM_pass()) && id.equals("admin")){
-				HttpSession session = request.getSession();
-				session.setAttribute("m_id", request.getAttribute("m_id"));
+			if (passwd.equals(user.getM_pass()) && id.equals("admin"))
 				return MemberLoginAction.ADMINLEVEL;
-			}
 			else if (passwd.equals(user.getM_pass()))
 				return MemberLoginAction.MEMBERLEVEL;
 			else
