@@ -79,7 +79,7 @@
         <a href="#">	
         	<img src="/academy_ignis/image/slide3.png" alt="Image">
         </a>      
-      </div>
+      </div> 
     </div>
 
     <!-- Left and right controls -->
