@@ -10,7 +10,7 @@
 			<!-- Main Menu -->
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> 회원관리</a></li>
+					<li class="active"><a href="./member"><span class="glyphicon glyphicon-user"></span> 회원관리</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> 직원관리</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> 예약관리</a></li>
 
