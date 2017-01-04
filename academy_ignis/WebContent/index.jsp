@@ -68,7 +68,7 @@
       <div class="item active">
         <a href="./reserv/reserv.jsp">	
         	<img src="/academy_ignis/image/slide1.png" alt="Image">
-        </a>    
+        </a>
       </div>
       <div class="item">
         <a href="./reserv/reserv.jsp">	

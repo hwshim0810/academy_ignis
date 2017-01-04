@@ -54,26 +54,24 @@
 	if (id != null) { %> 
 	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
 <% }%>
-
+<%pageContext.include("../ignisCompany_info/leftList.jsp"); %>
+   
 	<%= request.getParameter("tooth") %>
 	
 	<%= request.getParameter("clitext") %>
 	<%= request.getParameter("m_id") %>
 	<%= request.getParameter("clitime")%>
+
 <div class="container text-center">    
   <br><br>
   <div class="row">
-  	<div class="col-sm-6">
+  	<div class="col-sm-9 col-md-10">
       <div class="well">
       	<p>공지사항</p>
       </div>
       <div class="well">
        <p>이벤트</p>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-      <p>진료안내 (예약)</p>
     </div>
   </div>
 </div>
