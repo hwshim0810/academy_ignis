@@ -12,6 +12,7 @@ import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
+import ignis.action.MemberLogoutAction;
 import ignis.action.NoticeInsertAction;
 import ignis.action.NoticeSelectAllAction;
 
@@ -128,6 +129,25 @@ public class FrontController extends HttpServlet {
 			
 		case "/reservProcess" :
 			action = new MemberLoginAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case "/logout?id=admin" :
+			action = new MemberLogoutAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/logout" :
+			action = new MemberLogoutAction();
 			
 			try {
 				forward = action.execute(request, response);
