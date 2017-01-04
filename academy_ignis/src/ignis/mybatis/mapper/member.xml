@@ -19,4 +19,7 @@
 	<select id="selectUserInfo" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_id = #{id} and m_name = #{name} and m_email = #{email}
 	</select>
+	<select id="selectUserCount" resultType="int">
+		SELECT count(*) FROM ig_member
+	</select>
 </mapper>

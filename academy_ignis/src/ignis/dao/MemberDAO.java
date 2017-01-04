@@ -72,4 +72,9 @@ public class MemberDAO {
 		
 		return list;
 	}
+	
+//	public int getUserCount() {
+//		SqlSession ss = FactoryService.getFactory().openSession();
+//		int count = ss.selectOne("member.)
+//	}
 }

@@ -9,14 +9,14 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
+  <!-- 에러페이지 수정금지 -->
 	<error-page>
 		<error-code>404</error-code>
-		<location>/error1</location>
+		<location>/error</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/error2</location>
+		<location>/error</location>
 	</error-page>
 	<!-- 예비로 넣어놓음 제거하지말것<error-page>
 		<exception-type>java.lang.NullPointerException</exception-type>
