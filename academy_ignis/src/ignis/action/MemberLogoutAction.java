@@ -1,5 +1,7 @@
 package ignis.action;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,16 +12,21 @@ public class MemberLogoutAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		LogoutBiz outBiz = new LogoutBiz();
-		ActionForward forward = new ActionForward();
-		
-		
 		outBiz.logOut(request, response);
-		forward.setRedirect(true);
+		response.setContentType("text/html;charset=UTF-8");
 		
-		if (request.getParameter("id") != null) forward.setPath("/academy_ignis/admin/ad_Login.jsp");
-		else forward.setPath("/academy_ignis");
+		PrintWriter out = response.getWriter();
+		out.println("<script>");
 		
-		return forward;
+		if (request.getParameter("id") != null)
+			out.println("location.href='/academy_ignis/admin/ad_Login.jsp';");
+		else
+			out.println("location.href='/academy_ignis';");
+			
+		out.println("</script>");
+		out.close();
+		
+		return null;
 	}
 
 }
