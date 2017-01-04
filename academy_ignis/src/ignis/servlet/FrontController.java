@@ -13,6 +13,7 @@ import ignis.action.ActionInterface;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
 import ignis.action.NoticeInsertAction;
+import ignis.action.NoticeSelectAllAction;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -70,10 +71,13 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./ignisCompany_info/medical_procedure.jsp");
 			break;	
 			
-		case "/notice":
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./notice.jsp");
+		case "/community/notice":
+			action = new NoticeSelectAllAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;	
 			
 		case "/noticeinsert":
