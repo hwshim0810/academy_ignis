@@ -71,7 +71,7 @@
         </a>    
       </div>
       <div class="item">
-        <a href="#">	
+        <a href="./reserv/reserv.jsp">	
         	<img src="/academy_ignis/image/slide2.png" alt="Image">
         </a>     
       </div>
