@@ -1,5 +1,5 @@
 package ignis.bean;
-
+  
 import java.sql.Date;
 
 public class ig_event {
