@@ -22,7 +22,7 @@ public class MemberLoginAction implements ActionInterface {
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
 		int userLevel = loginBiz.isMember(request, response);
-
+		
 		switch (userLevel) {
 		case ADMINLEVEL: 
 			session.setAttribute("m_id", request.getParameter("m_id"));

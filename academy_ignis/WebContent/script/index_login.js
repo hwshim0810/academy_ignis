@@ -1,4 +1,9 @@
-$(function() {
-	$("#login").html('<li id="login"><a href="#">Logout</a></li>');
-	$("#mypage").html('<li id="mypage"><a href="#">My page</a></li>');
-});
+function userLogin() {
+	$("#login").html('<a href="/academy_ignis/logout">Logout</a>');
+	$("#mypage").html('<a href="#">My page</a>');
+}
+
+function userLogout() {
+	$("#login").html('<a href="/academy_ignis/login">Login</a>');
+	$("#mypage").html('<a href="/academy_ignis/memberJoin">MemberJoin</a>');
+}

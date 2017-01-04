@@ -26,7 +26,7 @@
 		// null 이거나, 문자를 숫자로 바꾸려 해서 에러가 나거나 무조건 pageNo=1
 	}
 
-	final int ROW_PER_PAGE = 5; // 페이지당 레코드 출력 갯수
+	final int ROW_PER_PAGE = 15; // 페이지당 레코드 출력 갯수
 	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
 	int end = pageNo * ROW_PER_PAGE;
 	// 시작 페이지와 끝 페이지를 조건으로 리스트 가져오기
@@ -34,7 +34,7 @@
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
 
-	final int PAGE_PER_PAGE = 5; // 화면당 페이지 출력 갯수
+	final int PAGE_PER_PAGE = 10; // 화면당 페이지 출력 갯수
 	int totalRanges = (int) Math.ceil((double) totalPages
 			/ PAGE_PER_PAGE); // 전체 Range 갯수
 	int currentRange = (int) Math.ceil((double) pageNo / PAGE_PER_PAGE);

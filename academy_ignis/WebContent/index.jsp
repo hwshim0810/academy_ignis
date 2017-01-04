@@ -3,8 +3,9 @@
 <%
 	String id = null;
 
-	if (session.getAttribute("id") != null) 
-		id = (String) session.getAttribute("id");
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -16,6 +17,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
   <style type="text/css">
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -50,9 +52,11 @@
 <%
 	pageContext.include("./header/header.jsp");
 	
-	if (id != null) { %> 
-	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
-<% }%>
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div id="myCarousel" class="carousel slide" data-ride="carousel">

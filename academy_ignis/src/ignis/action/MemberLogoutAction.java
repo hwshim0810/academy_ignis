@@ -17,7 +17,7 @@ public class MemberLogoutAction implements ActionInterface {
 		forward.setRedirect(true);
 		
 		if (request.getParameter("id") != null) forward.setPath("/academy_ignis/admin/ad_Login.jsp");
-		else forward.setPath("/");
+		else forward.setPath("/academy_ignis");
 		
 		return forward;
 	}
