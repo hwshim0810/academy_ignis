@@ -3,7 +3,6 @@ grant resource, connect to ignis;
 
 //테이블 아래에 테이블 및 시퀀스 삭제용도 올렸습니다. 참고하세요
 
-
 conn ignis/1234
 
 
@@ -20,11 +19,10 @@ create table ig_member  (
 				) SEGMENT CREATION IMMEDIATE;
 				
 create table ig_reserv  (
-				r_num VARCHAR2(30) PRIMARY KEY, 
+				r_num NUMBER PRIMARY KEY, 
 				r_guide VARCHAR2(30) NOT NULL, 
 				r_day DATE NOT NULL, 
-				r_time DATE NOT NULL, 
-				r_resdate DATE NOT NULL,
+				r_time VARCHAR2(10) NOT NULL, 
 				r_content VARCHAR2(450),
 				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;
 				
@@ -32,7 +30,7 @@ create sequence r_num;
 
 
 create table ig_notice  (
-				nb_num VARCHAR2(30) PRIMARY KEY, 
+				nb_num NUMBER PRIMARY KEY, 
 				nb_title VARCHAR2(100) NOT NULL, 
 				nb_content VARCHAR2(2000) NOT NULL, 
 				nb_readcount NUMBER NOT NULL, 
@@ -43,7 +41,8 @@ create sequence nb_num;
 
 create table ig_qna  (
 				qb_mal VARCHAR2(20),
-				qb_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_member(m_id), 
+				qb_num NUMBER PRIMARY KEY, 
+				m_id  REFERENCES ig_member(m_id),
 				qb_title VARCHAR2(100) NOT NULL, 
 				qb_content VARCHAR2(2000) NOT NULL, 
 				qb_groupnum NUMBER, 
@@ -54,7 +53,7 @@ create sequence qb_num;
 
 
 create table ig_event  (
-				eb_num VARCHAR2(30) PRIMARY KEY, 
+				eb_num NUMBER PRIMARY KEY, 
 				eb_title VARCHAR2(100) NOT NULL, 
 				eb_content VARCHAR2(2000) NOT NULL, 
 				eb_readcount NUMBER NOT NULL, 
@@ -64,8 +63,7 @@ create sequence eb_num;
 
 
 create table ig_review  (
-				
-				rb_num VARCHAR2(30) PRIMARY KEY, 
+				rb_num NUMBER PRIMARY KEY, 
 				rb_title VARCHAR2(100) NOT NULL, 
 				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
 				rb_content VARCHAR2(2000) NOT NULL, 
@@ -78,7 +76,7 @@ create sequence rb_num;
 
 
 create table ig_comment  (
-				co_num VARCHAR2(30) PRIMARY KEY REFERENCES ig_review(rb_num), 
+				co_num NUMBER PRIMARY KEY REFERENCES ig_review(rb_num), 
 				co_content VARCHAR2(2000) NOT NULL, 
 				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
 				rb_num NUMBER, 
@@ -123,7 +121,20 @@ create table ig_event2  (
 
 
 
+
 //가상 데이터
+				m_id VARCHAR2(30) PRIMARY KEY, 
+				m_pass VARCHAR2(30) NOT NULL, 
+				m_name VARCHAR2(20) NOT NULL, 
+				m_birth NUMBER NOT NULL, 
+				m_addr VARCHAR2(100) NOT NULL,
+				m_phone NUMBER NOT NULL,
+				m_email VARCHAR2(50), 
+				m_level NUMBER NOT NULL,
+				m_enterdate DATE
+
+
+INSERT INTO ig_member VALUES ( '아이디','123','123',111111,'서울', 010 , 'sgs@nav', 2, SYSDATE);
 
 
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST01','TEST0121','0000001',1,SYSDATE);
@@ -133,5 +144,3 @@ INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VA
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST05','TEST0125','0000005',5,SYSDATE);
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST06','TEST0126','0000006',6,SYSDATE);
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST07','TEST0127','0000007',7,SYSDATE);
-
-
