@@ -78,10 +78,10 @@
 	<div class="row content">
 		<div class="col-sm-3">
 			<ul class="nav nav-pills nav-stacked">
-				<li><a href="#section1">공지사항</a></li>
-				<li class="active"><a href="#">이벤트</a></li>
+				<li><a href="notice.jsp">공지사항</a></li>
+				<li class="active"><a href="comm_event.jsp">이벤트</a></li>
 				<li><a href="#">치료후기</a></li>
-				<li><a href="#">Q&A</a></li>
+				<li><a href="qna.jsp">Q&A</a></li>
 				<li><a href="#">FAQ</a></li>
 			</ul><br>
 			<%-- 검색기능
