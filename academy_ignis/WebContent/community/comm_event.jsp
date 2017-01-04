@@ -147,7 +147,7 @@
 				<div class="form-group">
 					<input type="text" class="form-control" id="searchEvent">
 				</div>
-				<button typpe="submit" class="btn btn-default">검색</button>
+				<button type="submit" class="btn btn-default">검색</button>
 			</form>
 		</div>
 	</div>
