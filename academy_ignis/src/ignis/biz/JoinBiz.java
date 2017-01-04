@@ -13,9 +13,9 @@ public class JoinBiz {
 		String id = request.getParameter("m_id");
 		String pass = request.getParameter("m_pass");
 		String name = request.getParameter("m_name");
-		String birth = request.getParameter("m_birth");
+		int birth = Integer.valueOf(request.getParameter("m_birth"));
 		String addr = request.getParameter("m_addr");
-		String phone = request.getParameter("m_phone");
+		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		String email = request.getParameter("m_email");
 		
 		boolean result = memDao.insert(id, pass, name, birth, addr, phone, email);

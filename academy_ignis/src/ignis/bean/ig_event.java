@@ -3,6 +3,7 @@ package ignis.bean;
 import java.sql.Date;
 
 public class ig_event {
+
 	private String eb_num, eb_tutke, eb_content;
 	private int eb_readcount;
 	private java.sql.Date eb_regdate;

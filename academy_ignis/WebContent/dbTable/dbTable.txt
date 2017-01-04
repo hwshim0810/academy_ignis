@@ -21,7 +21,7 @@ create table ig_reserv  (
 				r_num VARCHAR2(30) PRIMARY KEY, 
 				r_guide VARCHAR2(30) NOT NULL, 
 				r_day DATE NOT NULL, 
-				r_time DATE NOT NULL, 
+				r_time VARCHAR2(10) NOT NULL, 
 				r_resdate DATE NOT NULL,
 				r_content VARCHAR2(450),
 				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;

@@ -8,8 +8,8 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="../css/login.css" type="text/css">
-<script src="../script/login.js"></script>
+  <link rel="stylesheet" href="/academy_ignis/css/login.css">
+  <script src="/academy_ignis/script/login.js"></script>
 </head>
 <body>
 <%
@@ -19,7 +19,7 @@
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form">
+		<form role="form" method="post" action="./loginProcess">
 			<fieldset>
 				<h2>Ignis 치과</h2>
 				<hr class="colorgraph">
