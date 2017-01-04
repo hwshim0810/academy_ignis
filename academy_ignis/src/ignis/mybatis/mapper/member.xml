@@ -17,6 +17,6 @@
 		SELECT * FROM ig_member where m_email = #{email}
 	</select>
 	<select id="selectUserInfo" resultType="ignis.bean.User">
-		SELECT * FROM ig_member where m_id = #{id}, #{name}, #{email}
+		SELECT * FROM ig_member where m_id = #{id} and m_name = #{name} and m_email = #{email}
 	</select>
 </mapper>

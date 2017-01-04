@@ -15,15 +15,15 @@ public class MemberFindAction implements ActionInterface {
 		FindBiz findBiz = new FindBiz();
 		
 		String findMethod = request.getParameter("find");
-		
 		if (findMethod.equals("id")) {
-			String id = findBiz.getUserId(request, response);
+			String id = null;
+			id = findBiz.getUserId(request, response);
 			if (id == null) {
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('아이디가 존재하지 않습니다.');");
-//				out.println("location.href='./admin/ad_Login.jsp';");
+				out.println("location.href='/academy_ignis/searchUser';");
 				out.println("</script>");
 				out.close();
 				return null;
@@ -31,8 +31,8 @@ public class MemberFindAction implements ActionInterface {
 				response.setContentType("text/html;charset=UTF-8");
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
-				out.println("alert(회원님의 아이디는 "+ id + " 입니다.);");
-//				out.println("location.href='./admin/ad_Login.jsp';");
+				out.println("alert('회원님의 아이디는 "+ id + " 입니다.');");
+				out.println("location.href='/academy_ignis/searchUser';");
 				out.println("</script>");
 				out.close();
 				return null;
@@ -55,7 +55,7 @@ public class MemberFindAction implements ActionInterface {
 				PrintWriter out = response.getWriter();
 				out.println("<script>");
 				out.println("alert('등록된 회원정보가 존재하지 않습니다.');");
-//				out.println("location.href='./admin/ad_Login.jsp';");
+				out.println("location.href='/academy_ignis/searchUser';");
 				out.println("</script>");
 				out.close();
 				return null;
