@@ -66,25 +66,19 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="https://placehold.it/1200x400?text=IMAGE" alt="Image">
-        <div class="carousel-caption">
-          <h3>Sell $</h3>
-          <p>Money Money.</p>
-        </div>      
+        <a href="#">	
+        	<img src="/academy_ignis/image/slide1.png" alt="Image">
+        </a>    
       </div>
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...2</p>
-        </div>      
+        <a href="#">	
+        	<img src="/academy_ignis/image/slide2.png" alt="Image">
+        </a>     
       </div>
       <div class="item">
-        <img src="https://placehold.it/1200x400?text=Another Image Maybe" alt="Image">
-        <div class="carousel-caption">
-          <h3>More Sell $</h3>
-          <p>Lorem ipsum...3</p>
-        </div>      
+        <a href="#">	
+        	<img src="/academy_ignis/image/slide3.png" alt="Image">
+        </a>      
       </div>
     </div>
 
