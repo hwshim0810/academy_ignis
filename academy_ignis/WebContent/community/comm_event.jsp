@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.util.Iterator" %>
+<%@ page import = "ignis.biz.EventBiz" %>
+<%@ page import = "ignis.bean.ig_event" %>
+<%@ page import = "ignis.dao.EventDAO" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -95,6 +100,55 @@
 		<div class="col-sm-9">
 			<h4>EVENT</h4>
 			<hr>
+			<table class="table">
+				<caption>이벤트 게시판</caption>
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>제목</th>
+						<th>등록일</th>
+						<th>조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%
+					List<ig_event> list = EventDAO.eventList();
+					Iterator<ig_event> it = list.iterator();
+					int cnt = 0;
+					int no = list.size();
+					while(it.hasNext()){
+						cnt++;
+						ig_event event = it.next();				
+				%>
+				<tr>
+					<td><%= no %></td>
+					<td><%= event.getEb_title() %></td>
+					<td><%= event.getEb_regdate() %></td>
+					<td><%= event.getEb_readcount() %></td>
+				</tr>
+				<%
+						no--;
+					}
+					System.out.println(cnt);
+					if (cnt == 0) {
+				%>
+				<tr>
+					<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
+				</tr>
+				<% } %>
+				</tbody>
+			</table>
+			<form class="form-inline">
+				<select name="eventSearch" class="form-control" id="eventSearch">
+					<option value="">전체</option>
+					<option value="title">제목</option>
+					<option value="regdate">등록일</option>
+				</select>
+				<div class="form-group">
+					<input type="text" class="form-control" id="searchEvent">
+				</div>
+				<button typpe="submit" class="btn btn-default">검색</button>
+			</form>
 		</div>
 	</div>
 </div>
