@@ -33,7 +33,7 @@ public class FrontController extends HttpServlet {
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
-		
+		System.out.println("command:"+command);
 		ActionForward forward = null;
 		ActionInterface action = null;
 		
