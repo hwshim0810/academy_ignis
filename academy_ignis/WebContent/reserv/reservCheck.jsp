@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <style type="text/css">
+
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -45,6 +46,12 @@
   }
   </style>
 </head>
+<script type="text/javascript">
+	function btnPress1(){
+		alert("여기찍혔습니다.");
+	}
+
+</script>
 <body>
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 
@@ -54,26 +61,59 @@
 	if (id != null) { %> 
 	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
 <% }%>
-<%pageContext.include("../ignisCompany_info/leftList.jsp"); %>
-   
-	<%= request.getParameter("tooth") %>
-	
-	<%= request.getParameter("clitext") %>
-	<%= request.getParameter("m_id") %>
-	<%= request.getParameter("clitime")%>
+<%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+ 
+ 
+
 
 <div class="container text-center">    
-  <br><br>
-  <div class="row">
-  	<div class="col-sm-9 col-md-10">
-      <div class="well">
-      	<p>공지사항</p>
-      </div>
-      <div class="well">
-       <p>이벤트</p>
-      </div>
-    </div>
-  </div>
+	<div class="col-sm-8 col-md-9 well">
+	<div class="row">
+		<form method="get" action="#">
+			<div class="col-xs-10">
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 항목</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>환자 ID</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="수정 불가">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 시간</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="<%= request.getParameter("clitime") %>">
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>상담 내용</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="<%= request.getParameter("clitext") %>">
+					</div>
+				</div>		
+			<input type="button" value="홈페이지 이동" onclick = "btnPress1()">				
+			<input type="submit" class="btn btn-lg btn-info" value="예약 확인">				
+			</div>
+		</form> 
+	</div>
+	</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </div>
 <%-- Footer 시작 --%>
 <%
