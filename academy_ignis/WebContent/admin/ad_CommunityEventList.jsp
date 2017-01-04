@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import = "java.util.List" %>
+<%@ page import = "java.util.Iterator" %>
+<%@ page import = "ignis.biz.EventBiz" %>
+<%@ page import = "ignis.bean.ig_event" %>
+<%@ page import = "ignis.dao.EventDAO" %>
 <% 
 	String id = null;
 	
@@ -12,7 +17,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ignis치과 관리자페이지</title>
+<title>Ignis치과 관리자페이지 이벤트 게시판</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
@@ -30,12 +35,52 @@
 					EVENT
 				</div>
 				<div class="panel-body">
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+					<%
+						if(session.getAttribute("m_id").equals("admin")) {
+					%>
+					<table class="table">
+						<caption>이벤트 게시판</caption>
+						<thead>
+							<tr>
+								<th>No</th>
+								<th>제목</th>
+								<th>등록일</th>
+								<th>조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+						<%
+							List<ig_event> list = EventDAO.eventList();
+							Iterator<ig_event> it = list.iterator();
+							int cnt = 0;
+							int no = list.size();
+							while(it.hasNext()){
+								cnt++;
+								ig_event event = it.next();				
+						%>
+						<tr>
+							<td><%= no %></td>
+							<td><%= event.getEb_title() %></td>
+							<td><%= event.getEb_regdate() %></td>
+							<td><%= event.getEb_readcount() %></td>
+						</tr>
+						<%
+								no--;
+							}
+							System.out.println(cnt);
+							if (cnt == 0) {
+						%>
+						<tr>
+							<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
+						</tr>
+						<% } %>
+						</tbody>
+					<% } %>
+					</table>
+					<div class="form-group">
+						<input type="button" value="write" onclick="document.location.href='ad_CommunityEventWrite.jsp'">
+						
+					</div>
 				</div>
 			</div>
   		</div>
