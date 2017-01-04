@@ -29,10 +29,31 @@ public class MemberDAO {
 	}
 
 	public User isMember(String id) {
-		SqlSession ss = FactoryService.getFactory().openSession(true);
+		SqlSession ss = FactoryService.getFactory().openSession();
 		User user = null; 
 		user = (User) ss.selectOne("member.selectId", id);
 		return user;
+	}
+
+	public User getUserId(String email) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		User user = null; 
+		user = (User) ss.selectOne("member.selectEmail", email);
+		return user;
+	}
+
+	public boolean getUserPass(String id, String name, String email) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		User user = null; 
+
+		map.put("id", id);
+		map.put("name", name);
+		map.put("email", email);
+		
+		user = ss.selectOne("member.selectUserInfo", map);
+		ss.close();
+		return (user != null) ? true : false;
 	}
 
 }

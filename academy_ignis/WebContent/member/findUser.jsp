@@ -19,7 +19,7 @@
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form" method="post" action="./loginProcess?page=home">
+		<form role="form" method="post" action="./findProcess?find=id">
 			<fieldset>
 				<h2>아이디 찾기</h2>
 				<hr class="colorgraph">
@@ -38,7 +38,7 @@
 			</fieldset>
 		</form>
 		<hr class="colorgraph">
-		<form role="form" method="post" action="./loginProcess?page=home">
+		<form role="form" method="post" action="./findProcess?find=pass">
 			<fieldset>
 				<h2>비밀번호 찾기</h2>
 				<div class="form-group">
