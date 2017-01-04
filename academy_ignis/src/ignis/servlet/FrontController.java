@@ -136,7 +136,7 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
-		case "/logout?id=admin" :
+		case "/admin/logout" :
 			action = new MemberLogoutAction();
 			
 			try {
