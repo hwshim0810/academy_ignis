@@ -9,4 +9,7 @@
 	<select id="selectAll" resultType="ignis.bean.ig_notice">
 		SELECT * FROM IG_notice order by nb_regdate desc
 	</select>
+	<select id="listCount" resultType="java.lang.Integer">
+		SELECT count(*) FROM IG_notice
+	</select>
 </mapper>

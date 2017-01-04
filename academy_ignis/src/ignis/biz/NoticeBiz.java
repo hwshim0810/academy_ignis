@@ -29,4 +29,10 @@ public class NoticeBiz {
 
 		return list;
 	}
+	public int getListcount() {
+		noticeDAO noticeDao = new noticeDAO();
+		int listCount = noticeDao.getListcount();
+		
+		return listCount;
+	}
 }

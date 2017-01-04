@@ -29,11 +29,16 @@ public class noticeDAO {
 	
 	public List<ig_notice> selectAll(){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		System.out.println("1");
 		List<ig_notice> list = ss.selectList("notice.selectAll");
 		System.out.println("2");
 		ss.close();			
 		return list;
+	}
+
+	public int getListcount() {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		int listCount = ss.insert("notice.listCount");
+		return listCount;
 	}
 
 }
