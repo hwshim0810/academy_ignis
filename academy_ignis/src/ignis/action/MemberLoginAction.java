@@ -21,6 +21,7 @@ public class MemberLoginAction implements ActionInterface {
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
 		int userLevel = loginBiz.isMember(request, response);
+		System.out.println(userLevel);
 
 		switch (userLevel) {
 		case ADMINLEVEL: 
@@ -32,7 +33,7 @@ public class MemberLoginAction implements ActionInterface {
 		case MEMBERLEVEL:
 			session.setAttribute("m_id", request.getParameter("m_id"));
 			forward.setRedirect(true);
-			forward.setPath("/");
+			forward.setPath("/academy_ignis");
 			return forward;
 		
 		case GUESTLEVEL:

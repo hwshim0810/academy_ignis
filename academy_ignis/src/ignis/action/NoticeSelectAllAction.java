@@ -14,6 +14,22 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		NoticeBiz noticeBiz = new NoticeBiz();
 		ActionForward forward = new ActionForward();
 		
+		int page=1;
+		int pagelimit=10;
+		int lastpage=0;
+		if(request.getParameter("pagenum")!=null){
+			page=Integer.parseInt(request.getParameter("pagenum"));
+		}
+		
+		int startRowNum=(page-1)*pagelimit+1;
+		int endRowNum=startRowNum+pagelimit-1;
+		int listCount=noticeBiz.getListcount();
+		if(listCount/pagelimit==0){
+			
+		}
+		
+		
+		
 		List<ig_notice> list = noticeBiz.selectAll();
 		
 		if (list !=null) {

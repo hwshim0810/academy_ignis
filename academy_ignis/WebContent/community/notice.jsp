@@ -2,7 +2,10 @@
     pageEncoding="UTF-8"%>
     <%@ page import="ignis.bean.ig_notice" %>
     <%@ page import="java.util.*" %>
-    <%
+    <%int pagenum=0;
+    if(request.getParameter("pagenum")!=null){
+    	pagenum=Integer.parseInt(request.getParameter("pagenum"));
+    }else{pagenum=1;}
     	%>
 <!DOCTYPE html>
 <html>
@@ -64,6 +67,17 @@
       </tr>
     </tbody>
   </table>
+  <ul class="pager">
+   
+  <li><a href="notice?pagenum=1">첫 페이지</a></li>
+  <li><a href="notice?pagenum=<%=pagenum-1%>">◁</a></li>
+ <%for(int pagelist=1;pagelist<=10;pagelist++){ %>
+  <li><a href="notice?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+  <%} %>
+  <li><a href="notice?pagenum=<%=pagenum+1%>">▷</a></li>
+  <li><a href="#">마지막 페이지</a></li>
+  
+</ul>
   <form class="form-inline" >
    <label for="sel1">검색 범위</label>
   <select class="form-control" id="sel1">
