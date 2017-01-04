@@ -19,7 +19,7 @@ public class MemberLoginAction implements ActionInterface {
 		LoginBiz loginBiz = new LoginBiz();
 		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession();
-		
+		String page = request.getParameter("page");
 		int userLevel = loginBiz.isMember(request, response);
 
 		switch (userLevel) {
@@ -40,7 +40,12 @@ public class MemberLoginAction implements ActionInterface {
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
 			out.println("alert('아이디가 존재하지 않습니다.');");
-			out.println("location.href='./login';");
+			
+			if (page.equals("home"))
+				out.println("location.href='./login';");
+			else
+				out.println("location.href='./admin/ad_Login.jsp';");
+			
 			out.println("</script>");
 			out.close();
 			return null;
@@ -50,7 +55,12 @@ public class MemberLoginAction implements ActionInterface {
 			PrintWriter out2 = response.getWriter();
 			out2.println("<script>");
 			out2.println("alert('비밀번호가 일치하지 않습니다.');");
-			out2.println("location.href='./login';");
+			
+			if (page.equals("home"))
+				out2.println("location.href='./login';");
+			else
+				out2.println("location.href='./admin/ad_Login.jsp';");
+			
 			out2.println("</script>");
 			out2.close();
 			return null;
