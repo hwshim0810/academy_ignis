@@ -23,9 +23,10 @@ public class NoticeBiz {
 		if (result) return result;
 		else return result;
 	}
-	public List<ig_notice> selectAll() {
+
+	public List<ig_notice> selectAll(int startRowNum,int endRowNum) {
 		noticeDAO noticeDao = new noticeDAO();
-		List<ig_notice> list = noticeDao.selectAll();
+		List<ig_notice> list = noticeDao.selectAll(startRowNum,endRowNum);
 
 		return list;
 	}
