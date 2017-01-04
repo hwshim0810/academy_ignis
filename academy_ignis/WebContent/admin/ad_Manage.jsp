@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% String id = (String) session.getAttribute("m_id"); %>
+<% 
+	String id = null;
+	
+	if (session.getAttribute("id") != null) 
+		id = (String) session.getAttribute("id");
+	else
+		response.sendRedirect("./ad_Login.jsp");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +15,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%=id %>
+<%=id %>있음???
 </body>
 </html>

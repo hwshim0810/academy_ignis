@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>관리자 로그인</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -13,7 +13,7 @@
 <body>
 <div class="login">
     <h1>Login</h1>
-    <form method="post" action="./loginProcess">
+    <form method="post" action="../loginProcess">
     	<input type="text" name="m_id" placeholder="Username" required="required" />
         <input type="password" name="m_pass" placeholder="Password" required="required" />
         <button type="submit" class="btn btn-primary btn-block btn-large">로그인</button>
