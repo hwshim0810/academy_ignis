@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <style type="text/css">
+
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
@@ -55,25 +56,55 @@
 	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
 <% }%>
 <%pageContext.include("../ignisCompany_info/leftList.jsp"); %>
+ <%
+   String tooth = request.getParameter("tooth");
+   String clitext = request.getParameter("clitext");
+   String m_id = request.getParameter("m_id");
+   String clitime = request.getParameter("clitime");  %>
    
-	<%= request.getParameter("tooth") %>
-	
-	<%= request.getParameter("clitext") %>
-	<%= request.getParameter("m_id") %>
-	<%= request.getParameter("clitime")%>
+
 
 <div class="container text-center">    
-  <br><br>
-  <div class="row">
-  	<div class="col-sm-9 col-md-10">
-      <div class="well">
-      	<p>공지사항</p>
-      </div>
-      <div class="well">
-       <p>이벤트</p>
-      </div>
-    </div>
-  </div>
+	<div class="col-sm-8 col-md-9 well">
+	<div class="row">
+		<form method="get" action="#">
+			<div class="col-xs-10">
+				<div class="row">
+				
+					
+					<div class="col-xs-10 form-group">
+						<input type="text" Disabled value=tooth>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-10 form-group">
+						<input type="text" Disabled value=clitext>
+					</div>
+				</div>		
+				<div class="row">
+					<div class="col-xs-10 form-group">
+						<input type="text" Disabled value=m_id>
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-10 form-group">
+						<input type="text" Disabled value=clitime>
+					</div>	
+				</div>						
+			<input type="submit" class="btn btn-lg btn-info" value="예약 확인">				
+			</div>
+		</form> 
+	</div>
+	</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </div>
 <%-- Footer 시작 --%>
 <%
