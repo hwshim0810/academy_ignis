@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
+import ignis.action.MemberFindAction;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
 import ignis.action.MemberLogoutAction;
@@ -163,6 +164,20 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			break;
+		case "/findProcess" : 
+			action = new MemberFindAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case "/searchUser" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/findUser.jsp");
 			break;
 //		case "/" :
 //			action = new Action();
