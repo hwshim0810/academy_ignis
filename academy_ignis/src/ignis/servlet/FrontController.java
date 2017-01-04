@@ -73,7 +73,7 @@ public class FrontController extends HttpServlet {
 		case "/notice":
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./notice.jsp");
+			forward.setPath("./community/notice.jsp");
 			break;	
 			
 		case "/noticeinsert":

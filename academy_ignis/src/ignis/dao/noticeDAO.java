@@ -11,9 +11,7 @@ import ignis.mybatis.service.FactoryService;
 public class noticeDAO {
 
 	public boolean insert(String nb_num, String nb_title, String nb_content) {
-		System.out.println("2");
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		System.out.println("3");
 		HashMap<String, String> map = new HashMap<>();
 		map.put("nb_num", nb_num);
 		map.put("nb_title", nb_title);
