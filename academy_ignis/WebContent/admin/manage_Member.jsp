@@ -1,3 +1,4 @@
+<%@page import="ignis.action.MemberLoginAction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="ignis.dao.MemberDAO" %>
@@ -12,8 +13,8 @@
 		response.sendRedirect("./ad_Login.jsp");
 	
 	MemberDAO memDao = MemberDAO.getInstance();
-	List<User> userList = memDao.getUserAll();
-
+	List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
+	
 	// list.jsp?pageNo=1과 같은 형식으로 호출
 	String tempNo = request.getParameter("pageNo");
 
@@ -73,7 +74,7 @@
 				</div>
 				<div class="panel-body">
 				<table class="table">
-					<caption></caption>
+					<caption class="sr-only">회원명단</caption>
 					<thead>
 					<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
 					<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
@@ -98,7 +99,6 @@
 					<%	} %>
 					</tbody>
 				</table>
-
 					<form class="form-inline" >
 					   <label for="sel1">검색 범위</label>
 					  <select class="form-control" id="sel1">
@@ -112,6 +112,19 @@
 					  </div>
 					  <button type="submit" class="btn btn-default">검색</button>
 					</form>
+					<ul class="pager">
+					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="list.jsp?pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/member?pageNo=<%=endPage %>">마지막 페이지</a></li>
+					</ul>
 				</div>
 			</div>
   		</div>
