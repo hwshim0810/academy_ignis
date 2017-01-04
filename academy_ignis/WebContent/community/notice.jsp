@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="ignis.bean.ig_notice" %>
+    <%@ page import="java.util.*" %>
+    <%
+    	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,20 +35,29 @@
       </tr>
     </thead>
     <tbody>
+    <%List<ig_notice> list=null;
+    if(request.getAttribute("noticlist")!=null){
+    	list = (List)request.getAttribute("noticlist");
+    	
+    for(int i=0;i<list.size();i++){
+    	list.get(i).getNb_num();
+    	%>
       <tr>
-        <td>1</td>
+        <td><%=list.get(i).getNb_num() %></td>
+        <td><%=list.get(i).getNb_title() %></td>
+        <td><%=list.get(i).getNb_regdate() %></td>
+        <td><%=list.get(i).getNb_readcount() %></td>
+      </tr>
+      <%}
+    } %>
+      <tr>
+        <td>99</td>
         <td>2017년 구정 휴무</td>
         <td>2016/01/15</td>
         <td>2</td>
       </tr>
       <tr>
-        <td>1</td>
-        <td>2017년 구정 휴무</td>
-        <td>2016/01/15</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>1</td>
+        <td>99</td>
         <td>2017년 구정 휴무</td>
         <td>2016/01/15</td>
         <td>2</td>

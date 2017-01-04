@@ -11,7 +11,7 @@ private String qb_content;
 private int qb_groupnum;
 private int qb_readcount;
 private java.sql.Date date;
-
+public ig_qna(){}
 public ig_qna(String qb_mal, String qb_num, String m_id, String qb_title, String qb_content, int qb_groupnum,
 		int qb_readcount, Date date) {
 	super();
