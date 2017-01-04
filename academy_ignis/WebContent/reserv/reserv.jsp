@@ -215,11 +215,8 @@ body { font-size: 20px;}
 										}
 									%>
 								</table>
-
-								
 							</div>
 						</div>
-						
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label>내용</label>

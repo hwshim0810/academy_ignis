@@ -46,6 +46,12 @@
   }
   </style>
 </head>
+<script type="text/javascript">
+	function btnPress1(){
+		alert("여기찍혔습니다.");
+	}
+
+</script>
 <body>
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 
@@ -55,13 +61,9 @@
 	if (id != null) { %> 
 	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
 <% }%>
-<%pageContext.include("../ignisCompany_info/leftList.jsp"); %>
- <%
-   String tooth = request.getParameter("tooth");
-   String clitext = request.getParameter("clitext");
-   String m_id = request.getParameter("m_id");
-   String clitime = request.getParameter("clitime");  %>
-   
+<%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+ 
+ 
 
 
 <div class="container text-center">    
@@ -70,27 +72,34 @@
 		<form method="get" action="#">
 			<div class="col-xs-10">
 				<div class="row">
-				
-					
-					<div class="col-xs-10 form-group">
-						<input type="text" Disabled value=tooth>
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 항목</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-xs-10 form-group">
-						<input type="text" Disabled value=clitext>
+					<div class="col-xs-4 form-group">
+					<span id=letter>환자 ID</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="수정 불가">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 시간</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="<%= request.getParameter("clitime") %>">
+					</div>	
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>상담 내용</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" disabled value="<%= request.getParameter("clitext") %>">
 					</div>
 				</div>		
-				<div class="row">
-					<div class="col-xs-10 form-group">
-						<input type="text" Disabled value=m_id>
-					</div>	
-				</div>
-				<div class="row">
-					<div class="col-xs-10 form-group">
-						<input type="text" Disabled value=clitime>
-					</div>	
-				</div>						
+			<input type="button" value="홈페이지 이동" onclick = "btnPress1()">				
 			<input type="submit" class="btn btn-lg btn-info" value="예약 확인">				
 			</div>
 		</form> 
