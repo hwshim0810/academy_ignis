@@ -12,6 +12,7 @@ import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
+import ignis.action.NoticeInsertAction;
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -33,7 +34,7 @@ public class FrontController extends HttpServlet {
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
-		
+		System.out.println("command:"+command);
 		ActionForward forward = null;
 		ActionInterface action = null;
 		
@@ -76,9 +77,12 @@ public class FrontController extends HttpServlet {
 			break;	
 			
 		case "/noticeinsert":
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./community/noticeinsert.jsp");
+			action = new NoticeInsertAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;		
 			
 		case "/qna":
