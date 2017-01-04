@@ -222,7 +222,7 @@ body { font-size: 20px;}
 								<label>내용</label>
 							</div>
 							<div class="col-sm-7 form-group">
-								<textarea title="원하는 상담 내용을 입력하세요."  name="clitext">원하는 상담 내용을 입력하세요.</textarea>
+								<textarea style="resize : none; width : 100%;" title="원하는 상담 내용을 입력하세요."  name="clitext"  placeholder="원하는 상담 내용을 입력하세요."></textarea>
 							</div>
 						</div>
 						<input type="submit" class="btn btn-lg btn-info" value="예약하기"></button>
