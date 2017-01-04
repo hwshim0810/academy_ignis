@@ -9,13 +9,15 @@
 	int startpage=1;//페이지 범위
 	int endpage=10;//페이지 범위
     if(request.getParameter("pagenum")!=null){
-    	System.out.println("pagenum 가져옴");
     	pagenum=Integer.parseInt(request.getParameter("pagenum"));
-    	pagelimit=Integer.parseInt(request.getParameter("pagelimit"));
-    	pageCount=Integer.parseInt(request.getParameter("pageCount"));
-    	startpage=Integer.parseInt(request.getParameter("startpage"));
-    	endpage=Integer.parseInt(request.getParameter("endpage"));
+    	pagelimit=(Integer)request.getAttribute("pagelimit");
+    	pageCount=(Integer)request.getAttribute("pageCount");
+    	startpage=(Integer)request.getAttribute("startpage");
+    	endpage=(Integer)request.getAttribute("endpage");
+    	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
     }else{pagenum=1;}
+	if(endpage>pageCount){endpage=pageCount;}
+	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
     	%>
 <!DOCTYPE html>
 <html>
@@ -69,7 +71,7 @@
    
   <li><a href="notice?pagenum=1">첫 페이지</a></li>
   <li><a href="notice?pagenum=<%=pagenum-1%>">◁</a></li>
- <%for(int pagelist=startpage;pagelist<=endpage;pagelist++){ %>
+ <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
   <li><a href="notice?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
   <%} %>
   <li><a href="notice?pagenum=<%=pagenum+1%>">▷</a></li>

@@ -21,13 +21,13 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		int endpage=10;//페이지 범위
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
-			System.out.println("pagenum을 request에서 가져옴");
+			System.out.println("pagenum을 request에서 가져옴:"+request.getParameter("pagenum"));
 		}
 		
 		int startRowNum=(pagenum-1)*pagelimit+1;//가져오는 리스트
 		int endRowNum=startRowNum+pagelimit-1;//가져오는 리스트
 		int listCount=noticeBiz.getListcount();//총 리스트 수
-		if(listCount/pagelimit==0){
+		if(listCount%pagelimit==0){
 			pageCount = listCount/pagelimit;//총 리스트수로 페이지수 계산
 		}else{
 			pageCount = listCount/pagelimit+1;
@@ -41,7 +41,7 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
-		
+    	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
 		if (list !=null) {
 			request.setAttribute("noticelist", list);
 			forward.setRedirect(false);
