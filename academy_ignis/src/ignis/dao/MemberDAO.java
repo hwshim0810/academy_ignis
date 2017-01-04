@@ -26,7 +26,7 @@ public class MemberDAO {
 		return (result > 0) ? true : false;
 	}
 
-	public User getUserLogin(String id) {
+	public User isMember(String id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		User user = null; 
 		user = (User) ss.selectOne("member.selectId", id);
