@@ -2,9 +2,11 @@ package ignis.dao;
 
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import ignis.bean.ig_notice;
 import ignis.mybatis.service.FactoryService;
 
 
@@ -23,6 +25,12 @@ public class noticeDAO {
 		else {System.out.println("notice추가 실패");}
 		ss.close();
 		return (result > 0) ? true : false;
+	}
+	
+	public List<ig_notice> selectAll(){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		List<ig_notice> list = ss.selectList("notice.selectAll");
+		ss.close();			return list;
 	}
 
 }

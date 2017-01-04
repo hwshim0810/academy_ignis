@@ -1,8 +1,11 @@
 package ignis.biz;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ignis.bean.ig_notice;
 import ignis.dao.MemberDAO;
 import ignis.dao.noticeDAO;
 
@@ -19,5 +22,11 @@ public class NoticeBiz {
 		
 		if (result) return result;
 		else return result;
+	}
+	public List<ig_notice> selectAll() {
+		noticeDAO noticeDao = new noticeDAO();
+		List<ig_notice> list = noticeDao.selectAll();
+
+		return list;
 	}
 }
