@@ -9,6 +9,7 @@ public class JoinBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = new MemberDAO();
+		String page = request.getParameter("page");
 	
 		String id = request.getParameter("m_id");
 		String pass = request.getParameter("m_pass");
@@ -18,7 +19,12 @@ public class JoinBiz {
 		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		String email = request.getParameter("m_email");
 		
-		boolean result = memDao.insert(id, pass, name, birth, addr, phone, email);
+		int level = 1;
+		if (page.equals("home")) level = 2;
+		else level = 3; 
+			
+		
+		boolean result = memDao.insert(id, pass, name, birth, addr, phone, email, level);
 		
 		if (result) return result;
 		else return result;

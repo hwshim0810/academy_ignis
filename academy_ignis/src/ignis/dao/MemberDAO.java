@@ -10,7 +10,8 @@ import ignis.mybatis.service.FactoryService;
 
 public class MemberDAO {
 
-	public boolean insert(String id, String pass, String name, int birth, String addr, int phone, String email) {
+	public boolean insert(String id, String pass, String name, int birth
+			, String addr, int phone, String email, int level) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("id", id);
@@ -20,6 +21,7 @@ public class MemberDAO {
 		map.put("addr", addr);
 		map.put("phone", phone);
 		map.put("email", email);
+		map.put("level", level);
 		
 		int result = ss.insert("member.add", map);
 		ss.close();

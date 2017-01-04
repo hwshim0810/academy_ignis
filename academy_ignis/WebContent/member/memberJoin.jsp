@@ -18,7 +18,7 @@
     <h1 class="well">회원 가입</h1>
 	<div class="col-lg-12 well">
 	<div class="row">
-		<form method="post" action="./joinProcess">
+		<form method="post" action="./joinProcess?page=home">
 			<div class="col-xs-12">
 				<div class="row">
 					<div class="col-xs-8 form-group">
