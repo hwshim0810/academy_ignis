@@ -66,7 +66,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <a href="#">	
+        <a href="./reserv/reserv.jsp">	
         	<img src="/academy_ignis/image/slide1.png" alt="Image">
         </a>    
       </div>
@@ -76,7 +76,7 @@
         </a>     
       </div>
       <div class="item">
-        <a href="#">	
+        <a href="./reserv/reserv.jsp">	
         	<img src="/academy_ignis/image/slide3.png" alt="Image">
         </a>      
       </div> 
