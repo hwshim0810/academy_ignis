@@ -12,11 +12,11 @@
   
 	<error-page>
 		<error-code>404</error-code>
-		<location>/academy_ignis/error</location>
+		<location>/error</location>
 	</error-page>
 	<error-page>
 		<error-code>500</error-code>
-		<location>/academy_ignis/error</location>
+		<location>/error</location>
 	</error-page>
 	<!-- 예비로 넣어놓음 제거하지말것<error-page>
 		<exception-type>java.lang.NullPointerException</exception-type>
