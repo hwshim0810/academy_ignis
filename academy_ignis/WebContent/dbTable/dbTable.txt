@@ -3,6 +3,7 @@ grant resource, connect to ignis;
 
 //테이블 아래에 테이블 및 시퀀스 삭제용도 올렸습니다. 참고하세요
 
+
 conn ignis/1234
 
 
