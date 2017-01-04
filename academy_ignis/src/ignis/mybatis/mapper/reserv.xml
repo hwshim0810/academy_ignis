@@ -4,8 +4,7 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserv">
 	<insert id="add" parameterType="java.util.HashMap">
-		INSERT INTO ig_reserv VALUES ( r_num, r_guide, r_day, r_time, r_content, m_id)
-		VALUES ( rum.NEXTVAL, #{r_guide},SYSDATE, #{r_time}, #{r_content}, 
-		SELECT m_id FROM ig_member where m_id = #{id})
+		INSERT INTO ig_reserv( r_num, r_guide, r_day, r_time, r_content, m_id)
+		VALUES ( r_num.NEXTVAL, #{r_guide},SYSDATE, #{r_time}, #{r_content}, #{m_id})
 	</insert>
 </mapper>

@@ -15,6 +15,8 @@ import ignis.action.MemberLoginAction;
 import ignis.action.MemberLogoutAction;
 import ignis.action.NoticeInsertAction;
 import ignis.action.NoticeSelectAllAction;
+import ignis.action.ReservAction;
+
 
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -127,8 +129,8 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/reservProcess" :
-			action = new MemberLoginAction();
+		case "/reserv/reservProcess" :
+			action = new ReservAction();
 			
 			try {
 				forward = action.execute(request, response);
@@ -136,6 +138,13 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/reservCheck" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/reservCheck.jsp");
+			break;	
+			
 		case "/admin/logout" :
 			action = new MemberLogoutAction();
 			

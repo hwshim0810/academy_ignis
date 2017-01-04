@@ -14,7 +14,7 @@ create table ig_member  (
 				m_birth NUMBER NOT NULL, 
 				m_addr VARCHAR2(100) NOT NULL,
 				m_phone NUMBER NOT NULL,
-				m_email VARCHAR2(50), 
+				m_email VARCHAR2(50) NOT NULL, 
 				m_level NUMBER NOT NULL,
 				m_enterdate DATE
 				) SEGMENT CREATION IMMEDIATE;

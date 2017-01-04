@@ -73,8 +73,6 @@ body { font-size: 20px;}
 		location.href = url; //url이 가지고 있는 값으로 이동
 	}
 </script>
-<link rel="stylesheet" type="text/css" href="../script/memberJoin.js">
-
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -84,7 +82,6 @@ body { font-size: 20px;}
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
 	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
 	crossorigin="anonymous">
-<script src="jquery-3.1.1.min.js"></script>
 
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
@@ -102,12 +99,27 @@ body { font-size: 20px;}
 							<div class="col-sm-3 form-group">
 								<label>진료 항목 </label>
 							</div>
+							<div class="col-sm-7 form-group" >
+								<input type="radio"  value="치아교정" name="tooth" />치아교정&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="임플란트" name="tooth" />임플란트&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="치아미백" name="tooth" />치아미백&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="일반진료" name="tooth" />일반진료
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-3 form-group">
+								<label>예약시간 선택</label>
+							</div>
 							<div class="col-sm-7 form-group">
-								<input type="radio"  value="dentist">치아교정&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="dentist">임플란트&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="dentist">치아미백&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="dentist">일반진료
-								
+								<select id="selectBox"  name="clitime" onchange="changeTime(this.value);">
+									<option value = "09:00" >09:00</option><option value = "09:30">09:30</option>
+									<option value = "10:00">10:00</option><option value = "10:30">10:30</option>
+									<option value = "11:00">11:00</option><option value = "11:30">11:30</option>
+									<option value = "12:00">12:00</option><option value = "14:00">14:00</option>
+									<option value = "14:30">14:30</option><option value = "15:00">15:00</option>
+									<option value = "15:30">15:30</option><option value = "16:00">16:00</option>
+									<option value = "16:30">16:30</option><option value = "17:00">17:00</option>
+								</select>
 							</div>
 						</div>
 						<div class="row">
@@ -115,7 +127,6 @@ body { font-size: 20px;}
 								<label>예약날짜 선택</label>
 							</div>
 							<div class="col-sm-7 form-group">
-														
 								<table>
 									<caption style="height: 40px;">
 										<select id="y" onchange="changeDate();">
@@ -208,28 +219,13 @@ body { font-size: 20px;}
 								
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>예약시간 선택</label>
-							</div>
-							<div class="col-sm-7 form-group">
-								<select id="selectBox" onchange="changeTime(this.value);">
-											<option value = "1" >09:00</option><option value = "2">09:30</option>
-											<option value = "3">10:00</option><option value = "4">10:30</option>
-											<option value = "5">11:00</option><option value = "6">11:30</option>
-											<option value = "7">12:00</option><option value = "8">14:00</option>
-											<option value = "9">14:30</option><option value = "10">15:00</option>
-											<option value = "11">15:30</option><option value = "12">16:00</option>
-											<option value = "13">16:30</option><option value = "14">17:00</option>
-										</select>
-							</div>
-						</div>
+						
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label>내용</label>
 							</div>
 							<div class="col-sm-7 form-group">
-								<textarea title="원하는 상담 내용을 입력하세요.">원하는 상담 내용을 입력하세요.</textarea>
+								<textarea title="원하는 상담 내용을 입력하세요."  name="clitext">원하는 상담 내용을 입력하세요.</textarea>
 							</div>
 						</div>
 						<input type="submit" class="btn btn-lg btn-info" value="예약하기"></button>
@@ -240,10 +236,6 @@ body { font-size: 20px;}
 	</div>
 </body>
 </html>
-
-
-
-
 
 
 

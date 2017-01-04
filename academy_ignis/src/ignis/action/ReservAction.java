@@ -9,6 +9,7 @@ public class ReservAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+
 		ReservBiz reservBiz = new ReservBiz();
 		ActionForward forward = new ActionForward();
 		
@@ -16,7 +17,7 @@ public class ReservAction implements ActionInterface {
 		
 		if (result) {
 			forward.setRedirect(false);
-			forward.setPath("./reservCheck");
+			forward.setPath("./reservCheck.jsp");
 			return forward;
 		}
 		
