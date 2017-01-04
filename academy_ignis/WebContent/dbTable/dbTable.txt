@@ -27,7 +27,7 @@ create table ig_reserv  (
 				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;
 				
 create sequence r_num;
-  
+   
 
 create table ig_notice  (
 				nb_num NUMBER PRIMARY KEY, 
