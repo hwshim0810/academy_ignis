@@ -2,9 +2,19 @@
     pageEncoding="UTF-8"%>
     <%@ page import="ignis.bean.ig_notice" %>
     <%@ page import="java.util.*" %>
-    <%int pagenum=0;
+    <%
+    int pagenum=1;//현재 페이지
+	int pagelimit=10;//한 페이지 리스트수
+	int pageCount=10;//마지막 페이지
+	int startpage=1;//페이지 범위
+	int endpage=10;//페이지 범위
     if(request.getParameter("pagenum")!=null){
+    	System.out.println("pagenum 가져옴");
     	pagenum=Integer.parseInt(request.getParameter("pagenum"));
+    	pagelimit=Integer.parseInt(request.getParameter("pagelimit"));
+    	pageCount=Integer.parseInt(request.getParameter("pageCount"));
+    	startpage=Integer.parseInt(request.getParameter("startpage"));
+    	endpage=Integer.parseInt(request.getParameter("endpage"));
     }else{pagenum=1;}
     	%>
 <!DOCTYPE html>
@@ -39,8 +49,8 @@
     </thead>
     <tbody>
     <%List<ig_notice> list=null;
-    if(request.getAttribute("noticlist")!=null){
-    	list = (List)request.getAttribute("noticlist");
+    if(request.getAttribute("noticelist")!=null){
+    	list = (List)request.getAttribute("noticelist");
     	
     for(int i=0;i<list.size();i++){
     	list.get(i).getNb_num();
@@ -53,29 +63,17 @@
       </tr>
       <%}
     } %>
-      <tr>
-        <td>99</td>
-        <td>2017년 구정 휴무</td>
-        <td>2016/01/15</td>
-        <td>2</td>
-      </tr>
-      <tr>
-        <td>99</td>
-        <td>2017년 구정 휴무</td>
-        <td>2016/01/15</td>
-        <td>2</td>
-      </tr>
     </tbody>
   </table>
   <ul class="pager">
    
   <li><a href="notice?pagenum=1">첫 페이지</a></li>
   <li><a href="notice?pagenum=<%=pagenum-1%>">◁</a></li>
- <%for(int pagelist=1;pagelist<=10;pagelist++){ %>
+ <%for(int pagelist=startpage;pagelist<=endpage;pagelist++){ %>
   <li><a href="notice?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
   <%} %>
   <li><a href="notice?pagenum=<%=pagenum+1%>">▷</a></li>
-  <li><a href="#">마지막 페이지</a></li>
+  <li><a href="notice?pagenum=<%=pageCount%>">마지막 페이지</a></li>
   
 </ul>
   <form class="form-inline" >

@@ -10,7 +10,7 @@
 			<!-- Main Menu -->
 			<div class="side-menu-container">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#"><span class="glyphicon glyphicon-user"></span> 회원관리</a></li>
+					<li class="active"><a href="./member"><span class="glyphicon glyphicon-user"></span> 회원관리</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> 직원관리</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> 예약관리</a></li>
 
@@ -25,7 +25,7 @@
 							<div class="panel-body">
 								<ul class="nav navbar-nav">
 									<li><a href="#">공지사항</a></li>
-									<li><a href="#">이벤트</a></li>
+									<li><a href="ad_CommunityEventList.jsp">이벤트</a></li>
 									<li><a href="#">QnA</a></li>
 									<li><a href="#">치료후기</a></li>
 

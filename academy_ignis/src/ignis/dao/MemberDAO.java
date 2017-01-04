@@ -1,6 +1,7 @@
 package ignis.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -9,6 +10,14 @@ import ignis.mybatis.service.FactoryService;
 
 
 public class MemberDAO {
+	private static MemberDAO memDao = new MemberDAO();
+
+	private MemberDAO() {}
+
+	public static MemberDAO getInstance() {
+		return memDao;
+	}
+	
 
 	public boolean insert(String id, String pass, String name, int birth
 			, String addr, int phone, String email, int level) {
@@ -55,5 +64,20 @@ public class MemberDAO {
 		ss.close();
 		return (user != null) ? true : false;
 	}
-
+	
+	public List<User> getUserAll() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<User> list = ss.selectList("member.selectAll");
+		ss.close();
+		
+		return list;
+	}
+	
+	public int getUserCount() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int count = ss.selectOne("member.selectUserCount");
+		ss.close();
+		
+		return count;
+	}
 }

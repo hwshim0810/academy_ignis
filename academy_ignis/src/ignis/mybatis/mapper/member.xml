@@ -8,7 +8,7 @@
 		 #{phone}, #{email}, #{level}, SYSDATE )
 	</insert>
 	<select id="selectAll" resultType="ignis.bean.User">
-		SELECT * FROM ig_member order by m_level desc
+		SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate FROM ig_member where m_level = 2; 
 	</select>
 	<select id="selectId" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_id = #{id}
@@ -18,5 +18,8 @@
 	</select>
 	<select id="selectUserInfo" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_id = #{id} and m_name = #{name} and m_email = #{email}
+	</select>
+	<select id="selectUserCount" resultType="int">
+		SELECT count(*) FROM ig_member
 	</select>
 </mapper>

@@ -14,26 +14,36 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		NoticeBiz noticeBiz = new NoticeBiz();
 		ActionForward forward = new ActionForward();
 		
-		int page=1;
-		int pagelimit=10;
-		int lastpage=0;
+		int pagenum=1;//현재 페이지
+		int pagelimit=10;//한 페이지 리스트수
+		int pageCount=10;//마지막 페이지
+		int startpage=1;//페이지 범위
+		int endpage=10;//페이지 범위
 		if(request.getParameter("pagenum")!=null){
-			page=Integer.parseInt(request.getParameter("pagenum"));
+			pagenum=Integer.parseInt(request.getParameter("pagenum"));
+			System.out.println("pagenum을 request에서 가져옴");
 		}
 		
-		int startRowNum=(page-1)*pagelimit+1;
-		int endRowNum=startRowNum+pagelimit-1;
-		int listCount=noticeBiz.getListcount();
+		int startRowNum=(pagenum-1)*pagelimit+1;//가져오는 리스트
+		int endRowNum=startRowNum+pagelimit-1;//가져오는 리스트
+		int listCount=noticeBiz.getListcount();//총 리스트 수
 		if(listCount/pagelimit==0){
-			
+			pageCount = listCount/pagelimit;//총 리스트수로 페이지수 계산
+		}else{
+			pageCount = listCount/pagelimit+1;
 		}
+		startpage= ((pagenum-1)/10)*10+1;
+		endpage=startpage+10-1;
 		
-		
-		
-		List<ig_notice> list = noticeBiz.selectAll();
+		List<ig_notice> list = noticeBiz.selectAll(startRowNum,endRowNum);
+		request.setAttribute("pagenum", pagenum);
+		request.setAttribute("pagelimit", pagelimit);
+		request.setAttribute("pageCount", pageCount);
+		request.setAttribute("startpage", startpage);
+		request.setAttribute("endpage", endpage);
 		
 		if (list !=null) {
-			request.setAttribute("noticlist", list);
+			request.setAttribute("noticelist", list);
 			forward.setRedirect(false);
 			forward.setPath("./community/notice.jsp");
 			return forward;

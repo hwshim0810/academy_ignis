@@ -11,7 +11,6 @@ public class MemberFindAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ActionForward forward = new ActionForward();
 		FindBiz findBiz = new FindBiz();
 		
 		String findMethod = request.getParameter("find");
@@ -37,8 +36,7 @@ public class MemberFindAction implements ActionInterface {
 				out.close();
 				return null;
 			}
-		}
-		else {
+		} else {
 			boolean result = findBiz.getUserPass(request, response);
 			
 			if (result) {

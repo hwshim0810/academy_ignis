@@ -18,10 +18,10 @@ public class MemberLoginAction implements ActionInterface {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		LoginBiz loginBiz = new LoginBiz();
 		ActionForward forward = new ActionForward();
+		
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
 		int userLevel = loginBiz.isMember(request, response);
-		System.out.println(userLevel);
 
 		switch (userLevel) {
 		case ADMINLEVEL: 

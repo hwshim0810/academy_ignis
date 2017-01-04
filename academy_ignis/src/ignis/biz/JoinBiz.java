@@ -8,7 +8,7 @@ import ignis.dao.MemberDAO;
 public class JoinBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
-		MemberDAO memDao = new MemberDAO();
+		MemberDAO memDao = MemberDAO.getInstance();
 		String page = request.getParameter("page");
 	
 		String id = request.getParameter("m_id");

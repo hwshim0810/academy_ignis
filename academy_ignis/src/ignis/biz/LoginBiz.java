@@ -10,7 +10,7 @@ import ignis.dao.MemberDAO;
 public class LoginBiz {
 	
 	public int isMember(HttpServletRequest request, HttpServletResponse response) {
-		MemberDAO memDao = new MemberDAO();
+		MemberDAO memDao = MemberDAO.getInstance();
 		
 		String id = request.getParameter("m_id");
 		String passwd = request.getParameter("m_pass");

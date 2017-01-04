@@ -25,7 +25,7 @@
 				<hr class="colorgraph">
 				<div class="form-group">
 				<label>E-mail로 찾기
-                    <input type="email" name="m_email" id="m_email" class="form-control input-lg" placeholder="이메일을 입력해주세요" required="required">
+                    <input type="email" name="m_email" id="m_email" class="form-control input-lg" placeholder="이메일을 입력해주세요 ex@ex.com" required="required">
                 </label>
 				</div>
 				<div class="row">
@@ -50,7 +50,7 @@
                     <input type="text" name="m_name" id="m_name" class="form-control input-lg" placeholder="이름을 입력해주세요" required="required">
 				</label>
 				<label>이메일
-                    <input type="email" name="m_email" id="m_email" class="form-control input-lg" placeholder="이메일을 입력해주세요" required="required">
+                    <input type="email" name="m_email" id="m_email" class="form-control input-lg" placeholder="이메일을 입력해주세요 ex@ex.com" required="required">
 				</label>
 				</div>
 				<div class="row">

@@ -9,7 +9,7 @@ import ignis.dao.MemberDAO;
 public class FindBiz {
 
 	public String getUserId(HttpServletRequest request, HttpServletResponse response) {
-		MemberDAO memDao = new MemberDAO();
+		MemberDAO memDao = MemberDAO.getInstance();
 		
 		String email = request.getParameter("m_email");
 		
@@ -23,7 +23,7 @@ public class FindBiz {
 	}
 
 	public boolean getUserPass(HttpServletRequest request, HttpServletResponse response) {
-		MemberDAO memDao = new MemberDAO();
+		MemberDAO memDao = MemberDAO.getInstance();
 		
 		String id = request.getParameter("m_id");
 		String name = request.getParameter("m_name");
