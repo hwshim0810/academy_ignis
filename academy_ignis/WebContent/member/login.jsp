@@ -43,11 +43,20 @@
 						<a href="./memberJoin" class="btn btn-lg btn-primary btn-block">회원가입</a>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-xs-12">
+                        <br><label>아이디나 비밀번호를 잊어버리셨습니까?</label><br>
+                        <a href="./searchUser">아이디/비밀번호 찾기</a>
+					</div>
+				</div>
 			</fieldset>
 		</form>
 	</div>
 </div>
 
 </div>
+<%
+	pageContext.include("../footer/footer.jsp");
+%>
 </body>
 </html>
