@@ -89,7 +89,7 @@ public class MemberDAO {
 
 	public boolean adupdateMem(String id, String pass, String name, int birth, 
 			String addr, int phone, String email) {
-		SqlSession ss = FactoryService.getFactory().openSession();
+		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 
 		map.put("id", id);
@@ -106,7 +106,7 @@ public class MemberDAO {
 	}
 
 	public boolean updateMem(String id, int birth, String addr, int phone, String email) {
-		SqlSession ss = FactoryService.getFactory().openSession();
+		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 		System.out.println(id+birth+addr+phone+email);
 		map.put("id", id);
@@ -122,7 +122,7 @@ public class MemberDAO {
 	}
 
 	public boolean updatePass(String id, String pass) {
-		SqlSession ss = FactoryService.getFactory().openSession();
+		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 		
 		map.put("id", id);
@@ -133,4 +133,5 @@ public class MemberDAO {
 		ss.close();					
 		return (result > 0) ? true : false;
 	}
+
 }

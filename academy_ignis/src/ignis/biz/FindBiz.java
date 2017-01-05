@@ -7,7 +7,14 @@ import ignis.bean.User;
 import ignis.dao.MemberDAO;
 
 public class FindBiz {
+	private static FindBiz findBiz = new FindBiz();
 
+	private FindBiz() {}
+
+	public static FindBiz getInstance() {
+		return findBiz;
+	}
+	
 	public String getUserId(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = MemberDAO.getInstance();
 		
@@ -32,6 +39,15 @@ public class FindBiz {
 		boolean result = memDao.getUserPass(id, name, email);
 		
 		return result;
+	}
+
+	public boolean isMember(HttpServletRequest request, HttpServletResponse response) {
+		MemberDAO memDao = MemberDAO.getInstance();
+		
+		String id = request.getParameter("m_id");
+		User user = memDao.isMember(id);
+		
+		return (user != null)? true : false;
 	}
 
 }

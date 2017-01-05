@@ -7,8 +7,7 @@
 <title>Ignis 치과</title>
   <link rel="stylesheet" href="/academy_ignis/css/memberJoin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 </head>
 <body>
 <%
@@ -17,6 +16,11 @@
 <div class="container">
     <h1 class="well">회원 가입</h1>
 	<div class="col-lg-12 well">
+	<div class="row">
+		<div class="col-md-4">
+				  <button id="idChk" class="btn btn-default">중복체크</button>
+		</div>
+	</div>
 	<div class="row">
 		<form class="form-horizontal" method="post" action="./joinProcess?page=home">
 			<fieldset>
@@ -28,10 +32,9 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">아이디*</label>  
 				  <div class="col-md-4">
-				  <input name="m_id" type="text" placeholder="아이디" class="form-control input-md">
+				  <input id="m_id" name="m_id" type="text" placeholder="아이디" class="form-control input-md">
 				  </div>
 				  <div class="col-md-4">
-				  <button class="btn btn-default">중복체크</button>
 				  </div>
 				</div>
 				
@@ -139,5 +142,9 @@
 	</div>
 	</div>
 	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
 </body>
 </html>
