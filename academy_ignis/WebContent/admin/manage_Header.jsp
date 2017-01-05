@@ -35,7 +35,7 @@
 							<li class="dropdown-header">SETTINGS</li>
 							<li class=""><a href="#">관리자 정보수정</a></li>
 							<li class="divider"></li>
-							<li><a href="./logout?id=admin">로그아웃</a></li>
+							<li><a href="#" id="logout">로그아웃</a></li>
 						</ul>
 					</li>
 				</ul>

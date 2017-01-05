@@ -65,9 +65,9 @@ public class MemberDAO {
 		return (user != null) ? true : false;
 	}
 	
-	public List<User> getUserAll() {
+	public List<User> getUserAll(int level) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<User> list = ss.selectList("member.selectAll");
+		List<User> list = ss.selectList("member.selectAll", level);
 		ss.close();
 		
 		return list;

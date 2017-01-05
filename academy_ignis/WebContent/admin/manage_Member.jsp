@@ -1,3 +1,4 @@
+<%@page import="ignis.action.MemberLoginAction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="ignis.dao.MemberDAO" %>
@@ -12,9 +13,8 @@
 		response.sendRedirect("./ad_Login.jsp");
 	
 	MemberDAO memDao = MemberDAO.getInstance();
-	List<User> userList = memDao.getUserAll();
-
-	// list.jsp?pageNo=1과 같은 형식으로 호출
+	List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
+	
 	String tempNo = request.getParameter("pageNo");
 
 	int pageNo = 1;
@@ -22,18 +22,17 @@
 	try {
 		pageNo = Integer.parseInt(tempNo);
 	} catch (Exception e) {
-		// null 이거나, 문자를 숫자로 바꾸려 해서 에러가 나거나 무조건 pageNo=1
 	}
 
-	final int ROW_PER_PAGE = 5; // 페이지당 레코드 출력 갯수
+	final int ROW_PER_PAGE = 15; // 페이지당 레코드 출력 갯수
 	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
 	int end = pageNo * ROW_PER_PAGE;
-	// 시작 페이지와 끝 페이지를 조건으로 리스트 가져오기
+	
 	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
 
-	final int PAGE_PER_PAGE = 5; // 화면당 페이지 출력 갯수
+	final int PAGE_PER_PAGE = 10; // 화면당 페이지 출력 갯수
 	int totalRanges = (int) Math.ceil((double) totalPages
 			/ PAGE_PER_PAGE); // 전체 Range 갯수
 	int currentRange = (int) Math.ceil((double) pageNo / PAGE_PER_PAGE);
@@ -73,7 +72,7 @@
 				</div>
 				<div class="panel-body">
 				<table class="table">
-					<caption></caption>
+					<caption class="sr-only">회원명단</caption>
 					<thead>
 					<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
 					<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
@@ -98,7 +97,6 @@
 					<%	} %>
 					</tbody>
 				</table>
-
 					<form class="form-inline" >
 					   <label for="sel1">검색 범위</label>
 					  <select class="form-control" id="sel1">
@@ -112,6 +110,19 @@
 					  </div>
 					  <button type="submit" class="btn btn-default">검색</button>
 					</form>
+					<ul class="pager">
+					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="list.jsp?pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/member?pageNo=<%=endPage %>">마지막 페이지</a></li>
+					</ul>
 				</div>
 			</div>
   		</div>
