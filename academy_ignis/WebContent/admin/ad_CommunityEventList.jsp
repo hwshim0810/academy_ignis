@@ -67,7 +67,7 @@
 						<tr>
 							<td><%= no %></td>
 							<td>
-								<a href="#"><%= event.getEb_title() %></a>
+								<a href="/academy_ignis/EventView?num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
 							</td>
 							<td>이그니스 치과</td>
 							<td><%= event.getEb_regdate() %></td>
@@ -76,7 +76,6 @@
 						<%
 								no--;
 							}
-							System.out.println(cnt);
 							if (cnt == 0) {
 						%>
 						<tr>

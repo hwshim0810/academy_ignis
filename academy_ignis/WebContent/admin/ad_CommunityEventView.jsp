@@ -14,6 +14,15 @@
 		response.sendRedirect("./ad_Login.jsp");
 	
 	EventDAO eventDao = EventDAO.getInstance();
+	ig_event eventBean = new ig_event();
+	
+	if (request.getParameter("num") != null) {
+		int num = Integer.valueOf((String) request.getParameter("num"));
+		
+	}
+	else {
+		response.sendRedirect("/academy_ignis/admin/ad_CommunityEventList.jsp");
+	}
 %>
 <!DOCTYPE html>
 <html>
@@ -49,6 +58,14 @@
 					%>
 						<tbody>
 							<tr>
+								<th>글번호</th>
+								<td>
+									<div class="form-group">
+										<%= event.getEb_num() %>
+									</div>
+								</td>
+							</tr>
+							<tr>
 								<th>글쓴이</th>
 								<td>
 									<div class="form-group">이그니스 치과</div>
@@ -71,7 +88,9 @@
 								</td>
 							</tr>
 						<%
+								
 								no--;
+								break;
 							}
 						%>
 							<tr>
