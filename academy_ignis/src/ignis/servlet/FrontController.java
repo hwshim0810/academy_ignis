@@ -205,6 +205,15 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "/EventWrite":
+			action = new EventWriteAction();
+			System.out.println("FrontControl");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 //		case "/" :
 //			action = new Action();
