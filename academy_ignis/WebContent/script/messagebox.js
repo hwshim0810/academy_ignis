@@ -432,6 +432,10 @@ MessageBox - A jQuery Plugin to replace Javascript's window.alert(), window.conf
         var spacer      = overlay.children(".messagebox_spacer").first();
         var instance    = messageBox.data("instance");
         var inputValues = _GetInputsValues(messageBox);
+        var eventDataName = instance.settings.buttonDone == "OK" ? _constants.buttonDoneName : null;
+        if (event.data)
+        	eventDataName = event.data.name;
+        
         spacer.animate({
             "height"        : 0,
             "margin-top"    : spacer.data("spacerTopMargin")
@@ -441,9 +445,11 @@ MessageBox - A jQuery Plugin to replace Javascript's window.alert(), window.conf
             
             // Resolve or Reject Deferred
             if (button.hasClass("messagebox_button_done")) {
-                instance.deferred.resolve(inputValues, event.data.name);
+//            	console.log(event.data);
+//            	console.log(event);
+                instance.deferred.resolve(inputValues, eventDataName);
             } else {
-                instance.deferred.reject(inputValues, event.data.name);
+                instance.deferred.reject(inputValues, eventDataName);
             }
             
             if (_activeStack.length) {

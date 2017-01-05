@@ -14,6 +14,9 @@
 <meta charset="UTF-8">
 <title>Ignis치과 관리자페이지</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+  <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
@@ -45,6 +48,8 @@
   	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
 </body>
 </html>

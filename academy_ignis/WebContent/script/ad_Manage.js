@@ -20,7 +20,8 @@ $(function () {
 
 function confirmLogout() {
 	$.confirm({
-	    title: '로그아웃',
+		theme: 'supervan',
+		title: '로그아웃',
 	    content: '로그아웃 하시겠습니까?',
 	    buttons: {
 	    	네: {
@@ -28,7 +29,7 @@ function confirmLogout() {
 	            btnClass: 'btn-primary',
 	            keys: ['enter'],
 	            action: function(){
-	            	location.href='/academy_ignis/logout?id=admin';
+	            	location.href='/academy_ignis/logout';
 	            }
 	        },
 	        
