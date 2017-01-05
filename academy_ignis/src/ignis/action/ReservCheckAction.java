@@ -18,7 +18,7 @@ public class ReservCheckAction implements ActionInterface {
 		if (result) {
 			System.out.println("true라서 들어왔어용!");
 			forward.setRedirect(false);
-			forward.setPath("./myInfo.jsp");
+			forward.setPath("./member/myInfo.jsp");
 			return forward;
 		}
 		

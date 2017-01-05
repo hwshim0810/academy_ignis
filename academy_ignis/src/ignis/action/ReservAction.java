@@ -17,7 +17,7 @@ public class ReservAction implements ActionInterface {
 		
 		if (result) {
 			forward.setRedirect(false);
-			forward.setPath("./reservCheck.jsp");
+			forward.setPath("./reserv/reservCheck.jsp");
 			return forward;
 		}
 		

@@ -143,8 +143,14 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+
+		case "/reserv" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/reserv.jsp");
+			break;
 			
-		case "/reserv/reservProcess" :
+		case "/reservProcess" :
 			action = new ReservAction();
 			
 			try {
@@ -154,7 +160,7 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/reserv/reservCheckProcess" :
+		case "/reservCheckProcess" :
 			action = new ReservCheckAction();
 			try {
 				forward = action.execute(request, response);
