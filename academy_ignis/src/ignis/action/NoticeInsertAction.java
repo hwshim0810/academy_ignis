@@ -4,7 +4,6 @@ package ignis.action;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.biz.JoinBiz;
 import ignis.biz.NoticeBiz;
 
 public class NoticeInsertAction implements ActionInterface {
