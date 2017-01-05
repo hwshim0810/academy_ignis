@@ -106,7 +106,7 @@
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 시간</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="<%= request.getParameter("clitime") %>" name="clitime">
+						<input type="text" readonly value="<%= request.getParameterValues("clitime")[0] %>" name="clitime">
 					</div>
 				</div>
 				<div class="row">

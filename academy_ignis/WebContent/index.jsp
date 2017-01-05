@@ -62,17 +62,17 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <a href="./reserv">	
+        <a href="#">	
         	<img src="/academy_ignis/image/slide1.png" alt="Image">
         </a>
       </div>
-      <div class="item">
-        <a href="./reserv">	
+      <div class="#">
+        <a href="reserv">	
         	<img src="/academy_ignis/image/slide2.png" alt="Image">
         </a>     
       </div>
       <div class="item">
-        <a href="./reserv">	
+        <a href="#">	
         	<img src="/academy_ignis/image/slide3.png" alt="Image">
         </a>      
       </div> 

@@ -142,11 +142,13 @@ public class FrontController extends HttpServlet {
 			break;
 
 		case "/reserv" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./reserv/reserv.jsp");
+			action = new ReservBeforeAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
-			
 		case "/reservProcess" :
 			action = new ReservAction();
 			
@@ -263,6 +265,7 @@ public class FrontController extends HttpServlet {
 			} else {
 				RequestDispatcher dispatcher = request.getRequestDispatcher(forward.getPath());
 				dispatcher.forward(request, response);
+				
 			}
 		}
 		

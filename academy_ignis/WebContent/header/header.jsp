@@ -24,7 +24,7 @@
               <ul class="nav navbar-nav navbar-left">
                   <li><a href="abouts_us">병원소개</a></li>
                   <li><a href="#">진료과목</a></li>
-                  <li><a href="#">상담 및 예약</a></li>
+                  <li><a href="reserv">상담 및 예약</a></li>
                   <li><a href="notice">커뮤니티</a></li>
               </ul>
         </div>
