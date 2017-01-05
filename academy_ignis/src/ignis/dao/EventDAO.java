@@ -10,10 +10,17 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
+import ignis.bean.User;
 import ignis.bean.ig_event;
 import ignis.mybatis.service.FactoryService;
 
 public class EventDAO {
+	private static EventDAO eventDao = new EventDAO();
+	
+	public static EventDAO getInstance() {
+		return eventDao;
+	}
+	
 	// 이벤트 추가
 	public static boolean insertEvent(String eb_title, String eb_content){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -55,6 +62,22 @@ public class EventDAO {
 		
 		ss.commit();
 		ss.close();
+	}
+	
+	public List<ig_event> getListAll() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ig_event> list = ss.selectList("event.eventList");
+		ss.close();
+		
+		return list;
+	}
+	
+	public int getListCount() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int count = ss.selectOne("event.selectListCount");
+		ss.close();
+		
+		return count;
 	}
 
 }

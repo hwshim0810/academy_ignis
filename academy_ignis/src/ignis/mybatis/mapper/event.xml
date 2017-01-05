@@ -20,4 +20,7 @@
 		delete from ig_event
 		where eb_num = #{eb_num}
 	</delete>
+	<select id="selectListCount" resultType="int">
+		SELECT count(*) FROM ig_event
+	</select>
 </mapper>
