@@ -20,7 +20,7 @@
 		set eb_title = #{eb_title}, eb_content = #{eb_content} 
 		where eb_num = #{eb_num}
 	</update>
-	<delete id="deleteEvent">
+	<delete id="deleteEvent" parameterType="java.util.HashMap">
 		delete from ig_event
 		where eb_num = #{eb_num}
 	</delete>

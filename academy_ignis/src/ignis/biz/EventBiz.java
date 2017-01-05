@@ -39,4 +39,16 @@ public class EventBiz {
 		return result;
 		
 	}
+	
+	public boolean deleteEvent(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("EventBizDelete"+request.getParameter("num"));
+		int eb_num = Integer.parseInt(request.getParameter("num"));
+		String eb_title = request.getParameter("eb_title");
+		String eb_content = request.getParameter("eb_content");
+		
+		boolean result = eventDao.deleteEvent(eb_num, eb_title, eb_content);
+		
+		return result;
+		
+	}
 }
