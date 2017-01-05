@@ -66,7 +66,9 @@
 						%>
 						<tr>
 							<td><%= no %></td>
-							<td><%= event.getEb_title() %></td>
+							<td>
+								<a href="#"><%= event.getEb_title() %></a>
+							</td>
 							<td>이그니스 치과</td>
 							<td><%= event.getEb_regdate() %></td>
 							<td><%= event.getEb_readcount() %></td>

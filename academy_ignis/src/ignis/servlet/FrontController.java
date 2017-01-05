@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
+import ignis.action.EventViewAction;
 import ignis.action.EventWriteAction;
 import ignis.action.MemberFindAction;
 import ignis.action.MemberJoinAction;
@@ -218,7 +219,16 @@ public class FrontController extends HttpServlet {
 			break;
 		case "/EventWrite":
 			action = new EventWriteAction();
-			System.out.println("FrontControl");
+			System.out.println("EventWrite_FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+		case "/EventView":
+			action = new EventViewAction();
+			System.out.println("EventWrite_FrontController");
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
