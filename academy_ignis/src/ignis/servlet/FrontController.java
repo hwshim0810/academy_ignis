@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ignis.action.ActionForward;
 import ignis.action.ActionInterface;
+import ignis.action.EventWriteAction;
 import ignis.action.MemberFindAction;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
