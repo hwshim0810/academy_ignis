@@ -14,6 +14,7 @@ import ignis.action.MemberFindAction;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
 import ignis.action.MemberLogoutAction;
+import ignis.action.NoticeDetailAction;
 import ignis.action.NoticeInsertAction;
 import ignis.action.NoticeSelectAllAction;
 import ignis.action.ReservAction;
@@ -92,6 +93,15 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;		
+			
+		case "/noticeDetail":
+			action = new NoticeDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
 			
 		case "/qna":
 			forward = new ActionForward();
