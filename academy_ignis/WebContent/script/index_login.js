@@ -1,9 +1,3 @@
-$(function() {
-	$("#logout").bind('click', function() {
-		confirmLogout();
-		return false;
-	});
-});
 
 function userLogin() {
 	$("#login").html('<a href="#" id="logout">Logout</a>');
@@ -35,3 +29,10 @@ function confirmLogout() {
 	    }
 	});
 }
+
+$(function() {
+	$("#logout").bind('click', function() {
+		confirmLogout();
+		return false;
+	});
+});

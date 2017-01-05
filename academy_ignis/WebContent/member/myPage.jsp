@@ -1,12 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="ignis.dao.MemberDAO" %>
+<%@ page import="ignis.bean.User" %>
 <% 
 	String id = null;
-	
+
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		response.sendRedirect("./ad_Login.jsp");
+		response.sendRedirect("/academy_ignis");
+	
+	MemberDAO memDao = MemberDAO.getInstance();
+	User userInfo = memDao.isMember(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -14,6 +19,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 <title>Ignis치과</title>
 </head>
 <body>
@@ -36,7 +42,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">아이디</label>  
 	  <div class="col-md-4">
-	  <input name="m_id" type="text" placeholder="아이디" class="form-control input-md">
+	  <input name="m_id" type="text" placeholder="아이디" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_id()%> ">
 	  </div>
 	</div>
 	
@@ -44,7 +50,15 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">이름</label>  
 	  <div class="col-md-4">
-	  <input name="m_name" type="text" placeholder="이름" class="form-control input-md">
+	  <input name="m_name" type="text" placeholder="이름" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+	  </div>
+	</div>
+	
+	<!-- Text input-->
+	<div class="form-group">
+	  <label class="col-md-4 control-label" for="textinput">가입일</label>  
+	  <div class="col-md-4">
+	  <input name="m_enterdate" type="text" placeholder="가입일" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_enterdate() %>">
 	  </div>
 	</div>
 	
@@ -60,7 +74,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 	  <div class="col-md-4">
-	  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
+	  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth() %>">
 	  </div>
 	</div>
 	
@@ -68,7 +82,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">주소</label>  
 	  <div class="col-md-4">
-	  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md">
+	  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr() %>">
 	  </div>
 	</div>
 	
@@ -76,7 +90,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
 	  <div class="col-md-4">
-	  <input name="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md">
+	  <input name="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone() %>">
 	  </div>
 	</div>
 	
@@ -84,16 +98,8 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
 	  <div class="col-md-4">
-	  <input name="m_email" type="email" placeholder="Email 주소" class="form-control input-md">
+	  <input name="m_email" type="email" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email() %>">
 	    
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">가입일</label>  
-	  <div class="col-md-4">
-	  <input name="m_enterdate" type="text" placeholder="가입일" class="form-control input-md">
 	  </div>
 	</div>
 	
@@ -139,6 +145,14 @@
 <%-- Footer 종료 --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script src="/academy_ignis/script/login.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>
