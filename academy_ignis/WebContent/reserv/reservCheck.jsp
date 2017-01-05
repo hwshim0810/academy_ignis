@@ -48,9 +48,13 @@
 </head>
 <script type="text/javascript">
 	function btnPress1(){
-		alert("여기찍혔습니다.");
+		alert("여기찍혔습니다.1");
 	}
-
+	
+	function btnPress2(){
+		alert("여기찍혔습니다.2");
+	}
+	
 </script>
 <body>
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
@@ -61,7 +65,6 @@
 	if (id != null) { %> 
 	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
 <% }%>
-<%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
  
  
 
@@ -69,8 +72,22 @@
 <div class="container text-center">    
 	<div class="col-sm-8 col-md-9 well">
 	<div class="row">
-		<form method="get" action="#">
+		<form method="get" action="">
 			<div class="col-xs-10">
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>이 름</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>예약 번호</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+					</div>
+				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 항목</span></div>
@@ -99,8 +116,9 @@
 						<input type="text" disabled value="<%= request.getParameter("clitext") %>">
 					</div>
 				</div>		
-			<input type="button" value="홈페이지 이동" onclick = "btnPress1()">				
-			<input type="submit" class="btn btn-lg btn-info" value="예약 확인">				
+			<input type="button" value="HOME" onclick = "btnPress1()">
+			<input type="button" value="예약 완료" onclick = "btnPress2()">				
+			<input type="submit" class="btn btn-lg btn-info" value="예약 완료">				
 			</div>
 		</form> 
 	</div>
