@@ -72,7 +72,7 @@
 <div class="container text-center">    
 	<div class="col-sm-8 col-md-9 well">
 	<div class="row">
-		<form method="get" action="">
+		<form method="post" action="./reservCheckProcess">
 			<div class="col-xs-10">
 				<div class="row">
 					<div class="col-xs-4 form-group">
@@ -85,7 +85,7 @@
 					<div class="col-xs-4 form-group">
 					<span id=letter>예약 번호</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+						<input type="text" disabled value="<%= request.getParameter("abc") %>" >
 					</div>
 				</div>
 				<div class="row">
@@ -116,6 +116,7 @@
 						<input type="text" disabled value="<%= request.getParameter("clitext") %>">
 					</div>
 				</div>		
+			<input type="text" name="m_id" value="아이디">
 			<input type="button" value="HOME" onclick = "btnPress1()">
 			<input type="button" value="예약 완료" onclick = "btnPress2()">				
 			<input type="submit" class="btn btn-lg btn-info" value="예약 완료">				

@@ -1,9 +1,12 @@
 package ignis.dao;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
+
 import ignis.mybatis.service.FactoryService;
+import ignis.bean.ig_reserv;
 
 public class ReservDAO {
 	public boolean insert(String r_guide, String r_time, String r_content, String m_id) {
@@ -14,7 +17,20 @@ public class ReservDAO {
 		map.put("r_content", r_content);
 		map.put("m_id", m_id);			
 		int cnt = ss.insert("reserv.add", map);
-		System.out.println("이것은 ReservDAO의 cnt입니다. " + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
+	
+	public List<ig_reserv> check(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ig_reserv> list = null;
+		list = ss.selectList("reserv.check",m_id);
+		ss.close();					return list;
+	}
+	
+	public List<ig_reserv> checkAll() {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		List<ig_reserv> list = ss.selectList("reserv.checkAll");
+		ss.close();					return list;
+	}
+	
 }

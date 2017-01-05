@@ -7,4 +7,8 @@
 		INSERT INTO ig_reserv( r_num, r_guide, r_day, r_time, r_content, m_id)
 		VALUES ( r_num.NEXTVAL, #{r_guide},SYSDATE, #{r_time}, #{r_content}, #{m_id})
 	</insert>
+	<select id="check"  resultType="ignis.bean.ig_reserv">
+		SELECT * FROM ig_reserv WHERE m_id= #{m_id}
+	</select>
+	
 </mapper>

@@ -18,6 +18,7 @@ import ignis.action.NoticeDetailAction;
 import ignis.action.NoticeInsertAction;
 import ignis.action.NoticeSelectAllAction;
 import ignis.action.ReservAction;
+import ignis.action.ReservCheckAction;
 
 
 public class FrontController extends HttpServlet {
@@ -150,11 +151,14 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/reservCheck" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./reserv/reservCheck.jsp");
-			break;	
+		case "/reserv/reservCheckProcess" :
+			action = new ReservCheckAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 		case "/logout" :
 			action = new MemberLogoutAction();

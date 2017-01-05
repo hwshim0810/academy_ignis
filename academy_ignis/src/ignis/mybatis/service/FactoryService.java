@@ -14,6 +14,7 @@ public class FactoryService {
 			Reader r = Resources
 					.getResourceAsReader("ignis/mybatis/config/config.xml");
 			factory = new SqlSessionFactoryBuilder().build(r);
+
 			r.close();
 		} catch (Exception e) { }
 	}
