@@ -57,7 +57,7 @@
     	%>
       <tr>
         <td><%=list.get(i).getNb_num() %></td>
-        <td><a href="noticeDetail?nb_num=<%=list.get(i).getNb_num()%>"><%=list.get(i).getNb_title() %></a></td>
+        <td><a href="noticeDetail?nb_num=<%=list.get(i).getNb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getNb_title() %></a></td>
         <td><%=list.get(i).getNb_regdate() %></td>
         <td><%=list.get(i).getNb_readcount() %></td>
       </tr>

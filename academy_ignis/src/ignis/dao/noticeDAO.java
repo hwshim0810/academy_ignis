@@ -24,13 +24,6 @@ public class noticeDAO {
 		return (result > 0) ? true : false;
 	}
 	
-/*	public List<ig_notice> selectAll(){
-		SqlSession ss = FactoryService.getFactory().openSession(true);
-		List<ig_notice> list = ss.selectList("notice.selectAll");
-		System.out.println("2");
-		ss.close();			
-		return list;
-	}*/
 
 	public List<ig_notice> selectAll(int startRowNum,int endRowNum){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -43,11 +36,42 @@ public class noticeDAO {
 
 	}
 	
+	public List<ig_notice> selectone(int startRowNum,int endRowNum){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("startRowNum", startRowNum);
+		map.put("endRowNum", endRowNum);
+		List<ig_notice> list = ss.selectList("notice.selectAll",map);
+		ss.close();			
+		return list;
+
+	}
+	
+	
 	public int getListcount() {
 		
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		int listCount = ss.selectOne("notice.listCount");
 		return listCount;
+	}
+
+
+	public List<ig_notice> selectDetail(int nb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("nb_num", nb_num);
+		List<ig_notice> list = ss.selectList("notice.selectDeatil",map);
+		ss.close();			
+		return list;
+	}
+
+
+	public int updateCount(int nb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("nb_num", nb_num);
+		int readCount_change = ss.update("notice.updateCount",map);
+		return readCount_change;
 	}
 
 }

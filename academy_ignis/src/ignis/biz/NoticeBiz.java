@@ -36,4 +36,17 @@ public class NoticeBiz {
 		
 		return listCount;
 	}
+
+	public List<ig_notice> selectDetail(int nb_num) {
+		noticeDAO noticeDao = new noticeDAO();
+		List<ig_notice> list = noticeDao.selectDetail(nb_num);
+
+		return list;
+	}
+
+	public int updateCount(int nb_num) {
+		noticeDAO noticeDao = new noticeDAO();
+		int readCount_change = noticeDao.updateCount(nb_num);
+		return readCount_change;
+	}
 }

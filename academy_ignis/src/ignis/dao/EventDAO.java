@@ -43,5 +43,18 @@ public class EventDAO {
 		return list;
 	}
 
+	// 이벤트 수정
+	public static void updateEvent(String eb_title, String eb_content){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("eb_title", eb_title);
+		map.put("eb_content", eb_content);
+		
+		ss.update("event.updateEvent", map);
+		
+		ss.commit();
+		ss.close();
+	}
 
 }
