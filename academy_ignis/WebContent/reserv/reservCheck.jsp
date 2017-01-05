@@ -78,42 +78,42 @@
 					<div class="col-xs-4 form-group">
 					<span id=letter>이 름</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+						<input type="text" readonly value="<%= request.getParameter("tooth") %>" name="tooth">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>예약 번호</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" disabled value="<%= request.getParameter("abc") %>" >
+						<input type="text" readonly value="<%= request.getParameter("abc") %>"  name="abc">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 항목</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" disabled value="<%= request.getParameter("tooth") %>">
+						<input type="text" readonly value="<%= request.getParameter("tooth") %>"  name="tooth">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>환자 ID</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" disabled value="수정 불가">
+						<input type="text" readonly value="수정 불가" name="bcd">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 시간</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" disabled value="<%= request.getParameter("clitime") %>">
+						<input type="text" readonly value="<%= request.getParameter("clitime") %>" name="clitime">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>상담 내용</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" disabled value="<%= request.getParameter("clitext") %>">
+						<input type="text" readonly value="<%= request.getParameter("clitext") %>" name="clitext">
 					</div>
 				</div>		
 			<input type="text" name="m_id" value="아이디">

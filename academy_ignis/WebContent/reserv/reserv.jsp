@@ -57,6 +57,18 @@ a:HOVER {
 	color: tomato;
 }
 body { font-size: 20px;}
+
+.reservForm select {
+	
+	font-size : 1.5em
+ }
+.select1 { width : 20%; height : 40px; padding : 5px; }
+.form-group label { font-size : 1.2em; }
+table td a { color : #000; }
+table td:first-child a { color : #f00!Important; }
+table td:last-child a { color : blue!Important; }
+table td { font-size : 1.2em; padding : 7px 0; }
+table td a { font-size : 1.2em; } 
 </style>
 
 <script type="text/javascript">
@@ -92,7 +104,7 @@ body { font-size: 20px;}
 	<div class="container">
 		<h3 class="well">상담 및 예약</h3>
 		<div class="col-lg-12 well">
-			<div class="row">
+			<div class="row reservForm">
 				<form name="joinform" action="./reservProcess" method="post">
 					<div class="col-sm-12">
 						<div class="row">
@@ -100,18 +112,18 @@ body { font-size: 20px;}
 								<label>진료 항목 </label>
 							</div>
 							<div class="col-sm-7 form-group" >
-								<input type="radio"  value="치아교정" name="tooth" />치아교정&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="임플란트" name="tooth" />임플란트&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="치아미백" name="tooth" />치아미백&nbsp;&nbsp;&nbsp;&nbsp;
-								<input type="radio"  value="일반진료" name="tooth" />일반진료
+								<input type="radio"  value="치아교정" name="tooth" /><label for="치아교정">치아교정</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="임플란트" name="tooth" /><label for="임플란트">임플란트</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="치아미백" name="tooth" /><label for="치아미백">치아미백</label>&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="radio"  value="일반진료" name="tooth" /><label for="일반진료">일반진료</label>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-sm-3 form-group">
 								<label>예약시간 선택</label>
 							</div>
-							<div class="col-sm-7 form-group">
-								<select id="selectBox"  name="clitime" onchange="changeTime(this.value);">
+							<div class="col-sm-7">
+								<select id="selectBox" class="select1" name="clitime" onchange="changeTime(this.value);">
 									<option value = "09:00" >09:00</option><option value = "09:30">09:30</option>
 									<option value = "10:00">10:00</option><option value = "10:30">10:30</option>
 									<option value = "11:00">11:00</option><option value = "11:30">11:30</option>
@@ -127,9 +139,7 @@ body { font-size: 20px;}
 								<label>예약날짜 선택</label>
 							</div>
 							<div class="col-sm-7 form-group">
-								<table>
-									<caption style="height: 40px;">
-										<select id="y" onchange="changeDate();">
+							<select class="select1" id="y" onchange="changeDate();">
 											<%
 												for (int i = y - 5; i <= y; i++) {
 											%>
@@ -148,7 +158,9 @@ body { font-size: 20px;}
 											<%
 												}
 											%>
-										</select> <select id="m" onchange="changeDate();">
+										</select> 
+										<select class="select1"  id="m" onchange="changeDate();">
+										
 											<%
 												for (int i = 1; i <= 12; i++) {
 											%>
@@ -159,8 +171,8 @@ body { font-size: 20px;}
 												}
 											%>
 										</select>
-
-									</caption>
+								<table>
+									<caption style="height: 20px;"></caption>
 
 									<tr height="25">
 										<td width="100" bgcolor="#c8c8c8" align="center"><font
@@ -183,19 +195,12 @@ body { font-size: 20px;}
 										String fc;
 										for (int i = 1; i <= cal.getActualMaximum(Calendar.DATE); i++) {
 											fc = w % 7 == 1 ? "red" : (w % 7 == 0 ? "blue" : "black");
-											out.println("<td align='center' bgcolor='#ffffff' style='color:" + fc + ";'>");
-
-											out.print(i + "</td>");
+											out.println("<td align='center' bgcolor='#ffffff' height='70'>");
+											out.println("<a href = '#'>" + i + "</a></td>");
 
 											w++;
 											if (w % 7 == 1 && i != cal.getActualMaximum(Calendar.DATE)) {
-												
 												out.println("</tr>");
-												out.println("<tr height='70'>"); // 공백 부분
-												for (int j = 1; j <= 7; j++)
-													out.println("<td align='center' bgcolor='#ffffff';>&nbsp;</td>");
-												out.println("</tr>"); //  공백 부분
-												out.println("<tr height='25'>");
 											}
 										}
 
@@ -207,10 +212,6 @@ body { font-size: 20px;}
 												for (int i = w % 7; i <= 7; i++)
 													out.println("<td bgcolor='#ffffff'>&nbsp;</td>");
 											}
-											out.println("</tr>");
-											out.println("<tr height='100'>");// 맨아랫 부분 공백 
-											for (int j = 1; j <= 7; j++)
-												out.println("<td align='center' bgcolor='#ffffff';>&nbsp;</td>");
 											out.println("</tr>");
 										}
 									%>

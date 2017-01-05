@@ -37,13 +37,18 @@ public class ReservBiz {
 		else return false;
 	}
 	
-	public boolean checkAll(HttpServletRequest request, HttpServletResponse response) {
+	public void checkAll(HttpServletRequest request, HttpServletResponse response) {
+
 		ReservDAO reservDao = new ReservDAO();
-		
 		List<ig_reserv> list = reservDao.checkAll();
-		
-		if (list != null) return false;
-		else return true;
+		for (int i = 0; i < list.size() ; i++) {
+			ig_reserv e = list.get(i);
+			String m_id = e.getM_id();
+			String r_num = e.getR_num();
+			String r_guide = e.getR_num();
+			String r_time = e.getR_time();
+			String r_content = e.getR_content();
+		}
 	}
-	
+
 }

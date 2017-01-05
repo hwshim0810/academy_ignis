@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ page import="ignis.biz.ReservBiz"%>
+<%@ page import="ignis.dao.ReservDAO"%>
+
+<%@ page import="ignis.bean.ig_reserv"%>
+<%@ page import="java.util.List"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,8 +20,63 @@
 <%pageContext.include("../header/header.jsp"); %>
 <%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
 
-
-
+		
+<div class="container text-center">    
+	<div class="col-sm-8 col-md-9 well">
+	<div class="row">
+		<form method="post" action="./reservCheckProcess">
+			<div class="col-xs-10">
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>이 름</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" readonly value="dd">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>예약 번호</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" readonly value="55" >
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 항목</span></div>
+					<div class="col-xs-8 form-group" >
+						<input type="text" readonly value="55">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>환자 ID</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" readonly value="55">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>진료 시간</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" readonly value="55">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-xs-4 form-group">
+					<span id=letter>상담 내용</span></div>
+					<div class="col-xs-8 form-group">
+						<input type="text" readonly value="55">
+					</div>
+				</div>
+			<input type="text" name="m_id" value="아이디">
+			<input type="button" value="HOME" onclick = "btnPress1()">
+			<input type="button" value="예약 완료" onclick = "btnPress2()">				
+			<input type="submit" class="btn btn-lg btn-info" value="예약 완료">				
+			</div>
+		</form> 
+	</div>
+	</div>
+</div>
 
 
 
