@@ -8,76 +8,91 @@ $(function() {
 		} else {
 			$("#passmsg").html("<div class='col-md-3'></div><div class='col-md-6 alert alert-success'>비밀번호가 일치합니다.</div>")
 		}
-	})
+	});
 	
 	$("#idChk").click(function() {
-		var m_id = $("#m_id").val().trim();
-		var idReg = /^[a-z]+[a-z0-9]{5,11}$/g;
-		
-		if (!m_id) {
-			$.alert({
-				buttons: {
-					tryAgain: {
-			            text: '다시입력',
-			            btnClass: 'btn-red',
-			            action: function(){
-			            }
-					}
-				},
-			    title: '빈아이디',
-			    type: 'red',
-			    content: '아이디를 입력해 주십시오.'
-			});
+		$.MessageBox({
+			  input    : true,
+			  message  : "사용하실 아이디를 입력해주세요."
+			}).done(function(data){
 
-			$("#m_id").focus();
-			return false;
-		}
-		
-		if(!idReg.test(m_id)) {
-			$.alert({
-				buttons: {
-					tryAgain: {
-			            text: '다시입력',
-			            btnClass: 'btn-red',
-			            action: function(){
-			            }
-					}
-				},
-				columnClass: 'col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1',
-			    title: '양식에 맞지않음',
-			    type: 'red',
-			    content: '아이디는 알파벳으로 시작하고 알파벳과 숫자를 사용하여 6~12자까지 가능합니다.'
-			});
-			return false;
-		}
-		
-		$.post('/academy_ignis/member/idChk.jsp', 'm_id=' + m_id, function(temp) {
-			var result = temp;
-			result = result.trim();
+			data = data.trim();	
+			var idReg = /^[a-zA-Z][A-Za-z0-9]{4,10}$/g;
 			
-			if (result == 'OK') {
-				$.alert({
-				    title: '사용가능',
-				    content: '사용가능한 아이디입니다.'
-				});
-			} else {
+			if (!data) {
 				$.alert({
 					buttons: {
 						tryAgain: {
-				            text: '다시입력',
+				            text: '돌아가기',
 				            btnClass: 'btn-red',
 				            action: function(){
 				            }
 						}
 					},
-					title: '사용불가',
+				    title: '빈아이디',
 				    type: 'red',
-				    content: '이미 존재하는 아이디입니다.'
+				    content: '아이디를 입력해 주십시오.'
 				});
-				$("#m_id").val("");
-				$("#m_id").focus();
+				return false;
 			}
-		});
 
+			
+			if(!idReg.test(data)) {
+				$.alert({
+					buttons: {
+						tryAgain: {
+				            text: '돌아가기',
+				            btnClass: 'btn-red',
+				            action: function(){
+				            }
+						}
+					},
+					columnClass: 'col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 col-xs-10 col-xs-offset-1',
+				    title: '양식에 맞지않음',
+				    type: 'red',
+				    content: '아이디는 알파벳으로 시작하고 알파벳과 숫자를 사용하여 5~11자까지 가능합니다.'
+				});
+				return false;
+			}
+			
+			$.post('/academy_ignis/member/idChk.jsp', 'm_id=' + data, function(temp) {
+				var result = temp;
+				result = result.trim();
+				
+				if (result == 'OK') {
+					$.confirm({
+						type: 'green',
+					    title: '사용가능',
+					    content: '사용가능한 아이디입니다.',
+					    buttons: {
+					        사용하기: {
+					        	btnClass: 'btn-green',
+					        	function () {
+					        		$("#m_id").val(data);
+					        	}
+					        },
+					        돌아가기: function () {
+					        }
+					    }
+					});
+					return false;
+				} else {
+					$.alert({
+						buttons: {
+							tryAgain: {
+					            text: '돌아가기',
+					            btnClass: 'btn-red',
+					            action: function(){
+					            }
+							}
+						},
+						title: '사용불가',
+					    type: 'red',
+					    content: '이미 존재하는 아이디입니다.'
+					});
+					return false;
+				}
+			});
+		});
 	});
 });

@@ -29,7 +29,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">아이디*</label>  
 				  <div class="col-md-4">
-				  <input id="m_id" name="m_id" type="text" placeholder="아이디" class="form-control input-md">
+				  <input id="m_id" name="m_id" type="text" placeholder="아이디" readonly="readonly"  required="required" class="form-control input-md">
 				  </div>
 				  <div class="col-md-4">
 					  <input type="button" id="idChk" class="btn btn-default" value="중복체크">
@@ -40,7 +40,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">이름*</label>  
 				  <div class="col-md-4">
-				  <input name="m_name" type="text" placeholder="이름" class="form-control input-md">
+				  <input name="m_name" type="text" placeholder="이름" required="required" class="form-control input-md">
 				  </div>
 				</div>
 				
@@ -48,14 +48,14 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">패스워드*</label>  
 				  <div class="col-md-4">
-				  <input id="m_pass" name="m_pass" type="password" placeholder="패스워드" class="form-control input-md">
+				  <input id="m_pass" name="m_pass" type="password" required="required" placeholder="패스워드" class="form-control input-md">
 				  </div>
 				</div>
 				
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">패스워드확인*</label>  
 				  <div class="col-md-4">
-				  <input id="m_passchk" name="m_passchk" type="password" placeholder="패스워드" class="form-control input-md">
+				  <input id="m_passchk" name="m_passchk" type="password"  required="required" placeholder="패스워드" class="form-control input-md">
 				  </div>
 				</div>
 				
@@ -90,9 +90,9 @@
 				
 				<!-- Text input-->
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="textinput">휴대폰 번호*</label>  
+				  <label class="col-md-4 control-label"  for="textinput">휴대폰 번호*</label>  
 				  <div class="col-md-4">
-				  <input name="m_phone" type="tel" placeholder="숫자만 입력해주세요" class="form-control input-md">
+				  <input name="m_phone" type="tel" required="required" placeholder="숫자만 입력해주세요" class="form-control input-md">
 				  </div>
 				</div>
 				
@@ -100,7 +100,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">Email 주소*</label>  
 				  <div class="col-md-4">
-				  <input name="m_email" type="email" placeholder="exam@example.com" class="form-control input-md">
+				  <input name="m_email" type="email" required="required" placeholder="exam@example.com" class="form-control input-md">
 				    
 				  </div>
 				</div>

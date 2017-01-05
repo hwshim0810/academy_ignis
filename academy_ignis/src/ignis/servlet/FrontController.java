@@ -243,6 +243,15 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "/EventDelete":
+			action = new EventDeleteAction();
+			System.out.println("EventDeleteAction_FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 //		case "/" :
 //			action = new Action();
