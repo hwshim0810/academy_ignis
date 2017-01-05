@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
   <style>
-  .list-group-item {text-align:center;}
+  .list-group-item {text-align:center;} 
 
   </style>
 <div class="col-xs-12 col-sm-3 col-md-2" style="background-color:lavender;">

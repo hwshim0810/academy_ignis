@@ -62,7 +62,7 @@ public class EventDAO {
 		
 		ss.commit();
 		ss.close();
-	}
+	} 
 	
 	public List<ig_event> getListAll() {
 		SqlSession ss = FactoryService.getFactory().openSession();
