@@ -11,7 +11,7 @@ public class MemberFindAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		FindBiz findBiz = new FindBiz();
+		FindBiz findBiz = FindBiz.getInstance();
 		
 		String findMethod = request.getParameter("find");
 		if (findMethod.equals("id")) {

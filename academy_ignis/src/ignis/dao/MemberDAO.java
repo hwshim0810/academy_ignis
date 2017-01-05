@@ -108,7 +108,7 @@ public class MemberDAO {
 	public boolean updateMem(String id, int birth, String addr, int phone, String email) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println(id+birth+addr+phone+email);
+	
 		map.put("id", id);
 		map.put("birth", birth);
 		map.put("addr", addr);
@@ -116,7 +116,6 @@ public class MemberDAO {
 		map.put("email", email);
 		
 		int result = ss.update("member.updateMem", map);
-		System.out.println(result);
 		ss.close();					
 		return (result > 0) ? true : false;
 	}

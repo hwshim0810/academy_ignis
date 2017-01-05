@@ -4,9 +4,9 @@
 <% 		
 	FindBiz findBiz = FindBiz.getInstance();
 	boolean result = findBiz.isMember(request, response);
-	String res = "NO";
 	
-	if (result) res = "OK";
+	String res = "OK";
+	if (result) res = "NO";
 	
 	response.getWriter().print(res);
 %>
