@@ -36,12 +36,22 @@ public class noticeDAO {
 
 	}
 	
-	public List<ig_notice> selectone(int startRowNum,int endRowNum){
+
+	public List<ig_notice> searchAll(int startRowNum, int endRowNum, String searchOption, String searchContent){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		HashMap map= new HashMap();
 		map.put("startRowNum", startRowNum);
 		map.put("endRowNum", endRowNum);
-		List<ig_notice> list = ss.selectList("notice.selectAll",map);
+		map.put("searchContent", searchContent);
+		List<ig_notice> list=null;
+		if(searchOption.equals("nb_all")){
+			list = ss.selectList("notice.searchAll",map);
+		}else if(searchOption.equals("nb_title")){
+			list = ss.selectList("notice.searchTitle",map);
+		}
+		else if(searchOption.equals("nb_content")){
+			list = ss.selectList("notice.searchContent",map);
+		}
 		ss.close();			
 		return list;
 

@@ -8,20 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.action.ActionForward;
-import ignis.action.ActionInterface;
-import ignis.action.EventViewAction;
-import ignis.action.EventWriteAction;
-import ignis.action.MemberFindAction;
-import ignis.action.MemberJoinAction;
-import ignis.action.MemberLoginAction;
-import ignis.action.MemberLogoutAction;
-import ignis.action.MemberUpdateAction;
-import ignis.action.NoticeDetailAction;
-import ignis.action.NoticeInsertAction;
-import ignis.action.NoticeSelectAllAction;
-import ignis.action.ReservAction;
-import ignis.action.ReservCheckAction;
+import ignis.action.*;
 
 
 public class FrontController extends HttpServlet {
@@ -100,6 +87,15 @@ public class FrontController extends HttpServlet {
 			
 		case "/noticeDetail":
 			action = new NoticeDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+			
+		case "/searchList":
+			action = new NoticeSearchAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
