@@ -89,5 +89,21 @@ public class EventDAO {
 		
 		return view;
 	}
+	
+	public boolean deleteEvent(int eb_num, String eb_title, String eb_content){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(eb_num+" ////deleteDAO//");
+		map.put("eb_num", eb_num);
+		map.put("eb_title", eb_title);
+		map.put("eb_content", eb_content);
+		
+		int result = ss.delete("event.deleteEvent", map);
+		
+		ss.commit();
+		ss.close();
+		
+		return(result > 0) ? true : false;
+	} 
 
 }
