@@ -107,7 +107,7 @@
 					<span id=letter>진료 시간</span></div>
 					<div class="col-xs-8 form-group">
 						<input type="text" disabled value="<%= request.getParameter("clitime") %>">
-					</div>	
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">

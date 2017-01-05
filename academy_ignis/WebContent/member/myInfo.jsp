@@ -15,7 +15,6 @@
 <title>Ignis치과</title>
 </head>
 <body>
-
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 <%pageContext.include("../header/header.jsp"); %>
 <%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
