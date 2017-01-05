@@ -23,7 +23,11 @@ public class NoticeSearchAction  implements ActionInterface{
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 			System.out.println("pagenum을 request에서 가져옴:"+request.getParameter("pagenum"));
 		}
-		
+		String searchOption=(String)request.getParameter("searchOption");
+		String searchContent=(String)request.getParameter("searchContent");
+		//String searchOption=(String)request.getAttribute("searchOption");
+		//String searchContent=(String)request.getAttribute("searchContent");
+
 		int startRowNum=(pagenum-1)*pagelimit+1;//가져오는 리스트
 		int endRowNum=startRowNum+pagelimit-1;//가져오는 리스트
 		int listCount=noticeBiz.getListcount();//총 리스트 수
@@ -35,17 +39,18 @@ public class NoticeSearchAction  implements ActionInterface{
 		startpage= ((pagenum-1)/10)*10+1;
 		endpage=startpage+10-1;
 		
-		List<ig_notice> list = noticeBiz.searchAll(startRowNum,endRowNum);
+		List<ig_notice> list = noticeBiz.searchAll(startRowNum,endRowNum,searchOption,searchContent);
 		request.setAttribute("pagenum", pagenum);
 		request.setAttribute("pagelimit", pagelimit);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
     	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
+    	System.out.println();
 		if (list !=null) {
 			request.setAttribute("noticelist", list);
 			forward.setRedirect(false);
-			forward.setPath("./community/notice.jsp");
+			forward.setPath("./community/contentList.jsp");
 			return forward;
 		}
 		

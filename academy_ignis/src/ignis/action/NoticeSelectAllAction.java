@@ -41,7 +41,6 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
-    	System.out.println(pagenum+" ,"+pagelimit+" ,"+pageCount+" ,"+startpage+" ,"+endpage);
 		if (list !=null) {
 			request.setAttribute("noticelist", list);
 			forward.setRedirect(false);

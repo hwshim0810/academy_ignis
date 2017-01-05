@@ -44,8 +44,14 @@ public class noticeDAO {
 		map.put("endRowNum", endRowNum);
 		map.put("searchContent", searchContent);
 		List<ig_notice> list=null;
+
 		if(searchOption.equals("nb_all")){
+			map.put("searchContent1", searchContent);
+			map.put("searchContent2", searchContent);
+			System.out.println(searchOption);
+			System.out.println(searchContent);
 			list = ss.selectList("notice.searchAll",map);
+			
 		}else if(searchOption.equals("nb_title")){
 			list = ss.selectList("notice.searchTitle",map);
 		}
@@ -56,8 +62,6 @@ public class noticeDAO {
 		return list;
 
 	}
-	
-	
 	public int getListcount() {
 		
 		SqlSession ss = FactoryService.getFactory().openSession(true);

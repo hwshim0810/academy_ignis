@@ -34,10 +34,10 @@
 	  
 	  var searchOption=$("#searchOption").val();
 	  var searchContent=$("#searchContent").val();
-	  alert(searchOption);	
+	  if(searchContent==""){alert("값을 입력!!!") ;return;}
+	  //alert(searchContent);	
 	  var xhttp;
 			xhttp = new XMLHttpRequest();
-
 		//응답을 받아왔을때 처리할 형식 정의
 		xhttp.onreadystatechange=function(){
 			//onreadystatechange속성이 변경될때마다
@@ -50,7 +50,7 @@
 		};
 		//open send 함수 설정
 		//get방식으로 요청 데이터를 받을 페이지 true는 비동기통신을 지정
-		xhttp.open("GET","searchList",true);
+		xhttp.open("GET","searchList?searchOption="+searchOption+"&searchContent="+searchContent,true);
 		xhttp.send();
   }
   </script>
@@ -106,7 +106,7 @@
     <label class="sr-only" for="search">검색 내용:</label>
     <input type="text" class="form-control" id="searchContent">
   </div>
-  <input type="button" class="btn btn-default" onclick="searchAll()" value="검색" />
+  <input type="submit" class="btn btn-default" onclick="searchAll()" value="검색" />
 </form>
   
   </div>

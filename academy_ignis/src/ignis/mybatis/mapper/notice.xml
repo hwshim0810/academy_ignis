@@ -16,24 +16,24 @@
 	<select id="searchAll"  resultType="ignis.bean.ig_notice">
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
-		SELECT * FROM IG_notice order by nb_regdate desc 
-		where nb_title like '%#{searchContent}%' or nb_content like '%#{searchContent}%'))
+		SELECT * FROM IG_notice where nb_title like '%'||#{searchContent1}||'%' or nb_content like '%'||#{searchContent2}||'%'
+		order by nb_regdate desc ))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 
 	<select id="searchTitle"  resultType="ignis.bean.ig_notice">
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
-		SELECT * FROM IG_notice order by nb_regdate desc 
-		where nb_title like '%#{searchContent}%'))
+		SELECT * FROM IG_notice where nb_title like '%'||#{searchContent}||'%'
+		order by nb_regdate desc))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 
 	<select id="searchContent"  resultType="ignis.bean.ig_notice">
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
-		SELECT * FROM IG_notice order by nb_regdate desc 
-		where nb_content like '%#{searchContent}%';))
+		SELECT * FROM IG_notice where nb_content like '%'||#{searchContent}||'%'
+		order by nb_regdate desc))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 
