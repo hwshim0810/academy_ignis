@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	String id = null;
+
+	if (session.getAttribute("m_id") != null) {
+		id = (String) session.getAttribute("m_id");
+		response.sendRedirect("/academy_ignis");
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>로그인</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="/academy_ignis/css/login.css">
-  <script src="/academy_ignis/script/login.js"></script>
 </head>
 <body>
 <%
@@ -58,5 +63,15 @@
 <%
 	pageContext.include("../footer/footer.jsp");
 %>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/academy_ignis/script/login.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>

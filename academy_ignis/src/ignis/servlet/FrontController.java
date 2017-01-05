@@ -14,6 +14,7 @@ import ignis.action.MemberFindAction;
 import ignis.action.MemberJoinAction;
 import ignis.action.MemberLoginAction;
 import ignis.action.MemberLogoutAction;
+import ignis.action.MemberUpdateAction;
 import ignis.action.NoticeDetailAction;
 import ignis.action.NoticeInsertAction;
 import ignis.action.NoticeSelectAllAction;
@@ -130,6 +131,7 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./member/memberJoin.jsp");
 			break;
+			
 		case "/loginProcess" :
 			action = new MemberLoginAction();
 			
@@ -175,21 +177,35 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
 		case "/searchUser" :
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/findUser.jsp");
 			break;
+			
 		case "/member" :
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./admin/manage_Member.jsp");
 			break;
+			
 		case "/myPage" :
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/myPage.jsp");
 			break;
+			
+		case "/memUpProcess" :
+			action = new MemberUpdateAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 //		case "/" :
 //			action = new Action();
 //			
