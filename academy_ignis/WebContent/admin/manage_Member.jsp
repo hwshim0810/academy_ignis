@@ -13,10 +13,10 @@
 		response.sendRedirect("./ad_Login.jsp");
 
 	MemberDAO memDao = MemberDAO.getInstance();
-	List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
 	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
 %>
 <%@include file="../paging/getPageNum.jsp" %>
+<% List<User> userList = memDao.getUserAll(begin, end); %>
 <!DOCTYPE html>
 <html>
 <head>

@@ -30,6 +30,12 @@ public class NoticeBiz {
 
 		return list;
 	}
+	
+	public List<ig_notice> searchAll(int startRowNum,int endRowNum,String searchOption,String searchContent) {
+		noticeDAO noticeDao = new noticeDAO();
+		List<ig_notice> list = noticeDao.searchAll(startRowNum,endRowNum,searchOption,searchContent);
+		return list;
+	}
 	public int getListcount() {
 		noticeDAO noticeDao = new noticeDAO();
 		int listCount = noticeDao.getListcount();

@@ -42,7 +42,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">아이디</label>  
 	  <div class="col-md-4">
-	  <input name="m_id" type="text" placeholder="아이디" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_id()%> ">
+	  <input name="m_id" type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
 	  </div>
 	</div>
 	
@@ -50,7 +50,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">이름</label>  
 	  <div class="col-md-4">
-	  <input name="m_name" type="text" placeholder="이름" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+	  <input name="m_name" type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
 	  </div>
 	</div>
 	
@@ -58,7 +58,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">가입일</label>  
 	  <div class="col-md-4">
-	  <input name="m_enterdate" type="text" placeholder="가입일" disabled="disabled" class="form-control input-md" value="<%=userInfo.getM_enterdate() %>">
+	  <input name="m_enterdate" type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
 	  </div>
 	</div>
 	
@@ -74,7 +74,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 	  <div class="col-md-4">
-	  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth() %>">
+	  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
 	  </div>
 	</div>
 	
@@ -82,7 +82,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">주소</label>  
 	  <div class="col-md-4">
-	  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr() %>">
+	  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
 	  </div>
 	</div>
 	
@@ -90,7 +90,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
 	  <div class="col-md-4">
-	  <input name="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone() %>">
+	  <input name="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
 	  </div>
 	</div>
 	
@@ -98,7 +98,7 @@
 	<div class="form-group">
 	  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
 	  <div class="col-md-4">
-	  <input name="m_email" type="email" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email() %>">
+	  <input name="m_email" type="email" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
 	    
 	  </div>
 	</div>

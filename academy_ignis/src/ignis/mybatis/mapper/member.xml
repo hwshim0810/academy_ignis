@@ -7,8 +7,11 @@
 		INSERT INTO ig_member VALUES ( #{id}, #{pass}, #{name}, #{birth}, #{addr}, 
 		 #{phone}, #{email}, #{level}, SYSDATE )
 	</insert>
-	<select id="selectAll" resultType="ignis.bean.User">
-		SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate FROM ig_member where m_level = #{level} 
+	<select id="selectAll" resultType="ignis.bean.User" parameterType="java.util.HashMap">
+		SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
+		FROM( SELECT ROWNUM num, m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
+			FROM ( SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate FROM ig_member 
+				ORDER BY m_enterdate ) ) WHERE num between #{begin} and #{end}
 	</select>
 	<select id="selectId" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_id = #{id}
@@ -22,4 +25,15 @@
 	<select id="selectUserCount" resultType="int">
 		SELECT count(*) FROM ig_member
 	</select>
+	<update id="adupdateMem" parameterType="java.util.HashMap">
+		UPDATE ig_member SET m_pass = #{pass}, m_name = #{name}, m_birth = #{birth}, 
+		m_addr = #{addr}, m_phone = #{phone}, m_email = #{email} WHERE m_id = #{id}
+	</update>
+	<update id="updateMem" parameterType="java.util.HashMap">
+		UPDATE ig_member SET m_birth = #{birth}, m_addr = #{addr}, m_phone = #{phone}, 
+		m_email = #{email} WHERE m_id = #{id}
+	</update>
+	<update id="updatePass" parameterType="java.util.HashMap">
+		UPDATE ig_member SET m_pass = #{pass} WHERE m_id = #{id}
+	</update>
 </mapper>

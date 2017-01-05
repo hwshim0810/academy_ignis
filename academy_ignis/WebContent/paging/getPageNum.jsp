@@ -15,7 +15,7 @@
 	} catch (Exception e) {
 	}
 
-	final int ROW_PER_PAGE = 15; // 페이지당 레코드 출력 갯수
+	final int ROW_PER_PAGE = 5; // 페이지당 레코드 출력 갯수
 	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
 	int end = pageNo * ROW_PER_PAGE;
 	

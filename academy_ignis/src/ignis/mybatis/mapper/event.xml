@@ -7,17 +7,24 @@
 		select eb_num, eb_title, eb_content, eb_regdate, eb_readcount from ig_event  
 		order by eb_regdate desc
 	</select>
+	<select id="selectNum" resultType="ignis.bean.ig_event">
+		select * from ig_event
+		where eb_num = #{eb_num}
+	</select>
 	<insert id="insertEvent" parameterType="ignis.bean.ig_event">
 		insert into ig_event
 		values(eb_num.NEXTVAL, #{eb_title}, #{eb_content}, 1, SYSDATE)
 	</insert>
-	<update id="updateEvent" parameterType="ignis.bean.ig_event">
+	<update id="updateEvent" parameterType="java.util.HashMap">
 		update ig_event 
-		set eb_num = #{eb_num}, eb_title=#{eb_title}, eb_content = #{eb_content}, eb_regdate = #{eb_regdate}
+		set eb_title = #{eb_title}, eb_content = #{eb_content} 
 		where eb_num = #{eb_num}
 	</update>
 	<delete id="deleteEvent">
 		delete from ig_event
 		where eb_num = #{eb_num}
 	</delete>
+	<select id="selectListCount" resultType="int">
+		SELECT count(*) FROM ig_event
+	</select>
 </mapper>

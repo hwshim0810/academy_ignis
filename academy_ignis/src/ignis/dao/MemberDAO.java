@@ -33,6 +33,7 @@ public class MemberDAO {
 		map.put("level", level);
 		
 		int result = ss.insert("member.add", map);
+
 		ss.close();
 		return (result > 0) ? true : false;
 	}
@@ -65,9 +66,14 @@ public class MemberDAO {
 		return (user != null) ? true : false;
 	}
 	
-	public List<User> getUserAll(int level) {
+	public List<User> getUserAll(int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		List<User> list = ss.selectList("member.selectAll", level);
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		
+		List<User> list = ss.selectList("member.selectAll", map);
 		ss.close();
 		
 		return list;
@@ -80,4 +86,52 @@ public class MemberDAO {
 		
 		return count;
 	}
+
+	public boolean adupdateMem(String id, String pass, String name, int birth, 
+			String addr, int phone, String email) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+
+		map.put("id", id);
+		map.put("pass", pass);
+		map.put("name", name);
+		map.put("birth", birth);
+		map.put("addr", addr);
+		map.put("phone", phone);
+		map.put("email", email);
+		
+		int result = ss.update("member.adupdateMem", map);
+		ss.close();					
+		return (result > 0) ? true : false;
+	}
+
+	public boolean updateMem(String id, int birth, String addr, int phone, String email) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(id+birth+addr+phone+email);
+		map.put("id", id);
+		map.put("birth", birth);
+		map.put("addr", addr);
+		map.put("phone", phone);
+		map.put("email", email);
+		
+		int result = ss.update("member.updateMem", map);
+		System.out.println(result);
+		ss.close();					
+		return (result > 0) ? true : false;
+	}
+
+	public boolean updatePass(String id, String pass) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("id", id);
+		map.put("pass", pass);
+		
+		int result = ss.update("member.updatePass", map);
+		System.out.println(result);
+		ss.close();					
+		return (result > 0) ? true : false;
+	}
+
 }

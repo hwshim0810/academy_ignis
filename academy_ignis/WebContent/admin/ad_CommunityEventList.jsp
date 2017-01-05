@@ -12,7 +12,12 @@
 		id = (String) session.getAttribute("m_id");
 	else
 		response.sendRedirect("./ad_Login.jsp");
+	
+	EventDAO eventDao = EventDAO.getInstance();
+	List<ig_event> eventList = eventDao.getListAll();
+	int totalRows = eventDao.getListCount(); // 전체 게시물 갯수
 %>
+<%@include file="../paging/getPageNum.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -61,7 +66,9 @@
 						%>
 						<tr>
 							<td><%= no %></td>
-							<td><%= event.getEb_title() %></td>
+							<td>
+								<a href="/academy_ignis/EventView?num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
+							</td>
 							<td>이그니스 치과</td>
 							<td><%= event.getEb_regdate() %></td>
 							<td><%= event.getEb_readcount() %></td>
@@ -69,20 +76,31 @@
 						<%
 								no--;
 							}
-							System.out.println(cnt);
 							if (cnt == 0) {
 						%>
 						<tr>
 							<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
 						</tr>
-						<% } %>
+						<% } %> 
 						</tbody>
 					<% } %>
 					</table>
 					<div class="form-group">
-						<input type="button" value="write" onclick="document.location.href='ad_CommunityEventWrite.jsp'">
-						
+						<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityEventWrite.jsp'">
 					</div>
+					<ul class="pager">
+					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="list.jsp?pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/member?pageNo=<%=endPage %>">마지막 페이지</a></li>
+					</ul>
 				</div>
 			</div>
   		</div>
