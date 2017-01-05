@@ -227,6 +227,20 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./admin/ad_CommunityEventView.jsp");
 			break;
+		case "/EventEditView":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityEventEdit.jsp");
+			break;
+		case "/EventEdit":
+			action = new EventEditAction();
+			System.out.println("EventEdit_FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 //		case "/" :
 //			action = new Action();

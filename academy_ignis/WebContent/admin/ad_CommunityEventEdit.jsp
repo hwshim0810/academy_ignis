@@ -15,7 +15,9 @@
 	
 	EventDAO eventDao = EventDAO.getInstance();
 	ig_event eventBean = new ig_event();
+	
 	int num = 0;
+	
 	if (request.getParameter("num") != null || Integer.parseInt(request.getParameter("num")) != 0) {
 		num = Integer.valueOf((String) request.getParameter("num"));
 		
@@ -43,63 +45,58 @@
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 				<div class="panel-heading">
-					EVENT
+					EVENT 수정
 				</div>
 				<div class="panel-body">
-					<table class="table">
-					<%
+					<form class="form-horizontal" name="updateEvent" method="post" action="/academy_ignis/EventEdit?num=<%= num %>">
+						<table class="table">
+						<%
 							ig_event view = eventDao.eventSelectOne(num);		
 						%>
-						<tbody>
-							<tr>
-								<th>글번호</th>
-								<td>
-									<div class="form-group">
-										<%= view.getEb_num() %>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>글쓴이</th>
-								<td>
-									<div class="form-group">이그니스 치과</div>
-								</td>
-							</tr>
-							<tr>
-								<th>제목</th>
-								<td>
-									<div class="form-group">
-										<%= view.getEb_title() %>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>이벤트 내용</th>
-								<td>
-									<div class="form-group">
-										<%= view.getEb_content() %>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2" style="text-align : center;">
-									<div class="form-group">
-							            <div class="col-md-offset-2 col-md-10">
-							                <button type="button" class="btn btn-info"  onclick="document.location.href='admin/ad_CommunityEventList.jsp'">목록</button>
-							            	<button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/EventEditView?num=<%= view.getEb_num()%>'">수정</button>
-							            	<button type="button" class="btn btn-danger">삭제</button>
-							            </div>
-							        </div>
-								</td>
-							</tr>
-						</tbody>
-					</table>
+							<tbody>
+								<tr>
+									<th>글쓴이</th>
+									<td>
+										<div class="form-group">
+                							<input type="text" name="eb_writer"  class="form-control" value="이그니스 치과" readonly />
+            							</div>
+									</td>
+								</tr>
+								<tr>
+									<th>제목</th>
+									<td>
+										<div class="form-group">
+                							<input type="text" name="eb_title"  class="form-control" value="<%= view.getEb_title() %>" />
+            							</div>
+									</td>
+								</tr>
+								<tr>
+									<th>이벤트 내용</th>
+									<td>
+										<div class="form-group">
+											<textarea class="form-control" name="eb_content"><%= view.getEb_content() %></textarea>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" style="text-align : center;">
+										<div class="form-group">
+								            <div class="col-md-offset-2 col-md-10">
+								                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventView?num=<%= view.getEb_num()%>'">취소</button>
+								            	<button type="submit" class="btn btn-primary">수정</button>
+								            </div>
+								        </div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</form>
 				</div>
 			</div>
   		</div>
-	<%
-		pageContext.include("./manage_Footer.jsp");
-	%>
+<%
+	pageContext.include("./manage_Footer.jsp");
+%>
   	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

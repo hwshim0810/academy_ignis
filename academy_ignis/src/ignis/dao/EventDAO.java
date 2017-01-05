@@ -51,17 +51,20 @@ public class EventDAO {
 	}
 
 	// 이벤트 수정
-	public static void updateEvent(String eb_title, String eb_content){
+	public boolean updateEvent(int eb_num, String eb_title, String eb_content){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, String> map = new HashMap<String, String>();
-		
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(eb_num+" ////DAO//");
+		map.put("eb_num", eb_num);
 		map.put("eb_title", eb_title);
 		map.put("eb_content", eb_content);
 		
-		ss.update("event.updateEvent", map);
+		int result = ss.update("event.updateEvent", map);
 		
 		ss.commit();
 		ss.close();
+		
+		return(result > 0) ? true : false;
 	} 
 	
 	public List<ig_event> getListAll() {
@@ -78,6 +81,13 @@ public class EventDAO {
 		ss.close();
 		
 		return count;
+	}
+	
+	public ig_event eventSelectOne(int eb_num){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		ig_event view = ss.selectOne("event.selectNum", eb_num);
+		
+		return view;
 	}
 
 }
