@@ -1,13 +1,13 @@
 $(function() {
-	$("#login").bind('click', function() {
+	$("#logout").bind('click', function() {
 		confirmLogout();
 		return false;
 	});
 });
 
 function userLogin() {
-	$("#login").html('<a href="#">Logout</a>');
-	$("#mypage").html('<a href="#">My page</a>');
+	$("#login").html('<a href="#" id="logout">Logout</a>');
+	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
 }
 
 function userLogout() {

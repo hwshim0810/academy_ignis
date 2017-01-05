@@ -1,4 +1,9 @@
 $(function () {
+  	$("#logout").bind('click', function() {
+		confirmLogout();
+		return false;
+	});
+	
   	$('.navbar-toggle-sidebar').click(function () {
   		$('.navbar-nav').toggleClass('slide-in');
   		$('.side-body').toggleClass('body-slide-in');
@@ -10,4 +15,26 @@ $(function () {
   		$('.side-body').removeClass('body-slide-in');
   		$('.search-input').focus();
   	});
+  	
   });
+
+function confirmLogout() {
+	$.confirm({
+	    title: '로그아웃',
+	    content: '로그아웃 하시겠습니까?',
+	    buttons: {
+	    	네: {
+	            text: '네',
+	            btnClass: 'btn-primary',
+	            keys: ['enter'],
+	            action: function(){
+	            	location.href='/academy_ignis/logout?id=admin';
+	            }
+	        },
+	        
+	        아니요: function () {
+	           
+	        }
+	    }
+	});
+}

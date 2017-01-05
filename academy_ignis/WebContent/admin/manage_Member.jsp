@@ -15,7 +15,6 @@
 	MemberDAO memDao = MemberDAO.getInstance();
 	List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
 	
-	// list.jsp?pageNo=1과 같은 형식으로 호출
 	String tempNo = request.getParameter("pageNo");
 
 	int pageNo = 1;
@@ -23,13 +22,12 @@
 	try {
 		pageNo = Integer.parseInt(tempNo);
 	} catch (Exception e) {
-		// null 이거나, 문자를 숫자로 바꾸려 해서 에러가 나거나 무조건 pageNo=1
 	}
 
 	final int ROW_PER_PAGE = 15; // 페이지당 레코드 출력 갯수
 	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
 	int end = pageNo * ROW_PER_PAGE;
-	// 시작 페이지와 끝 페이지를 조건으로 리스트 가져오기
+	
 	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
