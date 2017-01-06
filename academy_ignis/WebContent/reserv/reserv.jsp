@@ -235,7 +235,7 @@ table td { font-size : 1.2em; padding : 7px 0; }
 										
 										--%>
 									
-									<option value = "09:00">09:00&nbsp;&nbsp;(예약 가능)</option> 
+									<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
 									<option value = "09:30">09:30&nbsp;&nbsp;(예약 가능)</option>
 									<option value = "10:00">10:00&nbsp;&nbsp;(예약 가능)</option>
 									<option value = "10:30">10:30&nbsp;&nbsp;(예약 가능)</option>

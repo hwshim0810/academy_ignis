@@ -3,16 +3,19 @@
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"	
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserv">
+	<select id="check"  resultType="ignis.bean.ig_reserv">
+		SELECT * FROM ig_reserv WHERE m_id= #{m_id}
+	</select>
 	<insert id="add" parameterType="java.util.HashMap">
 		INSERT INTO ig_reserv( r_num, r_guide, r_day, r_time, r_content, m_id)
 		VALUES ( r_num.NEXTVAL, #{r_guide},SYSDATE, #{r_time}, #{r_content}, #{m_id})
 	</insert>
-	<update id="modify" parameterType="java.util.HashMap">
+	<update id="updateReserv" parameterType="java.util.HashMap">
 		UPDATE ig_reserv SET r_content=#{r_content} where m_id =#{m_id}
-	</update>
-	<select id="check"  resultType="ignis.bean.ig_reserv">
-		SELECT * FROM ig_reserv WHERE m_id= #{m_id}
-	</select>
+	</update>	
+	<delete id="deleteReserv" parameterType="java.util.HashMap">
+		delete from ig_event where m_id =#{m_id}
+	</delete>
 	
 </mapper>
 

@@ -168,6 +168,16 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
+			
+		case "/updateReserv" :
+			action = new ReservUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+			
 		case "/logout" :
 			action = new MemberLogoutAction();
 			

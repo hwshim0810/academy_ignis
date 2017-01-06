@@ -48,11 +48,13 @@
 </head>
 <script type="text/javascript">
 	function btnPress1(){
-		alert("여기찍혔습니다.1");
+		location.href = "index.jsp";
+		
 	}
 	
 	function btnPress2(){
-		alert("여기찍혔습니다.2");
+		checkFrom.submit();
+		
 	}
 	
 </script>
@@ -72,7 +74,7 @@
 <div class="container text-center">    
 	<div class="col-sm-8 col-md-9 well">
 	<div class="row">
-		<form method="post" action="./reservCheckProcess">
+		<form method="post" action="./reservCheckProcess" name="checkFrom">
 			<div class="col-xs-10">
 				<div class="row">
 					<div class="col-xs-4 form-group">
@@ -119,7 +121,6 @@
 			<input type="text" name="m_id" value="아이디">
 			<input type="button" value="HOME" onclick = "btnPress1()">
 			<input type="button" value="예약 완료" onclick = "btnPress2()">				
-			<input type="submit" class="btn btn-lg btn-info" value="예약 완료">				
 			</div>
 		</form> 
 	</div>

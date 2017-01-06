@@ -15,6 +15,15 @@ public class ReservDAO {
 		return reservDAO;
 	}
 	
+	public boolean update(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("m_id", m_id);			
+		int cnt = ss.insert("reserv.updateReserv", map);
+		System.out.println("update확인용 cnt" + cnt);
+		ss.close();					return (cnt > 0) ? true : false;
+	}
+	
 	public boolean insert(String r_guide, String r_time, String r_content, String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, String> map = new HashMap<String, String>();
@@ -23,7 +32,7 @@ public class ReservDAO {
 		map.put("r_content", r_content);
 		map.put("m_id", m_id);			
 		int cnt = ss.insert("reserv.add", map);
-		System.out.println(cnt);
+		System.out.println("insert확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
 	

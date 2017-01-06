@@ -14,6 +14,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <title>Ignis치과</title>
+
+<script type="text/javascript">
+function btnPress1(){
+	location.href = "./updateReserv.jsp";
+
+}
+function btnPress2(){
+	
+}
+function btnPress3(){
+	
+}
+</script>
+
+
 </head>
 <body>
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
@@ -24,7 +39,6 @@
 <div class="container text-center">    
 	<div class="col-sm-8 col-md-9 well">
 	<div class="row">
-		<form method="post" action="./reservCheckProcess">
 			<div class="col-xs-10">
 				<div class="row">
 					<div class="col-xs-4 form-group">
@@ -68,12 +82,11 @@
 						<input type="text" readonly value="55">
 					</div>
 				</div>
-			<input type="text" name="m_id" value="아이디">
-			<input type="button" value="HOME" onclick = "btnPress1()">
-			<input type="button" value="예약 완료" onclick = "btnPress2()">				
-			<input type="submit" class="btn btn-lg btn-info" value="예약 완료">				
+				<%="안녕" %>				
+			<input type="button" value="예약 수정" onclick = "btnPress1()">
+			<input type="button" value="예약 삭제" onclick = "btnPress2()">				
+			<input type="button" value="뒤로 가기" onclick = "btnPress3()">				
 			</div>
-		</form> 
 	</div>
 	</div>
 </div>
