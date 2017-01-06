@@ -18,7 +18,6 @@ $(function() {
 
 			data = data.trim();	
 			var idReg = /^[a-zA-Z][A-Za-z0-9]{4,10}$/g;
-			
 			if (!data) {
 				$.alert({
 					buttons: {
@@ -56,8 +55,9 @@ $(function() {
 			}
 			
 			$.post('/academy_ignis/member/idChk.jsp', 'm_id=' + data, function(temp) {
-				var result = temp;
-				result = result.trim();
+				var resultArr = temp.split('/');
+				var result = resultArr[0].trim();
+				var id = resultArr[1].trim();
 				
 				if (result == 'OK') {
 					$.confirm({
@@ -67,8 +67,8 @@ $(function() {
 					    buttons: {
 					        사용하기: {
 					        	btnClass: 'btn-green',
-					        	function () {
-					        		$("#m_id").val(data);
+					        	action : function () {
+					        		$("#m_id").val(id);
 					        	}
 					        },
 					        돌아가기: function () {
