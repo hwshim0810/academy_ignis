@@ -11,7 +11,7 @@ create table ig_member  (
 				m_id VARCHAR2(30) PRIMARY KEY, 
 				m_pass VARCHAR2(30) NOT NULL, 
 				m_name VARCHAR2(20) NOT NULL, 
-				m_birth NUMBER NOT NULL, 
+				m_birth NUMBER, 
 				m_addr VARCHAR2(100) NOT NULL,
 				m_phone NUMBER NOT NULL,
 				m_email VARCHAR2(50) NOT NULL, 
