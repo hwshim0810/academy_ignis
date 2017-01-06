@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ignis.action.ActionForward;
 import ignis.bean.ig_event;
 import ignis.dao.EventDAO;
 
@@ -44,5 +45,27 @@ public class EventBiz {
 		
 		return result;
 		
+	}
+	
+	public boolean upReadCount(HttpServletRequest request, HttpServletResponse response){
+		int num = Integer.valueOf(request.getParameter("num"));
+		boolean result = false;
+		
+		try {
+			result = eventDao.upReadCount(num);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return result;
+		
+	}
+
+	public ig_event eventSelectOne(HttpServletRequest request, HttpServletResponse response) {
+		EventDAO eventDao = new EventDAO();
+		int eb_num = Integer.parseInt(request.getParameter("num"));
+		ig_event eventBean = eventDao.eventSelectOne(eb_num);
+		
+		return eventBean;
 	}
 }

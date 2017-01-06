@@ -12,9 +12,7 @@
 		id = (String) session.getAttribute("m_id");
 	else
 		response.sendRedirect("./ad_Login.jsp");
-	
-	EventDAO eventDao = EventDAO.getInstance();
-	ig_event eventBean = new ig_event();
+
 	int num = 0;
 	if (request.getParameter("num") != null || Integer.parseInt(request.getParameter("num")) != 0) {
 		num = Integer.valueOf((String) request.getParameter("num"));
@@ -23,6 +21,9 @@
 	else {
 		response.sendRedirect("/academy_ignis/admin/ad_CommunityEventList.jsp");
 	}
+	
+	EventDAO eventDao = new EventDAO();
+	ig_event view = eventDao.eventSelectOne(num);
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,7 @@
 				<div class="panel-body">
 					<table class="table">
 					<%
-							ig_event view = eventDao.eventSelectOne(num);		
+								
 						%>
 						<tbody>
 							<tr>
@@ -85,7 +86,7 @@
 								<td colspan="2" style="text-align : center;">
 									<div class="form-group">
 							            <div class="col-md-offset-2 col-md-10">
-							                <button type="button" class="btn btn-info"  onclick="document.location.href='admin/ad_CommunityEventList.jsp'">목록</button>
+							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event'">목록</button>
 							            	<button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/EventEditView?num=<%= view.getEb_num()%>'">수정</button>
 							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventDelete?num=<%= view.getEb_num() %>'">삭제</button>
 							            </div>

@@ -15,7 +15,7 @@
 	</select>
 	<insert id="insertEvent" parameterType="ignis.bean.ig_event">
 		insert into ig_event
-		values(eb_num.NEXTVAL, #{eb_title}, #{eb_content}, 1, SYSDATE)
+		values(eb_num.NEXTVAL, #{eb_title}, #{eb_content}, 0, SYSDATE)
 	</insert>
 	<update id="updateEvent" parameterType="java.util.HashMap">
 		update ig_event 
@@ -29,4 +29,8 @@
 	<select id="selectListCount" resultType="int">
 		SELECT count(*) FROM ig_event
 	</select>
+	<update id="upReadCount" parameterType="int">
+		update ig_event set eb_readcount = eb_readcount + 1
+		where eb_num = #{eb_num}
+	</update>
 </mapper>

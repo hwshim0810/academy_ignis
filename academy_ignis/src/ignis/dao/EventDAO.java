@@ -103,5 +103,15 @@ public class EventDAO {
 		
 		return(result > 0) ? true : false;
 	} 
+	
+	public boolean upReadCount(int eb_num) throws Exception{
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+
+		int result = ss.update("event.upReadCount", eb_num);
+		
+		ss.close();
+		
+		return(result > 0) ? true : false;
+	}
 
 }
