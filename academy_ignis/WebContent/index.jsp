@@ -66,8 +66,8 @@
         	<img src="/academy_ignis/image/slide1.png" alt="Image">
         </a>
       </div>
-      <div class="#">
-        <a href="reserv">	
+      <div class="item">
+        <a href="reserve">	
         	<img src="/academy_ignis/image/slide2.png" alt="Image">
         </a>     
       </div>
