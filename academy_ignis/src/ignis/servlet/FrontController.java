@@ -104,9 +104,12 @@ public class FrontController extends HttpServlet {
 			break;	
 			
 		case "/qna":
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./community/qna.jsp");
+			action = new QnaSelectAllAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;	
 			
 		case "/joinProcess":

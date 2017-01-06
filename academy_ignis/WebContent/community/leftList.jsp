@@ -9,7 +9,7 @@
   <li class="list-group-item" ><a href="notice">공지사항</a></li>
   <li class="list-group-item" ><a href="community/comm_event.jsp">이벤트</a></li>
   <li class="list-group-item" ><a href="#">수술후기</a></li>
-  <li class="list-group-item " ><a href="qna.jsp">QNA</a></li>
+  <li class="list-group-item " ><a href="qna">QNA</a></li>
   <li class="list-group-item " ><a href="#">FAQ</a></li>
 </ul>
    </div>
