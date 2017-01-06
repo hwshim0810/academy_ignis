@@ -31,7 +31,7 @@
 </head>
 <body>
 
- <h4>공지사항</h4><hr>
+ <h3>공지사항</h3><hr>
  <table class="table">
     <thead>
       <tr class="info">
@@ -60,13 +60,27 @@
     </tbody>
   </table>
   <ul class="pager">
-  <li><a href="notice?pagenum=1">첫 페이지</a></li>
+  <%if(pagenum==1){%>
+    <li><a>첫 페이지</a></li>
+	  <li><a>◁</a></li>
+ <% }else{ %>
+   <li><a href="notice?pagenum=1">첫 페이지</a></li>
   <li><a href="notice?pagenum=<%=pagenum-1%>">◁</a></li>
- <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
-  <li><a href="notice?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
   <%} %>
+ <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
+ 
+ <% if(pagelist==pagenum){%>
+ <li class="active"><a><%=pagelist %></a></li>
+ <%}else{ %>
+  <li><a href="notice?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+  <%}} %>
+  <%if(pagenum==pageCount){ %>
+  <li><a>▷</a></li>
+  <li><a>마지막 페이지</a></li>
+  <%}else{ %>
   <li><a href="notice?pagenum=<%=pagenum+1%>">▷</a></li>
   <li><a href="notice?pagenum=<%=pageCount%>">마지막 페이지</a></li>
+  <%} %>
 </ul>
 </body>
 </html>

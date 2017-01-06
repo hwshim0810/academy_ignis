@@ -26,7 +26,6 @@ public class NoticeBiz {
 	public List<ig_notice> selectAll(int startRowNum,int endRowNum) {
 		NoticeDAO noticeDao = new NoticeDAO();
 		List<ig_notice> list = noticeDao.selectAll(startRowNum,endRowNum);
-
 		return list;
 	}
 	
