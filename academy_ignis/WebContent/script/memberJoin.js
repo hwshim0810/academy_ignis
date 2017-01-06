@@ -1,4 +1,8 @@
 $(function() {
+	$("#postSearch").click(function() {
+		sample3_execDaumPostcode();
+	});
+	
 	$("#m_passchk").keyup(function() {
 		var m_pass = $("#m_pass").val();
 		var m_passchk = $("#m_passchk").val();
@@ -96,3 +100,4 @@ $(function() {
 		});
 	});
 });
+

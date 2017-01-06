@@ -80,20 +80,37 @@
 				
 				<!-- Text input-->
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="textinput">생년월일*</label>  
+				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 				  <div class="col-md-4">
 				  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
 				  </div>
 				</div>
 				
-				<!-- Text input-->
+				<!-- 우편번호 API 이용 -->
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="textinput">주소*</label>  
-				  <div class="col-md-4">
-				  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md">
-				  </div>
+					<div class="col-md-4">
+					</div>
+					<div class="col-md-4">
+						<input type="text" id="m_postcode" placeholder="우편번호" class="form-control input-md">
+					</div>
+					<div class="col-md-2">
+						<input id="postSearch" class="btn btn-default" value="우편번호 찾기">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="col-md-4">
+						<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+						<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+						</div>
+					</div>
+				<div class="col-md-8">
+					<input type="text" id="m_addr" name="m_addr" class="d_form large" placeholder="주소" class="form-control input-md">
+				</div>
 				</div>
 				
+				<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?v=1"></script>
+				<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin_post.js?v=10"></script>
+
 				<!-- Text input-->
 				<div class="form-group">
 				  <label class="col-md-4 control-label"  for="textinput">휴대폰 번호*</label>  
@@ -148,7 +165,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=13"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
 </body>
 </html>

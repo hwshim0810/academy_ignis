@@ -42,8 +42,8 @@
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-					<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
-					<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
+						<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
+						<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
 					</thead>
 					<tbody>
 					<% 
@@ -66,7 +66,7 @@
 					</tbody>
 				</table>
 					<form class="form-inline" >
-					   <label for="sel1">검색 범위</label>
+					  <label for="sel1">검색 범위</label>
 					  <select class="form-control" id="sel1">
 					    <option>전체</option>
 					    <option>제목</option>
@@ -87,7 +87,7 @@
 					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
 					  	<% } %>
 					  <li>
-					 	 <% if (nextPage != 0) { %><a href="list.jsp?pageNo=<%=nextPage%>">▷</a><% } %>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=nextPage%>">▷</a><% } %>
 					  </li>
 					  <li><a href="/academy_ignis/member?pageNo=<%=endPage %>">마지막 페이지</a></li>
 					</ul>

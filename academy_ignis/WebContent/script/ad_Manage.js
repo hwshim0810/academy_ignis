@@ -1,5 +1,5 @@
 $(function () {
-  	$("#logout").bind('click', function() {
+  	$("#logout").click( function() {
 		confirmLogout();
 		return false;
 	});
@@ -29,7 +29,7 @@ function confirmLogout() {
 	            btnClass: 'btn-primary',
 	            keys: ['enter'],
 	            action: function(){
-	            	location.href='/academy_ignis/logout';
+	            	location.href='/academy_ignis/logout?id=admin';
 	            }
 	        },
 	        
