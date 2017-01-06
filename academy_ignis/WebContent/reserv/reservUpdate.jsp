@@ -1,18 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--
-	String id = null;
-
-	if (session.getAttribute("m_id") != null) 
-		id = (String) session.getAttribute("m_id");
-	else
-		response.sendRedirect("/academy_ignis");
-	
-
-	MemberDAO memDao = MemberDAO.getInstance();
-	User userInfo = memDao.isMember(id);
-	
---%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,7 +9,18 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="/academy_ignis/css/index.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script>
+function btnPress1(){
+	checkFrom.submit();
+}
 
+function btnPress2(url){
+	location.href=url;
+
+}
+
+</script>
+	
 <style type="text/css">
 
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -53,29 +51,13 @@
   }
   </style>
 </head>
-<script type="text/javascript">
-	function btnPress1(){
-		location.href = "index.jsp";
-		
-	}
-	
-	function btnPress2(){
-		checkFrom.submit();
-		
-	}
-	
-</script>
 <body>
 <%pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 
 <%
 	pageContext.include("../header/header.jsp");
-	
-	if (id != null) { %> 
-	<script type="text/javascript" charset="utf-8" src="./script/index_login.js"></script>
-<% }%>
- 
- 
+	%>
+
 
 
 <div class="container text-center">    
@@ -85,63 +67,57 @@
 			<div class="col-xs-10">
 				<div class="row">
 					<div class="col-xs-4 form-group">
-					<span id=letter></span></div>
 					<div class="col-xs-8 form-group" >
-					<span id=letter></span></div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
-					<span id=letter></span></div>
+					<span id=letter>예약 번호</span></div>
 					<div class="col-xs-8 form-group" >
-					<span id=letter></span></div>
+						<input type="text" value="hi"  name="abc">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 항목</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" readonly value="<%= request.getParameter("tooth") %>"  name="tooth">
+						<input type="text" value="hi"  name="tooth">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>환자 ID</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="수정 불가" name="bcd">
+						<input type="text" value="수정 불가" name="bcd">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 시간</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="<%= request.getParameterValues("clitime")[0] %>" name="clitime">
+						<input type="text" value="hi" name="clitime">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>상담 내용</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="<%= request.getParameter("clitext") %>" name="clitext">
+						<input type="text" value="hi" name="clitext">
 					</div>
 				</div>		
-			<input type="text" name="m_id" value="아이디" hidden="hidden">
-			<input type="button" value="HOME" onclick = "btnPress1()">
-			<input type="button" value="예약 완료" onclick = "btnPress2()">				
+			<input type="button" value="수정 완료" onclick = "btnPress1()">
+			<input type="button" value="수정 취소" onclick = "btnPress2('reservCheck.jsp')">				
 			</div>
 		</form> 
 	</div>
 	</div>
+  </div>
   
-  
-  
-  
-  
-  
-  
-  
-  
-</div>
+
+
+
+
+
 <%-- Footer 시작 --%>
 <%
 	pageContext.include("../footer/footer.jsp");

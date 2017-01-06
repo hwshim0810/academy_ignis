@@ -168,8 +168,11 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
+		
 			
+		/* 예약 수정 부분 잠시만 가릴게요
 		case "/updateReserv" :
+			System.out.println("여기찍혔다.");
 			action = new ReservUpdateAction();
 			try {
 				forward = action.execute(request, response);
@@ -177,6 +180,7 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;	
+		*/
 			
 		case "/logout" :
 			action = new MemberLogoutAction();

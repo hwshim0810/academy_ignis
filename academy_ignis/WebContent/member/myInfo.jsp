@@ -3,7 +3,7 @@
     
 <%@ page import="ignis.biz.ReservBiz"%>
 <%@ page import="ignis.dao.ReservDAO"%>
-
+<%@ page import="ignis.action.ActionForward"%>
 <%@ page import="ignis.bean.ig_reserv"%>
 <%@ page import="java.util.List"%>
 
@@ -17,11 +17,12 @@
 
 <script type="text/javascript">
 function btnPress1(){
-	location.href = "./updateReserv.jsp";
+	location.href = "./reserv/reservUpdate.jsp";
 
 }
 function btnPress2(){
 	
+	opener.winodw("")
 }
 function btnPress3(){
 	
@@ -82,7 +83,6 @@ function btnPress3(){
 						<input type="text" readonly value="55">
 					</div>
 				</div>
-				<%="안녕" %>				
 			<input type="button" value="예약 수정" onclick = "btnPress1()">
 			<input type="button" value="예약 삭제" onclick = "btnPress2()">				
 			<input type="button" value="뒤로 가기" onclick = "btnPress3()">				

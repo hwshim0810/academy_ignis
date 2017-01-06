@@ -75,8 +75,9 @@ table td { font-size : 1.2em; padding : 7px 0; }
 	function changeDate() {
 		var y = document.getElementById("y").value;
 		var m = document.getElementById("m").value;
-		var d = documnet.getElementById("d").value;
-		var url = "reserv.jsp?y=" + y + "&m=" + m + "&d=" + d;
+		// var d = documnet.getElementById("d").value;
+		var url = "reserv.jsp?y=" + y + "&m=" + m;
+				//+ "&d=" + d; 날짜를 끼운다. 
 		location.href = url; //url이 가지고 있는 값으로 이동
 	}
 	
@@ -159,6 +160,7 @@ table td { font-size : 1.2em; padding : 7px 0; }
 									</option>
 									<% } %>
 							</select>
+							<%-- day 수정 중
 							<select class="select1"  id="d" onchange="changeDate();">
 									<%
 										for (int i = 1; i <= cal.getActualMaximum(Calendar.DATE); i++) {
@@ -168,6 +170,7 @@ table td { font-size : 1.2em; padding : 7px 0; }
 									</option>
 									<% } %>
 							</select>
+							 --%>
 							<br/>
 							
 								<table>

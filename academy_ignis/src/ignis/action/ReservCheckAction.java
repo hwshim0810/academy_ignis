@@ -16,7 +16,6 @@ public class ReservCheckAction implements ActionInterface {
 		boolean result = reservBiz.check(request, response);
 
 		if (result) {
-			System.out.println("true라서 들어왔어용!");
 			forward.setRedirect(false);
 			forward.setPath("./member/myInfo.jsp");
 			return forward;
