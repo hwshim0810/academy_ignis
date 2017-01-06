@@ -48,7 +48,6 @@ public class QnaBiz {
 	public List<ig_qna> selectDetail(int nb_num) {
 		QnaDAO qnaDao = new QnaDAO();
 		List<ig_qna> list = qnaDao.selectDetail(nb_num);
-
 		return list;
 	}
 

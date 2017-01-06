@@ -34,7 +34,7 @@ if(endpage>pageCount){endpage=pageCount;}
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
  <div class="col-xs-12 col-sm-9 col-md-10 ">
-<h4>궁굼한 점</h4><hr>
+<h3>Q&A</h3><hr>
  <table class="table">
     <thead>
       <tr class="info">
@@ -47,37 +47,44 @@ if(endpage>pageCount){endpage=pageCount;}
     </thead>
     <tbody>
      <%List<ig_qna> list=null;
-     System.out.println("22222222222");
     if(request.getAttribute("qnalist")!=null){
     	list = (List)request.getAttribute("qnalist");
-    	System.out.println(list.get(0).getQb_mal());
     for(int i=0;i<list.size();i++){
-    	
     	%>
       <tr>
         <td><%=list.get(i).getQb_mal() %></td>
-        <td><a href="qnaDetail?nb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getQb_title() %></a></td>
+        <td><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getQb_title() %></a></td>
         <td><%=list.get(i).getM_id() %></td>
-        <td><%=list.get(i).getDate()%></td>
+        <td><%=list.get(i).getQb_regdate()%></td>
         <td><%=list.get(i).getQb_readcount()%></td>
       </tr>
       <%}
     } %>
     </tbody>
   </table>
-  
   <ul class="pager">
-  <li><a href="qna?pagenum=1">첫 페이지</a></li>
+  <%if(pagenum==1){%>
+    <li><a>첫 페이지</a></li>
+	  <li><a>◁</a></li>
+ <% }else{ %>
+   <li><a href="qna?pagenum=1">첫 페이지</a></li>
   <li><a href="qna?pagenum=<%=pagenum-1%>">◁</a></li>
- <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
-  <li><a href="qna?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
   <%} %>
+ <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
+ <% if(pagelist==pagenum){%>
+ <li class="active"><a><%=pagelist %></a></li>
+ <%}else{ %>
+  <li><a href="qna?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+  <%}} %>
+  <%if(pagenum==pageCount){ %>
+  <li><a>▷</a></li>
+  <li><a>마지막 페이지</a></li>
+  <%}else{ %>
   <li><a href="qna?pagenum=<%=pagenum+1%>">▷</a></li>
   <li><a href="qna?pagenum=<%=pageCount%>">마지막 페이지</a></li>
+  <%} %>
 </ul>
-  
  </div>
- 
  </div>
 </body>
 </html>
