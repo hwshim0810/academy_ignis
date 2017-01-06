@@ -92,12 +92,11 @@ body { font-size: 20px;}
 								<label>진료 항목 </label>
 							</div>
 							<div class="col-sm-7 form-group" >
-								<select class="select1" id="y" onchange="changeDate();">
+								<select class="select1" id="y" onchange="changeDate();" name="r_guide">
 								<option value="gyoj">치아교정</option>
 								<option value="imple">임플란트</option>
 								<option value="mibak">치아미백</option>
 								<option value="normal">일반진료</option>
-								
 								</select> 
 							</div>
 						</div>
@@ -109,7 +108,7 @@ body { font-size: 20px;}
 							<div class="col-sm-7 form-group">
 								<p><input type="text" id="datepicker" value="날짜를 선택하세요" 
 								onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
-								onblur="if(this.value==''{this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" /></p>	
+								onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day"/></p>	
 							</div>
 						</div>
 						<div class="row">
@@ -118,7 +117,7 @@ body { font-size: 20px;}
 								<label>예약시간 선택</label>
 							</div>
 							<div class="col-sm-7">
-								<select class="select11" name="clitime" onchange="changeTime(this.value);" multiple = "multiple">
+								<select class="select11" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
 									<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
 									<option value = "09:30">09:30&nbsp;&nbsp;(예약 가능)</option>
 									<option value = "10:00">10:00&nbsp;&nbsp;(예약 가능)</option>

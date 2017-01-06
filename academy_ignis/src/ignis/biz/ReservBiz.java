@@ -1,5 +1,7 @@
 package ignis.biz;
 
+
+import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,12 +24,14 @@ public class ReservBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		ReservDAO reservDao = new ReservDAO();
-		String r_guide = request.getParameter("tooth");
-		String r_time = request.getParameter("clitime");
-		String r_content = request.getParameter("clitext");
+		String r_guide = request.getParameter("r_guide");
+		String r_day = request.getParameter("r_day");
+		String r_time = request.getParameter("r_time");
+		String r_findDoc = "TRUE";
+		// r_findDoc가 TRUE라는 것은 의사가 진료 예약이 잡혀있음을 의미.
 		String m_id = "아이디";
 
-		boolean result = reservDao.insert(r_guide, r_time, r_content, m_id);
+		boolean result = reservDao.insert(r_guide, r_day, r_time, r_findDoc, m_id);
 		
 		if (result) return result;
 		else return result;
