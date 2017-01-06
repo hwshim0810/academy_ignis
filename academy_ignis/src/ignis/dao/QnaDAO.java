@@ -13,11 +13,11 @@ import ignis.mybatis.service.FactoryService;
 
 public class QnaDAO {
 
-	public boolean insert( String nb_title, String nb_content) {
+	public boolean insert( String qb_title, String qb_content) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, String> map = new HashMap<>();
-		map.put("nb_title", nb_title);
-		map.put("nb_content", nb_content);
+		map.put("nb_title", qb_title);
+		map.put("nb_content", qb_content);
 		int result = ss.insert("qna.add", map);
 		if(result> 0) {System.out.println("qna추가 성공");}
 		else {System.out.println("qna추가 실패");}
@@ -71,10 +71,10 @@ public class QnaDAO {
 	}
 
 
-	public List<ig_qna> selectDetail(int nb_num) {
+	public List<ig_qna> selectDetail(int qb_num) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Integer> map= new HashMap<String, Integer>();
-		map.put("nb_num", nb_num);
+		map.put("qb_num", qb_num);
 		List<ig_qna> list = ss.selectList("qna.selectDetail",map);
 		ss.close();			
 		return list;

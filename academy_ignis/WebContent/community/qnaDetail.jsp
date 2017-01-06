@@ -29,7 +29,7 @@
     <tbody>
     <%List<ig_qna> list=null;
     if(request.getAttribute("qnaDetail")!=null){
-    	list = (List)request.getAttribute("noticeDetail");
+    	list = (List)request.getAttribute("qnaDetail");
     	%>
       <tr>
       <th>말머리</th>

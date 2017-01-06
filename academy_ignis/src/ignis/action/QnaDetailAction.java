@@ -19,8 +19,8 @@ public class QnaDetailAction  implements ActionInterface{
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 		}
 		int nb_num=1;//상세정보 요청 number
-		if(request.getParameter("nb_num")!=null){
-			nb_num=Integer.parseInt(request.getParameter("nb_num"));
+		if(request.getParameter("qb_num")!=null){
+			nb_num=Integer.parseInt(request.getParameter("qb_num"));
 		}
 		int readCount_change=qnaBiz.updateCount(nb_num);//조회수 +1
 		List<ig_qna> list = qnaBiz.selectDetail(nb_num);//상세 정보 가져옴
