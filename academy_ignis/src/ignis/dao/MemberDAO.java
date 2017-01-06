@@ -70,7 +70,7 @@ public class MemberDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
 		
-		map.put("begin", begin);
+		map.put("begin", begin);	
 		map.put("end", end);
 		
 		List<User> list = ss.selectList("member.selectAll", map);
