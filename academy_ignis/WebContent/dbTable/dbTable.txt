@@ -24,7 +24,7 @@ create table ig_reserv  (
 				r_guide VARCHAR2(30) NOT NULL, 
 				r_day DATE NOT NULL, 
 				r_time VARCHAR2(10) NOT NULL, 
-				r_content VARCHAR2(450),
+				r_findDoc char(1),
 				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;
 				
 create sequence r_num;
