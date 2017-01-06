@@ -43,7 +43,7 @@
 <h5><%=list.get(0).getNb_content() %></h5>
       <%
     } %>
-  <button type="button" class="btn btn-info" ><a href="notice?pagenum=<%=pagenum%>">목록</a></button>
+  <a href="notice?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
 
   </div>
  </div>

@@ -25,14 +25,20 @@
 				<!-- Form Name -->
 				<legend class="sr-only">회원가입</legend>
 				
+				<div class="form-group">
+				  <label class="col-md-8 control-label" for="textinput">(*는 필수입력란입니다.)</label> 
+				  <div class="col-md-3">
+				  </div>
+				</div>
+				
 				<!-- Text input-->
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">아이디*</label>  
 				  <div class="col-md-4">
-				  <input id="m_id" name="m_id" type="text" placeholder="아이디" readonly="readonly"  required="required" class="form-control input-md">
+				  <input id="m_id" name="m_id" type="text" readonly="readonly" placeholder="아이디" required="required" class="form-control input-md">
 				  </div>
 				  <div class="col-md-4">
-					  <input type="button" id="idChk" class="btn btn-default" value="중복체크">
+					  <input type="button" id="idChk" class="btn btn-default" value="아이디 검색">
 				  </div>
 				</div>
 				
@@ -127,12 +133,6 @@
 				  </div>
 				</div> -->
 				
-				<div class="form-group">
-				  <div class="col-md-4">
-				  </div>
-				  <label class="col-md-4 control-label" for="textinput">(*는 필수입력란입니다.)</label> 
-				</div>
-				
 				<!-- Button -->
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -148,7 +148,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=13"></script>
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
 </body>
 </html>

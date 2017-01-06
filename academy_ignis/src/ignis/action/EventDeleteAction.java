@@ -16,19 +16,24 @@ public class EventDeleteAction implements ActionInterface {
 		int num = Integer.valueOf(request.getParameter("num"));
 		boolean result = eventBiz.deleteEvent(request, response);
 		if(result){
-			forward.setRedirect(false);
-			System.out.println("삭제성공");
-			forward.setPath("/academy_ignis/admin/ad_CommunityEventList.jsp");
-			System.out.println("삭제성공2");
-			return forward;
+			
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter outR = response.getWriter();
+			outR.println("<script>");
+			outR.println("alert('삭제되었습니다.');");
+			outR.println("location.href='/academy_ignis/admin/ad_CommunityEventList.jsp';");
+			outR.println("</script>");
+			outR.close();
+			return null;
 		} else {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter outR = response.getWriter();
 			outR.println("<script>");
 			outR.println("alert('삭제실패하였습니다.');");
 			outR.println("</script>");
+			outR.close();
+			return null;
 		}
 		
-		return null;
 	}
 }

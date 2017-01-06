@@ -143,10 +143,22 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '제목40', '내용40',0, SYSDATE
 commit;
 
 
+INSERT INTO IG_member VALUES ( 'admin','1234','admin',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa','1234','aaa',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb','1234','bbb',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 
-
-
-
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목03', 'qna내용03',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목04', 'qna내용04',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목05', 'qna내용05',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목06', 'qna내용06',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목07', 'qna내용07',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목08', 'qna내용08',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목09', 'qna내용09',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',qb_num.currval,0, SYSDATE );
 // Number 테스트
 
 alter table ig_event modify eb_readcount number(22);
@@ -174,7 +186,7 @@ create table ig_event2  (
 				m_enterdate DATE
 
 
-INSERT INTO ig_member VALUES ( '아이디','123','123',111111,'서울', 010 , 'sgs@nav', 2, SYSDATE);
+INSERT INTO ig_member VALUES ( '아이디','123','123',111111,'서울', 010, 'sgs@nav', 2, SYSDATE);
 
 
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST01','TEST0121','0000001',1,SYSDATE);

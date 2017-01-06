@@ -10,7 +10,7 @@ import ignis.bean.ig_notice;
 import ignis.mybatis.service.FactoryService;
 
 
-public class noticeDAO {
+public class NoticeDAO {
 
 	public boolean insert( String nb_title, String nb_content) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -74,7 +74,7 @@ public class noticeDAO {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Integer> map= new HashMap<String, Integer>();
 		map.put("nb_num", nb_num);
-		List<ig_notice> list = ss.selectList("notice.selectDeatil",map);
+		List<ig_notice> list = ss.selectList("notice.selectDetail",map);
 		ss.close();			
 		return list;
 	}

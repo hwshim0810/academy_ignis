@@ -432,6 +432,8 @@ MessageBox - A jQuery Plugin to replace Javascript's window.alert(), window.conf
         var spacer      = overlay.children(".messagebox_spacer").first();
         var instance    = messageBox.data("instance");
         var inputValues = _GetInputsValues(messageBox);
+        
+        //수정한 부분
         var eventDataName = instance.settings.buttonDone == "OK" ? _constants.buttonDoneName : null;
         if (event.data)
         	eventDataName = event.data.name;

@@ -104,9 +104,12 @@ public class FrontController extends HttpServlet {
 			break;	
 			
 		case "/qna":
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./community/qna.jsp");
+			action = new QnaSelectAllAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;	
 			
 		case "/joinProcess":
@@ -229,6 +232,13 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/Event" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityEventList.jsp");
+			break;
+			
 		case "/EventWrite":
 			action = new EventWriteAction();
 			System.out.println("EventWrite_FrontController");
@@ -239,10 +249,15 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 		case "/EventView":
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./admin/ad_CommunityEventView.jsp");
+			action = new EventViewAction();
+			System.out.println("EventViewAction _FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
+
 		case "/EventEditView":
 			forward = new ActionForward();
 			forward.setRedirect(false);

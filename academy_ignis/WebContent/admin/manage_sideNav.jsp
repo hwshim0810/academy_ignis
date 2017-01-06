@@ -25,7 +25,7 @@
 							<div class="panel-body">
 								<ul class="nav navbar-nav">
 									<li><a href="#">공지사항</a></li>
-									<li><a href="ad_CommunityEventList.jsp">이벤트</a></li>
+									<li><a href="/academy_ignis/Event">이벤트</a></li>
 									<li><a href="#">QnA</a></li>
 									<li><a href="#">치료후기</a></li>
 

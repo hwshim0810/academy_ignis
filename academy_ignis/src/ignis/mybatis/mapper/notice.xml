@@ -41,7 +41,7 @@
 	<select id="listCount"  resultType="java.lang.Integer">
 		SELECT count(*) FROM IG_notice
 	</select>
-	<select id="selectDeatil"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
+	<select id="selectDetail"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
 		SELECT * FROM IG_notice where nb_num=#{nb_num}		
 	</select>
 	<select id="updateCount"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
