@@ -22,12 +22,6 @@ public class EventBiz {
 		else return result;
 	}
 	
-	public List<ig_event> eventList(){
-		List<ig_event> list = eventDao.eventList();
-		
-		return list;
-	}
-	
 	public boolean updateEvent(HttpServletRequest request, HttpServletResponse response){
 		System.out.println("EventBiz"+request.getParameter("num"));
 		int eb_num = Integer.parseInt(request.getParameter("num"));
