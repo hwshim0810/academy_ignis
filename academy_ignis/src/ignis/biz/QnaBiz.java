@@ -15,13 +15,10 @@ public class QnaBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		QnaDAO qnaDao = new QnaDAO();
-	
-
-		String nb_title = request.getParameter("nb_title");
-		String nb_content = request.getParameter("nb_content");
-
-		boolean result = qnaDao.insert(nb_title, nb_content);
+		String qb_title = request.getParameter("qb_title");
+		String qb_content = request.getParameter("qb_content");
 		
+		boolean result = qnaDao.insert(qb_title, qb_content);
 		if (result) return result;
 		else return result;
 	}

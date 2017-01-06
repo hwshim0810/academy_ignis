@@ -60,13 +60,12 @@ List<ig_event> list = eventDao.eventList(begin, end);
 						<%
 							Iterator<ig_event> it = list.iterator();
 							int cnt = 0;
-							int no = list.size();
 							while(it.hasNext()){
 								cnt++;
 								ig_event event = it.next();				
 						%>
 						<tr>
-							<td><%= no %></td>
+							<td><%=totalRows %></td>
 							<td>
 								<a href="/academy_ignis/EventView?num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
 							</td>
@@ -75,7 +74,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 							<td><%= event.getEb_readcount() %></td>
 						</tr>
 						<%
-								no--;
+							totalRows--;
 							}
 							if (cnt == 0) {
 						%>

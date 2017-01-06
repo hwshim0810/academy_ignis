@@ -5,6 +5,7 @@
         <%
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
+    session.getAttribute("m_id");
     	%>
 <!DOCTYPE html>
 <html>
@@ -28,19 +29,24 @@
     <tbody>
     <%List<ig_qna> list=null;
     if(request.getAttribute("qnaDetail")!=null){
-    	list = (List)request.getAttribute("noticeDetail");
+    	list = (List)request.getAttribute("qnaDetail");
     	%>
       <tr>
+      <th>말머리</th>
+        <td><%=list.get(0).getQb_mal() %></td>
+        <th>작성자</th>
+        <td><%=list.get(0).getQb_title() %></td>
+      </tr><tr>
       <th>제목</th>
-        <td><%=list.get(0).getNb_title() %></td></tr><tr>
+        <td><%=list.get(0).getQb_title() %></td>
         <th>등록일</th>
-        <td><%=list.get(0).getNb_regdate() %></td>
+        <td><%=list.get(0).getQb_regdate() %></td>
         <th>조회수</th>
-        <td><%=list.get(0).getNb_readcount() %></td>
+        <td><%=list.get(0).getQb_readcount() %></td>
       </tr>
     </tbody>
   </table>
-<h5><%=list.get(0).getNb_content() %></h5>
+<h5><%=list.get(0).getQb_content() %></h5>
       <%
     } %>
   <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
