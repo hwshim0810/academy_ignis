@@ -84,6 +84,7 @@ if(endpage>pageCount){endpage=pageCount;}
   <li><a href="qna?pagenum=<%=pageCount%>">마지막 페이지</a></li>
   <%} %>
 </ul>
+ <a href="qnaInsertView"><button type="button" class="btn btn-success" >문의하기</button></a>
  </div>
  </div>
 </body>

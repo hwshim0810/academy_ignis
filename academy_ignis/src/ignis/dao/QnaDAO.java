@@ -16,8 +16,8 @@ public class QnaDAO {
 	public boolean insert( String qb_title, String qb_content) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, String> map = new HashMap<>();
-		map.put("nb_title", qb_title);
-		map.put("nb_content", qb_content);
+		map.put("qb_title", qb_title);
+		map.put("qb_content", qb_content);
 		int result = ss.insert("qna.add", map);
 		if(result> 0) {System.out.println("qna추가 성공");}
 		else {System.out.println("qna추가 실패");}
