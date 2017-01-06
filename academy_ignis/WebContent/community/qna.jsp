@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ignis.bean.ig_notice" %>
+<%@ page import="ignis.bean.ig_qna" %>
 <%@ page import="java.util.*" %>
 <%
 int pagenum=1;//현재 페이지
@@ -38,14 +38,15 @@ if(endpage>pageCount){endpage=pageCount;}
  <table class="table">
     <thead>
       <tr class="info">
-        <th>번호</th>
+        <th>말머리</th>
         <th>제목</th>
-        <th>작성일</th>
-       <th>조회</th>
+        <th>작성자</th>
+        <th>등록일</th>
+       <th>조회수</th>
       </tr>
     </thead>
     <tbody>
-     <%List<ig_notice> list=null;
+     <%List<ig_qna> list=null;
     if(request.getAttribute("noticelist")!=null){
     	list = (List)request.getAttribute("noticelist");
     	

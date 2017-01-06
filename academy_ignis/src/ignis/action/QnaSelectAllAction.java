@@ -6,12 +6,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ignis.bean.ig_notice;
+import ignis.bean.ig_qna;
 import ignis.biz.NoticeBiz;
+import ignis.biz.QnaBiz;
 
 public class QnaSelectAllAction  implements ActionInterface{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		NoticeBiz noticeBiz = new NoticeBiz();
+		QnaBiz noticeBiz = new QnaBiz();
 		ActionForward forward = new ActionForward();
 		
 		int pagenum=1;//현재 페이지
@@ -35,14 +37,14 @@ public class QnaSelectAllAction  implements ActionInterface{
 		startpage= ((pagenum-1)/10)*10+1;
 		endpage=startpage+10-1;
 		
-		List<ig_notice> list = noticeBiz.selectAll(startRowNum,endRowNum);
+		List<ig_qna> list = noticeBiz.selectAll(startRowNum,endRowNum);
 		request.setAttribute("pagenum", pagenum);
 		request.setAttribute("pagelimit", pagelimit);
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
 		if (list !=null) {
-			request.setAttribute("noticelist", list);
+			request.setAttribute("qnaList", list);
 			forward.setRedirect(false);
 			forward.setPath("./community/qna.jsp");
 			return forward;

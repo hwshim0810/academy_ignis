@@ -2,8 +2,6 @@
     pageEncoding="UTF-8"%>
     <%@ page import="ignis.bean.ig_notice" %>
     <%@ page import="java.util.*" %>
-    <%@ page import="ignis.dao.noticeDAO" %>
-    <%@ page import="ignis.biz.NoticeBiz" %>
     <%
     int pagenum=1;//현재 페이지
 	int pagelimit=10;//한 페이지 리스트수

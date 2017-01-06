@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ page import="ignis.bean.ig_notice" %>
 <%@ page import="java.util.*" %>
-<%@ page import="ignis.dao.noticeDAO" %>
 <%%>
 <!DOCTYPE html>
 <html>
