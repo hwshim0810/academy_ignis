@@ -76,7 +76,7 @@ table td { font-size : 1.2em; padding : 7px 0; }
 		var y = document.getElementById("y").value;
 		var m = document.getElementById("m").value;
 		// var d = documnet.getElementById("d").value;
-		var url = "reserv.jsp?y=" + y + "&m=" + m;
+		var url = "reserv?y=" + y + "&m=" + m;
 				//+ "&d=" + d; 날짜를 끼운다. 
 		location.href = url; //url이 가지고 있는 값으로 이동
 	}
@@ -260,7 +260,29 @@ table td { font-size : 1.2em; padding : 7px 0; }
 								<label>내용</label>
 							</div>
 							<div class="col-sm-7 form-group">
-								<textarea style="resize : none; width : 100%;" rows="5" ; cols="70"; title="원하는 상담 내용을 입력하세요."  name="clitext"  placeholder="원하는 상담 내용을 입력하세요."></textarea>
+								
+								<div class="container">
+    <div class="row">
+        <div class='col-sm-6'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+        </script>
+    </div>
+</div>
+								
+								
+								
 							</div>
 						</div>
 						<input type="submit" class="btn btn-lg btn-info" value="예약하기">

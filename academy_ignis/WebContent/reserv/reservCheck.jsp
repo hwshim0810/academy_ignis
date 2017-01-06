@@ -1,16 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%--
-	String id = null;
+<%@ page import="ignis.bean.ig_reserv"%>
+<%@ page import="ignis.dao.ReservDAO"%>
 
+<% String id = null; %>
+<%--
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
 		response.sendRedirect("/academy_ignis");
 	
 
-	MemberDAO memDao = MemberDAO.getInstance();
-	User userInfo = memDao.isMember(id);
+	ReservDAO reservDao = ReservDAO.getInstance();
+	List<ig_reserv> userInfo = reservDao.check();
 	
 --%>
 <!DOCTYPE html>
