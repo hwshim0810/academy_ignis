@@ -228,6 +228,13 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/Event" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityEventList.jsp");
+			break;
+			
 		case "/EventWrite":
 			action = new EventWriteAction();
 			System.out.println("EventWrite_FrontController");

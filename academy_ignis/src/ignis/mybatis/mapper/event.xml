@@ -4,8 +4,10 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="event">
 	<select id="eventList" resultType="ignis.bean.ig_event">
-		select eb_num, eb_title, eb_content, eb_regdate, eb_readcount from ig_event  
-		order by eb_regdate desc
+		select eb_num, eb_title, eb_content, eb_regdate, eb_readcount 
+		from (select rownum rnum, eb_num, eb_title, eb_content, eb_regdate, eb_readcount
+			from(select eb_num, eb_title, eb_content, eb_regdate, eb_readcount from ig_event
+				order by eb_regdate desc )) where rnum between #{begin} and #{end}
 	</select>
 	<select id="selectNum" resultType="ignis.bean.ig_event">
 		select * from ig_event

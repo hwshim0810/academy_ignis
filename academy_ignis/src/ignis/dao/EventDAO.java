@@ -43,9 +43,15 @@ public class EventDAO {
 	}
 	
 	// 목록
-	public static List<ig_event> eventList(){
+	public List<ig_event> eventList(int begin, int end){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		List<ig_event> list = ss.selectList("event.eventList");
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		
+		List<ig_event> list = ss.selectList("event.eventList", map);
 		ss.close();
 		return list;
 	}
@@ -66,14 +72,6 @@ public class EventDAO {
 		
 		return(result > 0) ? true : false;
 	} 
-	
-	public List<ig_event> getListAll() {
-		SqlSession ss = FactoryService.getFactory().openSession();
-		List<ig_event> list = ss.selectList("event.eventList");
-		ss.close();
-		
-		return list;
-	}
 	
 	public int getListCount() {
 		SqlSession ss = FactoryService.getFactory().openSession();

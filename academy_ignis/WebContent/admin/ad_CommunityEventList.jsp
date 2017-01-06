@@ -14,10 +14,12 @@
 		response.sendRedirect("./ad_Login.jsp");
 	
 	EventDAO eventDao = EventDAO.getInstance();
-	List<ig_event> eventList = eventDao.getListAll();
 	int totalRows = eventDao.getListCount(); // 전체 게시물 갯수
 %>
 <%@include file="../paging/getPageNum.jsp" %>
+<%
+List<ig_event> list = eventDao.eventList(begin, end);
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,7 +58,6 @@
 						</thead>
 						<tbody>
 						<%
-							List<ig_event> list = EventDAO.eventList();
 							Iterator<ig_event> it = list.iterator();
 							int cnt = 0;
 							int no = list.size();
