@@ -74,7 +74,7 @@ public class NoticeDAO {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Integer> map= new HashMap<String, Integer>();
 		map.put("nb_num", nb_num);
-		List<ig_notice> list = ss.selectList("notice.selectDeatil",map);
+		List<ig_notice> list = ss.selectList("notice.selectDetail",map);
 		ss.close();			
 		return list;
 	}

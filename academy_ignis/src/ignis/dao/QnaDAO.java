@@ -32,6 +32,7 @@ public class QnaDAO {
 		map.put("startRowNum", startRowNum);
 		map.put("endRowNum", endRowNum);
 		List<ig_qna> list = ss.selectList("qna.selectAll",map);
+		System.out.println(list.get(1).getQb_mal());
 		ss.close();			
 		return list;
 
@@ -75,7 +76,7 @@ public class QnaDAO {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Integer> map= new HashMap<String, Integer>();
 		map.put("nb_num", nb_num);
-		List<ig_qna> list = ss.selectList("qna.selectDeatil",map);
+		List<ig_qna> list = ss.selectList("qna.selectDetail",map);
 		ss.close();			
 		return list;
 	}

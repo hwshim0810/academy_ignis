@@ -4,10 +4,47 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="qna">
 	<insert id="add" parameterType="java.util.HashMap">
-		INSERT INTO ig_member VALUES ( #{id}, #{pass}, #{name}, #{birth}, #{addr}, 
-		 #{phone}, #{email}, 3, SYSDATE )
+		INSERT INTO IG_qna VALUES ( nb_num.nextval, #{nb_title}, #{nb_content},1, SYSDATE )
 	</insert>
-	<select id="selectAll" resultType="ignis.bean.ig_qna">
-		SELECT * FROM memo_t order by num desc
+	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
+	select qb_mal,qb_num,m_id,qb_title,qb_content,qb_groupnum,qb_readcount,qb_regdate from(
+	select ROWNUM  as qb_rnum,qb_mal,qb_num,m_id,qb_title,qb_content,qb_groupnum,qb_readcount,qb_regdate from(
+		SELECT * FROM IG_qna order by qb_groupnum desc))
+		where qb_rnum between #{startRowNum}  and  #{endRowNum}		
+	</select>
+	
+	<select id="searchAll"  resultType="ignis.bean.ig_qna">
+	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+		SELECT * FROM IG_qna where nb_title like '%'||#{searchContent1}||'%' or nb_content like '%'||#{searchContent2}||'%'
+		order by nb_regdate desc ))
+		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
+	</select>
+
+	<select id="searchTitle"  resultType="ignis.bean.ig_qna">
+	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+		SELECT * FROM IG_qna where nb_title like '%'||#{searchContent}||'%'
+		order by nb_regdate desc))
+		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
+	</select>
+
+	<select id="searchContent"  resultType="ignis.bean.ig_qna">
+	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+		SELECT * FROM IG_qna where nb_content like '%'||#{searchContent}||'%'
+		order by nb_regdate desc))
+		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
+	</select>
+
+
+	<select id="listCount"  resultType="java.lang.Integer">
+		SELECT count(*) FROM IG_qna
+	</select>
+	<select id="selectDetail"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
+		SELECT * FROM IG_qna where qb_num=#{qb_num}		
+	</select>
+	<select id="updateCount"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
+		UPDATE IG_qna SET qb_readcount=qb_readcount+1  where qb_num=#{qb_num}		
 	</select>
 </mapper>

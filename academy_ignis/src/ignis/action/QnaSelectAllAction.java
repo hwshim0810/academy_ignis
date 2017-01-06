@@ -44,9 +44,10 @@ public class QnaSelectAllAction  implements ActionInterface{
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
 		if (list !=null) {
-			request.setAttribute("qnaList", list);
+			request.setAttribute("qnalist", list);
 			forward.setRedirect(false);
 			forward.setPath("./community/qna.jsp");
+			
 			return forward;
 		}
 		
