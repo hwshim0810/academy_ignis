@@ -4,13 +4,11 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserv">
 
-	
-
 	<select id="selectAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
-		SELECT m_id 
-		FROM( SELECT ROWNUM num, m_id 
-			FROM ( SELECT m_id FROM ig_reserv 
-				) ) WHERE num between #{begin} and #{end}
+		select r_num,r_guide,r_day,r_time,r_findDoc, m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, m_id from(
+		SELECT * FROM IG_reserv where m_id = #{m_id} order by r_num desc))
+		where num between #{begin}  and  #{end}
 	</select>
 
 	<select id="check"  resultType="ignis.bean.ig_reserv">

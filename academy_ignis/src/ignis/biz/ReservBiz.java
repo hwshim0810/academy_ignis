@@ -1,15 +1,12 @@
 package ignis.biz;
 
 
-import java.sql.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.bean.ig_notice;
 import ignis.bean.ig_reserv;
-import ignis.dao.NoticeDAO;
 import ignis.dao.ReservDAO;
 
 public class ReservBiz {
@@ -25,14 +22,16 @@ public class ReservBiz {
 	}
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
+		
+		
 		ReservDAO reservDao = new ReservDAO();
 		String r_guide = request.getParameter("r_guide");
 		String r_day = request.getParameter("r_day");
 		String r_time = request.getParameter("r_time");
 		String r_findDoc = "TRUE";
 		// r_findDoc가 TRUE라는 것은 의사가 진료 예약이 잡혀있음을 의미.
-		String m_id = "아이디";
-
+		String m_id = request.getParameter("m_id");
+		System.out.println("m_id는 " +m_id);
 		boolean result = reservDao.insert(r_guide, r_day, r_time, r_findDoc, m_id);
 		
 		if (result) return result;

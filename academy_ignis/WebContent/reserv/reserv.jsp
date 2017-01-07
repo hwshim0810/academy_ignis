@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
-
 <%
 	request.setCharacterEncoding("utf-8");
-
-	String gyoj = "치아교정";
-	String imple = "임플란트";
-	String mibak = "치아미백";
-	String normal = "일반진료";
 	
+	String id= null;
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	else
+	response.sendRedirect("./login");
 	
+	System.out.println("id는 " +id);
 %>
 
 <!DOCTYPE html>
@@ -42,6 +42,7 @@ body { font-size: 20px;}
 	
 	font-size : 1.5em
  }
+ 
  .row_second {margin : 60px 0;}
 .select1 { width : 30%; height : 40px; padding : 5px; }
 .select11 { width : 60%; height : 80px; margin : 10px 0; padding : 5px; }
@@ -93,10 +94,10 @@ body { font-size: 20px;}
 							</div>
 							<div class="col-sm-7 form-group" >
 								<select class="select1" id="y" onchange="changeDate();" name="r_guide">
-								<option value="gyoj">치아교정</option>
-								<option value="imple">임플란트</option>
-								<option value="mibak">치아미백</option>
-								<option value="normal">일반진료</option>
+								<option value="치아교정">치아교정</option>
+								<option value="임플란트">임플란트</option>
+								<option value="치아미백">치아미백</option>
+								<option value="일반진료">일반진료</option>
 								</select> 
 							</div>
 						</div>
@@ -115,7 +116,7 @@ body { font-size: 20px;}
 							<div class = "row_second">
 							<div class="col-sm-3 form-group">
 								<label>예약시간 선택</label>
-							</div>
+							</div>	
 							<div class="col-sm-7">
 								<select class="select11" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
 									<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
@@ -140,11 +141,10 @@ body { font-size: 20px;}
 								<label>내용</label>
 							</div>
 							<div class="col-sm-7 form-group">
-
-								
 								
 							</div>
 						</div>
+						<input type="text" name="m_id" value="<%=id %>" hidden="hidden">
 						<input type="submit" class="btn btn-lg btn-info" value="예약하기">
 					</div>
 					</div>

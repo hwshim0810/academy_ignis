@@ -9,7 +9,8 @@ public class ReservAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		
+		
 		ReservBiz reservBiz = new ReservBiz();
 		ActionForward forward = new ActionForward();
 		boolean result = reservBiz.insert(request, response);

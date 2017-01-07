@@ -5,7 +5,6 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import ignis.bean.User;
 import ignis.bean.ig_reserv;
 import ignis.mybatis.service.FactoryService;
 
@@ -57,10 +56,11 @@ public class ReservDAO {
 		return listCount;
 	}
 	
-	public List<ig_reserv> getReservAll(int begin, int end) {
+	public List<ig_reserv> getReservAll(String m_id, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
-		
+		System.out.println("ReservDAO내의 m_id확인용 : " + m_id);
+		map.put("m_id", m_id);
 		map.put("begin", begin);	
 		map.put("end", end);
 		
