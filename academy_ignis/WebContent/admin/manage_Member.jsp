@@ -10,7 +10,7 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		response.sendRedirect("./ad_Login.jsp");
+		response.sendRedirect("/academy_ignis/admin/ad_Login.jsp");
 
 	MemberDAO memDao = MemberDAO.getInstance();
 	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
@@ -37,13 +37,14 @@
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">전체 회원명단</h2>
+					<h5>&nbsp;현재 회원수 : <%=totalRows %></h5>
 				</div>
 				<div class="panel-body">
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
 						<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
-						<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
+						<th>휴대폰번호</th><th>Email</th><th>가입일</th><th></th></tr>
 					</thead>
 					<tbody>
 					<% 
@@ -55,13 +56,13 @@
 						<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
 						<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
 						<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
-						<td><%=user.getM_enterdate() %></td>
+						<td><%=user.getM_enterdate() %></td><td><a href="/academy_ignis/adMyPage?userId=<%=user.getM_id()%>">보기</a></td>
 					</tr>
 					<%
 							}
 						} else {
 					%>
-					<tr><td colspan="7">가입된 회원이 존재하지 않습니다</td></tr>
+					<tr><td colspan="8">가입된 회원이 존재하지 않습니다</td></tr>
 					<%	} %>
 					</tbody>
 				</table>
@@ -77,6 +78,7 @@
 					    <input type="text" class=form-control id="search">
 					  </div>
 					  <button type="submit" class="btn btn-default">검색</button>
+					  <button class="btn btn-default">추가</button>
 					</form>
 					<ul class="pager">
 					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>

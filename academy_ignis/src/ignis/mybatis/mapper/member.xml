@@ -26,8 +26,8 @@
 		SELECT count(*) FROM ig_member
 	</select>
 	<update id="adupdateMem" parameterType="java.util.HashMap">
-		UPDATE ig_member SET m_pass = #{pass}, m_name = #{name}, m_birth = #{birth}, 
-		m_addr = #{addr}, m_phone = #{phone}, m_email = #{email} WHERE m_id = #{id}
+		UPDATE ig_member SET m_name = #{name}, m_birth = #{birth}, 
+		m_addr = #{addr}, m_phone = #{phone}, m_email = #{email}, m_level = #{level} WHERE m_id = #{id}
 	</update>
 	<update id="updateMem" parameterType="java.util.HashMap">
 		UPDATE ig_member SET m_birth = #{birth}, m_addr = #{addr}, m_phone = #{phone}, 

@@ -5,13 +5,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import ignis.dao.MemberDAO;
 
-public class MemChangeBiz {
+public class MemberBiz {
 	public static final int ADSUCCESS = 1;
 	public static final int ADFAIL = 2;
 	public static final int USERSUCCESS = 3;
 	public static final int USERFAIL = 4;
 	public static final int PASSSUCCESS = 5;
 	public static final int PASSFAIL = 6;
+	
+	private static MemberBiz memBiz = new MemberBiz();
+	
+	private MemberBiz() {}
+	
+	public static MemberBiz getInstance() {
+		return memBiz;
+	}
 	
 	public int update(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = MemberDAO.getInstance();
@@ -26,8 +34,8 @@ public class MemChangeBiz {
 		
 		if (page.equals("admin")) {
 			String name = request.getParameter("m_name");
-			String pass = request.getParameter("m_pass");
-			boolean result = memDao.adupdateMem(id, pass, name, birth, addr, phone, email);
+			int level = Integer.valueOf(request.getParameter("m_level"));
+			boolean result = memDao.adupdateMem(id, name, birth, addr, phone, email, level);
 			
 			if (result) return ADSUCCESS;
 			else return ADFAIL;
@@ -71,4 +79,5 @@ public class MemChangeBiz {
 		if (result) return result;
 		else return result;
 	}
+
 }

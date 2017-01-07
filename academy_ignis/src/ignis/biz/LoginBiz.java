@@ -14,13 +14,12 @@ public class LoginBiz {
 		
 		String id = request.getParameter("m_id");
 		String passwd = request.getParameter("m_pass");
-		System.out.println(id + " " + passwd);
 		
 		User user = memDao.isMember(id);
 		
 		if (user == null) return MemberLoginAction.GUESTLEVEL;
 		else {
-			if (passwd.equals(user.getM_pass()) && id.equals("admin"))
+			if (passwd.equals(user.getM_pass()) && user.getM_level() == 3)
 				return MemberLoginAction.ADMINLEVEL;
 			else if (passwd.equals(user.getM_pass()))
 				return MemberLoginAction.MEMBERLEVEL;

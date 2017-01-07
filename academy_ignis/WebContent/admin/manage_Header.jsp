@@ -13,9 +13,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="#">
-				관리자님 환영합니다
-			</a>
+			<a class="navbar-brand" href="/academy_ignis/admin/ad_Manage.jsp">관리자님 환영합니다</a>
 		</div>
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">      

@@ -87,18 +87,18 @@ public class MemberDAO {
 		return count;
 	}
 
-	public boolean adupdateMem(String id, String pass, String name, int birth, 
-			String addr, int phone, String email) {
+	public boolean adupdateMem(String id, String name, int birth, 
+			String addr, int phone, String email, int level) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 
 		map.put("id", id);
-		map.put("pass", pass);
 		map.put("name", name);
 		map.put("birth", birth);
 		map.put("addr", addr);
 		map.put("phone", phone);
 		map.put("email", email);
+		map.put("level", level);
 		
 		int result = ss.update("member.adupdateMem", map);
 		ss.close();					

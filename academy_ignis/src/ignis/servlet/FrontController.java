@@ -232,6 +232,12 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./member/myPage.jsp");
 			break;
 			
+		case "/adMyPage" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_mypage.jsp");
+			break;
+			
 		case "/memUpProcess" :
 			action = new MemberUpdateAction();
 			
