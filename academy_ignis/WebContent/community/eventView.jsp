@@ -5,6 +5,20 @@
 <%@ page import = "ignis.biz.EventBiz" %>
 <%@ page import = "ignis.bean.ig_event" %>
 <%@ page import = "ignis.dao.EventDAO" %>
+<% 
+	int num = 0;
+	if (request.getParameter("num") != null || Integer.parseInt(request.getParameter("num")) != 0) {
+		num = Integer.valueOf((String) request.getParameter("num"));
+		
+	}
+	else {
+		response.sendRedirect("/academy_ignis/admin/ad_CommunityEventList.jsp");
+	}
+	
+	EventDAO eventDao = new EventDAO();
+	ig_event view = eventDao.eventSelectOne(num);
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -101,61 +115,59 @@
 			<h4>EVENT</h4>
 			<hr>
 			<table class="table">
-				<caption>이벤트 게시판</caption>
-				<thead>
-					<tr>
-						<th>No</th>
-						<th>제목</th>
-						<th>등록일</th>
-						<th>조회수</th>
-					</tr>
-				</thead>
 				<tbody>
-				<%
-					List<ig_event> list = EventDAO.eventList();
-					Iterator<ig_event> it = list.iterator();
-					int cnt = 0;
-					int no = list.size();
-					while(it.hasNext()){
-						cnt++;
-						ig_event event = it.next();				
-				%>
-				<tr>
-					<td><%= no %></td>
-					<td><%= event.getEb_title() %></td>
-					<td><%= event.getEb_regdate() %></td>
-					<td><%= event.getEb_readcount() %></td>
-				</tr>
-				<%
-						no--;
-					}
-					System.out.println(cnt);
-					if (cnt == 0) {
-				%>
-				<tr>
-					<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
-				</tr>
-				<% } %>
+					<tr>
+						<th>글번호</th>
+						<td>
+							<div class="form-group">
+								<%= view.getEb_num() %>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>글쓴이</th>
+						<td>
+							<div class="form-group">이그니스 치과</div>
+						</td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td>
+							<div class="form-group">
+								<%= view.getEb_title() %>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<th>이벤트 내용</th>
+						<td>
+							<div class="form-group">
+								<%= view.getEb_content() %>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="text-align : center;">
+							<div class="form-group">
+					            <div class="col-md-offset-2 col-md-10">
+					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member'">목록</button>
+					                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry'">응모하기</button>
+					            </div>
+					        </div>
+						</td>
+					</tr>
 				</tbody>
 			</table>
-			<form class="form-inline">
-				<select name="eventSearch" class="form-control" id="eventSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="regdate">등록일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchEvent">
-				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
 		</div>
 	</div>
 </div>
 
 <%-- Body 영역 --%>
- <%-- Footer 시작 --%>
-<%@include file="../footer/footer.jsp" %>
+<%-- Footer 시작 --%>
+<%
+	pageContext.include("../footer/footer.jsp");
+%>
 <%-- Footer 종료 --%>
+
 </body>
 </html>

@@ -86,7 +86,7 @@
 								<td colspan="2" style="text-align : center;">
 									<div class="form-group">
 							            <div class="col-md-offset-2 col-md-10">
-							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event'">목록</button>
+							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=admin'">목록</button>
 							            	<button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/EventEditView?num=<%= view.getEb_num()%>'">수정</button>
 							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventDelete?num=<%= view.getEb_num() %>'">삭제</button>
 							            </div>
