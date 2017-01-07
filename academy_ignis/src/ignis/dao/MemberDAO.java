@@ -128,8 +128,16 @@ public class MemberDAO {
 		map.put("pass", pass);
 		
 		int result = ss.update("member.updatePass", map);
-		System.out.println(result);
 		ss.close();					
+		return (result > 0) ? true : false;
+	}
+
+	public boolean deleteMem(String id) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		int result = ss.delete("member.deleteMem", id);
+		ss.close();
+		
 		return (result > 0) ? true : false;
 	}
 

@@ -135,6 +135,11 @@
 				
 				</fieldset>
 				</form>
+				<div class="row">
+					<div class="col-xs-2">
+						<input class="btn btn-default" value="돌아가기">
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -145,6 +150,8 @@
   	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+ <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
+ <script src="/academy_ignis/script/ad_mypage_update.js"></script>
 </body>
 </html>

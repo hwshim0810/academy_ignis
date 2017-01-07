@@ -50,6 +50,7 @@
 				<div class="row">
 				  <label class="col-md-4 control-label">아이디</label>  
 				  <div class="col-md-4">
+				  <input type="hidden" name="m_id" id="m_id" value="<%=user.getM_id()%>">
 				  <h4><%=user.getM_id() %></h4>
 				  </div>
 				</div>
@@ -120,7 +121,8 @@
 				  </div>
 				  <div class="col-md-7">
 				  <a class="btn btn-default" href="/academy_ignis/admin/ad_mypage_update.jsp?userId=<%=userId%>">정보수정</a>
-				  <a class="btn btn-default">정보삭제</a>
+				  <button id="delBtn" class="btn btn-default">정보삭제</button>
+				  <button id="backBtn" class="btn btn-default">돌아가기</button>
 				  </div>
 				</div>
 			</div>
@@ -133,6 +135,8 @@
   	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+ <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
+ <script src="/academy_ignis/script/ad_mypage.js?v=1"></script>
 </body>
 </html>

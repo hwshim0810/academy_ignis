@@ -15,7 +15,7 @@
 				<ul class="nav navbar-nav navbar-right nav-pills">
 				<!-- 아이디 부여해놓은 부분은 나중에 세션에서 검색해서 .html()로 로그아웃/내정보로 변경 -->
 					<li id="login"><a href="/academy_ignis/login">Login</a></li>
-					<li id="mypage"><a href="/academy_ignis/memberJoin">MemberJoin</a></li>
+					<li id="mypage"><a href="/academy_ignis/memberJoin?page=home">MemberJoin</a></li>
 					<li><a href="#">SiteMap</a></li>
 				</ul>
 			</div>

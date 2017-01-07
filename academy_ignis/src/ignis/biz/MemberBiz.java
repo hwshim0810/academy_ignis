@@ -27,10 +27,10 @@ public class MemberBiz {
 		String page = request.getParameter("page");
 		
 		String id = request.getParameter("m_id");
-		int birth = Integer.valueOf(request.getParameter("m_birth"));
 		String addr = request.getParameter("m_addr");
-		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		String email = request.getParameter("m_email");
+		int birth = Integer.valueOf(request.getParameter("m_birth"));
+		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		
 		if (page.equals("admin")) {
 			String name = request.getParameter("m_name");
@@ -78,6 +78,26 @@ public class MemberBiz {
 		
 		if (result) return result;
 		else return result;
+	}
+	
+	public int delete(HttpServletRequest request, HttpServletResponse response) {
+		MemberDAO memDao = MemberDAO.getInstance();
+	
+		String page = request.getParameter("page");
+		String id = request.getParameter("m_id");
+		
+		if (page.equals("admin")) {
+			boolean result = memDao.deleteMem(id);
+			
+			if (result) return ADSUCCESS;
+			else return ADFAIL;
+			
+		} else {
+			boolean result = memDao.deleteMem(id);
+			
+			if (result) return USERSUCCESS;
+			else return USERFAIL;
+		}
 	}
 
 }

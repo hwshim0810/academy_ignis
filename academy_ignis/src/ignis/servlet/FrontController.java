@@ -138,9 +138,13 @@ public class FrontController extends HttpServlet {
 			break;
 			
 		case "/memberJoin" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./member/memberJoin.jsp");
+			action = new MemberJoinPageAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
 			
 		case "/loginProcess" :

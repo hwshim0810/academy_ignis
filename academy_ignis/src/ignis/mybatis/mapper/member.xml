@@ -36,4 +36,7 @@
 	<update id="updatePass" parameterType="java.util.HashMap">
 		UPDATE ig_member SET m_pass = #{pass} WHERE m_id = #{id}
 	</update>
+	<delete id="deleteMem" parameterType="String">
+		DELETE FROM ig_member WHERE m_id = #{id}
+	</delete>
 </mapper>

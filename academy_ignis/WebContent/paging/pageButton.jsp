@@ -10,7 +10,7 @@
   <li><a href="/academy_ignis/member?pageNo=<%=//i %>"><%=//i %></a></li>
   	<% //} %>
   <li>
- 	 <% //if (nextPage != 0) { %><a href="list.jsp?pageNo=<%=//nextPage%>">▷</a><% //} %>
+ 	 <% //if (nextPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=//nextPage%>">▷</a><% //} %>
   </li>
-  <li><a href="/academy_ignis/member?pageNo=<%=//endPage %>">마지막 페이지</a></li>
+  <li><a href="/academy_ignis/member?pageNo=<%=//totalPages %>">마지막 페이지</a></li>
 </ul>-->
