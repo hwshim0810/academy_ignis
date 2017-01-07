@@ -1,6 +1,5 @@
 package ignis.dao;
 
-import java.sql.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -50,5 +49,10 @@ public class ReservDAO {
 		List<ig_reserv> list = ss.selectList("reserv.checkAll");
 		ss.close();					return list;
 	}
-	
+	public int getListcount() {
+		
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		int listCount = ss.selectOne("reserv.listCount");
+		return listCount;
+	}
 }

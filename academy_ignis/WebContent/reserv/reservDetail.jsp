@@ -1,65 +1,105 @@
+<%@page import="ignis.action.MemberLoginAction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ignis.bean.ig_reserv" %>
-<%@ page import="java.util.*" %>
-<%%>
+<%@ page import="ignis.dao.MemberDAO" %>
+<%@ page import="ignis.bean.User" %>
+<%@ page import="java.util.List" %>
+<% 
+	String id = null;
+	
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	else
+		response.sendRedirect("./ad_Login.jsp");
+
+	MemberDAO memDao = MemberDAO.getInstance();
+	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
+%>
+<%@include file="../paging/getPageNum.jsp" %>
+<% List<User> userList = memDao.getUserAll(begin, end); %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>notice</title>
-<meta http-equiv="X-UA-Compatible"  content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script>
-  function searchAll(){
-	  
-	  var searchOption=$("#searchOption").val();
-	  var searchContent=$("#searchContent").val();
-	  if(searchContent==""){alert("값을 입력!!!") ;return;}
-	  //alert(searchContent);	
-	  var xhttp;
-			xhttp = new XMLHttpRequest();
-		//응답을 받아왔을때 처리할 형식 정의
-		xhttp.onreadystatechange=function(){
-			//onreadystatechange속성이 변경될때마다
-			if(xhttp.readyState == 4&&xhttp.status==200){
-				//readystate=4는 응답완료상태
-				//status=200은 정상적으로 페이지 호출 성공
-				//alert(xhttp.responseText);
-				document.getElementById("demo").innerHTML=xhttp.responseText;
-			}
-		};
-		//open send 함수 설정
-		//get방식으로 요청 데이터를 받을 페이지 true는 비동기통신을 지정
-		xhttp.open("GET","searchList?searchOption="+searchOption+"&searchContent="+searchContent,true);
-		xhttp.send();
-  }
-  </script>
+<title>Ignis치과 관리자페이지</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
-<%pageContext.include("header_noTop.jsp"); %>
-<%pageContext.include("../header/header.jsp"); %>
- <div class="container">
-<%pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
-   <div class="col-xs-12 col-sm-9 col-md-10 ">
- <%pageContext.include("reservContents.jsp"); %>
- 
-   <form class="form-inline" >
-  <select class="form-control" id="searchOption">
-    <option value="nb_all">전체</option>
-    <option value="nb_title">제목</option>
-    <option value="nb_content">내용</option>
-  </select>
-  <div class="form-group">
-    <label class="sr-only" for="search">검색 내용:</label>
-    <input type="text" class="form-control" id="searchContent">
-  </div>
-  <input type="submit" class="btn btn-default" onclick="searchAll()" value="검색" />
-</form>
-   </div>
-  </div>
+<%
+	pageContext.include("./manage_Header.jsp");
+%>
+  	<div class="container-fluid main-container">
+<%
+	pageContext.include("./manage_sideNav.jsp");
+%>
+  		<div class="col-md-10 content">
+  			  <div class="panel panel-default">
+				<div class="panel-heading">
+					<h2 id="memTitle">전체 회원명단</h2>
+				</div>
+				<div class="panel-body">
+				<table class="table">
+					<caption class="sr-only">회원명단</caption>
+					<thead>
+						<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
+						<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
+					</thead>
+					<tbody>
+					<% 
+						if (userList != null) {
+							for (int i = 0; i < userList.size(); i++) {
+								User user = userList.get(i);
+					%>
+					<tr>
+						<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
+						<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
+						<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
+						<td><%=user.getM_enterdate() %></td>
+					</tr>
+					<%
+							}
+						} else {
+					%>
+					<tr><td colspan="7">가입된 회원이 존재하지 않습니다</td></tr>
+					<%	} %>
+					</tbody>
+				</table>
+					<form class="form-inline" >
+					  <label for="sel1">검색 범위</label>
+					  <select class="form-control" id="sel1">
+					    <option>전체</option>
+					    <option>제목</option>
+					    <option>내용</option>
+					  </select>
+					  <div class="form-group">
+					    <label class="sr-only" for="search">검색 내용:</label>
+					    <input type="text" class=form-control id="search">
+					  </div>
+					  <button type="submit" class="btn btn-default">검색</button>
+					</form>
+					<ul class="pager">
+					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/member?pageNo=<%=endPage %>">마지막 페이지</a></li>
+					</ul>
+				</div>
+			</div>
+  		</div>
+<%
+	pageContext.include("./manage_Footer.jsp");
+%>
+  	</div>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="/academy_ignis/script/ad_Manage.js"></script>
 </body>
 </html>
