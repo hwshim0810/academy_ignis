@@ -232,6 +232,12 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./member/myPage.jsp");
 			break;
 			
+		case "/adMyPage" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_mypage.jsp");
+			break;
+			
 		case "/memUpProcess" :
 			action = new MemberUpdateAction();
 			
@@ -243,10 +249,18 @@ public class FrontController extends HttpServlet {
 			break;
 			
 		case "/Event" :
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./admin/ad_CommunityEventList.jsp");
+			action = new EventAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			break;
+//			forward = new ActionForward();
+//			forward.setRedirect(false);
+//			forward.setPath("./admin/ad_CommunityEventList.jsp");
+//			break;
 			
 		case "/EventWrite":
 			action = new EventWriteAction();
@@ -283,6 +297,16 @@ public class FrontController extends HttpServlet {
 			break;
 		case "/EventDelete":
 			action = new EventDeleteAction();
+			System.out.println("EventDeleteAction_FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/EventEntry":
+			action = new EventEntryAction();
 			System.out.println("EventDeleteAction_FrontController");
 			try {
 				forward = action.execute(request, response);

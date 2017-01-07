@@ -15,7 +15,7 @@ public class ReservAction implements ActionInterface {
 		boolean result = reservBiz.insert(request, response);
 		if (result) {
 			forward.setRedirect(false);
-			forward.setPath("./member/myInfo.jsp");
+			forward.setPath("./reserv/reservDetail.jsp");
 			return forward;
 		}
 		

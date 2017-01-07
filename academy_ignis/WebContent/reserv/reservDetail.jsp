@@ -1,8 +1,8 @@
 <%@page import="ignis.action.MemberLoginAction"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ page import="ignis.dao.MemberDAO" %>
-<%@ page import="ignis.bean.User" %>
+<%@ page import="ignis.dao.ReservDAO" %>
+<%@ page import="ignis.bean.ig_reserv" %>
 <%@ page import="java.util.List" %>
 <% 
 	String id = null;
@@ -12,11 +12,11 @@
 	else
 		response.sendRedirect("./ad_Login.jsp");
 
-	MemberDAO memDao = MemberDAO.getInstance();
-	int totalRows = memDao.getUserCount(); // 전체 게시물 갯수
+	ReservDAO reservDao = ReservDAO.getInstance();
+	int totalRows = reservDao.getListcount(); // 전체 게시물 갯수
 %>
 <%@include file="../paging/getPageNum.jsp" %>
-<% List<User> userList = memDao.getUserAll(begin, end); %>
+<% List<ig_reserv> reservList = reservDao.getReservAll(begin, end); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,20 +42,16 @@
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-						<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
-						<th>휴대폰번호</th><th>Email</th><th>가입일</th></tr>
+						<tr class="info"><th>아이디</th></tr>
 					</thead>
 					<tbody>
 					<% 
-						if (userList != null) {
-							for (int i = 0; i < userList.size(); i++) {
-								User user = userList.get(i);
+						if (reservList != null) {
+							for (int i = 0; i < reservList.size(); i++) {
+								ig_reserv reserv = reservList.get(i);
 					%>
 					<tr>
-						<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
-						<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
-						<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
-						<td><%=user.getM_enterdate() %></td>
+						<td><%=reserv.getM_id() %></td>
 					</tr>
 					<%
 							}

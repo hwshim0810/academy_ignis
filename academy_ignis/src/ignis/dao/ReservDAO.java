@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
+import ignis.bean.User;
 import ignis.bean.ig_reserv;
 import ignis.mybatis.service.FactoryService;
 
@@ -55,4 +56,18 @@ public class ReservDAO {
 		int listCount = ss.selectOne("reserv.listCount");
 		return listCount;
 	}
+	
+	public List<ig_reserv> getReservAll(int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("begin", begin);	
+		map.put("end", end);
+		
+		List<ig_reserv> list = ss.selectList("reserv.selectAll", map);
+		ss.close();
+		
+		return list;
+	}
+	
 }
