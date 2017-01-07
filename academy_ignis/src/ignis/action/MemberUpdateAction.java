@@ -5,29 +5,40 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.biz.MemChangeBiz;
+import ignis.biz.MemberBiz;
 
 public class MemberUpdateAction implements ActionInterface {
 	
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		MemChangeBiz memBiz = new MemChangeBiz();
+		MemberBiz memBiz = MemberBiz.getInstance();
 		ActionForward forward = new ActionForward();
 		
 		int result = memBiz.update(request, response);
+		String userId = request.getParameter("m_id");
 		
 		switch (result) {
-		case MemChangeBiz.ADSUCCESS:
-			forward.setRedirect(true);
-			forward.setPath("./login");
-			break;
+		case MemberBiz.ADSUCCESS:
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out0 = response.getWriter();
+			out0.println("<script>");
+			out0.println("alert('수정되었습니다.');");
+			out0.println("location.href='/academy_ignis/admin/ad_mypage.jsp?userId=" + userId +"';");
+			out0.println("</script>");
+			out0.close();
+			return null;
 		
-		case MemChangeBiz.ADFAIL:
-			forward.setRedirect(true);
-			forward.setPath("./login");
-			break;
-		
-		case MemChangeBiz.USERSUCCESS:
+		case MemberBiz.ADFAIL:
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out1 = response.getWriter();
+			out1.println("<script>");
+			out1.println("alert('수정된 정보가 없습니다.');");
+			out1.println("location.href='/academy_ignis/admin/ad_mypage.jsp?userId=" + userId +"';");
+			out1.println("</script>");
+			out1.close();
+			return null;
+			
+		case MemberBiz.USERSUCCESS:
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out2 = response.getWriter();
 			out2.println("<script>");
@@ -37,7 +48,7 @@ public class MemberUpdateAction implements ActionInterface {
 			out2.close();
 			return null;
 		
-		case MemChangeBiz.USERFAIL:
+		case MemberBiz.USERFAIL:
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out3 = response.getWriter();
 			out3.println("<script>");
@@ -47,12 +58,12 @@ public class MemberUpdateAction implements ActionInterface {
 			out3.close();
 			return null;
 			
-		case MemChangeBiz.PASSSUCCESS:
+		case MemberBiz.PASSSUCCESS:
 			forward.setRedirect(true);
 			forward.setPath("./login");
 			break;
 		
-		case MemChangeBiz.PASSFAIL:
+		case MemberBiz.PASSFAIL:
 			forward.setRedirect(true);
 			forward.setPath("./login");
 			break;

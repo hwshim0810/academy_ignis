@@ -16,17 +16,26 @@ public class EventViewAction implements ActionInterface {
 		ActionForward forward = new ActionForward();
 		int num = Integer.valueOf(request.getParameter("num"));
 		
-		boolean result = eventBiz.upReadCount(request, response);
-		
-		
-
-		if(result){
+		String login = request.getParameter("login");
+		if(login.equals("admin")){
 			forward.setRedirect(true);
 			forward.setPath("/academy_ignis/admin/ad_CommunityEventView.jsp?num="+ num);
 			return forward;
-		} else {
-			System.out.println(num);
+
+		} else if(login.equals("member")){
+			boolean result = eventBiz.upReadCount(request, response);
+			if(result){
+				System.out.println("member로 들어옴");
+				forward.setRedirect(true);
+				forward.setPath("/academy_ignis/community/eventView.jsp?num="+ num);
+				return forward;
+			} else {
+				System.out.println(num);
+			}
 		}
+		
+
+		
 		
 		return null;
 		
