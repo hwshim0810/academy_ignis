@@ -25,13 +25,8 @@
 </head>
 <body>
 <%
-	//pageContext.include("../header/header.jsp");
-	
-	if (id != null) {
-%>		<script type="text/javascript">userLogin();</script>
-<% 	} else { %>
-		<script type="text/javascript">userLogout();</script>
-<%  } %>
+	pageContext.include("../header/header.jsp");
+%>
 <div class="container">
 	<h2>회원정보</h2>
 		<ul class="nav nav-tabs">
@@ -53,7 +48,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">아이디</label>  
 				  <div class="col-md-4">
-				  <input name="m_id" type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
+				  <input type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
 				  </div>
 				</div>
 				
@@ -61,7 +56,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">이름</label>  
 				  <div class="col-md-4">
-				  <input name="m_name" type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+				  <input type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
 				  </div>
 				</div>
 				
@@ -69,7 +64,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">가입일</label>  
 				  <div class="col-md-4">
-				  <input name="m_enterdate" type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
+				  <input type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
 				  </div>
 				</div>
 				
@@ -77,7 +72,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 				  <div class="col-md-4">
-				  <input name="m_birth" type="text" readonly="readonly" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
+				  <input type="text" readonly="readonly" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
 				  </div>
 				</div>
 				
@@ -85,7 +80,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">주소</label>  
 				  <div class="col-md-4">
-				  <input name="m_addr" type="text" readonly="readonly" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+				  <input type="text" readonly="readonly" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
 				  </div>
 				</div>
 				
@@ -93,7 +88,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
 				  <div class="col-md-4">
-				  <input name="m_phone" type="tel" readonly="readonly" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
+				  <input type="tel" readonly="readonly" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
 				  </div>
 				</div>
 				
@@ -101,7 +96,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
 				  <div class="col-md-4">
-				  <input name="m_email" type="email" readonly="readonly" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
+				  <input type="email" readonly="readonly" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
 				  </div>
 				</div>
 				
@@ -238,8 +233,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript"src="/academy_ignis/script/login.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
 <%

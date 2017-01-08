@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% 
+	String id = null;
+
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	else
+		response.sendRedirect("/academy_ignis");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -167,5 +175,11 @@
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>
