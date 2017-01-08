@@ -16,14 +16,18 @@ public class EventAction implements ActionInterface {
 		ActionForward forward = new ActionForward();
 		
 		String login = request.getParameter("login");
+		String pageNo = "1";
+		
+		if (request.getParameter("pageNo") != null)
+			pageNo = request.getParameter("pageNo");
 		
 		if(login.equals("admin")){
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/admin/ad_CommunityEventList.jsp");
+			forward.setPath("/academy_ignis/admin/ad_CommunityEventList.jsp?login=admin&pageNo=" + pageNo);
 			return forward;
 		} else if (login.equals("member")){
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/community/event.jsp");
+			forward.setPath("/academy_ignis/community/event.jsp?login=member&pageNo=" + pageNo);
 			return forward;
 		}
 		

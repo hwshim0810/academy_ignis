@@ -25,6 +25,7 @@
 	else {
 		response.sendRedirect("/academy_ignis/admin/ad_CommunityEventList.jsp");
 	}
+	String pageNo = request.getParameter("pageNo");
 %>
 <!DOCTYPE html>
 <html>
@@ -48,7 +49,7 @@
 					EVENT 수정
 				</div>
 				<div class="panel-body">
-					<form class="form-horizontal" name="updateEvent" method="post" action="/academy_ignis/EventEdit?num=<%= num %>">
+					<form class="form-horizontal" name="updateEvent" method="post" action="/academy_ignis/EventEdit?pageNo=<%= pageNo %>&num=<%= num %>">
 						<table class="table">
 						<%
 							ig_event view = eventDao.eventSelectOne(num);		
@@ -82,7 +83,7 @@
 									<td colspan="2" style="text-align : center;">
 										<div class="form-group">
 								            <div class="col-md-offset-2 col-md-10">
-								                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventView?num=<%= view.getEb_num()%>'">취소</button>
+								                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventView?login=admin&pageNo=<%= pageNo%>&num=<%= view.getEb_num()%>'">취소</button>
 								            	<button type="submit" class="btn btn-primary">수정</button>
 								            </div>
 								        </div>

@@ -67,7 +67,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 					<tr>
 						<td><%=totalRows %></td>
 						<td>
-							<a href="/academy_ignis/EventView?login=admin&num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
+							<a href="/academy_ignis/EventView?login=admin&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
 						</td>
 						<td>이그니스 치과</td>
 						<td><%= event.getEb_regdate() %></td>
@@ -86,7 +86,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 				<% } %>
 				</table>
 				<div class="form-group">
-					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='admin/ad_CommunityEventWrite.jsp'">
+					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityEventWrite.jsp'">
 				</div>
 				<ul class="pager">
 				  <li><a href="/academy_ignis/Event?login=admin&pageNo=1">첫 페이지</a></li>
@@ -99,7 +99,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 				  <li>
 				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=admin&pageNo=<%=nextPage%>">▷</a><% } %>
 				  </li>
-				  <li><a href="/academy_ignis/Event?login=admin&pageNo=<%=endPage %>">마지막 페이지</a></li>
+				  <li><a href="/academy_ignis/Event?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
 				<form class="form-inline">
 				<select name="eventSearch" class="form-control" id="eventSearch">
