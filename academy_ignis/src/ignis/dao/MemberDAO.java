@@ -44,6 +44,19 @@ public class MemberDAO {
 		user = (User) ss.selectOne("member.selectId", id);
 		return user;
 	}
+	
+	public User isPassOk(String id, String pass) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		HashMap<String, Object> map = new HashMap<>();
+		User user = null;
+		
+		map.put("id", id);	
+		map.put("pass", pass);
+		
+		user = (User) ss.selectOne("member.selectPassOk", map);
+		return user;
+	}
 
 	public User getUserId(String email) {
 		SqlSession ss = FactoryService.getFactory().openSession();

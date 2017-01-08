@@ -45,21 +45,21 @@ function btnPress3(){
 					<div class="col-xs-4 form-group">
 					<span id=letter>예약 번호</span></div>
 					<div class="col-xs-8 form-group" >
-						<input type="text" readonly value="55" >
+						<input type="text" readonly="readonly" value="55" >
 					</div>
 				</div>				
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>진료 시간</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="55">
+						<input type="text" readonly="readonly" value="55">
 					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-4 form-group">
 					<span id=letter>상담 내용</span></div>
 					<div class="col-xs-8 form-group">
-						<input type="text" readonly value="55">
+						<input type="text" readonly="readonly" value="55">
 					</div>
 				</div>
 			<input type="button" value="예약 수정" onclick = "btnPress1()">
@@ -69,7 +69,6 @@ function btnPress3(){
 	</div>
 	</div>
 </div>
-
 
 
 <%-- Footer 시작 --%>

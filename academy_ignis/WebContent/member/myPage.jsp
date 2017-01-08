@@ -24,7 +24,7 @@
 </head>
 <body>
 <%
-	pageContext.include("../header/header.jsp");
+	//pageContext.include("../header/header.jsp");
 	
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>
@@ -32,110 +32,201 @@
 		<script type="text/javascript">userLogout();</script>
 <%  } %>
 <div class="container">
-	<form class="form-horizontal" method="post" action="./memUpProcess?page=mypage">
-	<fieldset>
-	
-	<!-- Form Name -->
-	<legend>회원정보</legend>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">아이디</label>  
-	  <div class="col-md-4">
-	  <input name="m_id" type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">이름</label>  
-	  <div class="col-md-4">
-	  <input name="m_name" type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">가입일</label>  
-	  <div class="col-md-4">
-	  <input name="m_enterdate" type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
-	  </div>
-	</div>
-	
-	<!-- File Button --> 
-	<!--  <div class="form-group">
-	  <label class="col-md-4 control-label" for="filebutton">photo</label>
-	  <div class="col-md-4">
-	    <input id="filebutton" name="filebutton" class="input-file" type="file">
-	  </div>
-	</div> -->
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
-	  <div class="col-md-4">
-	  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">주소</label>  
-	  <div class="col-md-4">
-	  <input name="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
-	  <div class="col-md-4">
-	  <input name="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
-	  </div>
-	</div>
-	
-	<!-- Text input-->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
-	  <div class="col-md-4">
-	  <input name="m_email" type="email" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
-	    
-	  </div>
-	</div>
-	
-	<!-- Select Basic -->
-	<!--  <div class="form-group">
-	  <label class="col-md-4 control-label" for="selectbasic">Country</label>
-	  <div class="col-md-4">
-	    <select id="selectbasic" name="selectbasic" class="form-control">
-	      <option value="1">Iran</option>
-	      <option value="2">USA</option>
-	    </select>
-	  </div>
-	</div>-->
-	
-	<!-- Select Basic -->
-	<!-- <div class="form-group">
-	  <label class="col-md-4 control-label" for="selectbasic">gender</label>
-	  <div class="col-md-4">
-	    <select id="selectbasic" name="selectbasic" class="form-control">
-	      <option value="1">Male</option>
-	      <option value="2">Female</option>
-	    </select>
-	  </div>
-	</div> -->
-	
-	
-	<!-- Button -->
-	<div class="form-group">
-	  <label class="col-md-4 control-label" for="singlebutton"></label>
-	  <div class="col-md-4">
-	    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">수정</button>
-	  </div>
-	</div>
-	
-	</fieldset>
-	</form>
+	<h2>회원정보</h2>
+		<ul class="nav nav-tabs">
+			<li class="active"><a href="#home" data-toggle="tab">회원정보 보기</a></li>
+			<li><a href="#menu1" data-toggle="tab">비밀번호 변경</a></li>
+			<li><a href="#menu2" data-toggle="tab">회원정보 수정</a></li>
+		</ul>
+
+		<div class="tab-content">
+			<div class="tab-pane fade in active" id="home">
+				<h3>나의 회원정보</h3>
+				<form class="form-horizontal">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend class="sr-only">회원정보 보기</legend>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">아이디</label>  
+				  <div class="col-md-4">
+				  <input name="m_id" type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">이름</label>  
+				  <div class="col-md-4">
+				  <input name="m_name" type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">가입일</label>  
+				  <div class="col-md-4">
+				  <input name="m_enterdate" type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
+				  <div class="col-md-4">
+				  <input name="m_birth" type="text" readonly="readonly" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">주소</label>  
+				  <div class="col-md-4">
+				  <input name="m_addr" type="text" readonly="readonly" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
+				  <div class="col-md-4">
+				  <input name="m_phone" type="tel" readonly="readonly" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
+				  <div class="col-md-4">
+				  <input name="m_email" type="email" readonly="readonly" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
+				  </div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <div class="col-md-4">
+				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				  </div>
+				</div>
+				
+				</fieldset>
+				</form>
+			</div>
+			<div class="tab-pane fade" id="menu1">
+				<h3>비밀번호 변경</h3>
+				<form class="form-horizontal">
+				<fieldset>
+				<legend class="sr-only">비밀번호 변경</legend>
+				
+				<div class="form-group">
+				<label class="col-md-4 control-label"></label>
+					<div class="col-md-4">
+						<p>개인정보 보호를 위하여 비밀번호를 입력해주십시오.</p>
+					</div>
+				</div>
+				
+				<div class="form-group">
+				<label class="col-md-4 control-label" for="m_pass">비밀번호</label>
+					<div class="col-md-4">
+						<input name="m_id" id="m_id" type="hidden" value="<%=id%>">
+						<input name="m_pass" id="m_pass" type="password" placeholder="비밀번호" class="form-control input-md">
+					</div>
+				</div>
+				
+				<br>
+				
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <div class="col-md-4">
+				    <button id="passChk" name="singlebutton" class="btn btn-primary">입력하기</button>
+				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				  </div>
+				</div>
+				
+				</fieldset>
+				</form>
+			</div>
+			<div class="tab-pane fade" id="menu2">
+				<h3>나의 정보수정</h3>
+				<form class="form-horizontal" method="post" action="./memUpProcess?page=mypage">
+				<fieldset>
+				
+				<!-- Form Name -->
+				<legend class="sr-only">회원정보</legend>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">아이디</label>  
+				  <div class="col-md-4">
+				  <input name="m_id" type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">이름</label>  
+				  <div class="col-md-4">
+				  <input name="m_name" type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">가입일</label>  
+				  <div class="col-md-4">
+				  <input name="m_enterdate" type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="m_birth">생년월일</label>  
+				  <div class="col-md-4">
+				  <input name="m_birth" id="m_birth" type="date" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="m_addr">주소</label>  
+				  <div class="col-md-4">
+				  <input name="m_addr" id="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="m_phone">휴대폰 번호</label>  
+				  <div class="col-md-4">
+				  <input name="m_phone" id="m_phone" type="tel" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
+				  </div>
+				</div>
+				
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="m_email">Email 주소</label>  
+				  <div class="col-md-4">
+				  <input name="m_email" id="m_email" type="email" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
+				  </div>
+				</div>
+				
+				<!-- Button -->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <div class="col-md-4">
+				    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">수정하기</button>
+				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				  </div>
+				</div>
+				
+				</fieldset>
+				</form>
+			</div>
+		</div>
+
 
 </div>
 
