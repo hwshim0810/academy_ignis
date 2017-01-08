@@ -4,24 +4,13 @@ import java.sql.Date;
 
 public class User {
 	String m_id, m_pass, m_name, m_addr, m_email;
-	int m_birth, m_phone, m_level;
+	String m_birth; 
+	int m_phone, m_level;
 	Date m_enterdate;
-	
-	
-	@Override
-	public String toString() {
-		return "User [m_id=" + m_id + ", m_pass=" + m_pass + ", m_name=" + m_name + ", m_addr=" + m_addr + ", m_email="
-				+ m_email + ", m_birth=" + m_birth + ", m_phone=" + m_phone + ", m_level=" + m_level + ", m_enterdate="
-				+ m_enterdate + ", getM_id()=" + getM_id() + ", getM_pass()=" + getM_pass() + ", getM_name()="
-				+ getM_name() + ", getM_addr()=" + getM_addr() + ", getM_email()=" + getM_email() + ", getM_birth()="
-				+ getM_birth() + ", getM_phone()=" + getM_phone() + ", getM_level()=" + getM_level()
-				+ ", getM_enterdate()=" + getM_enterdate() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
 
 	public User() {}
 	
-	public User(String m_id, String m_pass, String m_name, int m_birth, String m_addr, 
+	public User(String m_id, String m_pass, String m_name, String m_birth, String m_addr, 
 			int m_phone, String m_email, int m_level, Date m_enterdate) {
 		super();
 		this.m_id = m_id;
@@ -65,10 +54,10 @@ public class User {
 	public void setM_email(String m_email) {
 		this.m_email = m_email;
 	}
-	public int getM_birth() {
+	public String getM_birth() {
 		return m_birth;
 	}
-	public void setM_birth(int m_birth) {
+	public void setM_birth(String m_birth) {
 		this.m_birth = m_birth;
 	}
 	public int getM_phone() {

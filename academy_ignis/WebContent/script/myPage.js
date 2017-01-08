@@ -1,4 +1,11 @@
 $(function() {
+	$(function() {
+	    $('input[name="m_birth"]').daterangepicker({
+	        singleDatePicker: true,
+	        showDropdowns: true
+	    });
+	});
+	
 	$("#backBtn").click(function() {
 		if ( document.referrer && document.referrer.indexOf("/academy_ignis") != -1 ) { 
 			history.back();
@@ -50,3 +57,13 @@ $(function() {
 	});
 	
 });
+
+function userLogin() {
+	$("#login").html('<a href="#" id="logout">Logout</a>');
+	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
+}
+
+function userLogout() {
+	$("#login").html('<a href="/academy_ignis/login">Login</a>');
+	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
+}

@@ -19,7 +19,7 @@ public class MemberDAO {
 	}
 	
 
-	public boolean insert(String id, String pass, String name, int birth
+	public boolean insert(String id, String pass, String name, String birth
 			, String addr, int phone, String email, int level) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();

@@ -64,7 +64,7 @@ public class MemberBiz {
 		String id = request.getParameter("m_id");
 		String pass = request.getParameter("m_pass");
 		String name = request.getParameter("m_name");
-		int birth = Integer.valueOf(request.getParameter("m_birth"));
+		String birth = request.getParameter("m_birth");
 		String addr = request.getParameter("m_addr");
 		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		String email = request.getParameter("m_email");
