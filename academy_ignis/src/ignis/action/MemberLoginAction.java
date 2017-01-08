@@ -32,6 +32,12 @@ public class MemberLoginAction implements ActionInterface {
 		
 		case MEMBERLEVEL:
 			session.setAttribute("m_id", request.getParameter("m_id"));
+			PrintWriter out3 = response.getWriter();
+			if (page.equals("qnaInsertView")){
+				forward.setRedirect(true);
+				forward.setPath("./community/qnaInsertView.jsp");
+				return forward;
+			}
 			forward.setRedirect(true);
 			forward.setPath("/academy_ignis");
 			return forward;

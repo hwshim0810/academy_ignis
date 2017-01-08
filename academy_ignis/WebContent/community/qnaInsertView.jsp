@@ -3,9 +3,8 @@
     <%if(session.getAttribute("m_id") ==null){
 		out.println("<script>");
 		out.println("alert('회원만 문의할수 있습니다.');");
-		out.println("location.href='/academy_ignis/login';");
+		out.println("location.href='/academy_ignis/login?page=qnaInsertView';");
 		out.println("</script>");
-		out.close();
     }%>
 <!DOCTYPE html>
 <html>
