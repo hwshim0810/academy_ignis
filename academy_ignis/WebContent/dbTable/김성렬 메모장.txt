@@ -1,0 +1,26 @@
+	$(function() {
+		$('#menu1').click(function () {
+			$.ajax( { url: 'menu.html', dataType: "html", success: function(data) { $('#message1').html(data); }
+			});	
+			return false;
+		})
+		$('#menu2').click(function () {
+			$.ajax( { url: 'menu.html', dataType: "html", success: function(data) { $('#message2').html($(data).find('li')); }
+			});	
+			return false;
+		});
+	});
+	
+	
+	<div>
+	<a href="#" id="menu1">메뉴 보기 1</a>
+	<p><span id="message1"></span></p>
+</div><div>
+	<a href="#" id="menu2">메뉴 보기 2</a>
+	<p><span id="message2"></span></p>
+</div>
+
+
+	환영합니다. ${ param.reservType }님.
+	환영합니다. ${ param.reservSearch }님.
+	
