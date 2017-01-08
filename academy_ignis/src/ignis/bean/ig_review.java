@@ -3,18 +3,33 @@ package ignis.bean;
 import java.sql.Date;
 
 public class ig_review {
-	String rb_num;
-	String rb_title;
-	String m_name;
-	String rb_content;
-	String rb_file;
-	int rb_replycount;
-	int rb_readcount;
-	Date rb_regdate;
-	public String getRb_num() {
+	private int rb_num;
+	private String rb_title;
+	private String m_name;
+	private String rb_content;
+	private String rb_file;
+	private int rb_replycount;
+	private int rb_readcount;
+	private java.sql.Date rb_regdate;
+
+	public ig_review(){}
+	public ig_review(int rb_num, String rb_title, String m_name, String rb_content, String rb_file, int rb_replycount, int rb_readcount, Date rb_regdate){
+		super();
+		
+		this.rb_num = rb_num;
+		this.rb_title = rb_title;
+		this.m_name = m_name;
+		this.rb_content = rb_content;
+		this.rb_file = rb_file;
+		this.rb_replycount = rb_replycount;
+		this.rb_readcount = rb_readcount;
+		this.rb_regdate = rb_regdate;
+	}
+	
+	public int getRb_num() {
 		return rb_num;
 	}
-	public void setRb_num(String rb_num) {
+	public void setRb_num(int rb_num) {
 		this.rb_num = rb_num;
 	}
 	public String getRb_title() {
