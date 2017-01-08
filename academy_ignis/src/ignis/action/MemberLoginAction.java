@@ -25,8 +25,8 @@ public class MemberLoginAction implements ActionInterface {
 		int userLevel = loginBiz.isMember(request, response);
 
 		int pagenum = 1;
-		if (request.getParameter("pagenum") != null);
-		Integer.parseInt(request.getParameter("pagenum"));
+		if (request.getParameter("pagenum") != null)
+			Integer.parseInt(request.getParameter("pagenum"));
 		
 		switch (userLevel) {
 		case ADMINLEVEL: 
