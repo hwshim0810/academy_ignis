@@ -35,7 +35,7 @@ public class MemberLoginAction implements ActionInterface {
 			PrintWriter out3 = response.getWriter();
 			if (page.equals("qnaInsertView")){
 				forward.setRedirect(true);
-				forward.setPath("./community/qnaInsertView.jsp");
+				forward.setPath("/academy_ignis/qnaInsertView");
 				return forward;
 			}
 			forward.setRedirect(true);
