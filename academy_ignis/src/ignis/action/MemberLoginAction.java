@@ -20,9 +20,13 @@ public class MemberLoginAction implements ActionInterface {
 		ActionForward forward = new ActionForward();
 		
 		HttpSession session = request.getSession();
+		
 		String page = request.getParameter("page");
-		int pagenum = Integer.parseInt(request.getParameter("pagenum"));
 		int userLevel = loginBiz.isMember(request, response);
+
+		int pagenum = 1;
+		if (request.getParameter("pagenum") != null);
+		Integer.parseInt(request.getParameter("pagenum"));
 		
 		switch (userLevel) {
 		case ADMINLEVEL: 
