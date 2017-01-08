@@ -19,7 +19,7 @@
 	<div class="col-lg-12 well">
 	
 	<div class="row">
-		<form class="form-horizontal" method="post" action="./joinProcess?page=home">
+		<form class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=home">
 			<fieldset>
 				
 				<!-- Form Name -->
@@ -82,7 +82,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 				  <div class="col-md-4">
-				  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
+				  <input name="m_birth" type="date" placeholder="생년월일" class="form-control input-md">
 				  </div>
 				</div>
 				
@@ -104,7 +104,7 @@
 						</div>
 					</div>
 				<div class="col-md-8">
-					<input type="text" id="m_addr" name="m_addr" class="d_form large" placeholder="주소" class="form-control input-md">
+					<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
 				</div>
 				</div>
 				

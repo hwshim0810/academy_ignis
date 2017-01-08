@@ -113,6 +113,7 @@
 						<tr>
 							<th>No</th>
 							<th>제목</th>
+							<th>글쓴이</th>
 							<th>등록일</th>
 							<th>조회수</th>
 						</tr>
@@ -129,10 +130,11 @@
 					<tr>
 						<td><%= no %></td>
 						<td>
-							<a href="/academy_ignis/EventView?login=member&num=<%= event.getEb_num()%>">
+							<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
 								<%= event.getEb_title() %>
 							</a>
 						</td>
+						<td>이그니스 치과</td>
 						<td><%= event.getEb_regdate() %></td>
 						<td><%= event.getEb_readcount() %></td>
 					</tr>
@@ -159,7 +161,7 @@
 				  <li>
 				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
 				  </li>
-				  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=endPage %>">마지막 페이지</a></li>
+				  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
 				<form class="form-inline">
 					<select name="eventSearch" class="form-control" id="eventSearch">

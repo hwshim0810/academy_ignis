@@ -62,7 +62,7 @@
 									<td colspan="2" style="text-align : center;">
 										<div class="form-group">
 								            <div class="col-md-offset-2 col-md-10">
-								                <button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/Event'">취소</button>
+								                <button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/Event?login=admin'">취소</button>
 								            	<button type="submit" class="btn btn-primary">등록</button>
 								            </div>
 								        </div>

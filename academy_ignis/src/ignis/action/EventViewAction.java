@@ -17,9 +17,15 @@ public class EventViewAction implements ActionInterface {
 		int num = Integer.valueOf(request.getParameter("num"));
 		
 		String login = request.getParameter("login");
+		String pageNo = "1";
+		
+		if(request.getParameter("pageNo") != null){
+			pageNo = request.getParameter("pageNo");
+		}
+		
 		if(login.equals("admin")){
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/admin/ad_CommunityEventView.jsp?num="+ num);
+			forward.setPath("/academy_ignis/admin/ad_CommunityEventView.jsp?pageNo=" + pageNo + "&num="+ num);
 			return forward;
 
 		} else if(login.equals("member")){
@@ -27,7 +33,7 @@ public class EventViewAction implements ActionInterface {
 			if(result){
 				System.out.println("member로 들어옴");
 				forward.setRedirect(true);
-				forward.setPath("/academy_ignis/community/eventView.jsp?num="+ num);
+				forward.setPath("/academy_ignis/community/eventView.jsp?pageNo=" + pageNo + "&num="+ num);
 				return forward;
 			} else {
 				System.out.println(num);
