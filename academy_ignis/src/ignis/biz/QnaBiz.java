@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ignis.bean.ig_notice;
 import ignis.bean.ig_qna;
@@ -15,10 +16,26 @@ public class QnaBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		QnaDAO qnaDao = new QnaDAO();
+		String qb_mal=request.getParameter("qb_mal");
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
 		String qb_title = request.getParameter("qb_title");
 		String qb_content = request.getParameter("qb_content");
-		
-		boolean result = qnaDao.insert(qb_title, qb_content);
+		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
+		boolean result = qnaDao.insert(qb_mal,m_id,qb_title,qb_content,qb_private);
+		if (result) return result;
+		else return result;
+	}
+	
+	public boolean insertReview(HttpServletRequest request, HttpServletResponse response) {
+		QnaDAO qnaDao = new QnaDAO();
+		String qb_mal=request.getParameter("qb_mal");
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		String qb_title = request.getParameter("qb_title");
+		String qb_content = request.getParameter("qb_content");
+		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
+		boolean result = qnaDao.insertReview(qb_mal,m_id,qb_title,qb_content,qb_private);
 		if (result) return result;
 		else return result;
 	}

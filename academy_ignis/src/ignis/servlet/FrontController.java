@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ignis.action.*;
 
@@ -114,6 +115,22 @@ public class FrontController extends HttpServlet {
 			
 		case "/qnaDetail":
 			action = new QnaDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/qnaInsertView" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./community/qnaInsertView.jsp");
+			break;	
+			
+		case "/qnaInsert" :
+			action = new QnaInsertAction();
+			
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

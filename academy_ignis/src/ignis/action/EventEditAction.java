@@ -13,11 +13,19 @@ public class EventEditAction implements ActionInterface {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		EventBiz eventBiz = new EventBiz();
 		ActionForward forward = new ActionForward();
+		
 		int num = Integer.valueOf(request.getParameter("num"));
+		String pageNo = "1";
+		
+		if(request.getParameter("pageNo") != null){
+			pageNo = request.getParameter("pageNo");
+		}
+		
 		boolean result = eventBiz.updateEvent(request, response);
+		
 		if(result){
 			forward.setRedirect(false);
-			forward.setPath("/EventView?num="+num);
+			forward.setPath("/EventView?login=admin&pageNo=" + pageNo + "&num="+num);
 			return forward;
 		} else {
 			response.setContentType("text/html; charset=UTF-8");

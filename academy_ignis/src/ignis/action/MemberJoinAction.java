@@ -13,14 +13,18 @@ public class MemberJoinAction implements ActionInterface {
 		ActionForward forward = new ActionForward();
 		
 		boolean result = memBiz.insert(request, response);
+		String page = request.getParameter("page");
 		
-		if (result) {
+		
+		if (result && page.equals("home")) {
 			forward.setRedirect(true);
 			forward.setPath("./login");
-			return forward;
+		} else if (result && page.equals("admin")) {
+			forward.setRedirect(true);
+			forward.setPath("/academy_ignis/member");
 		}
 		
-		return null;
+		return forward;
 	}
 
 }

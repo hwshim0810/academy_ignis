@@ -21,6 +21,7 @@ public class MemberLoginAction implements ActionInterface {
 		
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
+		int pagenum = Integer.parseInt(request.getParameter("pagenum"));
 		int userLevel = loginBiz.isMember(request, response);
 		
 		switch (userLevel) {
@@ -32,6 +33,12 @@ public class MemberLoginAction implements ActionInterface {
 		
 		case MEMBERLEVEL:
 			session.setAttribute("m_id", request.getParameter("m_id"));
+			PrintWriter out3 = response.getWriter();
+			if (!page.equals("home")){
+				forward.setRedirect(true);
+				forward.setPath("/academy_ignis/"+page+"?pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(true);
 			forward.setPath("/academy_ignis");
 			return forward;

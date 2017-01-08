@@ -2,11 +2,15 @@
     pageEncoding="UTF-8"%>
 <%
 	String id = null;
-
+	String pageURI = null;
+	int pagenum=Integer.parseInt(request.getParameter("pagenum"));
 	if (session.getAttribute("m_id") != null) {
 		id = (String) session.getAttribute("m_id");
 		response.sendRedirect("/academy_ignis");
 	}
+	if(request.getParameter("page")!=null){
+		pageURI=request.getParameter("page");
+	}else{pageURI="home";}
 %>
 <!DOCTYPE html>
 <html>
@@ -24,7 +28,7 @@
 
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-		<form role="form" method="post" action="./loginProcess?page=home">
+		<form role="form" method="post" action="./loginProcess?page=<%=pageURI%>&pagenum=<%=pagenum%>">
 			<fieldset>
 				<h2>Ignis 치과</h2>
 				<hr class="colorgraph">

@@ -21,7 +21,7 @@ public class EventDeleteAction implements ActionInterface {
 			PrintWriter outR = response.getWriter();
 			outR.println("<script>");
 			outR.println("alert('삭제되었습니다.');");
-			outR.println("location.href='/academy_ignis/admin/ad_CommunityEventList.jsp';");
+			outR.println("location.href='/academy_ignis/Event?login=admin';");
 			outR.println("</script>");
 			outR.close();
 			return null;

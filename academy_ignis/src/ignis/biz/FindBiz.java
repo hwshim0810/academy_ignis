@@ -49,5 +49,15 @@ public class FindBiz {
 		
 		return (user != null)? true : false;
 	}
+	
+	public boolean isPassOk(HttpServletRequest request, HttpServletResponse response) {
+		MemberDAO memDao = MemberDAO.getInstance();
+		
+		String id = request.getParameter("m_id");
+		String pass = request.getParameter("m_pass");
+		User user = memDao.isPassOk(id, pass);
+		
+		return (user != null)? true : false;
+	}
 
 }

@@ -13,14 +13,35 @@ import ignis.mybatis.service.FactoryService;
 
 public class QnaDAO {
 
-	public boolean insert( String qb_title, String qb_content) {
+	public boolean insert( String qb_mal, String m_id,String qb_title, String qb_content,int qb_private ) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, String> map = new HashMap<>();
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("qb_mal", qb_mal);
+		map.put("m_id", m_id);
 		map.put("qb_title", qb_title);
 		map.put("qb_content", qb_content);
+		map.put("qb_private", qb_private);
+		System.out.println(qb_mal+m_id+qb_title+qb_content+qb_private);
 		int result = ss.insert("qna.add", map);
 		if(result> 0) {System.out.println("qna추가 성공");}
 		else {System.out.println("qna추가 실패");}
+		ss.commit(); ss.close();
+		return (result > 0) ? true : false;
+	}
+	
+	public boolean insertReview( String qb_mal, String m_id,String qb_title, String qb_content,int qb_private,int qb_groupnum ) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String,Object> map = new HashMap<>();
+		map.put("qb_mal", qb_mal);
+		map.put("m_id", m_id);
+		map.put("qb_title", qb_title);
+		map.put("qb_content", qb_content);
+		map.put("qb_private", qb_private);
+		map.put("qb_groupnum", qb_groupnum);
+		System.out.println(qb_mal+m_id+qb_title+qb_content+qb_private);
+		int result = ss.insert("qna.add", map);
+		if(result> 0) {System.out.println("qna 답변 추가 성공");}
+		else {System.out.println("qna 답변 추가 실패");}
 		ss.commit(); ss.close();
 		return (result > 0) ? true : false;
 	}

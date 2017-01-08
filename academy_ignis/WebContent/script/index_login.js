@@ -6,7 +6,7 @@ function userLogin() {
 
 function userLogout() {
 	$("#login").html('<a href="/academy_ignis/login">Login</a>');
-	$("#mypage").html('<a href="/academy_ignis/memberJoin">MemberJoin</a>');
+	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
 }
 
 function confirmLogout() {

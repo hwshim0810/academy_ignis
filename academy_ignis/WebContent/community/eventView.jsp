@@ -17,6 +17,8 @@
 	
 	EventDAO eventDao = new EventDAO();
 	ig_event view = eventDao.eventSelectOne(num);
+	
+	String pageNo = request.getParameter("pageNo");
 %>
 
 <!DOCTYPE html>
@@ -150,7 +152,7 @@
 						<td colspan="2" style="text-align : center;">
 							<div class="form-group">
 					            <div class="col-md-offset-2 col-md-10">
-					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member'">목록</button>
+					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member&pageNo=<%=pageNo %>'">목록</button>
 					                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry'">응모하기</button>
 					            </div>
 					        </div>
