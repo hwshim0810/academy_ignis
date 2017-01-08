@@ -5,7 +5,12 @@
         <%
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
-    session.getAttribute("m_id");
+    if(session.getAttribute("m_id") ==null){
+		out.println("<script>");
+		out.println("alert('로그인후 이용해주시기 바랍니다.');");
+		out.println("location.href='/academy_ignis/login?page=qnaDetail&pagenum="+pagenum+"';");
+		out.println("</script>");
+    }
     	%>
 <!DOCTYPE html>
 <html>
@@ -30,12 +35,21 @@
     <%List<ig_qna> list=null;
     if(request.getAttribute("qnaDetail")!=null){
     	list = (List)request.getAttribute("qnaDetail");
+    	if(list.get(0).getQb_private()==1){
+    		if(!list.get(0).getM_id().equals(session.getAttribute("m_id"))){
+    			System.out.println(list.get(0).getM_id()+session.getAttribute("m_id"));
+    			out.println("<script>");
+    			out.println("alert('비공개 문의는 본인만 보기 가능합니다..');");
+    			out.println("location.href='/academy_ignis/qna';");
+    			out.println("</script>");
+    		}
+    	}
     	%>
       <tr>
       <th>말머리</th>
         <td><%=list.get(0).getQb_mal() %></td>
         <th>작성자</th>
-        <td><%=list.get(0).getQb_title() %></td>
+        <td><%=list.get(0).getM_id()%></td>
       </tr><tr>
       <th>제목</th>
         <td><%=list.get(0).getQb_title() %></td>
