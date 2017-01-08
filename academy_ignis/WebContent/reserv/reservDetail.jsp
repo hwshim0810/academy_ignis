@@ -30,11 +30,19 @@
 	$(function() {
 		$('#reservSubmit').click(function () {
 			
-			var reservSearch = $('.reservSearch').val();
-			var reservType = $('.reservType').val();
-			var sendData = {'reservSearch':reservSearch, 'reservType':reservType};
+			$.ajax({
+				type : "post",
+				dataType: "json",
+				url : "./reserv/welcome.jsp",
+				  data : [
+					  reservSearch = $('.reservSearch').val(),
+						reservType = $('.reservType').val()
+						],
+				success : function(data) { $('#reservContent').html(data); },
+				error : function error(){alert("error"); }
+				
+			});
 			
-			$.post( "./reserv/welcome.jsp", sendData, function (msg) { $('#reservContent').html(msg); });
 			return false;
 		});
 	});
@@ -97,7 +105,7 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 					  <label for="sel1">검색 범위</label>
 					  <select class="reservType" id="sel1" name="reservType">
 					    <option>전체</option>
-					    <option>제목</option>
+					    <option value="t_guide">진료 항목</option>
 					    <option>내용</option>
 					  </select>
 					  <div class="form-group">

@@ -8,7 +8,6 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-	response.sendRedirect("./login");
 	
 	System.out.println("id는 " +id);
 %>
