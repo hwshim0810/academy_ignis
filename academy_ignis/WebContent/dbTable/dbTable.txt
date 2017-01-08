@@ -140,12 +140,11 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '제목37', '내용37',0, SYSDATE
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '제목38', '내용38',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '제목39', '내용39',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '제목40', '내용40',0, SYSDATE );
-commit;
 
 
 INSERT INTO IG_member VALUES ( 'admin','1234','admin',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'aaa','1234','aaa',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'bbb','1234','bbb',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',qb_num.currval,0, SYSDATE );
@@ -159,6 +158,8 @@ INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목09', 
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',qb_num.currval,0, SYSDATE );
+commit;
+
 // Number 테스트
 
 alter table ig_event modify eb_readcount number(22);

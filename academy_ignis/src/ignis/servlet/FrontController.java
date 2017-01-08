@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ignis.action.*;
 
@@ -123,9 +124,17 @@ public class FrontController extends HttpServlet {
 			
 		case "/qnaInsertView" :
 			forward = new ActionForward();
+			HttpSession session = request.getSession();
+			if(session.getAttribute("m_id")!=null){
 			forward.setRedirect(false);
 			forward.setPath("./community/qnaInsertView.jsp");
 			break;
+			}
+			else{
+				forward.setRedirect(false);
+				forward.setPath("./member/login.jsp");
+				break;
+			}
 			
 		case "/joinProcess":
 			action = new MemberJoinAction();
