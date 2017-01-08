@@ -4,17 +4,17 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="qna">
 	<insert id="add" parameterType="java.util.HashMap">
-		INSERT INTO IG_qna VALUES ( nb_num.nextval, #{nb_title}, #{nb_content},1, SYSDATE )
+INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_content},#{qb_private},qb_num.currval,0, SYSDATE );
 	</insert>
 	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
-	select qb_mal,qb_num,m_id,qb_title,qb_content,qb_groupnum,qb_readcount,qb_regdate from(
-	select ROWNUM  as qb_rnum,qb_mal,qb_num,m_id,qb_title,qb_content,qb_groupnum,qb_readcount,qb_regdate from(
+	select qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
+	select ROWNUM  as qb_rnum,qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
 		SELECT * FROM IG_qna order by qb_groupnum desc))
 		where qb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	
 	<select id="searchAll"  resultType="ignis.bean.ig_qna">
-	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select nb_num,nb_title,nb_content,qb_private,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_qna where nb_title like '%'||#{searchContent1}||'%' or nb_content like '%'||#{searchContent2}||'%'
 		order by nb_regdate desc ))
@@ -22,7 +22,7 @@
 	</select>
 
 	<select id="searchTitle"  resultType="ignis.bean.ig_qna">
-	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select nb_num,nb_title,nb_content,qb_private,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_qna where nb_title like '%'||#{searchContent}||'%'
 		order by nb_regdate desc))
@@ -30,7 +30,7 @@
 	</select>
 
 	<select id="searchContent"  resultType="ignis.bean.ig_qna">
-	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
+	select nb_num,nb_title,nb_content,qb_private,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_qna where nb_content like '%'||#{searchContent}||'%'
 		order by nb_regdate desc))

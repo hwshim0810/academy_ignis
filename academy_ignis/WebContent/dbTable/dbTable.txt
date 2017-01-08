@@ -46,6 +46,7 @@ create table ig_qna  (
 				m_id  REFERENCES ig_member(m_id),
 				qb_title VARCHAR2(100) NOT NULL, 
 				qb_content VARCHAR2(2000) NOT NULL, 
+				qb_private NUMBER NOT NULL,
 				qb_groupnum NUMBER, 
 				qb_readcount NUMBER NOT NULL, 
 				qb_regdate DATE) SEGMENT CREATION IMMEDIATE;
@@ -146,18 +147,18 @@ INSERT INTO IG_member VALUES ( 'admin','1234','admin',850101,'서울',0101111222
 INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목03', 'qna내용03',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목04', 'qna내용04',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목05', 'qna내용05',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목06', 'qna내용06',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목07', 'qna내용07',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목08', 'qna내용08',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목09', 'qna내용09',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목03', 'qna내용03',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', 'qna제목04', 'qna내용04',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목05', 'qna내용05',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목06', 'qna내용06',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'bbb', 'qna제목07', 'qna내용07',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목08', 'qna내용08',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'bbb', 'qna제목09', 'qna내용09',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',1,qb_num.currval,0, SYSDATE );
 commit;
 
 // Number 테스트

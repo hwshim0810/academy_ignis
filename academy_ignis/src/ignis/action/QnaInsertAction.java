@@ -6,20 +6,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ignis.biz.NoticeBiz;
+import ignis.biz.QnaBiz;
 
 public class QnaInsertAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		NoticeBiz noticeBiz = new NoticeBiz();
+		QnaBiz qnaBiz = new QnaBiz();
 		ActionForward forward = new ActionForward();
 		
+		boolean result = qnaBiz.insert(request, response);
 
-		boolean result = noticeBiz.insert(request, response);
-		
 		if (result) {
 			forward.setRedirect(true);
-			forward.setPath("./noticeinsert.jsp");
+			forward.setPath("/academy_ignis/qna");
 			return forward;
 		}
 		
