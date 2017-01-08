@@ -68,6 +68,7 @@
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-primary" >수정</button></a>
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >삭제</button></a>
 <%} %>
+<% %>
   </div>
  </div>
 </body>
