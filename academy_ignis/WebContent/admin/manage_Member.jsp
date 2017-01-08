@@ -78,7 +78,7 @@
 					    <input type="text" class=form-control id="search">
 					  </div>
 					  <button type="submit" class="btn btn-default">검색</button>
-					  <button class="btn btn-default">추가</button>
+					  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
 					</form>
 					<ul class="pager">
 					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>

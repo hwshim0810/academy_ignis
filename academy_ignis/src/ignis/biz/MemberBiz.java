@@ -69,15 +69,14 @@ public class MemberBiz {
 		int phone = Integer.valueOf(request.getParameter("m_phone"));
 		String email = request.getParameter("m_email");
 		
-		int level = 1;
-		if (page.equals("home")) level = 2;
-		else level = 3; 
+		int level = 2;
+		
+		if (page.equals("admin")) 
+			level = Integer.valueOf(request.getParameter("m_level"));
 			
-		
 		boolean result = memDao.insert(id, pass, name, birth, addr, phone, email, level);
-		
-		if (result) return result;
-		else return result;
+
+		return result;
 	}
 	
 	public int delete(HttpServletRequest request, HttpServletResponse response) {
