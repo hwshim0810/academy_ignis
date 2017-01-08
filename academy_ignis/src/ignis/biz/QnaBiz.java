@@ -26,6 +26,19 @@ public class QnaBiz {
 		if (result) return result;
 		else return result;
 	}
+	
+	public boolean insertReview(HttpServletRequest request, HttpServletResponse response) {
+		QnaDAO qnaDao = new QnaDAO();
+		String qb_mal=request.getParameter("qb_mal");
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		String qb_title = request.getParameter("qb_title");
+		String qb_content = request.getParameter("qb_content");
+		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
+		boolean result = qnaDao.insertReview(qb_mal,m_id,qb_title,qb_content,qb_private);
+		if (result) return result;
+		else return result;
+	}
 
 	public List<ig_qna> selectAll(int startRowNum,int endRowNum) {
 		QnaDAO qnaDao = new QnaDAO();

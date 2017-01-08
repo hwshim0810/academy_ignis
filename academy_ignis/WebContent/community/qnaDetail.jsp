@@ -29,7 +29,7 @@
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
   <div class="col-xs-12 col-sm-9 col-md-10 ">
-  <h4>공지사항</h4><hr>
+  <h4>qna</h4><hr>
  <table class="table">
     <tbody>
     <%List<ig_qna> list=null;
@@ -64,7 +64,10 @@
       <%
     } %>
   <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
-
+<%if(list.get(0).getM_id().equals(session.getAttribute("m_id"))) {%>
+<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-primary" >수정</button></a>
+<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >삭제</button></a>
+<%} %>
   </div>
  </div>
 </body>

@@ -6,6 +6,9 @@
 	<insert id="add" parameterType="java.util.HashMap">
 INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_content},#{qb_private},qb_num.currval,0,SYSDATE)
 	</insert>
+	<insert id="qnaReview" parameterType="java.util.HashMap">
+INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_content},#{qb_private},#{qb_groupnum},0,SYSDATE)
+	</insert>
 	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
 	select qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
 	select ROWNUM  as qb_rnum,qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
