@@ -12,10 +12,10 @@ public class MemberJoinPageAction implements ActionInterface {
 		String page = request.getParameter("page");
 		
 		if (page.equals("admin")) {
-			forward.setRedirect(false);
+			forward.setRedirect(true);
 			forward.setPath("/academy_ignis/admin/ad_memJoin.jsp");
-		} else {
-			forward.setRedirect(false);
+		} else if (page.equals("home")) {
+			forward.setRedirect(true);
 			forward.setPath("/academy_ignis/member/memberJoin.jsp");
 		}
 		
