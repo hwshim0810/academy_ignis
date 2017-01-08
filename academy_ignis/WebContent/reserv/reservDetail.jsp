@@ -24,6 +24,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Ignis치과 관리자페이지</title>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+
+<script>
+	$(function() {
+		$('#reservSubmit').click(function () {
+			
+			var reservSearch = $('.reservSearch').val();
+			var reservType = $('.reservType').val();
+			var sendData = {'reservSearch':reservSearch, 'reservType':reservType};
+			
+			$.post( "./reserv/welcome.jsp", sendData, function (msg) { $('#reservContent').html(msg); });
+			return false;
+		});
+	});
+</script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
@@ -58,7 +74,7 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 								ig_reserv reserv = reservList.get(i);
 							
 					%>
-					<tr>
+					<tr id="reservContent">
 						<td><%=reserv.getR_num() %></td>
 						<td><%=reserv.getM_id() %></td>
 						<td><%=reserv.getR_guide() %></td>
@@ -79,16 +95,16 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 				<div class="panel-end">
 					<form class="form-inline" >
 					  <label for="sel1">검색 범위</label>
-					  <select class="form-control" id="sel1">
+					  <select class="reservType" id="sel1" name="reservType">
 					    <option>전체</option>
 					    <option>제목</option>
 					    <option>내용</option>
 					  </select>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class=form-control id="search">
+					    <input type="text" class="reservSearch" name =" reservSearch" id="search">
 					  </div>
-					  <button type="submit" class="btn btn-default">검색</button>
+					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
 				</div>
 			</div>
