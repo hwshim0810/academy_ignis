@@ -3,6 +3,7 @@ package ignis.action;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import ignis.biz.NoticeBiz;
 
@@ -13,6 +14,7 @@ public class QnaInsertAction implements ActionInterface {
 		NoticeBiz noticeBiz = new NoticeBiz();
 		ActionForward forward = new ActionForward();
 		
+
 		boolean result = noticeBiz.insert(request, response);
 		
 		if (result) {

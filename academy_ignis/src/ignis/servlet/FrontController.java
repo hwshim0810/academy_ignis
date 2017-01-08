@@ -124,17 +124,10 @@ public class FrontController extends HttpServlet {
 			
 		case "/qnaInsertView" :
 			forward = new ActionForward();
-			HttpSession session = request.getSession();
-			if(session.getAttribute("m_id")!=null){
 			forward.setRedirect(false);
 			forward.setPath("./community/qnaInsertView.jsp");
-			break;
-			}
-			else{
-				forward.setRedirect(false);
-				forward.setPath("./member/login.jsp");
-				break;
-			}
+			break;	
+
 			
 		case "/joinProcess":
 			action = new MemberJoinAction();
