@@ -83,4 +83,18 @@ public class QnaBiz {
 		int qb_groupCount = qnaDao.qb_groupCount(qb_groupnum);
 		return qb_groupCount;
 	}
+
+	public boolean qnaDelete(HttpServletRequest request, HttpServletResponse response) {
+		QnaDAO qnaDao = new QnaDAO();
+		
+		int qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
+		HttpSession session = request.getSession();
+		String m_id = (String)session.getAttribute("m_id");
+		String qb_title = request.getParameter("qb_title");
+		String qb_content = request.getParameter("qb_content");
+		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
+		int qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
+		boolean result = qnaDao.insertReply(qb_mal,m_id,qb_title,qb_content,qb_private,qb_groupnum);
+		return result;
+	}
 }

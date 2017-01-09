@@ -71,18 +71,19 @@
       <%
     } %>
 
-  <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
-
+<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
 <%if(list.get(0).getM_id().equals(session.getAttribute("m_id"))&&qb_groupCount!=2) {%>
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-primary" >수정</button></a>
-<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >삭제</button></a>
+<a href="qnaDeleteView?pagenum=<%=pagenum%>&qb_num=<%=list.get(0).getQb_num()%>"><button type="button" class="btn btn-danger" >삭제</button></a>
+<%}else if(list.get(0).getM_id().equals(session.getAttribute("m_id"))&&qb_groupCount==2){%>
+<a href="qnaDeleteView?pagenum=<%=pagenum%>&qb_groupnum=<%=list.get(0).getQb_num()%>"><button type="button" class="btn btn-danger" >그룹삭제</button></a>
 <%} %>
 <%
 System.out.println(list.get(0).getQb_num()+","+list.get(0).getQb_groupnum()+","+session.getAttribute("m_level").toString());
 if(list.get(0).getQb_num()== list.get(0).getQb_groupnum() 
 &&session.getAttribute("m_level").toString().equals("3")
 &&((Integer)request.getAttribute("qb_groupCount"))<2){%>
-	<a href="qnaReplyView?qb_num=<%=list.get(0).getQb_num()%>&pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >답변</button></a>
+<a href="qnaReplyView?qb_num=<%=list.get(0).getQb_num()%>&pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >답변</button></a>
 <%} %>
   </div>
  </div>
