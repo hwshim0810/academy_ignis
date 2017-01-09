@@ -24,6 +24,13 @@ public class User {
 		this.m_enterdate = m_enterdate;
 	}
 	
+	@Override
+	public String toString() {
+		return "User [m_id=" + m_id + ", m_pass=" + m_pass + ", m_name=" + m_name + ", m_addr=" + m_addr + ", m_email="
+				+ m_email + ", m_birth=" + m_birth + ", m_phone=" + m_phone + ", m_level=" + m_level + ", m_enterdate="
+				+ m_enterdate + "]";
+	}
+
 	public String getM_id() {
 		return m_id;
 	}

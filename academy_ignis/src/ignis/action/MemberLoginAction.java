@@ -19,10 +19,10 @@ public class MemberLoginAction implements ActionInterface {
 		LoginBiz loginBiz = new LoginBiz();
 		ActionForward forward = new ActionForward();
 		
-		HttpSession session = request.getSession();
-		
-		String page = request.getParameter("page");
 		int userLevel = loginBiz.isMember(request, response);
+		
+		HttpSession session = request.getSession();
+		String page = request.getParameter("page");
 
 		int pagenum = 1;
 		if (request.getParameter("pagenum") != null)

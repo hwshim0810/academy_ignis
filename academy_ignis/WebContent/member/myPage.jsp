@@ -25,7 +25,7 @@
 </head>
 <body>
 <%
-	pageContext.include("../header/header.jsp");
+	//pageContext.include("../header/header.jsp");
 %>
 <div class="container">
 	<h2>회원정보</h2>
@@ -104,7 +104,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
 				  <div class="col-md-4">
-				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				    <button name="singlebutton" class="btn btn-primary backBtn">돌아가기</button>
 				  </div>
 				</div>
 				
@@ -127,7 +127,7 @@
 				<div class="form-group">
 				<label class="col-md-4 control-label" for="m_pass">비밀번호</label>
 					<div class="col-md-4">
-						<input name="m_id" id="m_id" type="hidden" value="<%=id%>">
+						<input name="hidden_id" id="hidden_id" type="hidden" value="<%=id%>">
 						<input name="m_pass" id="m_pass" type="password" placeholder="비밀번호" class="form-control input-md">
 					</div>
 				</div>
@@ -137,8 +137,8 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
 				  <div class="col-md-4">
-				    <button id="passChk" name="singlebutton" class="btn btn-primary">입력하기</button>
-				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				    <a id="passChk" class="btn btn-primary">입력하기</a>
+				    <a class="btn btn-primary backBtn">돌아가기</a>
 				  </div>
 				</div>
 				
@@ -214,7 +214,7 @@
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
 				  <div class="col-md-4">
 				    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">수정하기</button>
-				    <button id="backBtn" name="singlebutton" class="btn btn-primary">돌아가기</button>
+				    <button name="singlebutton" class="btn btn-primary backBtn">돌아가기</button>
 				  </div>
 				</div>
 				

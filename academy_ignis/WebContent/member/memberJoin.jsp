@@ -1,13 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<% 
-	String id = null;
-
-	if (session.getAttribute("m_id") != null) 
-		id = (String) session.getAttribute("m_id");
-	else
-		response.sendRedirect("/academy_ignis");
-%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +8,7 @@
   <link rel="stylesheet" href="/academy_ignis/css/memberJoin.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+  <link rel="stylesheet" href="/academy_ignis/css/daterangepicker.css">
   <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
 </head>
 <body>
@@ -69,12 +62,9 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">패스워드확인*</label>  
 				  <div class="col-md-4">
-				  <input id="m_passchk" name="m_passchk" type="password"  required="required" placeholder="패스워드" class="form-control input-md">
+				  <input id="m_passchk" name="m_passchk" type="password"  required="required" placeholder="패스워드 확인" class="form-control input-md">
 				  </div>
-				</div>
-				
-				<div class="form-group" id="passmsg">
-				  <div class="col-md-4">
+				  <div class="col-md-4" id="passmsg">
 				  </div>
 				</div>
 				
@@ -86,25 +76,18 @@
 				  </div>
 				</div> -->
 				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
-				  <div class="col-md-4">
-				  <input name="m_birth" type="date" placeholder="생년월일" class="form-control input-md">
-				  </div>
-				</div>
-				
 				<!-- 우편번호 API 이용 -->
 				<div class="form-group">
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4">
-						<input type="text" id="m_postcode" placeholder="우편번호" class="form-control input-md">
+						<input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
 					</div>
 					<div class="col-md-2">
 						<input id="postSearch" class="btn btn-default" value="우편번호 찾기">
 					</div>
 				</div>
+				
 				<div class="form-group">
 					<div class="col-md-4">
 						<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
@@ -112,7 +95,7 @@
 						</div>
 					</div>
 				<div class="col-md-8">
-					<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
+					<input type="text" id="m_addr" name="m_addr" readonly="readonly" placeholder="주소" class="form-control input-md">
 				</div>
 				</div>
 				
@@ -132,20 +115,16 @@
 				  <label class="col-md-4 control-label" for="textinput">Email 주소*</label>  
 				  <div class="col-md-4">
 				  <input name="m_email" type="email" required="required" placeholder="exam@example.com" class="form-control input-md">
-				    
 				  </div>
 				</div>
 				
-				<!-- Select Basic -->
-				<!--  <div class="form-group">
-				  <label class="col-md-4 control-label" for="selectbasic">Country</label>
+				<!-- Text input-->
+				<div class="form-group">
+				  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
 				  <div class="col-md-4">
-				    <select id="selectbasic" name="selectbasic" class="form-control">
-				      <option value="1">Iran</option>
-				      <option value="2">USA</option>
-				    </select>
+				  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
 				  </div>
-				</div>-->
+				</div>
 				
 				<!-- Select Basic -->
 				<!-- <div class="form-group">
@@ -165,6 +144,7 @@
 				    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">회원가입</button>
 				  </div>
 				</div>
+				
 			</fieldset>
 		</form> 
 	</div>
@@ -173,13 +153,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
-<%
-	if (id != null) {
-%>		<script type="text/javascript">userLogin();</script>
-<% 	} else { %>
-		<script type="text/javascript">userLogout();</script>
-<%  } %>
+<script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
+<script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=2"></script>
 </body>
 </html>

@@ -8,6 +8,7 @@ function userLogout() {
 	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
 }
 
+
 $(function() {
     $('input[name="m_birth"]').daterangepicker({
         singleDatePicker: true,
@@ -26,11 +27,11 @@ $(function() {
 	
 	$("#passChk").click(function() {
 		var m_pass = $("#m_pass").val().trim();
-		var m_id = $("#m_id").val().trim();
+		var m_id = $("#hidden_id").val().trim();
 		
 		$.post('/academy_ignis/member/passChk.jsp', { m_pass : m_pass, m_id : m_id }, function(temp) {
 			var result = temp.trim();
-			
+
 			if (result == 'OK') {
 				$.confirm({
 					type: 'green',
@@ -40,8 +41,9 @@ $(function() {
 				        확인: {
 				        	btnClass: 'btn-green',
 				        	action : function () {
+				        		$("#menu1").html('<h3>비밀번호 변경</h3><form id="passForm" class="form-horizontal" method="post" action="./memUpProcess?page=pass"><fieldset><legend class="sr-only">비밀번호 변경</legend><div class="form-group"><label class="col-md-4 control-label" for="m_pass">패스워드</label><div class="col-md-4"><input id="m_pass" name="m_pass" type="password" required="required" placeholder="패스워드" class="form-control input-md"></div></div><div class="form-group"><label class="col-md-4 control-label" for="m_passchk">패스워드확인</label><div class="col-md-4"><input id="m_passchk" name="m_passchk" type="password" required="required" placeholder="패스워드 확인" class="form-control input-md"></div><div class="col-md-4" id="passmsg"></div></div><br><div class="form-group"><label class="col-md-4 control-label"></label><div class="col-md-4"><button id="passSubmit" class="btn btn-primary" type="submit">수정하기</button><a class="btn btn-primary backBtn">돌아가기</a></div></div>	</fieldset></form><script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage_pass.js"></script>');
 				        	}
-				        },
+				        }
 				    }
 				});
 				return false;
@@ -55,9 +57,9 @@ $(function() {
 				            }
 						}
 					},
-					title: '사용불가',
+					title: '문제',
 				    type: 'red',
-				    content: '이미 존재하는 아이디입니다.'
+				    content: '패스워드를 다시 입력해주세요.'
 				});
 				return false;
 			}

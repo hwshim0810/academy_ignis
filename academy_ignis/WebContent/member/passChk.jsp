@@ -3,10 +3,10 @@
 <%@ page import="ignis.biz.FindBiz" %>
 <% 		
 	FindBiz findBiz = FindBiz.getInstance();
-	boolean result = findBiz.isMember(request, response);
+	boolean result = findBiz.isPassOk(request, response);
 	
-	String res = "OK";
-	if (result) res = "NO";
+	String res = "NO";
+	if (result) res = "OK";
 	
 	response.getWriter().print(res);
 %>
