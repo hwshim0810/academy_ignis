@@ -25,7 +25,7 @@ public class ReviewEditViewAction implements ActionInterface {
 		if(login.equals("admin")){
 			
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/admin/ad_CommunityReviewEditView.jsp?pageNo=" + pageNo + "&num="+ num);
+			forward.setPath("/academy_ignis/admin/ad_CommunityReviewEdit.jsp?pageNo=" + pageNo + "&num="+ num);
 			return forward;
 
 		} else if(login.equals("member")){

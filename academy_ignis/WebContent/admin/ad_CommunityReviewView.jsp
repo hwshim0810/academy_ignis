@@ -92,8 +92,8 @@
 									<div class="form-group">
 							            <div class="col-md-offset-2 col-md-10">
 							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Review?login=admin&pageNo=<%=pageNo %>'">목록</button>
-							                <button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/ReviewEditView?pageNo=<%= pageNo %>&num=<%= view.getRb_num()%>'">수정</button>
-							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewDelete?num=<%= view.getRb_num() %>'">삭제</button>
+							                <button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/ReviewEditView?login=admin&pageNo=<%= pageNo %>&num=<%= view.getRb_num()%>'">수정</button>
+							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewDelete?login=admin&num=<%= view.getRb_num() %>'">삭제</button>
 							            </div>
 							        </div>
 								</td>
