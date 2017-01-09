@@ -40,12 +40,15 @@
     	list = (List)request.getAttribute("qnaDetail");
     	
     	if(list.get(0).getQb_private()==1){
-    		if(!list.get(0).getM_id().equals(session.getAttribute("m_id")) &&!session.getAttribute("m_level").toString().equals("3")){
-    			System.out.println(list.get(0).getM_id()+session.getAttribute("m_id"));
+    		if(!session.getAttribute("m_id").equals(request.getAttribute("replyOwenr").toString())){
+    		if(!list.get(0).getM_id().equals(session.getAttribute("m_id")) 
+    				&&!session.getAttribute("m_level").toString().equals("3")
+    				){
     			out.println("<script>");
     			out.println("alert('비공개 문의는 본인만 보기 가능합니다..');");
     			out.println("location.href='/academy_ignis/qna';");
     			out.println("</script>");
+    		}
     		}
     	}
     	%>
@@ -76,7 +79,9 @@
 <%} %>
 <%
 System.out.println(list.get(0).getQb_num()+","+list.get(0).getQb_groupnum()+","+session.getAttribute("m_level").toString());
-if(list.get(0).getQb_num()== list.get(0).getQb_groupnum() &&session.getAttribute("m_level").toString().equals("3")){%>
+if(list.get(0).getQb_num()== list.get(0).getQb_groupnum() 
+&&session.getAttribute("m_level").toString().equals("3")
+&&((Integer)request.getAttribute("qb_groupCount"))<2){%>
 	<a href="qnaReplyView?qb_num=<%=list.get(0).getQb_num()%>&pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >답변</button></a>
 <%} %>
   </div>

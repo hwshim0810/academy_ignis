@@ -53,6 +53,7 @@ public class QnaBiz {
 		List<ig_qna> list = qnaDao.searchAll(startRowNum,endRowNum,searchOption,searchContent);
 		return list;
 	}
+	
 	public int getListcount() {
 		QnaDAO qnaDao = new QnaDAO();
 		int listCount = qnaDao.getListcount();
@@ -66,6 +67,11 @@ public class QnaBiz {
 		return list;
 	}
 
+	public String replyOwenr(int nb_num) {
+		QnaDAO qnaDao = new QnaDAO();
+		String replyOwenr = qnaDao.replyOwenr(nb_num);
+		return replyOwenr;
+	}
 	public int updateCount(int nb_num) {
 		QnaDAO qnaDao = new QnaDAO();
 		int readCount_change = qnaDao.updateCount(nb_num);

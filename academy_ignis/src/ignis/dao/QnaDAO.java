@@ -100,6 +100,15 @@ public class QnaDAO {
 		ss.close();			
 		return list;
 	}
+	
+	public String replyOwenr(int qb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("qb_num", qb_num);
+		String replyOwenr = ss.selectOne("qna.replyOwenr",map);
+		ss.close();			
+		return replyOwenr;
+	}
 
 
 	public int updateCount(int qb_num) {

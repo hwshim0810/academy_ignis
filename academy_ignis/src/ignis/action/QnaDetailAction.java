@@ -13,7 +13,6 @@ public class QnaDetailAction  implements ActionInterface{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		QnaBiz qnaBiz = new QnaBiz();
 		ActionForward forward = new ActionForward();
-		
 		int pagenum=1;//현재 페이지
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
@@ -25,13 +24,14 @@ public class QnaDetailAction  implements ActionInterface{
 		int readCount_change=qnaBiz.updateCount(nb_num);//조회수 +1
 		List<ig_qna> list = qnaBiz.selectDetail(nb_num);//상세 정보 가져옴
 		int qb_groupCount=qnaBiz.qb_groupCount(nb_num);//답변이 있는가 확인.2는 답변 있음
-		
+		String replyOwenr=qnaBiz.replyOwenr(nb_num);//답변의 문의자 ID
 		if(readCount_change>0){System.out.println("readcount +1 성공");
 		}else{System.out.println("readcount +1 실패");}
 		
 		request.setAttribute("pagenum", pagenum);
 		request.setAttribute("qb_groupCount", qb_groupCount);
 		if (list !=null) {
+			request.setAttribute("replyOwenr", replyOwenr);
 			request.setAttribute("qnaDetail", list);
 			forward.setRedirect(false);
 			forward.setPath("./community/qnaDetail.jsp");

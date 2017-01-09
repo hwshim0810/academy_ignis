@@ -53,4 +53,8 @@ INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_con
 	<select id="updateCount"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
 		UPDATE IG_qna SET qb_readcount=qb_readcount+1  where qb_num=#{qb_num}		
 	</select>
+	<select id="replyOwenr"  parameterType="java.util.HashMap"  resultType="java.lang.String">
+		SELECT m_id FROM IG_qna 
+		where qb_num=(SELECT qb_groupnum FROM IG_qna where qb_num=#{qb_num})	
+	</select>
 </mapper>
