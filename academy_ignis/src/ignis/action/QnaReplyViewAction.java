@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import ignis.bean.*;
 import ignis.biz.*;
 
-public class QnaDetailAction  implements ActionInterface{
+public class QnaReplyViewAction  implements ActionInterface{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		QnaBiz qnaBiz = new QnaBiz();
@@ -22,19 +22,15 @@ public class QnaDetailAction  implements ActionInterface{
 		if(request.getParameter("qb_num")!=null){
 			nb_num=Integer.parseInt(request.getParameter("qb_num"));
 		}
-		int readCount_change=qnaBiz.updateCount(nb_num);//조회수 +1
 		List<ig_qna> list = qnaBiz.selectDetail(nb_num);//상세 정보 가져옴
 		int qb_groupCount=qnaBiz.qb_groupCount(nb_num);//답변이 있는가 확인.2는 답변 있음
-		
-		if(readCount_change>0){System.out.println("readcount +1 성공");
-		}else{System.out.println("readcount +1 실패");}
 		
 		request.setAttribute("pagenum", pagenum);
 		request.setAttribute("qb_groupCount", qb_groupCount);
 		if (list !=null) {
 			request.setAttribute("qnaDetail", list);
 			forward.setRedirect(false);
-			forward.setPath("./community/qnaDetail.jsp");
+			forward.setPath("./community/qnaReplyView.jsp");
 			return forward;
 		}
 		

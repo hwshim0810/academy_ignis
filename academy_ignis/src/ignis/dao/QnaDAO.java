@@ -29,7 +29,7 @@ public class QnaDAO {
 		return (result > 0) ? true : false;
 	}
 	
-	public boolean insertReview( String qb_mal, String m_id,String qb_title, String qb_content,int qb_private,int qb_groupnum ) {
+	public boolean insertReply( String qb_mal, String m_id,String qb_title, String qb_content,int qb_private,int qb_groupnum ) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String,Object> map = new HashMap<>();
 		map.put("qb_mal", qb_mal);
@@ -39,7 +39,7 @@ public class QnaDAO {
 		map.put("qb_private", qb_private);
 		map.put("qb_groupnum", qb_groupnum);
 		System.out.println(qb_mal+m_id+qb_title+qb_content+qb_private);
-		int result = ss.insert("qna.add", map);
+		int result = ss.insert("qna.insertReply", map);
 		if(result> 0) {System.out.println("qna 답변 추가 성공");}
 		else {System.out.println("qna 답변 추가 실패");}
 		ss.commit(); ss.close();
@@ -108,6 +108,14 @@ public class QnaDAO {
 		map.put("qb_num", qb_num);
 		int readCount_change = ss.update("qna.updateCount",map);
 		return readCount_change;
+	}
+
+	public int qb_groupCount(int qb_groupnum) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("qb_groupnum", qb_groupnum);
+		int qb_groupCount = ss.selectOne("qna.qb_groupCount",map);
+		return qb_groupCount;
 	}
 
 }

@@ -137,6 +137,25 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		case "/qnaReplyView" :
+			action = new QnaReplyViewAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/qnaReply" :
+			action = new QnaReplyAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 		case "/joinProcess":
 			action = new MemberJoinAction();

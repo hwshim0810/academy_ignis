@@ -6,13 +6,13 @@
 	<insert id="add" parameterType="java.util.HashMap">
 INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_content},#{qb_private},qb_num.currval,0,SYSDATE)
 	</insert>
-	<insert id="qnaReview" parameterType="java.util.HashMap">
+	<insert id="insertReply" parameterType="java.util.HashMap">
 INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_content},#{qb_private},#{qb_groupnum},0,SYSDATE)
 	</insert>
 	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
 	select qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
 	select ROWNUM  as qb_rnum,qb_mal,qb_num,m_id,qb_title,qb_content,qb_private,qb_groupnum,qb_readcount,qb_regdate from(
-		SELECT * FROM IG_qna order by qb_groupnum desc))
+		SELECT * FROM IG_qna order by qb_groupnum desc,qb_num asc))
 		where qb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	
@@ -43,6 +43,9 @@ INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_con
 
 	<select id="listCount"  resultType="java.lang.Integer">
 		SELECT count(*) FROM IG_qna
+	</select>
+	<select id="qb_groupCount"  resultType="java.lang.Integer">
+		SELECT count(*) FROM IG_qna where qb_groupnum=#{qb_groupnum}
 	</select>
 	<select id="selectDetail"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_qna">
 		SELECT * FROM IG_qna where qb_num=#{qb_num}		

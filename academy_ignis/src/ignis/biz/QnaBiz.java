@@ -27,7 +27,7 @@ public class QnaBiz {
 		else return result;
 	}
 	
-	public boolean insertReview(HttpServletRequest request, HttpServletResponse response) {
+	public boolean insertReply(HttpServletRequest request, HttpServletResponse response) {
 		QnaDAO qnaDao = new QnaDAO();
 		String qb_mal=request.getParameter("qb_mal");
 		HttpSession session = request.getSession();
@@ -35,7 +35,8 @@ public class QnaBiz {
 		String qb_title = request.getParameter("qb_title");
 		String qb_content = request.getParameter("qb_content");
 		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
-		boolean result = qnaDao.insertReview(qb_mal,m_id,qb_title,qb_content,qb_private);
+		int qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
+		boolean result = qnaDao.insertReply(qb_mal,m_id,qb_title,qb_content,qb_private,qb_groupnum);
 		if (result) return result;
 		else return result;
 	}
@@ -69,5 +70,11 @@ public class QnaBiz {
 		QnaDAO qnaDao = new QnaDAO();
 		int readCount_change = qnaDao.updateCount(nb_num);
 		return readCount_change;
+	}
+	
+	public int qb_groupCount(int qb_groupnum) {
+		QnaDAO qnaDao = new QnaDAO();
+		int qb_groupCount = qnaDao.qb_groupCount(qb_groupnum);
+		return qb_groupCount;
 	}
 }
