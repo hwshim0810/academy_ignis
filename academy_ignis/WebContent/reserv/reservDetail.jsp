@@ -32,12 +32,8 @@
 			
 			$.ajax({
 				type : "post",
-				dataType: "json",
-				url : "./reserv/welcome.jsp",
-				  data : [
-					  reservSearch = $('.reservSearch').val(),
-						reservType = $('.reservType').val()
-						],
+	 			url : "./reserv/welcome.jsp",
+			  	data : {reservSearch : $('#reservSearch').val()},
 				success : function(data) { $('#reservContent').html(data); },
 				error : function error(){alert("error"); }
 				
@@ -68,26 +64,28 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
 				</div>
-				<div class="panel-body">
+				<div id="reservContent">
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
 						<tr class="info"><th>예약번호</th><th>아이디</th><th>진료 항목</th><th>진료 일자</th>
-						<th>진료 시간</th><th>상세 보기</th></tr>
+						<th>진료 시간</th><th>예약 신청일</th><th>상세 보기</th></tr>
 					</thead>
 					<tbody>
-					<% 
+					
+					<%
 						if (reservList != null) {
 							for (int i = 0; i < reservList.size(); i++) {
 								ig_reserv reserv = reservList.get(i);
 							
 					%>
-					<tr id="reservContent">
+					<tr >
 						<td><%=reserv.getR_num() %></td>
 						<td><%=reserv.getM_id() %></td>
 						<td><%=reserv.getR_guide() %></td>
 						<td><%=reserv.getR_day() %></td>
 						<td><%=reserv.getR_time() %></td>
+						<td><%=reserv.getR_regdate() %></td>
 						<td><a href="/academy_ignis/adMyPage?userId=<%=reserv.getM_id()%>">보기</a>
 					</tr>
 					<%
@@ -101,19 +99,33 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 				</table>
 				</div>
 				<div class="panel-end">
-					<form class="form-inline" >
+					<form class="form-inline" action="#">
 					  <label for="sel1">검색 범위</label>
-					  <select class="reservType" id="sel1" name="reservType">
+					  <select id="reservType" id="sel1" name="reservType">
 					    <option>전체</option>
 					    <option value="t_guide">진료 항목</option>
 					    <option>내용</option>
 					  </select>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class="reservSearch" name =" reservSearch" id="search">
+					    <input type="text" id="reservSearch" name =" reservSearch">
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
+					
+					<ul class="pager">
+					  <li><a href="/academy_ignis/reservProcess?pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/reservProcess?pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/reservProcess?pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/reservProcess?pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/reservProcess?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+					</ul>
 				</div>
 			</div>
   		</div>

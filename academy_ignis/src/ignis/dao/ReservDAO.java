@@ -59,11 +59,10 @@ public class ReservDAO {
 	}
 	
 
-	public List<ig_reserv> getSearchReserv(String r_title, String r_content, int begin, int end) {
+	public List<ig_reserv> getSearchReserv(String r_content, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println("ReservDAO내의 r_title, r_content확인용 : " + r_title);
-		map.put("r_title", r_title);
+		System.out.println("ReservDAO내의 r_title, r_content확인용 : " + r_content);
 		map.put("r_content", r_content);
 		map.put("begin", begin);	
 		map.put("end", end);
@@ -74,19 +73,19 @@ public class ReservDAO {
 		return list;
 		
 	}
-}
-	/*
+	
 	public List<ig_reserv> check(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		List<ig_reserv> list = null;
 		list = ss.selectList("reserv.check",m_id);
 		ss.close();					return list;
 	}
-	*/
-	/*
+	
+	
 	public List<ig_reserv> checkAll() {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		List<ig_reserv> list = ss.selectList("reserv.checkAll");
 		ss.close();					return list;
 	}
-	*/
+}
+

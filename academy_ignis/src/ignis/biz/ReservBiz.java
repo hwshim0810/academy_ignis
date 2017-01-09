@@ -26,6 +26,7 @@ public class ReservBiz {
 		
 		ReservDAO reservDao = new ReservDAO();
 		String r_guide = request.getParameter("r_guide");
+		System.out.println("ReservBiz내의 reservaDao.insert부분의 r_guide : " + r_guide);
 		String r_day = request.getParameter("r_day");
 		String r_time = request.getParameter("r_time");
 		String r_findDoc = "TRUE";

@@ -8,6 +8,13 @@ public class ig_reserv {
 	String r_day;
 	String r_time;
 	String r_findDoc;
+	Date r_regdate;
+	public Date getR_regdate() {
+		return r_regdate;
+	}
+	public void setR_regdate(Date r_regdate) {
+		this.r_regdate = r_regdate;
+	}
 	String m_id;
 	public String getR_num() {
 		return r_num;

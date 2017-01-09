@@ -36,6 +36,7 @@ create table ig_reserv  (
 				r_day VARCHAR2(20) NOT NULL, 
 				r_time VARCHAR2(10) NOT NULL, 
 				r_findDoc VARCHAR2(5),
+				r_regdate DATE,
 				m_id VARCHAR2(30) REFERENCES ig_member(m_id)) SEGMENT CREATION IMMEDIATE;
 				
 create sequence r_num;
@@ -157,6 +158,8 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목40', '내용4
 INSERT INTO IG_member VALUES ( 'admin','admin','관리자',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa111','aaa111','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb222','bbb222','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',1,qb_num.currval,0, SYSDATE );
