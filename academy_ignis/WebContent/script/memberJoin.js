@@ -1,14 +1,10 @@
-function userLogin() {
-	$("#login").html('<a href="#" id="logout">Logout</a>');
-	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
-}
-
-function userLogout() {
-	$("#login").html('<a href="/academy_ignis/login">Login</a>');
-	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
-}
-
 $(function() {
+    $('input[name="m_birth"]').daterangepicker({
+    	autoUpdateInput: false,
+    	singleDatePicker: true,
+        showDropdowns: true
+    });
+	
 	$("#postSearch").click(function() {
 		sample3_execDaumPostcode();
 	});
@@ -18,9 +14,9 @@ $(function() {
 		var m_passchk = $("#m_passchk").val();
 		
 		if (m_pass != m_passchk) {
-			$("#passmsg").html("<div class='col-md-3'></div><div class='col-md-6 alert alert-danger'>비밀번호가 일치하지 않습니다.</div>")
+			$("#passmsg").html("<h4><span class='label label-danger'>비밀번호가 일치하지 않습니다.</span></h4>")
 		} else {
-			$("#passmsg").html("<div class='col-md-3'></div><div class='col-md-6 alert alert-success'>비밀번호가 일치합니다.</div>")
+			$("#passmsg").html("<h4><span class='label label-success'>비밀번호가 일치합니다.</span></h4>")
 		}
 	});
 	

@@ -25,12 +25,17 @@ public class MemberBiz {
 		MemberDAO memDao = MemberDAO.getInstance();
 	
 		String page = request.getParameter("page");
+		String id = null, addr = null, email = null;
+		int birth = 0, phone = 0;
 		
-		String id = request.getParameter("m_id");
-		String addr = request.getParameter("m_addr");
-		String email = request.getParameter("m_email");
-		int birth = Integer.valueOf(request.getParameter("m_birth"));
-		int phone = Integer.valueOf(request.getParameter("m_phone"));
+		
+		if (!page.equals("pass")) {
+			id = request.getParameter("m_id");
+			addr = request.getParameter("m_addr");
+			email = request.getParameter("m_email");
+			birth = Integer.valueOf(request.getParameter("m_birth"));
+			phone = Integer.valueOf(request.getParameter("m_phone"));
+		}
 		
 		if (page.equals("admin")) {
 			String name = request.getParameter("m_name");
@@ -48,6 +53,7 @@ public class MemberBiz {
 			else return USERFAIL;
 			
 		} else {
+			id = request.getParameter("hidden_id");
 			String pass = request.getParameter("m_pass");
 			boolean result = memDao.updatePass(id, pass);
 			
