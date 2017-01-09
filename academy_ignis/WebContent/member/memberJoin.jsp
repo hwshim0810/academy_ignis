@@ -20,7 +20,7 @@
 	<div class="col-lg-12 well">
 	
 	<div class="row">
-		<form class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=home">
+		<form id="joinForm" class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=home">
 			<fieldset>
 				
 				<!-- Form Name -->
@@ -139,9 +139,9 @@
 				
 				<!-- Button -->
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <label class="col-md-4 control-label"></label>
 				  <div class="col-md-4">
-				    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">회원가입</button>
+				    <button id="joinBtn" name="singlebutton" class="btn btn-primary">회원가입</button>
 				  </div>
 				</div>
 				

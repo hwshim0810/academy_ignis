@@ -25,15 +25,15 @@ public class MemberBiz {
 		MemberDAO memDao = MemberDAO.getInstance();
 	
 		String page = request.getParameter("page");
-		String id = null, addr = null, email = null;
-		int birth = 0, phone = 0;
+		String id = null, addr = null, email = null, birth = null;
+		int phone = 0;
 		
 		
 		if (!page.equals("pass")) {
 			id = request.getParameter("m_id");
 			addr = request.getParameter("m_addr");
 			email = request.getParameter("m_email");
-			birth = Integer.valueOf(request.getParameter("m_birth"));
+			birth = request.getParameter("m_birth");
 			phone = Integer.valueOf(request.getParameter("m_phone"));
 		}
 		

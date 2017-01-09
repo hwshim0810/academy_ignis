@@ -4,6 +4,32 @@ $(function() {
     	singleDatePicker: true,
         showDropdowns: true
     });
+    
+    $("#joinBtn").click(function() {
+			var pass = $('#m_pass').val().trim();
+	var passchk = $('#m_passchk').val().trim();
+	
+	if (pass == passchk) {
+		$('#joinForm').submit();
+	} else {
+		$.alert({
+			buttons: {
+				tryAgain: {
+		            text: '돌아가기',
+		            btnClass: 'btn-red',
+		            action: function(){
+		            }
+				}
+			},
+			title: '비밀번호',
+		    type: 'red',
+		    content: '비밀번호를 일치시켜주세요.'
+		});
+		$('#m_passchk').val("");
+		$('#m_passchk').focus();
+		return false;
+	}
+	})
 	
 	$("#postSearch").click(function() {
 		sample3_execDaumPostcode();

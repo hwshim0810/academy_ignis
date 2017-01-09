@@ -100,7 +100,7 @@ public class MemberDAO {
 		return count;
 	}
 
-	public boolean adupdateMem(String id, String name, int birth, 
+	public boolean adupdateMem(String id, String name, String birth, 
 			String addr, int phone, String email, int level) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
@@ -118,7 +118,7 @@ public class MemberDAO {
 		return (result > 0) ? true : false;
 	}
 
-	public boolean updateMem(String id, int birth, String addr, int phone, String email) {
+	public boolean updateMem(String id, String birth, String addr, int phone, String email) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 	
@@ -139,7 +139,7 @@ public class MemberDAO {
 		
 		map.put("id", id);
 		map.put("pass", pass);
-		System.out.println(id + " / " + pass);
+
 		int result = ss.update("member.updatePass", map);
 		ss.close();					
 		return (result > 0) ? true : false;
@@ -154,4 +154,37 @@ public class MemberDAO {
 		return (result > 0) ? true : false;
 	}
 
+	public List<User> getSearchUser(String type, String content, int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		List<User> list = null;
+		
+		map.put("content", content);
+		map.put("begin", begin);	
+		map.put("end", end);
+		
+		switch (type) {
+		case "m_id":
+			list = ss.selectList("member.searchById", map);
+			break;
+		case "m_name":
+			list = ss.selectList("member.searchByName", map);
+			break;
+		case "m_phone":
+			list = ss.selectList("member.searchByPhone", map);
+			break;
+		case "m_email":
+			list = ss.selectList("member.searchByEmail", map);
+			break;
+		case "all":
+			break;
+
+		default:
+			break;
+		}
+		
+		ss.close();
+		
+		return list;
+	}
 }

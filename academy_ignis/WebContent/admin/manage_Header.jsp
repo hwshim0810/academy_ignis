@@ -24,7 +24,7 @@
 				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
 			</form> -->
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="./" target="_blank">병원페이지로</a></li>
+				<li><a href="/academy_ignis" target="_blank">병원페이지로</a></li>
 				<li class="dropdown ">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
 						계정
