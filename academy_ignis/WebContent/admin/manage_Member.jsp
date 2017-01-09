@@ -22,8 +22,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Ignis치과 관리자페이지</title>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+  <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
+  <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
 <%
@@ -39,7 +41,7 @@
 					<h2 id="memTitle">전체 회원명단</h2>
 					<h5>&nbsp;현재 회원수 : <%=totalRows %></h5>
 				</div>
-				<div class="panel-body">
+				<div class="panel-body" id="panel-body">
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
@@ -68,16 +70,18 @@
 				</table>
 					<form class="form-inline" >
 					  <label for="sel1">검색 범위</label>
-					  <select class="form-control" id="sel1">
-					    <option>전체</option>
-					    <option>제목</option>
-					    <option>내용</option>
+					  <select class="form-control" id="searchType">
+					    <option value="all">전체</option>
+					    <option value="m_id">아이디</option>
+					    <option value="m_name">이름</option>
+					    <option value="m_phone">휴대폰번호</option>
+					    <option value="m_email">Email</option>
 					  </select>
 					  <div class="form-group">
-					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class=form-control id="search">
+					    <label class="sr-only">검색 내용:</label>
+					    <input type="text" class="form-control" id="searchContent">
 					  </div>
-					  <button type="submit" class="btn btn-default">검색</button>
+					  <button id="searchBtn" class="btn btn-default">검색</button>
 					  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
 					</form>
 					<ul class="pager">
@@ -102,6 +106,9 @@
   	</div>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+ <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=5"></script>
 </body>
 </html>

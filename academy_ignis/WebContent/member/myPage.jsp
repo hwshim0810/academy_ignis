@@ -138,7 +138,6 @@
 				  <label class="col-md-4 control-label" for="singlebutton"></label>
 				  <div class="col-md-4">
 				    <a id="passChk" class="btn btn-primary">입력하기</a>
-				    <a class="btn btn-primary backBtn">돌아가기</a>
 				  </div>
 				</div>
 				
@@ -211,10 +210,10 @@
 				
 				<!-- Button -->
 				<div class="form-group">
-				  <label class="col-md-4 control-label" for="singlebutton"></label>
+				  <label class="col-md-4 control-label"></label>
 				  <div class="col-md-4">
-				    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">수정하기</button>
-				    <button name="singlebutton" class="btn btn-primary backBtn">돌아가기</button>
+				    <button type="submit" class="btn btn-primary">수정하기</button>
+				    <button id="backBtn" class="btn btn-primary backBtn">돌아가기</button>
 				  </div>
 				</div>
 				
