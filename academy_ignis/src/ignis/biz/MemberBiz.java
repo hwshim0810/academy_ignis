@@ -53,6 +53,7 @@ public class MemberBiz {
 			else return USERFAIL;
 			
 		} else {
+			id = request.getParameter("hidden_id");
 			String pass = request.getParameter("m_pass");
 			boolean result = memDao.updatePass(id, pass);
 			

@@ -135,11 +135,11 @@ public class MemberDAO {
 
 	public boolean updatePass(String id, String pass) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, Object> map = new HashMap<>();
+		HashMap<String, String> map = new HashMap<>();
 		
 		map.put("id", id);
 		map.put("pass", pass);
-		
+		System.out.println(id + " / " + pass);
 		int result = ss.update("member.updatePass", map);
 		ss.close();					
 		return (result > 0) ? true : false;

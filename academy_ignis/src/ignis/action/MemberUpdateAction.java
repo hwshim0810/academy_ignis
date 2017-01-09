@@ -12,7 +12,6 @@ public class MemberUpdateAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MemberBiz memBiz = MemberBiz.getInstance();
-		ActionForward forward = new ActionForward();
 		
 		int result = memBiz.update(request, response);
 		String userId = request.getParameter("m_id");
@@ -59,14 +58,24 @@ public class MemberUpdateAction implements ActionInterface {
 			return null;
 			
 		case MemberBiz.PASSSUCCESS:
-			forward.setRedirect(true);
-			forward.setPath("./login");
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out4 = response.getWriter();
+			out4.println("<script>");
+			out4.println("alert('수정되었습니다.');");
+			out4.println("location.href='/academy_ignis/myPage';");
+			out4.println("</script>");
+			out4.close();
 			break;
 		
 		case MemberBiz.PASSFAIL:
-			forward.setRedirect(true);
-			forward.setPath("./login");
-			break;
+			response.setContentType("text/html;charset=UTF-8");
+			PrintWriter out5 = response.getWriter();
+			out5.println("<script>");
+			out5.println("alert('수정과정에 문제가있었습니다.');");
+			out5.println("location.href='/academy_ignis/myPage';");
+			out5.println("</script>");
+			out5.close();
+			return null;
 
 		default:
 			System.out.println("업데이트 예외");
