@@ -68,7 +68,11 @@
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-primary" >수정</button></a>
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >삭제</button></a>
 <%} %>
-<% %>
+<%
+System.out.println(list.get(0).getQb_num()+","+list.get(0).getQb_groupnum()+","+session.getAttribute("m_level").toString());
+if(list.get(0).getQb_num()== list.get(0).getQb_groupnum() &&session.getAttribute("m_level").toString().equals("2")){%>
+	<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >답변</button></a>
+<%} %>
   </div>
  </div>
 </body>
