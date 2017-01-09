@@ -22,7 +22,7 @@
 		set rb_title = #{rb_title}, rb_content = #{rb_content}, rb_file = #{rb_file}
 		where rb_num = #{rb_num}
 	</update>
-	<delete id="deleteReview" parameterType="javja.util.HashMap">
+	<delete id="deleteReview" parameterType="java.util.HashMap">
 		delete from ig_review
 		where rb_num = #{rb_num}
 	</delete>
@@ -31,12 +31,12 @@
 		select count(*) from ig_review
 	</select>
 	<update id="upReadCount" parameterType="int">
-		update ig_review set rb_readcount = rb_readcount + 1
+		update ig_review set rb_readcount = rb_readcount + 1	
 		where rb_num = #{rb_num}
 	</update>
 	<update id="upReplyCount" parameterType="int">
-		update ig_review set rb_replycount = rb_replycount + 1
+ 		update ig_review set rb_replycount = rb_replycount + 1
 		where rb_num = #{rb_num}
-	</update>
+ 	</update>
 	
 </mapper>
