@@ -111,7 +111,7 @@
 			<div class="col-sm-9">
 				<h4>Review</h4>
 				<hr>
-				<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite" enctype="multipart/form-data">
+				<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite?login=member" enctype="multipart/form-data">
 					<table class="table">
 						<caption>Review 등록</caption>
 						<tbody>

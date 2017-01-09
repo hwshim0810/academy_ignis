@@ -382,6 +382,16 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
+		case "/ReviewEditView":
+			action = new ReviewEditViewAction();
+			System.out.println("ReviewEditViewAction _FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 //		case "/" :
 //			action = new Action();
 //			

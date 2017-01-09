@@ -30,7 +30,7 @@
 					Review 글쓰기
 				</div>
 				<div class="panel-body">
-					<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite">
+					<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite?login=admin" enctype="multipart/form-data">
 						<table class="table">
 							<caption>Review 등록</caption>
 							<tbody>
