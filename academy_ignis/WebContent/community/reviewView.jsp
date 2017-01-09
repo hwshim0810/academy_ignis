@@ -151,6 +151,7 @@
 						<td colspan="4">
 							<div class="form-group">
 								<%= view.getRb_content() %>
+								<img src="/academy_ignis/reviewUpload/<%= view.getRb_file() %>">
 							</div>
 						</td>
 					</tr>
@@ -158,8 +159,11 @@
 						<td colspan="2" style="text-align : center;">
 							<div class="form-group">
 					            <div class="col-md-offset-2 col-md-10">
-					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member&pageNo=<%=pageNo %>'">목록</button>
-					                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry'">응모하기</button>
+					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Review?login=member&pageNo=<%=pageNo %>'">목록</button>
+					                <%-- 자신이 쓴 글인 경우에만 가능 --%>
+					                <button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/ReviewEditView?login=member&pageNo=<%= pageNo %>&num=<%= view.getRb_num()%>'">수정</button>
+							        <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewDelete?login=member&num=<%= view.getRb_num() %>'">삭제</button>
+					            	<%-- 자신이 쓴 글인 경우에만 가능 --%>
 					            </div>
 					        </div>
 						</td>

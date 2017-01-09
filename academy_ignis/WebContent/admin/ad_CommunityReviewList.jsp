@@ -70,7 +70,7 @@
 						<tr>
 							<td><%= review.getRb_num() %></td>
 							<td>
-								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%> ">
+								<a href="/academy_ignis/ReviewView?login=admin&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%> ">
 									<%= review.getRb_title() %>
 								</a>
 							</td>

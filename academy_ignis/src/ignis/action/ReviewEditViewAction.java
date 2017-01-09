@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ignis.biz.ReviewBiz;
 
-public class ReviewViewAction implements ActionInterface {
+public class ReviewEditViewAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -25,7 +25,7 @@ public class ReviewViewAction implements ActionInterface {
 		if(login.equals("admin")){
 			
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/admin/ad_CommunityReviewView.jsp?pageNo=" + pageNo + "&num="+ num);
+			forward.setPath("/academy_ignis/admin/ad_CommunityReviewEdit.jsp?pageNo=" + pageNo + "&num="+ num);
 			return forward;
 
 		} else if(login.equals("member")){
@@ -35,7 +35,7 @@ public class ReviewViewAction implements ActionInterface {
 				System.out.println(pageNo);
 				System.out.println(num);
 				forward.setRedirect(true);
-				forward.setPath("/academy_ignis/community/reviewView.jsp?pageNo=" + pageNo + "&num="+ num);
+				forward.setPath("/academy_ignis/community/reviewEdit.jsp?pageNo=" + pageNo + "&num="+ num);
 				return forward;
 			} else {
 				System.out.println(num);

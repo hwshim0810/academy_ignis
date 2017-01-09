@@ -18,7 +18,7 @@
 		set rb_title = #{rb_title}, rb_content = #{rb_content}, rb_file = #{rb_file}
 		where rb_num = #{rb_num}
 	</update>
-	<delete id="deleteReview" parameterType="java.util.HashMap">
+	<delete id="deleteReview" parameterType="int">
 		delete from ig_review
 		where rb_num = #{rb_num}
 	</delete>

@@ -15,7 +15,17 @@
 		//response.sendRedirect("/academy_ignis/member/login.jsp");
 %>
 <% 
+	int num = 0;
+	if (request.getParameter("num") != null || Integer.parseInt(request.getParameter("num")) != 0) {
+		num = Integer.valueOf((String) request.getParameter("num"));
+		
+	}
+	else {
+		response.sendRedirect("/academy_ignis/Review?login=member");
+	}
+
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
+	String pageNo = request.getParameter("pageNo");
 %>
 <!DOCTYPE html>
 <html>
@@ -111,31 +121,32 @@
 			<div class="col-sm-9">
 				<h4>Review</h4>
 				<hr>
-				<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite?login=member" enctype="multipart/form-data">
+				<form class="form-horizontal" name="updateReview" method="post" action="/academy_ignis/ReviewEdit?login=member&pageNo=<%= pageNo %>&num=<%= num %>"  enctype="multipart/form-data">
 					<table class="table">
-						<caption>Review 등록</caption>
+					<%
+						ig_review view = reviewDao.reviewSelectOne(num);		
+					%>
 						<tbody>
 							<tr>
 								<th>제목</th>
 								<td>
 									<div class="form-group">
-										<input type="text" class="form-control" name="rb_title" id="rb_title">
-									</div>
+               							<input type="text" name="rb_title" id="rb_title"  class="form-control" value="<%= view.getRb_title() %>" />
+           							</div>
 								</td>
 							</tr>
 							<tr>
 								<th>글쓴이</th>
 								<td>
 									<div class="form-group">
-										<input type="text" class="form-control" name="rb_writer" id="rb_writer" value="<%=id%>" readonly>
-									</div>
+               							<input type="text" class="form-control"  name="rb_writer" id="rb_writer" value="<%=id%>" readonly>
+           							</div>
 								</td>
 							</tr>
 							<tr>
-								<th>내용</th>
-								<td>
+								<td colspan="2">
 									<div class="form-group">
-										<textarea class="form-control" name="rb_content" id="rb_content"></textarea>
+										<textarea class="form-control" name="rb_content" id="rb_content"><%= view.getRb_content() %></textarea>
 									</div>
 								</td>
 							</tr>
@@ -143,20 +154,20 @@
 								<th>첨부파일</th>
 								<td>
 									<div class="form-group">
-										<input type="file" accept=".gif, .jpg, .png" class="form-control" name="rb_file" id="rb_file" >
+										<input type="file" accept=".gif, .jpg, .png" class="form-control" name="rb_file" id="rb_file" value="<%= view.getRb_file() %>" >
 									</div>
 								</td>
 							</tr>
 							<tr>
-									<td colspan="2" style="text-align : center;">
-										<div class="form-group">
-								            <div class="col-md-offset-2 col-md-10">
-								                <button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/Review?login=member'">취소</button>
-								            	<button type="submit" class="btn btn-primary">등록</button>
-								            </div>
-								        </div>
-									</td>
-								</tr>
+								<td colspan="2" style="text-align : center;">
+									<div class="form-group">
+							            <div class="col-md-offset-2 col-md-10">
+							                <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo%>&num=<%= view.getRb_num()%>'">취소</button>
+							            	<button type="submit" class="btn btn-primary">수정</button>
+							            </div>
+							        </div>
+								</td>
+							</tr>
 						</tbody>
 					</table>
 				</form>
