@@ -24,7 +24,9 @@
 		});
 	});
 </script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/academy_ignis/script/ad_Manage.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
@@ -101,9 +103,8 @@
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
-					<%out.println(prevPage); %><%out.println(endPage); %>
 					<ul class="pager">
-					  <li><a href="/academy_ignis/welcome?pageNo=1">첫 페이지</a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=1&reservSearch=<%=reservSearch%>">첫 페이지</a></li>
 					  <li>
 					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>&reservSearch=<%=reservSearch%>">◁</a><% } %>
 					  </li>
@@ -120,9 +121,7 @@
 		</div>			
 	<% pageContext.include("../footer/footer.jsp"); %>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/academy_ignis/script/ad_Manage.js"></script>
+
 
 
 </div>

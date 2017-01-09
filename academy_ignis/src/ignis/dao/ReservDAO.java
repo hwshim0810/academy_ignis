@@ -51,6 +51,7 @@ public class ReservDAO {
 		System.out.println("ReservDAO내의 r_content 조회용 : " + r_content);
 		map.put("r_content", r_content);
 		int listCount = ss.selectOne("reserv.reservedlistCount",map);
+		System.out.println("ReservDDAO내의 r_content에 찍히는 숫자 " + listCount);
 		return listCount;
 	}
 	

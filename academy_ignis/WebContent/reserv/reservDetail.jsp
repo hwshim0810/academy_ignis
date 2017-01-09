@@ -106,7 +106,6 @@
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
-					
 					<ul class="pager">
 					  <li><a href="/academy_ignis/reservDetail?pageNo=1">첫 페이지</a></li>
 					  <li>
