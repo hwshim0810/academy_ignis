@@ -23,11 +23,11 @@ public class ReviewAction implements ActionInterface {
 		
 		if(login.equals("admin")){
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/admin/ad_CommunityEventList.jsp?login=admin&pageNo=" + pageNo);
+			forward.setPath("/academy_ignis/admin/ad_CommunityReviewList.jsp?login=admin&pageNo=" + pageNo);
 			return forward;
 		} else if (login.equals("member")){
 			forward.setRedirect(true);
-			forward.setPath("/academy_ignis/community/event.jsp?login=member&pageNo=" + pageNo);
+			forward.setPath("/academy_ignis/community/review.jsp?login=member&pageNo=" + pageNo);
 			return forward;
 		}
 		

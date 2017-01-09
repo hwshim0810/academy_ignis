@@ -8,7 +8,7 @@
    <ul class="list-group">
   <li class="list-group-item" ><a href="notice">공지사항</a></li>
   <li class="list-group-item" ><a href="/academy_ignis/Event?login=member">이벤트</a></li>
-  <li class="list-group-item" ><a href="#">수술후기</a></li>
+  <li class="list-group-item" ><a href="/academy_ignis/Review?login=member">수술후기</a></li>
   <li class="list-group-item " ><a href="qna">QNA</a></li>
   <li class="list-group-item " ><a href="/academy_ignis/community/faq.jsp">FAQ</a></li>
 </ul>

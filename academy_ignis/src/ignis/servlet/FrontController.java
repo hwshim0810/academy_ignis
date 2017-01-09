@@ -201,7 +201,7 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/review" :
+		case "/Review" :
 			action = new ReviewAction();
 			try {
 				forward = action.execute(request, response);
