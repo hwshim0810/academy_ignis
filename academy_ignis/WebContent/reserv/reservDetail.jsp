@@ -46,24 +46,20 @@
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
-	<%
-pageContext.include("../ignisCompany_info/header_noTop.jsp"); 
-%>
 
-<%
-	pageContext.include("../header/header.jsp");
-%>
+
+
+<div id="reservContent">
+<% pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
+<% pageContext.include("../header/header.jsp"); %>
+<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+
   	<div class="container-fluid main-container">
-  
-<%
-	pageContext.include("../ignisCompany_info/leftList2.jsp");
-%>
-  		<div class="col-md-10 content"  id="reservContent">
+  		<div class="col-md-10 content" >
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
 				</div>
-				<div>
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
@@ -88,7 +84,6 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 						<td><a href="/academy_ignis/adMyPage?userId=<%=reserv.getM_id()%>">보기</a>
 					</tr>
 					<%
-					
 							}
 						} else {
 					%>
@@ -127,7 +122,6 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 					</ul>
 				</div>
 			</div>
-			</div>
   		</div>
 
 <%@include file="../footer/footer.jsp" %>
@@ -136,5 +130,9 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
+ 
+ 
+ 
+</div>
 </body>
 </html>

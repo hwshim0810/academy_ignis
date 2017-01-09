@@ -30,44 +30,33 @@
 </head>
 <body>
 
-	<%
-	ReservDAO reservDao = ReservDAO.getInstance();
-	String reservSearch = (String) request.getParameter("reservSearch");
-	
-
-	int totalRows = reservDao.getReservedListcount(reservSearch); 
-
-		// 전체 게시물 갯수%>
-	
-	<% 	ReservDAO reservDAO = new ReservDAO();  %>
-	
-	<%@include file="../paging/getPageNum.jsp" %>
-	
-	<% System.out.println(reservSearch); %>
-	<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearch, begin, end); %>
-	pageContext.include("../ignisCompany_info/header_noTop.jsp");
-			pageContext.include("../header/header.jsp");
-			pageContext.include("../ignisCompany_info/leftList2.jsp");
-		
-  	<div class="container-fluid main-container">
-	<% 
-		String getServletPath = request.getServletPath();
-		String contextPath = request.getContextPath();
-		String command = getServletPath.substring(7,15);
-		if(command == "/welcome"){
-			pageContext.include("../ignisCompany_info/header_noTop.jsp");
-			pageContext.include("../header/header.jsp");
-			System.out.println("안녕");
-			pageContext.include("../ignisCompany_info/leftList2.jsp");
-		}
-	%>	
-	
+<div id="reservContent">
+<% ReservDAO reservDao = ReservDAO.getInstance();
+	 String reservSearch = (String) request.getParameter("reservSearch");
+	 int totalRows = reservDao.getReservedListcount(reservSearch); %>
+<% ReservDAO reservDAO = new ReservDAO(); %>
+<%@include file="../paging/getPageNum.jsp" %>
+<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearch, begin, end); %>
+<% pageContext.include("../ignisCompany_info/header_noTop.jsp");
+	 pageContext.include("../header/header.jsp");
+	 pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+<% 
+	 String getServletPath = request.getServletPath();
+	 String contextPath = request.getContextPath();
+	 String command = getServletPath.substring(7,15);
+	 if(command == "/welcome"){
+		pageContext.include("../ignisCompany_info/header_noTop.jsp");
+		pageContext.include("../header/header.jsp");
+		System.out.println("안녕");
+		pageContext.include("../ignisCompany_info/leftList2.jsp");
+	 } %>	
+	 
+	 <div class="container-fluid main-container">	
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
 				</div>
-				<div id="reservContent">
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
@@ -108,7 +97,7 @@
 					  </select>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" id="reservSearch" name =" reservSearch"  value="치아교정">
+					    <input type="text" id="reservSearch" name =" reservSearch" >
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
@@ -128,21 +117,14 @@
 					</ul>
 				</div>
 			</div>
-			</div>
-			
-			
-			<%
-			if(command == "/welcome"){
-				pageContext.include("../footer/footer.jsp");
-				
-			pageContext.include("../header/header.jsp");
-			pageContext.include("../ignisCompany_info/leftList2.jsp");
-		}
-	%>	
-			
-  		</div>
+		</div>			
+	<% pageContext.include("../footer/footer.jsp"); %>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/academy_ignis/script/ad_Manage.js"></script>
+
+
+</div>
 </body>
 </html>
