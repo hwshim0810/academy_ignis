@@ -5,8 +5,8 @@
 <mapper namespace="reserv">
 
 	<select id="searchReserv" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
-		select r_num,r_guide,r_day,r_time,r_findDoc, m_id from(
-		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, m_id from(
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
 		SELECT * FROM IG_reserv where r_guide = #{r_content} order by r_num desc)
 		)
 		where num between #{begin}  and  #{end}
@@ -25,6 +25,10 @@
 	
 	<select id="listCount"  resultType="java.lang.Integer">
 		SELECT count(*) FROM ig_reserv
+	</select>
+	
+	<select id="reservedlistCount"  resultType="java.lang.Integer">
+		SELECT count(*) FROM ig_reserv where r_guide = #{r_content}
 	</select>
 	
 	<insert id="add" parameterType="java.util.HashMap">

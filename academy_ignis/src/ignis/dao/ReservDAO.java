@@ -44,6 +44,17 @@ public class ReservDAO {
 		return listCount;
 	}
 	
+	public int getReservedListcount(String r_content) {
+		
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println("ReservDAO내의 r_content 조회용 : " + r_content);
+		map.put("r_content", r_content);
+		int listCount = ss.selectOne("reserv.reservedlistCount",map);
+		return listCount;
+	}
+	
+	
 	public List<ig_reserv> getReservAll(String m_id, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();

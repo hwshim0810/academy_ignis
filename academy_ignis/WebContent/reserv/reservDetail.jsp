@@ -36,9 +36,7 @@
 			  	data : {reservSearch : $('#reservSearch').val()},
 				success : function(data) { $('#reservContent').html(data); },
 				error : function error(){alert("error"); }
-				
 			});
-			
 			return false;
 		});
 	});
@@ -48,7 +46,7 @@
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
-<%
+	<%
 pageContext.include("../ignisCompany_info/header_noTop.jsp"); 
 %>
 
@@ -56,15 +54,16 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 	pageContext.include("../header/header.jsp");
 %>
   	<div class="container-fluid main-container">
+  
 <%
 	pageContext.include("../ignisCompany_info/leftList2.jsp");
 %>
-  		<div class="col-md-10 content">
+  		<div class="col-md-10 content"  id="reservContent">
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
 				</div>
-				<div id="reservContent">
+				<div>
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
@@ -97,9 +96,9 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 					<%	} %>
 					</tbody>
 				</table>
-				</div>
+				
 				<div class="panel-end">
-					<form class="form-inline" action="#">
+					<form class="form-inline" action="reservDetail">
 					  <label for="sel1">검색 범위</label>
 					  <select id="reservType" id="sel1" name="reservType">
 					    <option>전체</option>
@@ -114,19 +113,20 @@ pageContext.include("../ignisCompany_info/header_noTop.jsp");
 					</form>
 					
 					<ul class="pager">
-					  <li><a href="/academy_ignis/reservProcess?pageNo=1">첫 페이지</a></li>
+					  <li><a href="/academy_ignis/reservDetail?pageNo=1">첫 페이지</a></li>
 					  <li>
-					  	<% if (prevPage != 0) { %><a href="/academy_ignis/reservProcess?pageNo=<%=prevPage %>">◁</a><% } %>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/reservDetail?pageNo=<%=prevPage %>">◁</a><% } %>
 					  </li>
 					 	<% for (int i = beginPage; i <= endPage; i++) { %>
-					  <li><a href="/academy_ignis/reservProcess?pageNo=<%=i %>"><%=i %></a></li>
+					  <li><a href="/academy_ignis/reservDetail?pageNo=<%=i %>"><%=i %></a></li>
 					  	<% } %>
 					  <li>
-					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/reservProcess?pageNo=<%=nextPage%>">▷</a><% } %>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/reservDetail?pageNo=<%=nextPage%>">▷</a><% } %>
 					  </li>
-					  <li><a href="/academy_ignis/reservProcess?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+					  <li><a href="/academy_ignis/reservDetail?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 					</ul>
 				</div>
+			</div>
 			</div>
   		</div>
 

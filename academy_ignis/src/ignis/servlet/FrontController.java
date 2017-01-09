@@ -201,16 +201,17 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
-		case "/Review" :
-			action = new ReviewAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			break;
+		case "/reservDetail":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/reservDetail.jsp");
+			break;	
 			
-		
+		case "/welcome":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/welcome.jsp");
+			break;	
 			
 		/* 예약 수정 부분 잠시만 가릴게요
 		case "/updateReserv" :
