@@ -9,23 +9,13 @@
 	request.setCharacterEncoding("utf-8");
 	
 	String id= null;
-	if (session.getAttribute("m_id") != null) {
+	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
-	}
-	else{
+	else
 		//response.sendRedirect("/academy_ignis/member/login.jsp");
-		System.out.println("회원");
-	}
 %>
 <% 
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
-	int totalRows = reviewDao.getListCount(); // 전체 게시물 갯수
-%>
-<%@include file="../paging/getPageNum.jsp" %>
-<%
-	System.out.println(beginPage);
-	System.out.println(endPage);
-	List<ig_review> list = reviewDao.reviewList(begin, end);
 %>
 <!DOCTYPE html>
 <html>
@@ -121,77 +111,55 @@
 			<div class="col-sm-9">
 				<h4>Review</h4>
 				<hr>
-				<table class="table">
-					<caption>Review게시판</caption>
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>등록일</th>
-							<th>조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-					<%
-						Iterator<ig_review> it = list.iterator();
-						int cnt = 0;
-						int no = list.size();
-						while(it.hasNext()){
-							cnt ++;
-							ig_review review = it.next();
-					%>
-						<tr>
-							<td><%= review.getRb_num() %></td>
-							<td>
-								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%> ">
-									<%= review.getRb_title() %>
-								</a>
-							</td>
-							<td><%= review.getM_name() %></td>
-							<td><%= review.getRb_regdate() %></td>
-							<td><%= review.getRb_readcount() %></td>
-						</tr>
-					<% 
-						no--;
-						} 
-						
-						if(cnt == 0) {
-					%>
-					<tr>
-						<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
-					</tr>
-					<% } %>
-					</tbody>
-				</table>
-				<div class="form-group">
-					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='reviewWrite.jsp'">
-				</div>
-				<ul class="pager">
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=1">첫 페이지</a></li>
-				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
-				  </li>
-				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=<%=i %>"><%=i %></a></li>
-				  	<% } %>
-				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
-				  </li>
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
-				</ul>
-				<form class="form-inline">
-				<select name="reviewSearch" class="form-control" id="reviewSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="writer">글쓴이</option>
-					<option value="regdate">등록일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchReview">
-				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
+				<form class="form-horizontal" name="insertReview" method="post" action="/academy_ignis/ReviewWrite" enctype="multipart/form-data">
+					<table class="table">
+						<caption>Review 등록</caption>
+						<tbody>
+							<tr>
+								<th>제목</th>
+								<td>
+									<div class="form-group">
+										<input type="text" class="form-control" name="rb_title" id="rb_title">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>글쓴이</th>
+								<td>
+									<div class="form-group">
+										<input type="text" class="form-control" name="rb_writer" id="rb_writer" value="<%=id%>" readonly>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>내용</th>
+								<td>
+									<div class="form-group">
+										<textarea class="form-control" name="rb_content" id="rb_content"></textarea>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<th>첨부파일</th>
+								<td>
+									<div class="form-group">
+										<input type="file" accept=".gif, .jpg, .png" class="form-control" name="rb_file" id="rb_file" >
+									</div>
+								</td>
+							</tr>
+							<tr>
+									<td colspan="2" style="text-align : center;">
+										<div class="form-group">
+								            <div class="col-md-offset-2 col-md-10">
+								                <button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/Review?login=member'">취소</button>
+								            	<button type="submit" class="btn btn-primary">등록</button>
+								            </div>
+								        </div>
+									</td>
+								</tr>
+						</tbody>
+					</table>
+				</form>
 			</div>
 		</div>
 	</div>

@@ -31,13 +31,17 @@
 	//요청된 pageNo의 현재 range
 	int beginPage = (currentRange - 1) * PAGE_PER_PAGE + 1; // 시작 페이지 번호
 	int endPage = currentRange * PAGE_PER_PAGE; // 마지막 페이지 번호
-	if (currentRange == totalRanges)
+	if (totalRanges == 0) {
+		endPage = 1;
+	} else if (currentRange == totalRanges)
 		endPage = totalPages; // currentRange가 맨 마지막 range인 경우
 
 	int prevPage = 0;
 	if (currentRange != 1)
 		prevPage = (currentRange - 2) * PAGE_PER_PAGE + 1;
 	int nextPage = 0;
-	if (currentRange != totalRanges)
+	if (currentRange != totalRanges) 
 		nextPage = currentRange * PAGE_PER_PAGE + 1;
+	if (totalRanges == 0)
+		nextPage = 0;
 %>

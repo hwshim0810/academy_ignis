@@ -9,11 +9,7 @@
 			from (select rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate from ig_review
 				order by rb_regdate desc )) where rnum between #{begin} and #{end} 
 	</select>
-	<select id="selectNum" resultType="ignis.bean.ig_review">
-		select * from ig_review
-		where rb_num = #{rb_num}
-	</select>
-	<insert id="insertReview" parameterType="ignis.bean.ig_review">
+	<insert id="insertReview" parameterType="java.util.HashMap">
 		insert into ig_review
 		values(rb_num.NEXTVAL, #{rb_title}, #{m_name}, #{rb_content}, #{rb_file}, 0, 0, SYSDATE)
 	</insert>
@@ -27,6 +23,10 @@
 		where rb_num = #{rb_num}
 	</delete>
 	
+	<select id="selectNum" resultType="ignis.bean.ig_review">
+		select * from ig_review
+		where rb_num = #{rb_num}
+	</select>
 	<select id="selectListCount" resultType="int">
 		select count(*) from ig_review
 	</select>

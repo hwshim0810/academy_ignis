@@ -27,7 +27,7 @@
 									<li><a href="#">공지사항</a></li>
 									<li><a href="/academy_ignis/Event?login=admin">이벤트</a></li>
 									<li><a href="#">QnA</a></li>
-									<li><a href="#">치료후기</a></li>
+									<li><a href="/academy_ignis/Review?login=admin">치료후기</a></li>
 
 									<!-- Dropdown level 2 -->
 									
