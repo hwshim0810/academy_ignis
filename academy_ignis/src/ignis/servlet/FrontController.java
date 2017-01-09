@@ -201,6 +201,15 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
+		case "/review" :
+			action = new ReviewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 		
 			
 		/* 예약 수정 부분 잠시만 가릴게요
