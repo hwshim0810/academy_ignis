@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class ig_qna {
 private String qb_mal;
-private String qb_num;
+private int qb_num;
 private String m_id;
 private String qb_title;
 private String qb_content;
@@ -13,7 +13,7 @@ private int qb_groupnum;
 private int qb_readcount;
 private java.sql.Date qb_regdate;
 public ig_qna(){}
-public ig_qna(String qb_mal, String qb_num, String m_id, String qb_title, String qb_content, int qb_private,
+public ig_qna(String qb_mal, int qb_num, String m_id, String qb_title, String qb_content, int qb_private,
 		int qb_groupnum, int qb_readcount, Date qb_regdate) {
 	super();
 	this.qb_mal = qb_mal;
@@ -32,10 +32,10 @@ public String getQb_mal() {
 public void setQb_mal(String qb_mal) {
 	this.qb_mal = qb_mal;
 }
-public String getQb_num() {
+public int getQb_num() {
 	return qb_num;
 }
-public void setQb_num(String qb_num) {
+public void setQb_num(int qb_num) {
 	this.qb_num = qb_num;
 }
 public String getM_id() {
@@ -80,7 +80,6 @@ public java.sql.Date getQb_regdate() {
 public void setQb_regdate(java.sql.Date qb_regdate) {
 	this.qb_regdate = qb_regdate;
 }
-
 
 
 

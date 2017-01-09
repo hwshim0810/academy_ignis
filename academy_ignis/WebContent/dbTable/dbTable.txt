@@ -155,7 +155,7 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목39', '내용3
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목40', '내용40',0, SYSDATE );
 
 
-INSERT INTO IG_member VALUES ( 'admin','admin','관리자',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'admin','admin','관리자',850101,'서울',01011112222,'a@a.com',3, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa111','aaa111','이름b',850101,'서울',01011112222,'a@a.com',2, SYSDATE );

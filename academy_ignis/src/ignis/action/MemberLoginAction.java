@@ -31,13 +31,14 @@ public class MemberLoginAction implements ActionInterface {
 		switch (userLevel) {
 		case ADMINLEVEL: 
 			session.setAttribute("m_id", request.getParameter("m_id"));
+			session.setAttribute("m_level",ADMINLEVEL);
 			forward.setRedirect(true);
 			forward.setPath("./admin/ad_Manage.jsp");
 			return forward;
 		
 		case MEMBERLEVEL:
 			session.setAttribute("m_id", request.getParameter("m_id"));
-
+			session.setAttribute("m_level",MEMBERLEVEL);
 			if (!page.equals("home")) {
 				forward.setRedirect(true);
 				forward.setPath("/academy_ignis/" + page + "?pagenum=" + pagenum);
