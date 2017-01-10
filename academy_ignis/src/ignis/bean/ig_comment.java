@@ -3,16 +3,27 @@ package ignis.bean;
 import java.sql.Date;
 
 public class ig_comment {
-	String co_num;
-	String co_content;
-	String m_name;
-	int rb_num;
-	int co_seq;
-	Date co_regdate;
-	public String getCo_num() {
+	private int co_num;
+	private String co_content;
+	private String m_name;
+	private int rb_num;
+	private int co_seq;
+	private java.sql.Date co_regdate;
+	
+	public ig_comment(){ }
+	public ig_comment(int co_num, String co_content, String m_name, int rb_num, int co_seq, Date co_regdate){
+		this.co_num = co_num;
+		this.co_content = co_content;
+		this.m_name = m_name;
+		this.rb_num = rb_num;
+		this.co_seq = co_seq;
+		this.co_regdate = co_regdate;
+	}
+	
+	public int getCo_num() {
 		return co_num;
 	}
-	public void setCo_num(String co_num) {
+	public void setCo_num(int co_num) {
 		this.co_num = co_num;
 	}
 	public String getCo_content() {

@@ -112,5 +112,26 @@ public class ReviewBiz {
 		
 	}
 	
+	// 댓글
+	public boolean insertComment(HttpServletRequest request, HttpServletResponse response) {
+		String m_name = request.getParameter("m_name");
+		String co_content = request.getParameter("co_content");
+		 
+		boolean result = reviewDao.insertComment(m_name, co_content);
+		
+		if (result) return result;
+		else return result;
+	}
+	
+	public boolean deleteComment(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("CommentBizDelete"+request.getParameter("co_num"));
+		int co_num = Integer.parseInt(request.getParameter("co_num"));
+		
+		boolean result = reviewDao.deleteComment(co_num);
+		
+		return result;
+		
+	}
+	
 	
 }

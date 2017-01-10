@@ -38,5 +38,23 @@
  		update ig_review set rb_replycount = rb_replycount + 1
 		where rb_num = #{rb_num}
  	</update>
-	
+ 	
+ 	<select id="selectAllComment" resultType="ignis.bean.ig_comment">
+		select co_num, co_content, m_name, rb_num, co_regdate
+		from (select rownum rnum, co_num, co_content, m_name, rb_num, co_regdate
+			from (select co_num, co_content, m_name, rb_num, co_regdate from ig_comment
+				order by co_num desc )) 
+				where rnum between #{begin} and #{end} and rb_num = #{rb_num} 
+	</select>
+	<select id="selectListCommentCount" resultType="int">
+		select count(*) from ig_comment
+	</select>
+	<insert id="insertComment" parameterType="java.util.HashMap">
+		insert into ig_comment
+		values(co_num.NEXTVAL, #{co_content}, #{m_name}, #{rb_num}, SYSDATE)
+	</insert>
+	<delete id="deleteComment" parameterType="int">
+		delete from ig_comment
+		where co_num = #{co_num}
+	</delete>
 </mapper>

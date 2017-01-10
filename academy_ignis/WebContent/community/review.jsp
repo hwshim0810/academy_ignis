@@ -20,6 +20,7 @@
 <% 
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
 	int totalRows = reviewDao.getListCount(); // 전체 게시물 갯수
+	int commPageNo = 1;
 %>
 <%@include file="../paging/getPageNum.jsp" %>
 <%
@@ -144,7 +145,7 @@
 						<tr>
 							<td><%= review.getRb_num() %></td>
 							<td>
-								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%> ">
+								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>">
 									<%= review.getRb_title() %>
 								</a>
 							</td>
@@ -168,30 +169,30 @@
 					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='reviewWrite.jsp'">
 				</div>
 				<ul class="pager">
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=1">첫 페이지</a></li>
-				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
-				  </li>
-				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=<%=i %>"><%=i %></a></li>
-				  	<% } %>
-				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
-				  </li>
-				  <li><a href="/academy_ignis/Review?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+					<li><a href="/academy_ignis/Review?login=member&pageNo=1">첫 페이지</a></li>
+					<li>
+						<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
+					</li>
+					<% for (int i = beginPage; i <= endPage; i++) { %>
+					<li><a href="/academy_ignis/Review?login=member&pageNo=<%=i %>"><%=i %></a></li>
+					<% } %>
+					<li>
+					 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
+					</li>
+					<li><a href="/academy_ignis/Review?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
 				<form class="form-inline">
-				<select name="reviewSearch" class="form-control" id="reviewSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="writer">글쓴이</option>
-					<option value="regdate">등록일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchReview">
-				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
+					<select name="reviewSearch" class="form-control" id="reviewSearch">
+						<option value="">전체</option>
+						<option value="title">제목</option>
+						<option value="writer">글쓴이</option>
+						<option value="regdate">등록일</option>
+					</select>
+					<div class="form-group">
+						<input type="text" class="form-control" id="searchReview">
+					</div>
+					<button type="submit" class="btn btn-default">검색</button>
+				</form>
 			</div>
 		</div>
 	</div>

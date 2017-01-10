@@ -3,8 +3,12 @@ package ignis.dao;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.ibatis.session.SqlSession;
 
+import ignis.bean.ig_comment;
 import ignis.bean.ig_event;
 import ignis.bean.ig_review;
 import ignis.mybatis.service.FactoryService;
@@ -127,4 +131,63 @@ public class ReviewDAO {
 		
 		return(result > 0) ? true : false;
 	} 
+	
+	// 댓글 기능
+	public List<ig_comment> commentList(int begin, int end, int rb_num){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		map.put("rb_num", rb_num);
+		
+		List<ig_comment> list = ss.selectList("review.selectAllComment", map);
+		
+		ss.close();
+		
+		return list;
+	}
+	
+	public int getListCommentCount(){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int count = ss.selectOne("review.selectListCommentCount");
+		
+		ss.close();
+		
+		return count;
+	}
+	
+	public boolean deleteComment(int co_num){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		System.out.println(co_num+" ////deleteCommentDAO//");
+		
+		int result = ss.delete("review.deleteComment", co_num);
+		
+		ss.commit();
+		ss.close();
+		
+		return(result > 0) ? true : false;
+	} 
+	
+	public static boolean insertComment(String m_name, String co_content){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, String> map = new HashMap<String, String>();
+		
+		map.put("m_name", m_name);
+		map.put("co_content", co_content);
+		
+		int cnt = ss.insert("review.insertComment", map);
+		
+		if(cnt > 0 ){
+			System.out.println("comment 추가 성공!");
+		} else{
+			System.out.println("comment 추가 실패");
+		}
+		
+		ss.commit();
+		ss.close();
+		return(cnt > 0) ? true : false;
+	}
+	
 }

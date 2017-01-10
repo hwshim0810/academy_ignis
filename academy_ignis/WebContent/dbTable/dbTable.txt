@@ -90,11 +90,10 @@ create sequence rb_num;
 
 
 create table ig_comment  (
-				co_num NUMBER PRIMARY KEY REFERENCES ig_review(rb_num), 
+				co_num NUMBER PRIMARY KEY, 
 				co_content VARCHAR2(2000) NOT NULL, 
 				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
-				rb_num NUMBER, 
-				co_seq NUMBER,
+				rb_num NUMBER REFERENCES ig_review(rb_num), 
 				co_regdate DATE) SEGMENT CREATION IMMEDIATE;
 
 create sequence co_num;
