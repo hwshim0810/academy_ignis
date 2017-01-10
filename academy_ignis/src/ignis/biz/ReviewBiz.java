@@ -127,15 +127,15 @@ public class ReviewBiz {
 		else return result;
 	}
 	
-//	public boolean deleteComment(HttpServletRequest request, HttpServletResponse response){
-//		System.out.println("CommentBizDelete"+request.getParameter("co_num"));
-//		int co_num = Integer.parseInt(request.getParameter("co_num"));
-//		
-//		boolean result = reviewDao.deleteComment(co_num);
-//		
-//		return result;
-//		
-//	}
+	public boolean deleteComment(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("CommentBizDelete"+request.getParameter("coNum"));
+		int co_num = Integer.parseInt(request.getParameter("coNum"));
+		
+		boolean result = reviewDao.deleteComment(co_num);
+		
+		return result;
+		
+	}
 	
 	
 }

@@ -158,18 +158,6 @@ public class ReviewDAO {
 		return count;
 	}
 	
-	public boolean deleteComment(int co_num){
-		SqlSession ss = FactoryService.getFactory().openSession(true);
-		System.out.println(co_num+" ////deleteCommentDAO//");
-		
-		int result = ss.delete("review.deleteComment", co_num);
-		
-		ss.commit();
-		ss.close();
-		
-		return(result > 0) ? true : false;
-	} 
-	
 	public static boolean insertComment(String m_name, String co_content, int rb_num){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
@@ -192,5 +180,17 @@ public class ReviewDAO {
 		ss.close();
 		return(cnt > 0) ? true : false;
 	}
+	
+	public boolean deleteComment(int co_num){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		System.out.println(co_num+" ////deleteCommentDAO//");
+		
+		int result = ss.delete("review.deleteComment", co_num);
+		
+		ss.commit();
+		ss.close();
+		
+		return(result > 0) ? true : false;
+	} 
 	
 }

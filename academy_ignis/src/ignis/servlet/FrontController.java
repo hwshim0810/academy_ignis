@@ -476,6 +476,16 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		
+		case "/CommentDelete" :
+			action = new CommentDeleteAction();
+			System.out.println("CommentPlusAction _FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
 			
 //		case "/" :
 //			action = new Action();

@@ -38,7 +38,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>EVENT</title>
+<title>Review</title>
 <meta http-equiv="X-UA-Compatible"  content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -135,7 +135,7 @@
 						<th>글번호</th>
 						<td>
 							<div class="form-group">
-								<%if (view == null) System.out.println("null일까"); %>
+								<%= view.getRb_num() %>
 							</div>
 						</td>
 						<th>등록일</th>
@@ -228,7 +228,7 @@
 						<td><%= comment.getCo_content() %></td>
 						<td><%= comment.getCo_regdate() %></td>
 						<td>
-							<button type="button" class="btn btn-danger">삭제</button>
+							<button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/CommentDelete?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%= cPageNo %>&coNum=<%= comment.getCo_num()  %>'">삭제</button>
 						</td>
 					</tr>
 				<%
