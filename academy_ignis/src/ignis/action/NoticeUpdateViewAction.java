@@ -8,27 +8,25 @@ import javax.servlet.http.HttpServletResponse;
 import ignis.bean.*;
 import ignis.biz.*;
 
-public class QnaUpdateViewAction  implements ActionInterface{
+public class NoticeUpdateViewAction  implements ActionInterface{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		QnaBiz qnaBiz = new QnaBiz();
+		NoticeBiz noticeBiz = new NoticeBiz();
 		ActionForward forward = new ActionForward();
 		int pagenum=1;//현재 페이지
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 		}
-		int qb_num=1;//상세정보 요청 number
-		if(request.getParameter("qb_num")!=null){
-			qb_num=Integer.parseInt(request.getParameter("qb_num"));
-		}
+
 		
-		List<ig_qna> list = qnaBiz.selectDetail(qb_num);//상세 정보 가져옴
+		List<ig_notice> list = noticeBiz.selectDetail(request,response);//상세 정보 가져옴
 
 		request.setAttribute("pagenum", pagenum);
+		request.setAttribute("noticeDetail", list);
 		if (list !=null) {
-			request.setAttribute("qnaDetail", list);
+			
 			forward.setRedirect(false);
-			forward.setPath("./community/qnaUpdateView.jsp");
+			forward.setPath("./admin/ad_CommunityNoticeUpdate.jsp?login=admin");
 			return forward;
 		}
 		

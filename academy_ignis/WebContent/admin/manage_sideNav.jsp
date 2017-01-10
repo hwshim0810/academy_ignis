@@ -24,9 +24,9 @@
 						<div id="dropdown-lvl1" class="panel-collapse collapse">
 							<div class="panel-body">
 								<ul class="nav navbar-nav">
-									<li><a href="#">공지사항</a></li>
+									<li><a href="/academy_ignis/notice?login=admin">공지사항</a></li>
 									<li><a href="/academy_ignis/Event?login=admin">이벤트</a></li>
-									<li><a href="#">QnA</a></li>
+									<li><a href="/academy_ignis/qna?login=admin">QnA</a></li>
 									<li><a href="/academy_ignis/Review?login=admin">치료후기</a></li>
 
 									<!-- Dropdown level 2 -->

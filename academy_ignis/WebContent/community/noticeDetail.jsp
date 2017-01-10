@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ page import="ignis.bean.ig_notice" %>
-    <%@ page import="java.util.*" %>
-        <%
+<%@ page import="ignis.bean.ig_notice" %>
+<%@ page import="java.util.*" %>
+<%
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
     	%>

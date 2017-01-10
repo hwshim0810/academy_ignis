@@ -88,4 +88,26 @@ public class NoticeDAO {
 		return readCount_change;
 	}
 
+
+	public boolean delete(int nb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("nb_num", nb_num);
+		int result = ss.delete("notice.delete",map);
+		if(result>0){return true;}
+		return false;
+	}
+
+
+	public boolean update(int nb_num, String nb_title, String nb_content) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap map= new HashMap();
+		map.put("nb_num", nb_num);
+		map.put("nb_title", nb_title);
+		map.put("nb_content", nb_content);
+		int result = ss.update("notice.update",map);
+		if(result>0){return true;}
+		return false;
+	}
+
 }

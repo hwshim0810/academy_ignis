@@ -41,8 +41,12 @@ public class NoticeBiz {
 		return listCount;
 	}
 
-	public List<ig_notice> selectDetail(int nb_num) {
+	public List<ig_notice> selectDetail(HttpServletRequest request, HttpServletResponse response) {
 		NoticeDAO noticeDao = new NoticeDAO();
+		int nb_num=1;//상세정보 요청 number
+		if(request.getParameter("nb_num")!=null){
+			nb_num=Integer.parseInt(request.getParameter("nb_num"));
+		}
 		List<ig_notice> list = noticeDao.selectDetail(nb_num);
 
 		return list;
@@ -52,5 +56,25 @@ public class NoticeBiz {
 		NoticeDAO noticeDao = new NoticeDAO();
 		int readCount_change = noticeDao.updateCount(nb_num);
 		return readCount_change;
+	}
+
+	public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+		NoticeDAO noticeDao = new NoticeDAO();
+		int nb_num=Integer.parseInt(request.getParameter("nb_num"));
+		boolean result=false;
+		result = noticeDao.delete(nb_num);
+		
+		return result;
+	}
+
+	public boolean update(HttpServletRequest request, HttpServletResponse response) {
+		NoticeDAO noticeDao = new NoticeDAO();
+		int nb_num=Integer.parseInt(request.getParameter("nb_num"));
+		String nb_title = request.getParameter("nb_title");//수정 내용
+		String nb_content = request.getParameter("nb_content");
+		boolean result=false;
+		result = noticeDao.update(nb_num,nb_title,nb_content);
+		
+		return result;
 	}
 }

@@ -19,6 +19,7 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		int pageCount=10;//마지막 페이지
 		int startpage=1;//페이지 범위
 		int endpage=10;//페이지 범위
+		
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 			System.out.println("pagenum을 request에서 가져옴:"+request.getParameter("pagenum"));
@@ -41,11 +42,18 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
+		request.setAttribute("noticelist", list);
 		if (list !=null) {
-			request.setAttribute("noticelist", list);
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("/admin/ad_CommunityNoticeList.jsp?login=admin&pagenum=" + pagenum);
+				return forward;
+			}else{
 			forward.setRedirect(false);
 			forward.setPath("./community/notice.jsp");
 			return forward;
+			}
 		}
 		
 		return null;

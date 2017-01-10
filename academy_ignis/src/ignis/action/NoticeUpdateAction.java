@@ -10,10 +10,10 @@ import ignis.bean.*;
 import ignis.biz.*;
 import ignis.dao.MemberDAO;
 
-public class QnaUpdateAction  implements ActionInterface{
+public class NoticeUpdateAction  implements ActionInterface{
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		QnaBiz qnaBiz = new QnaBiz();
+		NoticeBiz noticeBiz = new NoticeBiz();
 		MemberDAO memDao = MemberDAO.getInstance();
 		ActionForward forward = new ActionForward();
 		
@@ -28,18 +28,18 @@ public class QnaUpdateAction  implements ActionInterface{
 		if (user == null||!m_pass.equals(user.getM_pass())){
 			System.out.println("비밀번호 일치하지 않음");
 			forward.setRedirect(true);
-			forward.setPath("./qna");
+			forward.setPath("./notice?login=admin");
 			return forward;
 		}
-		int qb_num=0;
-		if(request.getParameter("qb_num")!=null){
-			qb_num=Integer.parseInt(request.getParameter("qb_num"));
+		int nb_num=0;
+		if(request.getParameter("nb_num")!=null){
+			nb_num=Integer.parseInt(request.getParameter("nb_num"));
 		}
-		boolean result =qnaBiz.update(request, response);
+		boolean result =noticeBiz.update(request, response);
 		System.out.println(result);
 		if (result) {
 			forward.setRedirect(false);
-			forward.setPath("/qnaDetail?qb_num="+qb_num+"&pagenum="+pagenum);
+			forward.setPath("/noticeDetail?login=admin&nb_num="+nb_num+"&pagenum="+pagenum);
 			return forward;
 		}
 		

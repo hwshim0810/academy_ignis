@@ -23,7 +23,7 @@ public class QnaReplyAction  implements ActionInterface{
 		request.setAttribute("pagenum", pagenum);
 		if (result) {
 			forward.setRedirect(false);
-			forward.setPath("./qna");
+			forward.setPath("./community/qnaDetail.jsp");
 			return forward;
 		}
 		

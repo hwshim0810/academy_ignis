@@ -38,7 +38,6 @@ public class QnaDAO {
 		map.put("qb_content", qb_content);
 		map.put("qb_private", qb_private);
 		map.put("qb_groupnum", qb_groupnum);
-		System.out.println(qb_mal+m_id+qb_title+qb_content+qb_private);
 		int result = ss.insert("qna.insertReply", map);
 		if(result> 0) {System.out.println("qna 답변 추가 성공");}
 		else {System.out.println("qna 답변 추가 실패");}

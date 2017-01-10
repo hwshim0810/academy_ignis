@@ -44,7 +44,13 @@
 	<select id="selectDetail"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
 		SELECT * FROM IG_notice where nb_num=#{nb_num}		
 	</select>
-	<select id="updateCount"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
+<select id="updateCount"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
 		UPDATE IG_notice SET nb_readcount=nb_readcount+1  where nb_num=#{nb_num}		
+	</select>
+<select id="delete"  parameterType="java.util.HashMap" >
+		DELETE FROM IG_notice WHERE nb_num = #{nb_num}
+	</select>
+			<select id="update"  parameterType="java.util.HashMap" >
+		UPDATE IG_notice SET nb_title=#{nb_title},nb_content=#{nb_content} where nb_num=#{nb_num}		
 	</select>
 </mapper>

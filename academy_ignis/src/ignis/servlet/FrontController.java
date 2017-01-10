@@ -77,14 +77,20 @@ public class FrontController extends HttpServlet {
 			}
 			break;	
 			
-		case "/noticeinsert":
+		case "/noticeInsertView":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityNoticeInsert.jsp?login=admin");
+			break;		
+			
+		case "/noticeInsert":
 			action = new NoticeInsertAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;		
+			break;			
 			
 		case "/noticeDetail":
 			action = new NoticeDetailAction();
@@ -95,6 +101,33 @@ public class FrontController extends HttpServlet {
 			}
 			break;	
 			
+		case "/noticeUpdateView":
+
+			action = new NoticeUpdateViewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+			
+		case "/noticeUpdate":
+			action = new NoticeUpdateAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
+		case "/noticeDelete":
+			action = new NoticeDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
 		case "/searchList":
 			action = new NoticeSearchAction();
 			try {

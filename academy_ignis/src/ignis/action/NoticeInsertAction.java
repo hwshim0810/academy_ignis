@@ -17,7 +17,7 @@ public class NoticeInsertAction implements ActionInterface {
 		
 		if (result) {
 			forward.setRedirect(true);
-			forward.setPath("./community/notice.jsp");
+			forward.setPath("notice?login=admin");
 			return forward;
 		}
 		
