@@ -42,61 +42,65 @@
 					<h5>&nbsp;현재 회원수 : <%=totalRows %></h5>
 				</div>
 				<div class="panel-body" id="panel-body">
-				<table class="table">
-					<caption class="sr-only">회원명단</caption>
-					<thead>
-						<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
-						<th>휴대폰번호</th><th>Email</th><th>가입일</th><th></th></tr>
-					</thead>
-					<tbody>
-					<% 
-						if (userList != null) {
-							for (int i = 0; i < userList.size(); i++) {
-								User user = userList.get(i);
-					%>
-					<tr>
-						<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
-						<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
-						<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
-						<td><%=user.getM_enterdate() %></td><td><a href="/academy_ignis/adMyPage?userId=<%=user.getM_id()%>">보기</a></td>
-					</tr>
-					<%
-							}
-						} else {
-					%>
-					<tr><td colspan="8">가입된 회원이 존재하지 않습니다</td></tr>
-					<%	} %>
-					</tbody>
-				</table>
-					<form class="form-inline" >
-					  <label for="sel1">검색 범위</label>
-					  <select class="form-control" id="searchType">
-					    <option value="all">전체</option>
-					    <option value="m_id">아이디</option>
-					    <option value="m_name">이름</option>
-					    <option value="m_phone">휴대폰번호</option>
-					    <option value="m_email">Email</option>
-					  </select>
-					  <div class="form-group">
-					    <label class="sr-only">검색 내용:</label>
-					    <input type="text" class="form-control" id="searchContent">
-					  </div>
-					  <button id="searchBtn" class="btn btn-default">검색</button>
-					  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
-					</form>
-					<ul class="pager">
-					  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
-					  <li>
-					  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
-					  </li>
-					 	<% for (int i = beginPage; i <= endPage; i++) { %>
-					  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
-					  	<% } %>
-					  <li>
-					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=nextPage%>">▷</a><% } %>
-					  </li>
-					  <li><a href="/academy_ignis/member?pageNo=<%=totalPages %>">마지막 페이지</a></li>
-					</ul>
+				<div id="tableArea">
+					<div class="table-responsive">
+					<table class="table">
+						<caption class="sr-only">회원명단</caption>
+						<thead>
+							<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
+							<th>휴대폰번호</th><th>Email</th><th>가입일</th><th></th></tr>
+						</thead>
+						<tbody>
+						<% 
+							if (userList != null) {
+								for (int i = 0; i < userList.size(); i++) {
+									User user = userList.get(i);
+						%>
+						<tr>
+							<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
+							<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
+							<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
+							<td><%=user.getM_enterdate() %></td><td><a href="/academy_ignis/adMyPage?userId=<%=user.getM_id()%>">보기</a></td>
+						</tr>
+						<%
+								}
+							} else {
+						%>
+						<tr><td colspan="8">가입된 회원이 존재하지 않습니다</td></tr>
+						<%	} %>
+						</tbody>
+					</table>
+					</div>
+						<ul class="pager">
+						  <li><a href="/academy_ignis/member?pageNo=1">첫 페이지</a></li>
+						  <li>
+						  	<% if (prevPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=prevPage %>">◁</a><% } %>
+						  </li>
+						 	<% for (int i = beginPage; i <= endPage; i++) { %>
+						  <li><a href="/academy_ignis/member?pageNo=<%=i %>"><%=i %></a></li>
+						  	<% } %>
+						  <li>
+						 	 <% if (nextPage != 0) { %><a href="/academy_ignis/member?pageNo=<%=nextPage%>">▷</a><% } %>
+						  </li>
+						  <li><a href="/academy_ignis/member?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+						</ul>
+					</div>
+						<form class="form-inline">
+						<div class="form-group">
+						<label for="sel1">검색 범위</label>
+						  <select class="form-control" id="searchType">
+						    <option value="all">전체</option>
+						    <option value="m_id">아이디</option>
+						    <option value="m_name">이름</option>
+						    <option value="m_phone">휴대폰번호</option>
+						    <option value="m_email">Email</option>
+						  </select>
+						    <label class="sr-only">검색 내용:</label>
+						    <input type="text" class="form-control" id="searchContent">
+						  </div>
+						  <button type="button" id="searchBtn" class="btn btn-default">검색</button>
+						  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
+						 </form>
 				</div>
 			</div>
   		</div>
@@ -109,6 +113,6 @@
  <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
  <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=5"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=12"></script>
 </body>
 </html>

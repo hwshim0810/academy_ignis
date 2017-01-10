@@ -19,11 +19,8 @@
 	int end = pageLink * ROW_PER_PAGE;
 	
 	List<User> userList = memDao.getSearchUser(type, content, begin, end);
-	if (userList == null) {
-		
-	}
 	
-	int totalRows = userList.size();
+	int totalRows = memDao.getSearchCount(type, content);
 	
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
@@ -45,7 +42,10 @@
 	if (currentRange != totalRanges)
 		nextPage = currentRange * PAGE_PER_PAGE + 1;
 
-	%>
+%>
+					<div class="table-responsive">
+					<input id="hidden_type" type="hidden" value="<%=type%>">
+					<input id="hidden_content" type="hidden" value="<%=content%>">
 					<table class='table'>
 						<caption class="sr-only">회원명단</caption>
 						<thead>
@@ -70,24 +70,7 @@
 						%>
 						</tbody>
 					</table>
-						<form class="form-inline" >
-						  <label for="sel1">검색 범위</label>
-						  <input name="hidden_type" id="hidden_type" type="hidden" value="<%=type%>">
-						  <input name="hidden_content" id="hidden_content" type="hidden" value="<%=content%>">
-						  <select class="form-control searchType" id="sel1">
-						    <option value="all">전체</option>
-						    <option value="m_id">아이디</option>
-						    <option value="m_name">이름</option>
-						    <option value="m_phone">휴대폰번호</option>
-						    <option value="m_email">Email</option>
-						  </select>
-						  <div class="form-group">
-						    <label class="sr-only" for="search">검색 내용:</label>
-						    <input type="text" class="form-control searchContent" id="search">
-						  </div>
-						  <button id="searchBtn" class="btn btn-default">검색</button>
-						  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
-						</form>
+					</div>
 						<ul class="pager">
 						  <li><a class="pageNum" id="first" href="#">첫 페이지</a></li>
 						  <li>

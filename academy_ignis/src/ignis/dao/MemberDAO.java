@@ -187,4 +187,12 @@ public class MemberDAO {
 		
 		return list;
 	}
+	
+	public int getSearchCount(String type, String content) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = ss.selectOne("member.countById", content);
+		
+		return count;
+	}
 }
