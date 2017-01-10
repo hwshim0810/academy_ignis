@@ -4,6 +4,7 @@
 <%@ page import = "java.util.Iterator" %>
 <%@ page import = "ignis.biz.ReviewBiz" %>
 <%@ page import = "ignis.bean.ig_review" %>
+<%@ page import = "ignis.bean.ig_comment" %>
 <%@ page import = "ignis.dao.ReviewDAO" %>
 <%
 	request.setCharacterEncoding("utf-8");
@@ -28,6 +29,7 @@
 	System.out.println(endPage);
 	List<ig_review> list = reviewDao.reviewList(begin, end);
 %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -141,12 +143,13 @@
 						while(it.hasNext()){
 							cnt ++;
 							ig_review review = it.next();
+							int commentCount = reviewDao.getListCommentCount(review.getRb_num());
 					%>
 						<tr>
 							<td><%= review.getRb_num() %></td>
 							<td>
 								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>">
-									<%= review.getRb_title() %>
+									<%= review.getRb_title() %> <span class="badge"><%=commentCount %></span>
 								</a>
 							</td>
 							<td><%= review.getM_name() %></td>
