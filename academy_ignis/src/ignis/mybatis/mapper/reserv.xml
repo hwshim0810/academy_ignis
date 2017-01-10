@@ -19,6 +19,15 @@
 		where num between #{begin}  and  #{end}
 	</select>
 
+
+	<select id="selectListAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv order by r_num desc))
+		where num between #{begin}  and  #{end}
+	</select>
+
+
 	<select id="check"  resultType="ignis.bean.ig_reserv">
 		SELECT * FROM ig_reserv WHERE m_id= #{m_id}
 	</select>

@@ -110,7 +110,7 @@
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-						<tr class="info"><th>예약번호</th><th>아이디</th><th>진료 항목</th><th>진료 일자</th>
+						<tr class="info"><th>예약번호</th><th>진료 항목</th><th>진료 일자</th>
 						<th>진료 시간</th><th>예약 신청일</th><th>상세 보기</th></tr>
 					</thead>
 					<tbody>

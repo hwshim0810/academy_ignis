@@ -4,6 +4,14 @@
 <%@ page import="ignis.bean.ig_reserv" %>
 <%@ page import="java.util.List" %>
 <%request.setCharacterEncoding("UTF-8"); %>
+<% 
+	String id = null;
+	
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	else
+		response.sendRedirect("/academy_ignis/admin/ad_Login.jsp");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,15 +44,13 @@
 <div id="reservContent">
 <% 
 	ReservDAO reservDao = ReservDAO.getInstance();
-	 String reservSearchSecond = request.getParameter("reservSearch");
-	 System.out.println("welcome.jsp내의 reservSearch를 처음으로 찍어보겠습니다. " + reservSearchSecond);
-	 int totalRows = reservDao.getReservedListcount(reservSearchSecond); %>
+	 int totalRows = reservDao.getListcount(); %>
 <% ReservDAO reservDAO = new ReservDAO(); %>
 <%@include file="../paging/getPageNum.jsp" %>
-<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearchSecond, begin, end); %>
-<% pageContext.include("../ignisCompany_info/header_noTop.jsp");
-	 pageContext.include("../header/header.jsp");
-	 pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+<% List<ig_reserv> reservList = reservDAO.getReservListAll(begin, end); %>
+
+<% pageContext.include("./manage_Header.jsp");
+	 pageContext.include("./manage_sideNav.jsp"); %>
 <% 
 	 String getServletPath = request.getServletPath();
 	 String contextPath = request.getContextPath();
@@ -68,8 +74,8 @@
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-						<tr class="info"><th>예약번호</th><th>진료 항목</th><th>진료 일자</th>
-						<th>진료 시간</th><th>예약 신청일</th><th>상세 보기</th></tr>
+						<tr class="info"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
+						<th>진료 시간</th><th>예약 신청일</th></tr>
 					</thead>
 					<tbody>
 					<% 
@@ -79,11 +85,11 @@
 					%>
 						<tr>
 						<td><%=reserv.getR_num() %></td>
+						<td><%=reserv.getM_id() %></td>
 						<td><%=reserv.getR_guide() %></td>
 						<td><%=reserv.getR_day() %></td>
 						<td><%=reserv.getR_time() %></td>
 						<td><%=reserv.getR_regdate() %></td>
-						<td><a href="#">보기</a></td>
 						</tr>
 					<%
 							}
@@ -104,22 +110,22 @@
 					  </select>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" id="reservSearchSecond" name =" reservSearchSecond" value="<%=reservSearchSecond %>">
+					    <input type="text" id="reservSearchSecond" name =" reservSearchSecond">
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
 					<ul class="pager">
-					  <li><a href="/academy_ignis/welcome?pageNo=1&reservSearch=<%=reservSearchSecond%>">첫 페이지</a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=1">첫 페이지</a></li>
 					  <li>
-					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>&reservSearch=<%=reservSearchSecond%>">◁</a><% } %>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>">◁</a><% } %>
 					  </li>
 					 	<% for (int i = beginPage; i <= endPage; i++) { %>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=i %>&reservSearch=<%=reservSearchSecond%>"><%=i %></a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=<%=i %>"><%=i %></a></li>
 					  	<% } %>
 					  <li>
-					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=nextPage%>&reservSearch=<%=reservSearchSecond%>">▷</a><% } %>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=nextPage%>">▷</a><% } %>
 					  </li>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=totalPages %>&reservSearch=<%=reservSearchSecond%>">마지막 페이지</a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 					</ul>
 				</div>
 			</div>

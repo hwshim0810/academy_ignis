@@ -12,7 +12,7 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="/academy_ignis/member"><span class="glyphicon glyphicon-user"></span> 회원관리</a></li>
 					<li><a href="#"><span class="glyphicon glyphicon-thumbs-up"></span> 응모이벤트관리</a></li>
-					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> 예약관리</a></li>
+					<li><a href="/academy_ignis/manage_Reserv"><span class="glyphicon glyphicon-cloud"></span> 예약관리</a></li>
 
 					<!-- Dropdown-->
 					<li class="panel panel-default" id="dropdown">
