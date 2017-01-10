@@ -13,13 +13,15 @@
   if(request.getAttribute("pagenum")!=null){
 		pagenum=(Integer)request.getAttribute("pagenum");
 	}
-
+	if(request.getParameter("pagenum")!=null){
+		pagenum=Integer.parseInt(request.getParameter("pagenum"));
+	}
     %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qnaReplyView</title>
+<title>qnaUpdateView</title>
 <meta http-equiv="X-UA-Compatible"  content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -30,88 +32,64 @@
   </style>
 </head>
 <body>
-
 <%pageContext.include("header_noTop.jsp"); %>
 <%pageContext.include("../header/header.jsp"); %>
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
   <div class="col-xs-12 col-sm-9 col-md-10 ">
-    <h4>qnaReplyView</h4><hr>
-  <form class="form-horizontal" alt="qnaReply" method="post" action="./qnaReply?pagenum=<%=pagenum%>">
-  <table class="table">
+    <h4>qnaUpdateView</h4><hr>
+     <table class="table">
     <tbody>
- <%  List<ig_qna> list=null;
+    <%List<ig_qna> list=null;
     if(request.getAttribute("qnaDetail")!=null){
     	list = (List)request.getAttribute("qnaDetail");
+    	
+    	if(list.get(0).getQb_private()==1){
+    		if(!session.getAttribute("m_id").equals(request.getAttribute("replyOwenr").toString())){
+    		if(!list.get(0).getM_id().equals(session.getAttribute("m_id")) 
+    				&&!session.getAttribute("m_level").toString().equals("3")
+    				){
+    			out.println("<script>");
+    			out.println("alert('비공개 문의는 본인만 보기 가능합니다..');");
+    			out.println("location.href='/academy_ignis/qna';");
+    			out.println("</script>");
+    		}
+    		}
+    	}
     	%>
-    	 <tr >
+      <tr>
       <th>말머리</th>
-        <td colspan="2" ><%=list.get(0).getQb_mal() %></td>
+        <td><%=list.get(0).getQb_mal() %></td>
         <th>작성자</th>
-        <td colspan="2" ><%=list.get(0).getM_id()%></td>
+        <td><%=list.get(0).getM_id()%></td>
       </tr><tr>
-      <th>제목</th>
-        <td><%=list.get(0).getQb_title() %></td>
         <th>등록일</th>
         <td><%=list.get(0).getQb_regdate() %></td>
         <th>조회수</th>
         <td><%=list.get(0).getQb_readcount() %></td>
       </tr>
-      <tr>
-      </tr>
-<tr>
-<th>문의 내용</th>
-<td colspan="5" >
-<div class="form-group">
-<h5><%=list.get(0).getQb_content() %></h5>
-      <%}
-    %>
-</div>
-</td>
-</tr></tbody>
-</table>
-
-<table class="table">
-<tbody>
-<tr>
-<th>글쓴이</th>
-<td>
-<div class="form-group">
-<input type="text" value="<%=session.getAttribute("m_id") %>" readonly />
-</div>
-</td>
-</tr>
-
-<tr>
-<th>답변 제목</th>
-<td>
-<div class="form-group">
-<input type="text" name="qb_title"  class="form-control"  value="Re:<%=list.get(0).getQb_title()%>"/>
-</div>
-</td>
-</tr>
-
-<tr>
-<th>답변 내용</th>
-<td>
-<div class="form-group">
-<textarea class="form-control " name="qb_content"  rows="5"></textarea>
-</div>
-</td>
-</tr>
-<tr>
-<td colspan="2" style="text-align : center;">
-<div class="form-group">
-<div class="col-md-offset-2 col-md-10">
-<button type="submit" class="btn btn-primary">등록</button>
-<a href="javascript:history.go(-1)"><button type="button" class="btn btn-danger"  >취소</button></a>
-</div></div></td></tr></tbody></table>
-<input  type="hidden" name="qb_private"  value="<%=list.get(0).getQb_private()%>"/>
-<input  type="hidden" name="qb_groupnum"  value="<%=list.get(0).getQb_num()%>"/>
-<input  type="hidden" name="qb_mal"  value="<%=list.get(0).getQb_mal()%>"/>
-
+    </tbody>
+          </table>
+<form alt="qnaUpdate" method="post" action="./qnaUpdate?pagenum=<%=pagenum %>&qb_num=<%=list.get(0).getQb_num()%>">
+  <div class="form-group">
+    <label for="qb_title">제목:</label>
+    <input type="text" class="form-control" name="qb_title" value="<%=list.get(0).getQb_title() %>"/>
+  </div>
+  <div class="form-group">
+    <label for="qb_content">내용:</label>
+    <textarea class="form-control " name="qb_content"  rows="5"><%=list.get(0).getQb_content() %></textarea>
+  </div>
+  <div class="form-group">
+    <label for="pwd">비밀번호:</label>
+    <input type="password" class="form-control" name="password" />
+  </div>
+  <button type="submit" class="btn btn-primary">수정</button>
 </form>
-  </div>
-  </div>
+
+<h5></h5>
+      <%
+    } %>
+      </div>
+ </div>
 </body>
 </html>

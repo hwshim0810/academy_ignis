@@ -23,7 +23,6 @@ public class QnaSelectAllAction  implements ActionInterface{
 		int endpage=10;//페이지 범위
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
-			System.out.println("pagenum을 request에서 가져옴:"+request.getParameter("pagenum"));
 		}
 		
 		int startRowNum=(pagenum-1)*pagelimit+1;//가져오는 리스트
@@ -46,7 +45,7 @@ public class QnaSelectAllAction  implements ActionInterface{
 		if (list !=null) {
 			request.setAttribute("qnalist", list);
 			forward.setRedirect(false);
-			forward.setPath("./community/qna.jsp");
+			forward.setPath("./community/qna.jsp?pagenum="+pagenum);
 			
 			return forward;
 		}

@@ -57,4 +57,13 @@ INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_con
 		SELECT m_id FROM IG_qna 
 		where qb_num=(SELECT qb_groupnum FROM IG_qna where qb_num=#{qb_num})	
 	</select>
+	<select id="DeleteQb_num"  parameterType="java.util.HashMap" >
+		DELETE FROM ig_qna WHERE qb_num = #{qb_num}
+	</select>
+		<select id="DeleteQb_groupnum"  parameterType="java.util.HashMap" >
+		DELETE FROM ig_qna WHERE qb_groupnum = #{qb_groupnum}
+	</select>
+		<select id="Update"  parameterType="java.util.HashMap" >
+		UPDATE IG_qna SET qb_title=#{qb_title},qb_content=#{qb_content} where qb_num=#{qb_num}		
+	</select>
 </mapper>

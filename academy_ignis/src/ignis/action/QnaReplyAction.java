@@ -18,16 +18,11 @@ public class QnaReplyAction  implements ActionInterface{
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 		}
-		int nb_num=1;//상세정보 요청 number
-		if(request.getParameter("qb_num")!=null){
-			nb_num=Integer.parseInt(request.getParameter("qb_num"));
-		}
-		
 		boolean result =qnaBiz.insertReply(request, response);
 		
 		request.setAttribute("pagenum", pagenum);
 		if (result) {
-			forward.setRedirect(true);
+			forward.setRedirect(false);
 			forward.setPath("./qna");
 			return forward;
 		}

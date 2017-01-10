@@ -127,4 +127,33 @@ public class QnaDAO {
 		return qb_groupCount;
 	}
 
+	public boolean qnaDeleteQb_num(int qb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("qb_num", qb_num);
+		int result = ss.delete("qna.DeleteQb_num",map);
+		if(result>0){return true;}
+		return false;
+	}
+
+	public boolean qnaDeleteQb_groupnum(int qb_groupnum) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Integer> map= new HashMap<String, Integer>();
+		map.put("qb_groupnum", qb_groupnum);
+		int result = ss.delete("qna.DeleteQb_groupnum",map);
+		if(result>0){return true;}
+		return false;
+	}
+
+	public boolean update(int qb_num, String qb_title, String qb_content) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap map= new HashMap();
+		map.put("qb_num", qb_num);
+		map.put("qb_title", qb_title);
+		map.put("qb_content", qb_content);
+		int result = ss.update("qna.Update",map);
+		if(result>0){return true;}
+		return false;
+	}
+
 }

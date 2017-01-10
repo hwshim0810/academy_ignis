@@ -87,14 +87,35 @@ public class QnaBiz {
 	public boolean qnaDelete(HttpServletRequest request, HttpServletResponse response) {
 		QnaDAO qnaDao = new QnaDAO();
 		
-		int qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
-		HttpSession session = request.getSession();
-		String m_id = (String)session.getAttribute("m_id");
-		String qb_title = request.getParameter("qb_title");
+		int qb_num=0;//삭제할 번호. 답변이 없거나 답변글 일 경우
+		if(request.getParameter("qb_num")!=null){
+			qb_num=Integer.parseInt(request.getParameter("qb_num"));
+		}
+		int qb_groupnum=0;//삭제할 그룹. 답변이 있을 경우
+		if(request.getParameter("qb_groupnum")!=null){
+			qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
+		}
+		boolean result=false;
+		if(qb_num>0){
+			result = qnaDao.qnaDeleteQb_num(qb_num);
+		}
+		if(qb_groupnum>0){
+			result = qnaDao.qnaDeleteQb_groupnum(qb_groupnum);
+		}
+		
+		
+		return result;
+	}
+
+	public boolean update(HttpServletRequest request, HttpServletResponse response) {
+		QnaDAO qnaDao = new QnaDAO();
+		int qb_num=0;//삭제할 번호. 답변이 없거나 답변글 일 경우
+		if(request.getParameter("qb_num")!=null){
+			qb_num=Integer.parseInt(request.getParameter("qb_num"));
+		}
+		String qb_title = request.getParameter("qb_title");//수정 내용
 		String qb_content = request.getParameter("qb_content");
-		int qb_private=Integer.parseInt(request.getParameter("qb_private"));
-		int qb_groupnum=Integer.parseInt(request.getParameter("qb_groupnum"));
-		boolean result = qnaDao.insertReply(qb_mal,m_id,qb_title,qb_content,qb_private,qb_groupnum);
+		boolean result = qnaDao.update(qb_num,qb_title,qb_content);
 		return result;
 	}
 }

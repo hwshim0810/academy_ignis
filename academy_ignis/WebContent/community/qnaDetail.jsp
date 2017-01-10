@@ -7,12 +7,12 @@
     int qb_groupCount=1;
     pagenum=(Integer)request.getAttribute("pagenum");
     qb_groupCount=(Integer)request.getAttribute("qb_groupCount");
+    System.out.println(session.getAttribute("m_id"));
     if(session.getAttribute("m_id") ==null){
 		out.println("<script>");
 		out.println("alert('로그인후 이용해주시기 바랍니다.');");
 		out.println("location.href='/academy_ignis/login?page=qnaDetail&pagenum="+pagenum+"';");
 		out.println("</script>");
-		out.close();
     }
     	%>
 <!DOCTYPE html>
@@ -73,16 +73,33 @@
 
 <a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>
 <%if(list.get(0).getM_id().equals(session.getAttribute("m_id"))&&qb_groupCount!=2) {%>
-<a href="qna?pagenum=<%=pagenum%>"><button type="button" class="btn btn-primary" >수정</button></a>
-<a href="qnaDeleteView?pagenum=<%=pagenum%>&qb_num=<%=list.get(0).getQb_num()%>"><button type="button" class="btn btn-danger" >삭제</button></a>
+<a href="qnaUpdateView?pagenum=<%=pagenum%>&qb_num=<%=list.get(0).getQb_num()%>"><button type="button" class="btn btn-primary" >수정</button></a>
+<button type="button" class="btn btn-danger"  data-toggle="collapse" data-target="#demo1">삭제</button>
+<div class="container">
+  <div id="demo1" class="collapse">
+  <form action="qnaDelete?pagenum=<%=pagenum%>&qb_num=<%=list.get(0).getQb_num()%>"  method="post" >
+확인을 위하여 비밀번호를 입력해주세요.<input type="password" name="password">
+<button type="submit" class="btn btn-danger" >삭제 확인</button>
+</form>
+  </div>
+</div>
+
 <%}else if(list.get(0).getM_id().equals(session.getAttribute("m_id"))&&qb_groupCount==2){%>
-<a href="qnaDeleteView?pagenum=<%=pagenum%>&qb_groupnum=<%=list.get(0).getQb_num()%>"><button type="button" class="btn btn-danger" >그룹삭제</button></a>
+<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo2">그룹삭제</button>
+<div class="container">
+  <div id="demo2" class="collapse">
+  <form action="qnaDelete?pagenum=<%=pagenum%>&qb_groupnum=<%=list.get(0).getQb_num()%>"  method="post" >
+확인을 위하여 비밀번호를 입력해주세요.<input type="password" name="password">
+<button type="submit" class="btn btn-danger" >그룹삭제 확인</button>
+</form>
+  </div>
+</div>
+
 <%} %>
 <%
-System.out.println(list.get(0).getQb_num()+","+list.get(0).getQb_groupnum()+","+session.getAttribute("m_level").toString());
 if(list.get(0).getQb_num()== list.get(0).getQb_groupnum() 
-&&session.getAttribute("m_level").toString().equals("3")
-&&((Integer)request.getAttribute("qb_groupCount"))<2){%>
+&&((Integer)request.getAttribute("qb_groupCount"))<2
+&&session.getAttribute("m_level").toString().equals("3")){%>
 <a href="qnaReplyView?qb_num=<%=list.get(0).getQb_num()%>&pagenum=<%=pagenum%>"><button type="button" class="btn btn-danger" >답변</button></a>
 <%} %>
   </div>
