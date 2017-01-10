@@ -15,8 +15,19 @@ public class ReservDAO {
 		return reservDAO;
 	}
 	
+
+	public boolean delete(int getR_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("getR_num", getR_num);			
+		int cnt = ss.delete("reserv.deleteReserv", map);
+		System.out.println("delete확인용 cnt" + cnt);
+		ss.close();					return (cnt > 0) ? true : false;
+	}
+
+	
 	public boolean update(String m_id) {
-		SqlSession ss = FactoryService.getFactory().openSession();
+		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("m_id", m_id);			
 		int cnt = ss.insert("reserv.updateReserv", map);

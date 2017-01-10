@@ -121,19 +121,19 @@ body { font-size: 20px;}
 												<div class="col-sm-4">
 													<select class="form-control  input-lg" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
 														<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
-														<option value = "09:30">09:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "10:00">10:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "10:30">10:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "11:00">11:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "11:30">11:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "12:00">12:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "14:00">14:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "14:30">14:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "15:00">15:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "15:30">15:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "16:00">16:00&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "16:30">16:30&nbsp;&nbsp;(예약 가능)</option>
-														<option value = "17:00">17:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "09:30">09:30&nbsp;&nbsp;</option>
+														<option value = "10:00">10:00&nbsp;&nbsp;</option>
+														<option value = "10:30">10:30&nbsp;&nbsp;</option>
+														<option value = "11:00">11:00&nbsp;&nbsp;</option>
+														<option value = "11:30">11:30&nbsp;&nbsp;</option>
+														<option value = "12:00">12:00&nbsp;&nbsp;</option>
+														<option value = "14:00">14:00&nbsp;&nbsp;</option>
+														<option value = "14:30">14:30&nbsp;&nbsp;</option>
+														<option value = "15:00">15:00&nbsp;&nbsp;</option>
+														<option value = "15:30">15:30&nbsp;&nbsp;</option>
+														<option value = "16:00">16:00&nbsp;&nbsp;</option>
+														<option value = "16:30">16:30&nbsp;&nbsp;</option>
+														<option value = "17:00">17:00&nbsp;&nbsp;</option>
 													</select>
 												</div>
 											</div>
@@ -156,17 +156,7 @@ body { font-size: 20px;}
 		
 	</div>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
-<script type="text/javascript">
-function userLogin() {
-	$("#login").html('<a href="#" id="logout">Logout</a>');
-	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
-}
 
-function userLogout() {
-	$("#login").html('<a href="/academy_ignis/login">Login</a>');
-	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
-}
-</script>
 
 <%
 	if (id != null) {

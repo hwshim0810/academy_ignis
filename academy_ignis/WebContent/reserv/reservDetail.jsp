@@ -110,8 +110,8 @@
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-						<tr class="info"><th>예약번호</th><th>진료 항목</th><th>진료 일자</th>
-						<th>진료 시간</th><th>예약 신청일</th><th>상세 보기</th></tr>
+						<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+						<th>진료 시간</th><th>예약 신청일</th><th>예약 삭제</th></tr>
 					</thead>
 					<tbody>
 					
@@ -127,7 +127,7 @@
 						<td><%=reserv.getR_day() %></td>
 						<td><%=reserv.getR_time() %></td>
 						<td><%=reserv.getR_regdate() %></td>
-						<td><a href="/academy_ignis/adMyPage?userId=<%=reserv.getM_id()%>">보기</a>
+						<td><a href="/academy_ignis/deleteReserv?getR_num=<%=reserv.getR_num()%>&pageNo=<%=pageNo%>">삭제</a>
 					</tr>
 					<%
 							}

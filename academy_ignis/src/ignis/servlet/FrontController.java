@@ -269,6 +269,16 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./admin/manage_Reserv.jsp");
 			break;
 			
+		
+		case "/deleteReserv" :
+			action = new ReservDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;	
+			
 			
 		/* 예약 수정 부분 잠시만 가릴게요
 		case "/updateReserv" :

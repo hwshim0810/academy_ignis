@@ -50,7 +50,7 @@
 	</update>
 	
 	<delete id="deleteReserv" parameterType="java.util.HashMap">
-		delete from ig_event where m_id =#{m_id}
+		delete from ig_reserv where R_num =#{getR_num}
 	</delete>
 	
 	

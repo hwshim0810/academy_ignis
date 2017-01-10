@@ -10,7 +10,17 @@ import ignis.bean.ig_reserv;
 import ignis.dao.ReservDAO;
 
 public class ReservBiz {
+	
+	public boolean delete(HttpServletRequest request, HttpServletResponse response) {
+		ReservDAO reservDao = new ReservDAO();
 
+		int getR_num=Integer.parseInt(request.getParameter("getR_num"));
+		boolean result = reservDao.delete(getR_num);
+		
+		if (result) return result;
+		else return result;
+	}
+	
 	public boolean update(HttpServletRequest request, HttpServletResponse response) {
 		ReservDAO reservDao = new ReservDAO();
 		String m_id = "아이디";
