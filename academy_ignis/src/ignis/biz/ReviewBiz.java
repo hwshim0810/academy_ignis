@@ -114,24 +114,28 @@ public class ReviewBiz {
 	
 	// 댓글
 	public boolean insertComment(HttpServletRequest request, HttpServletResponse response) {
+		int rb_num = Integer.parseInt(request.getParameter("num"));
 		String m_name = request.getParameter("m_name");
 		String co_content = request.getParameter("co_content");
-		 
-		boolean result = reviewDao.insertComment(m_name, co_content);
+		System.out.println(rb_num);
+		System.out.println(m_name);
+		System.out.println(co_content);
+		System.out.println("ReviewBiz들어옴");
+		boolean result = reviewDao.insertComment(m_name, co_content, rb_num);
 		
 		if (result) return result;
 		else return result;
 	}
 	
-	public boolean deleteComment(HttpServletRequest request, HttpServletResponse response){
-		System.out.println("CommentBizDelete"+request.getParameter("co_num"));
-		int co_num = Integer.parseInt(request.getParameter("co_num"));
-		
-		boolean result = reviewDao.deleteComment(co_num);
-		
-		return result;
-		
-	}
+//	public boolean deleteComment(HttpServletRequest request, HttpServletResponse response){
+//		System.out.println("CommentBizDelete"+request.getParameter("co_num"));
+//		int co_num = Integer.parseInt(request.getParameter("co_num"));
+//		
+//		boolean result = reviewDao.deleteComment(co_num);
+//		
+//		return result;
+//		
+//	}
 	
 	
 }

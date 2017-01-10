@@ -193,14 +193,14 @@
 			System.out.println("리뷰 게시판 페이징 : " + pageNo);
 			System.out.println("리뷰 게시글 번호 : " + num);
 			%>
-			<form name="" class="form-inline" method="post" action="">
+			<form name="" class="form-inline" method="post" action="/academy_ignis/CommentPlus?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%= cPageNo %>">
 				<div class="form-group">
 					<label for="comment_writer"></label>
-					<input type="text" class="form-control" name="comment_writer" id="comment_writer" value="<%= id %>" readonly>
+					<input type="text" class="form-control" name="m_name" id="m_name" value="<%= id %>" readonly>
 				</div>
 				<div class="form-group">
 					<label for="comment_content"></label>
-					<input type="text" class="form-control" name="comment_content" id="comment_content" value="">
+					<input type="text" class="form-control" name="co_content" id="co_content" value="">
 				</div>
 				<button type="submit" class="btn btn-default">등록</button>
 			</form>

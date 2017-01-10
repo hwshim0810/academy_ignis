@@ -170,12 +170,15 @@ public class ReviewDAO {
 		return(result > 0) ? true : false;
 	} 
 	
-	public static boolean insertComment(String m_name, String co_content){
+	public static boolean insertComment(String m_name, String co_content, int rb_num){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<>();
 		
+		System.out.println("insertComment DAO들어옴");
+		map.put("rb_num", rb_num);
 		map.put("m_name", m_name);
 		map.put("co_content", co_content);
+		System.out.println(rb_num + " " +m_name + " " + co_content);
 		
 		int cnt = ss.insert("review.insertComment", map);
 		
