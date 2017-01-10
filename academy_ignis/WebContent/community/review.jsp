@@ -14,7 +14,7 @@
 		id = (String) session.getAttribute("m_id");
 	}
 	else{
-		//response.sendRedirect("/academy_ignis/member/login.jsp");
+		response.sendRedirect("/academy_ignis/member/login.jsp");
 		System.out.println("회원");
 	}
 %>

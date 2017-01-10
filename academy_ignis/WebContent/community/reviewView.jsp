@@ -13,7 +13,7 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		//response.sendRedirect("/academy_ignis/member/login.jsp");
+		response.sendRedirect("/academy_ignis/member/login.jsp");
 %>
 <% 
 	
@@ -171,9 +171,15 @@
 					            <div class="col-md-offset-2 col-md-10">
 					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Review?login=member&pageNo=<%=pageNo %>'">목록</button>
 					                <%-- 자신이 쓴 글인 경우에만 가능 --%>
-					                <button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/ReviewEditView?login=member&pageNo=<%= pageNo %>&num=<%= view.getRb_num()%>'">수정</button>
-							        <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewDelete?login=member&num=<%= view.getRb_num() %>'">삭제</button>
-					            	<%-- 자신이 쓴 글인 경우에만 가능 --%>
+					                <%
+					                	if(id.equals(view.getM_name())){
+					                %>
+					                		<button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/ReviewEditView?login=member&pageNo=<%= pageNo %>&num=<%= view.getRb_num()%>'">수정</button>
+									        <button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/ReviewDelete?login=member&num=<%= view.getRb_num() %>'">삭제</button>
+							        <%
+					                	}
+					                %>
+					               <%-- 자신이 쓴 글인 경우에만 가능 --%>
 					            </div>
 					        </div>
 						</td>
@@ -230,7 +236,15 @@
 						<td><%= comment.getCo_content() %></td>
 						<td><%= comment.getCo_regdate() %></td>
 						<td>
-							<button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/CommentDelete?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%= cPageNo %>&coNum=<%= comment.getCo_num()  %>'">삭제</button>
+						<%-- 자신이 쓴 글인 경우에만 삭제 가능 --%>
+		                <% 
+		                	if(id.equals(comment.getM_name())){
+		                %>
+	                		<button type="button" class="btn btn-danger"  onclick="document.location.href='/academy_ignis/CommentDelete?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%= cPageNo %>&coNum=<%= comment.getCo_num()  %>'">삭제</button>
+	                	<%
+		                	}
+		                %>
+		               <%-- 자신이 쓴 글인 경우에만 삭제 가능 --%>
 						</td>
 					</tr>
 				<%

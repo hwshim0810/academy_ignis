@@ -12,7 +12,7 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		//response.sendRedirect("/academy_ignis/member/login.jsp");
+		response.sendRedirect("/academy_ignis/member/login.jsp");
 %>
 <% 
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
