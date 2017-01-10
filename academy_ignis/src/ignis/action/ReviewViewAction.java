@@ -17,9 +17,13 @@ public class ReviewViewAction implements ActionInterface {
 		
 		String login = request.getParameter("login");
 		String pageNo = "1";
+		String commPageNo = "1";
 		
 		if(request.getParameter("pageNo") != null){
 			pageNo = request.getParameter("pageNo");
+		}
+		if(request.getParameter("commPageNo") != null){
+			commPageNo = request.getParameter("commPageNo");
 		}
 		
 		if(login.equals("admin")){
@@ -35,7 +39,7 @@ public class ReviewViewAction implements ActionInterface {
 				System.out.println(pageNo);
 				System.out.println(num);
 				forward.setRedirect(true);
-				forward.setPath("/academy_ignis/community/reviewView.jsp?pageNo=" + pageNo + "&num="+ num);
+				forward.setPath("/academy_ignis/community/reviewView.jsp?pageNo=" + pageNo + "&num="+ num + "&commPageNo=" + commPageNo);
 				return forward;
 			} else {
 				System.out.println(num);
