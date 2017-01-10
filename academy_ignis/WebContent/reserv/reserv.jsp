@@ -8,7 +8,7 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		response.sendRedirect("./admin/ad_Login.jsp");
+		response.sendRedirect("./member/login.jsp");
 	System.out.println("id는 " +id);
 %>
 

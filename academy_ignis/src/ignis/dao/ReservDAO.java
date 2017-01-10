@@ -60,13 +60,15 @@ public class ReservDAO {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
 		System.out.println("ReservDAO내의 m_id확인용 : " + m_id);
+		System.out.println("ReservDAO내의 begin확인용 : " + begin);
+		System.out.println("ReservDAO내의 end확인용 : " + end);
 		map.put("m_id", m_id);
 		map.put("begin", begin);	
 		map.put("end", end);
 		
 		List<ig_reserv> list = ss.selectList("reserv.selectAll", map);
 		ss.close();
-		
+		System.out.println("ReservDAO내의 list의 사이즈입니다. " + list.size());
 		return list;
 	}
 	

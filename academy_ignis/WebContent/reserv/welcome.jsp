@@ -3,6 +3,7 @@
 <%@ page import="ignis.dao.ReservDAO" %>
 <%@ page import="ignis.bean.ig_reserv" %>
 <%@ page import="java.util.List" %>
+<%request.setCharacterEncoding("UTF-8"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +17,7 @@
 			$.ajax({
 				type : "post",
 	 			url : "./reserv/welcome.jsp",
-			  	data : {reservSearch : $('#reservSearch').val()},
+			  	data : {reservSearch : $('#reservSearchSecond').val().trim()},
 				success : function(data) { $('#reservContent').html(data); },
 				error : function error(){alert("error"); }
 			});
@@ -33,12 +34,14 @@
 <body>
 
 <div id="reservContent">
-<% ReservDAO reservDao = ReservDAO.getInstance();
-	 String reservSearch = (String) request.getParameter("reservSearch");
-	 int totalRows = reservDao.getReservedListcount(reservSearch); %>
+<% 
+	ReservDAO reservDao = ReservDAO.getInstance();
+	 String reservSearchSecond = request.getParameter("reservSearch");
+	 System.out.println("welcome.jsp내의 reservSearch를 처음으로 찍어보겠습니다. " + reservSearchSecond);
+	 int totalRows = reservDao.getReservedListcount(reservSearchSecond); %>
 <% ReservDAO reservDAO = new ReservDAO(); %>
 <%@include file="../paging/getPageNum.jsp" %>
-<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearch, begin, end); %>
+<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearchSecond, begin, end); %>
 <% pageContext.include("../ignisCompany_info/header_noTop.jsp");
 	 pageContext.include("../header/header.jsp");
 	 pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
@@ -46,6 +49,9 @@
 	 String getServletPath = request.getServletPath();
 	 String contextPath = request.getContextPath();
 	 String command = getServletPath.substring(7,15);
+	 System.out.println("getServletPath " + getServletPath);
+	 System.out.println("contextPath " + contextPath);
+	 System.out.println("command는 " + command);
 	 if(command == "/welcome"){
 		pageContext.include("../ignisCompany_info/header_noTop.jsp");
 		pageContext.include("../header/header.jsp");
@@ -99,29 +105,27 @@
 					  </select>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" id="reservSearch" name =" reservSearch" >
+					    <input type="text" id="reservSearchSecond" name =" reservSearchSecond" value="<%=reservSearchSecond %>">
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
 					<ul class="pager">
-					  <li><a href="/academy_ignis/welcome?pageNo=1&reservSearch=<%=reservSearch%>">첫 페이지</a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=1&reservSearch=<%=reservSearchSecond%>">첫 페이지</a></li>
 					  <li>
-					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>&reservSearch=<%=reservSearch%>">◁</a><% } %>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>&reservSearch=<%=reservSearchSecond%>">◁</a><% } %>
 					  </li>
 					 	<% for (int i = beginPage; i <= endPage; i++) { %>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=i %>&reservSearch=<%=reservSearch%>"><%=i %></a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=<%=i %>&reservSearch=<%=reservSearchSecond%>"><%=i %></a></li>
 					  	<% } %>
 					  <li>
-					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=nextPage%>&reservSearch=<%=reservSearch%>">▷</a><% } %>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=nextPage%>&reservSearch=<%=reservSearchSecond%>">▷</a><% } %>
 					  </li>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=totalPages %>&reservSearch=<%=reservSearch%>">마지막 페이지</a></li>
+					  <li><a href="/academy_ignis/welcome?pageNo=<%=totalPages %>&reservSearch=<%=reservSearchSecond%>">마지막 페이지</a></li>
 					</ul>
 				</div>
 			</div>
 		</div>			
 	<% pageContext.include("../footer/footer.jsp"); %>
-
-
 
 
 </div>
