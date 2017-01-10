@@ -24,7 +24,7 @@
 			
 			$.ajax({
 				type : "post",
-	 			url : "./reserv/welcome.jsp",
+	 			url : "./reserv/manage_Reserv.jsp",
 			  	data : {reservSearch : $('#reservSearchSecond').val().trim()},
 				success : function(data) { $('#reservContent').html(data); },
 				error : function error(){alert("error"); }
