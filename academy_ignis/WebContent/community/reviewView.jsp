@@ -182,10 +182,12 @@
 			</table>
 			<%-- 댓글 영역 --%>
 			<% 
-				int totalRows = reviewDao.getListCommentCount(); // 전체 게시물 갯수
+				int totalRows = reviewDao.getListCommentCount(num); // 전체 게시물 갯수
 			%>
 			<%@include file="../paging/getCommentPageNum.jsp" %>
 			<%
+			System.out.println("begin : " + begin);
+			System.out.println("end : "  + end);
 			List<ig_comment> clist = reviewDao.commentList(begin, end, num);
 			String cPageNo = request.getParameter("commPageNo");
 			System.out.println("====댓글영역====");
@@ -247,18 +249,18 @@
 				</tbody>
 			</table>
 			<ul class="pager">
-					<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=1">첫 페이지</a></li>
-					<li>
-						<% if (prevPage != 0) { %><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=prevPage %>">◁</a><% } %>
-					</li>
-					<% for (int i = beginPage; i <= endPage; i++) { %>
-					<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=i %>"><%=i %></a></li>
-					<% } %>
-					<li>
-					 <% if (nextPage != 0) { %><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=nextPage%>">▷</a><% } %>
-					</li>
-					<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=totalPages %>">마지막 페이지</a></li>
-				</ul>
+				<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=1">첫 페이지</a></li>
+				<li>
+					<% if (prevPage != 0) { %><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=prevPage %>">◁</a><% } %>
+				</li>
+				<% for (int i = beginPage; i <= endPage; i++) { %>
+				<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=i %>"><%=i %></a></li>
+				<% } %>
+				<li>
+				 <% if (nextPage != 0) { %><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=nextPage%>">▷</a><% } %>
+				</li>
+				<li><a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= num %>&commPageNo=<%=totalPages %>">마지막 페이지</a></li>
+			</ul>
 			<%-- 댓글 영역 --%>
 		</div>
 	</div>

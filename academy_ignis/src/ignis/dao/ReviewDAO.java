@@ -149,9 +149,9 @@ public class ReviewDAO {
 		return list;
 	}
 	
-	public int getListCommentCount(){
+	public int getListCommentCount(int rb_num){
 		SqlSession ss = FactoryService.getFactory().openSession();
-		int count = ss.selectOne("review.selectListCommentCount");
+		int count = ss.selectOne("review.selectListCommentCount", rb_num);
 		
 		ss.close();
 		

@@ -56,7 +56,7 @@ public class CommentDeleteAction implements ActionInterface {
 				PrintWriter outR = response.getWriter();
 				outR.println("<script>");
 				outR.println("alert('삭제되었습니다.');");
-				outR.println("location.href='/academy_ignis/ReviewView?login=member&pageNo=" + pageNo + "&num="+ num + "&commPageNo=" + commPageNo + "';");
+				outR.println("location.href='/academy_ignis/ReviewView?login=member&pageNo=" + pageNo + "&num="+ num + "&commPageNo=1';");
 				outR.println("</script>");
 				outR.close();
 				return null;
