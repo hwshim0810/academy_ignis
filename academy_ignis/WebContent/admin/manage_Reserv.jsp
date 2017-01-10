@@ -41,7 +41,6 @@
 </head>
 <body>
 
-<div id="reservContent">
 <% 
 	ReservDAO reservDao = ReservDAO.getInstance();
 	 int totalRows = reservDao.getListcount(); %>
@@ -49,8 +48,7 @@
 <%@include file="../paging/getPageNum.jsp" %>
 <% List<ig_reserv> reservList = reservDAO.getReservListAll(begin, end); %>
 
-<% pageContext.include("./manage_Header.jsp");
-	 pageContext.include("./manage_sideNav.jsp"); %>
+<% pageContext.include("./manage_Header.jsp"); %>
 <% 
 	 String getServletPath = request.getServletPath();
 	 String contextPath = request.getContextPath();
@@ -59,18 +57,20 @@
 	 System.out.println("contextPath " + contextPath);
 	 System.out.println("command는 " + command);
 	 if(command == "/welcome"){
-		pageContext.include("../ignisCompany_info/header_noTop.jsp");
-		pageContext.include("../header/header.jsp");
-		System.out.println("안녕");
-		pageContext.include("../ignisCompany_info/leftList2.jsp");
+		 pageContext.include("./manage_Header.jsp");
+		pageContext.include("./manage_sideNav.jsp");
 	 } %>	
 	 
 	 <div class="container-fluid main-container">	
+	<% pageContext.include("./manage_sideNav.jsp"); %>
+	
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
+					<h5>&nbsp;총 예약수 : <%=totalRows %></h5>
 				</div>
+				<div class="panel-body" id="reservContent">
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
@@ -90,6 +90,17 @@
 						<td><%=reserv.getR_day() %></td>
 						<td><%=reserv.getR_time() %></td>
 						<td><%=reserv.getR_regdate() %></td>
+						
+						<%-- 추후 수정 예정
+						<% if(reserv.getR_findDoc() == "true")
+						{
+							%>
+							<td>진료 가능</td>
+						<% } else { %>
+							<td>진료 불가</td>
+								
+						<%=reserv.getR_findDoc() %></td>
+						 --%>
 						</tr>
 					<%
 							}
@@ -99,40 +110,45 @@
 					<%	} %>
 					</tbody>
 				</table>
-				</div>
+				
 				<div class="panel-end">
 					<form class="form-inline" action="welcome">
-					  <label for="sel1">검색 범위</label>
-					  <select id="reservType" id="sel1" name="reservType">
-					    <option>전체</option>
+					  <div class="form-group">
+					  	<label for="sel1">검색 범위</label>
+					  <select class="form-control" id="sel1" name="reservType">
+					    <option value="">전체</option>
+					    <option value="t_guide">예약번호</option>
+					    <option value="t_guide">회원아이디</option>
 					    <option value="t_guide">진료 항목</option>
-					    <option>내용</option>
+					    <option value="t_guide">진료 일자</option>
+					    <option value="t_guide">진료 시간</option>
+					    <option value="t_guide">예약 신청일</option>
 					  </select>
+					  </div>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" id="reservSearchSecond" name =" reservSearchSecond">
+					    <input type="text" class="form-control" id="reservSearchSecond" name =" reservSearchSecond">
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
 					<ul class="pager">
-					  <li><a href="/academy_ignis/welcome?pageNo=1">첫 페이지</a></li>
+					  <li><a href="/academy_ignis/manage_Reserv?pageNo=1">첫 페이지</a></li>
 					  <li>
-					  	<% if (prevPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=prevPage %>">◁</a><% } %>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/manage_Reserv?pageNo=<%=prevPage %>">◁</a><% } %>
 					  </li>
 					 	<% for (int i = beginPage; i <= endPage; i++) { %>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=i %>"><%=i %></a></li>
+					  <li><a href="/academy_ignis/manage_Reserv?pageNo=<%=i %>"><%=i %></a></li>
 					  	<% } %>
 					  <li>
-					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/welcome?pageNo=<%=nextPage%>">▷</a><% } %>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/manage_Reserv?pageNo=<%=nextPage%>">▷</a><% } %>
 					  </li>
-					  <li><a href="/academy_ignis/welcome?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+					  <li><a href="/academy_ignis/manage_Reserv?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 					</ul>
 				</div>
 			</div>
-		</div>			
-	<% pageContext.include("../footer/footer.jsp"); %>
-
-
+			</div>
+		</div>
+		<%pageContext.include("./manage_Footer.jsp"); %>
 </div>
 </body>
 </html>

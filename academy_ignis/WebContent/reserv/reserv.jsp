@@ -37,16 +37,11 @@ a:HOVER {
 }
 body { font-size: 20px;}
 
-.reservForm select {
-	
-	font-size : 1.5em
- }
- 
  .row_second {margin : 60px 0;}
 .select1 { width : 30%; height : 40px; padding : 5px; }
 .select11 { width : 60%; height : 80px; margin : 10px 0; padding : 5px; }
 #datepicker {font-size : 16px; width : 30%; margin:5px 0; padding : 5px;}
-.form-group label { font-size : 1.2em; }
+
 </style>
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -81,76 +76,104 @@ body { font-size: 20px;}
 	crossorigin="anonymous"></script>
 </head>
 <body>
+<% pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
+<% pageContext.include("../header/header.jsp"); %>
 	<div class="container">
-		<h3 class="well">상담 및 예약</h3>
-		<div class="col-lg-12 well">
-			<div class="row reservForm">
-				<form name="joinform" action="./reservProcess" method="post">
-					<div class="col-sm-12">
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>진료 항목 </label>
-							</div>
-							<div class="col-sm-7 form-group" >
-								<select class="select1" id="y" onchange="changeDate();" name="r_guide">
-								<option value="치아교정">치아교정</option>
-								<option value="임플란트">임플란트</option>
-								<option value="치아미백">치아미백</option>
-								<option value="일반진료">일반진료</option>
-								</select> 
+	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-sm-3"></div>
+				<div class="col-sm-9">
+					<h3 class="well">상담 및 예약</h3>
+						<div class="col-lg-12 well">
+							<div class="row reservForm">
+								<form name="joinform" action="./reservProcess" method="post">
+									<div class="col-sm-12">
+										<div class="row">
+											<div class="col-sm-3 form-group">
+												<label>진료 항목 </label>
+											</div>
+											<div class="col-sm-3 form-group" >
+												<select class="form-control input-lg" id="y" onchange="changeDate();" name="r_guide">
+												<option value="치아교정">치아교정</option>
+												<option value="임플란트">임플란트</option>
+												<option value="치아미백">치아미백</option>
+												<option value="일반진료">일반진료</option>
+												</select> 
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="col-sm-3 form-group">
+												<label>예약날짜 선택</label>
+											</div>
+											<div class="col-sm-9 form-group">
+												<p><input type="text" class="form-control input-lg" id="datepicker" value="날짜를 선택하세요" 
+												onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
+												onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day"/></p>	
+											</div>
+										</div>
+										<div class="row">
+											<div class = "row_second">
+												<div class="col-sm-3 form-group">
+													<label>예약시간 선택</label>
+												</div>	
+												<div class="col-sm-4">
+													<select class="form-control  input-lg" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
+														<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
+														<option value = "09:30">09:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "10:00">10:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "10:30">10:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "11:00">11:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "11:30">11:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "12:00">12:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "14:00">14:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "14:30">14:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "15:00">15:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "15:30">15:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "16:00">16:00&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "16:30">16:30&nbsp;&nbsp;(예약 가능)</option>
+														<option value = "17:00">17:00&nbsp;&nbsp;(예약 가능)</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<div class="row" style="text-align : center; margin-top : 3%;">
+											<div class="col-sm-12 form-group">
+												<input type="text" name="m_id" value="<%=id %>" hidden="hidden">
+												<input type="submit" class="btn btn-lg btn-info" value="예약하기">
+												<a href="javascript:history.go(-1)"><button type="button" class="btn btn-lg btn-info">뒤로 가기</button></a>
+											</div>
+										</div>
+									</div>
+								</form>
 							</div>
 						</div>
-						
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>예약날짜 선택</label>
-							</div>
-							<div class="col-sm-7 form-group">
-								<p><input type="text" id="datepicker" value="날짜를 선택하세요" 
-								onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
-								onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day"/></p>	
-							</div>
-						</div>
-						<div class="row">
-							<div class = "row_second">
-							<div class="col-sm-3 form-group">
-								<label>예약시간 선택</label>
-							</div>	
-							<div class="col-sm-7">
-								<select class="select11" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
-									<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
-									<option value = "09:30">09:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "10:00">10:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "10:30">10:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "11:00">11:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "11:30">11:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "12:00">12:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "14:00">14:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "14:30">14:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "15:00">15:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "15:30">15:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "16:00">16:00&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "16:30">16:30&nbsp;&nbsp;(예약 가능)</option>
-									<option value = "17:00">17:00&nbsp;&nbsp;(예약 가능)</option>
-							</select>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-sm-3 form-group">
-								<label>내용</label>
-							</div>
-							<div class="col-sm-7 form-group">
-								
-							</div>
-						</div>
-						<input type="text" name="m_id" value="<%=id %>" hidden="hidden">
-						<input type="submit" class="btn btn-lg btn-info" value="예약하기">
-					</div>
-					</div>
-				</form>
+				</div>
 			</div>
 		</div>
+		<%@include file="../footer/footer.jsp" %>
+		
 	</div>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
+<script type="text/javascript">
+function userLogin() {
+	$("#login").html('<a href="#" id="logout">Logout</a>');
+	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
+}
+
+function userLogout() {
+	$("#login").html('<a href="/academy_ignis/login">Login</a>');
+	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
+}
+</script>
+
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>
 

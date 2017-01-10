@@ -143,15 +143,17 @@
 				
 				<div class="panel-end">
 					<form class="form-inline" action="reservDetail">
-					  <label for="sel1">검색 범위</label>
-					  <select id="reservType" id="sel1" name="reservType">
+					  <div class="form-group">
+					  	<label for="sel1">검색 범위</label>
+					  <select class="form-control" id="sel1" name="reservType">
 					    <option>전체</option>
 					    <option value="t_guide">진료 항목</option>
 					    <option>내용</option>
 					  </select>
+					  </div>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" id="reservSearch" name =" reservSearch">
+					    <input type="text" class="form-control"  id="reservSearch" name =" reservSearch">
 					  </div>
 					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
@@ -182,5 +184,12 @@
  
  
 </div>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>
