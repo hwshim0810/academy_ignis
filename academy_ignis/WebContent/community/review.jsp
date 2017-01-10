@@ -148,9 +148,13 @@
 						<tr>
 							<td><%= review.getRb_num() %></td>
 							<td>
-								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>">
-									<%= review.getRb_title() %> <span class="badge"><%=commentCount %></span>
-								</a>
+								<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
+									<span class="badge"><%=commentCount %></span>
+									<%
+										if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
+									%>
+										<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+									<% } %>
 							</td>
 							<td><%= review.getM_name() %></td>
 							<td><%= review.getRb_regdate() %></td>

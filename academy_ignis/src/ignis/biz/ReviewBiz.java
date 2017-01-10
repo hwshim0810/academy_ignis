@@ -40,7 +40,11 @@ public class ReviewBiz {
 			reviewBean.setRb_title(multi.getParameter("rb_title")); 
 			reviewBean.setM_name(m_name);
 			reviewBean.setRb_content(multi.getParameter("rb_content")); 
-			reviewBean.setRb_file(multi.getFilesystemName((String) multi.getFileNames().nextElement()));
+			if(multi.getFilesystemName((String) multi.getFileNames().nextElement()) == null){
+				reviewBean.setRb_file("");
+			} else {
+				reviewBean.setRb_file(multi.getFilesystemName((String) multi.getFileNames().nextElement()));
+			}
 			result = reviewDao.insertReview(reviewBean);
 			
 		} catch (Exception e){
