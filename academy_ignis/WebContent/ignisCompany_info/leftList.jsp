@@ -4,7 +4,7 @@
   .list-group-item {text-align:center;}
 
   </style>
-<div class="col-xs-12 col-sm-3 col-md-2" style="background-color:lavender;">
+<div class="col-xs-12 col-sm-3 col-md-2">
    <ul class="list-group">
   <li class="list-group-item" ><a href="abouts_us">병원소개</a></li>
   <li class="list-group-item" ><a href="Introduction_of_medical_staff">의료진 소개</a></li>
