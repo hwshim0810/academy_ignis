@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="ignis.dao.ReviewDAO" %>
+<%@ page import="ignis.dao.QnaDAO" %>
 <% 
 	String id = null;
 
@@ -10,7 +11,10 @@
 		response.sendRedirect("/academy_ignis");
 	
 	ReviewDAO revDao = new ReviewDAO();
+	QnaDAO qnaDao = new QnaDAO();
 	int revCount = revDao.getReviewCount(id);
+	int revReplyCount = revDao.getReplyCount(id);
+	int qnaCount = qnaDao.getQnaCount(id);
 %>
 <!DOCTYPE html>
 <html>
@@ -49,7 +53,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label">회원님이 쓴 글 수 : </label>  
 				  <div class="col-md-4">
-				  <h4>리뷰 게시판 : <%=revCount %></h4>
+				  <h4>리뷰 게시판 : <%=revCount %>개</h4>
 				  </div>
 				</div>
 				
@@ -57,7 +61,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label"></label>
 				  <div class="col-md-4">
-				  <h4><%=revCount %></h4>
+				  <h4>Qna 게시판 : <%=qnaCount %>개</h4>
 				  </div>
 				</div>
 				
@@ -65,7 +69,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">회원님이 쓴 댓글 수 : </label>  
 				  <div class="col-md-4">
-				  <h4></h4>
+				  <h4>리뷰 게시판 : <%=revReplyCount %>개</h4>
 				  </div>
 				</div>
 				

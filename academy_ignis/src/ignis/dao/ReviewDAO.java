@@ -202,4 +202,13 @@ public class ReviewDAO {
 		return count;
 	}
 	
+	public int getReplyCount(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = ss.selectOne("comment.selectReplyCount", m_id);
+		ss.close();
+		
+		return count;
+	}
+	
 }

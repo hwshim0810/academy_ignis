@@ -154,5 +154,13 @@ public class QnaDAO {
 		if(result>0){return true;}
 		return false;
 	}
-
+	
+	public int getQnaCount(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = ss.selectOne("qna.selectQnaCount", m_id);
+		ss.close();
+		
+		return count;
+	}
 }
