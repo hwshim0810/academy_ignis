@@ -41,7 +41,11 @@ public class MemberLoginAction implements ActionInterface {
 			session.setAttribute("m_level",MEMBERLEVEL);
 			if (!page.equals("home")) {
 				forward.setRedirect(true);
-				forward.setPath("/academy_ignis/" + page + "?pagenum=" + pagenum);
+				if (request.getParameter("login") != null)
+					forward.setPath("/academy_ignis/" + page +"?login=member&pagenum=" + pagenum);
+				else
+					forward.setPath("/academy_ignis/" + page + "?pagenum=" + pagenum);
+				
 				return forward;
 			}
 			forward.setRedirect(true);

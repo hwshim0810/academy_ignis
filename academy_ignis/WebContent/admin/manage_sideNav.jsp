@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <div class="col-md-2 sidebar">
   	<div class="row">
-	<!-- uncomment code for absolute positioning tweek see top comment in css -->
 	<div class="absolute-wrapper"> </div>
 	<!-- Menu -->
 	<div class="side-menu">
@@ -28,23 +27,6 @@
 									<li><a href="/academy_ignis/Event?login=admin">이벤트</a></li>
 									<li><a href="/academy_ignis/qna?login=admin">QnA</a></li>
 									<li><a href="/academy_ignis/Review?login=admin">치료후기</a></li>
-
-									<!-- Dropdown level 2 -->
-									
-									<!-- <li class="panel panel-default" id="dropdown">
-										<a data-toggle="collapse" href="#dropdown-lvl2">
-											<span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
-										</a>
-										<div id="dropdown-lvl2" class="panel-collapse collapse">
-											<div class="panel-body">
-												<ul class="nav navbar-nav">
-													<li><a href="#">Link</a></li>
-													<li><a href="#">Link</a></li>
-													<li><a href="#">Link</a></li>
-												</ul>
-											</div>
-										</div>
-									</li> -->
 								</ul>
 							</div>
 						</div>

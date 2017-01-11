@@ -41,6 +41,10 @@
 	});
 </script>
 </head>
+<style>
+.add {background-color: #e1e1e1; color: black;}
+.delete {background-color: #f44336;}
+</style>
 <body>
 
 <% 
@@ -68,7 +72,7 @@
 					<caption class="sr-only">회원명단</caption>
 					<thead>
 						<tr class="info"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
-						<th>진료 시간</th><th>예약 신청일</th></tr>
+						<th>진료 시간</th><th>예약 신청일</th><th>상세보기</th></tr>
 					</thead>
 					<tbody>
 					<% 
@@ -83,6 +87,7 @@
 						<td><%=reserv.getR_day() %></td>
 						<td><%=reserv.getR_time() %></td>
 						<td><%=reserv.getR_regdate() %></td>
+						<td><a href="/academy_ignis/reservInfo?getR_num=<%=reserv.getR_num()%>">보기</a>
 						
 						<%-- 추후 수정 예정
 						<% if(reserv.getR_findDoc() == "true")
@@ -144,8 +149,15 @@
 					    <input type="text" class="form-control" id="searchContent" name =" "searchContent"">
 					  </div>
 					  <button type="button" class="btn btn-default"  id="reservSubmit">검색</button>
+					
+					 
 					</form>
-			
+					<div style="float : right">
+						<button type="button" class="btn btn-default add"  id="reservAdd"  style="list-style-position: "><strong>예약 추가</strong></button>
+						<button type="button" class="btn btn-default add"  id="reservUpdate"  style="list-style-position: "><strong>예약 수정</strong></button>
+						<button type="button" class="btn btn-default add"  id="reservDelete"  style="list-style-position: "><strong>예약 삭제</strong></button>
+					
+					</div>
 			</div>
 			</div>
 		</div>

@@ -118,12 +118,7 @@ public class ReservDAO {
 	
 	
 	
-	public List<ig_reserv> check(String m_id) {
-		SqlSession ss = FactoryService.getFactory().openSession();
-		List<ig_reserv> list = null;
-		list = ss.selectList("reserv.check",m_id);
-		ss.close();					return list;
-	}
+	
 	
 	
 	public List<ig_reserv> checkAll() {
@@ -132,6 +127,20 @@ public class ReservDAO {
 		ss.close();					return list;
 	}
 	
+	
+	
+	
+	
+	
+	//회원Id 검색을 통해 모든 예약 정보를 출력
+	public List<ig_reserv> check(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ig_reserv> list = null;
+		list = ss.selectList("reserv.check",m_id);
+		ss.close();					return list;
+	}
+	
+	//회원Id 검색을 통해 예약 건수를 출력
 	public int getResCount(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
@@ -230,7 +239,13 @@ public class ReservDAO {
 	}
 	
 	
-	
+	//예약번호 검색을 통한 예약 상세 정보 보기
+	public List<ig_reserv> getReservInfo(String reserv_num) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		List<ig_reserv> list = null;
+		list = ss.selectList("reserv.reservInfo",reserv_num);
+		ss.close();					return list;
+	}
 	
 }
 

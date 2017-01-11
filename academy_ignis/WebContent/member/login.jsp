@@ -3,6 +3,7 @@
 <%
 	String id = null;
 	String pageURI = null;
+	String login = request.getParameter("login");
 	int pagenum = 1;
 	
 	if (request.getParameter("pagenum") != null) 
@@ -18,6 +19,7 @@
 	} else {
 		pageURI = "home";
 	}
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -38,7 +40,7 @@
 <div class="wrapper">
 	<div class="container">
 	    <div class="row" style="margin:20px 0;">
-	    	<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+	    	<div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-2">
 				<form role="form" method="post" action="/academy_ignis/loginProcess?page=<%=pageURI%>&pagenum=<%=pagenum%>">
 					<fieldset>
 						<h2>Ignis치과</h2><h4>로그인하시면 모든 서비스가 이용가능합니다.</h4>

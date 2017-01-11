@@ -27,7 +27,11 @@
 	<div class="col-xs-12 col-sm-9 col-md-10">
 			<div></div>
 			<div id="map" style="width:750px;height:400px;"></div>
-			
+			<div class="howto">
+			<h3>교통수단 이용안내</h3>
+			<h4>버스</h4>
+			<h4>지하철</h4>
+			</div>
 	</div>
 </div>
 <%-- Footer 시작 --%>

@@ -6,18 +6,6 @@
 <%@ page import = "ignis.bean.ig_review" %>
 <%@ page import = "ignis.bean.ig_comment" %>
 <%@ page import = "ignis.dao.ReviewDAO" %>
-<%
-	request.setCharacterEncoding("utf-8");
-	
-	String id= null;
-	if (session.getAttribute("m_id") != null) {
-		id = (String) session.getAttribute("m_id");
-	}
-	else{
-		response.sendRedirect("/academy_ignis/member/login.jsp");
-		System.out.println("회원");
-	}
-%>
 <% 
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
 	int totalRows = reviewDao.getListCount(); // 전체 게시물 갯수
@@ -127,6 +115,7 @@
 			</select>
 			<div class="form-group">
 				<input type="text" class="form-control" id="searchReview">
+				<input type="hidden" value="member" id="lo">
 			</div>
 			<button type="submit" class="btn btn-default">검색</button>
 		</form>
@@ -143,6 +132,17 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+<%
+	String id= null;
+	if (session.getAttribute("m_id") != null) {
+		id = (String) session.getAttribute("m_id");
+	} else {
+		%>
+		<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/review.js"></script>
+		<script type="text/javascript">moveLogin();</script>
+		<%
+	}
+%>
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>
