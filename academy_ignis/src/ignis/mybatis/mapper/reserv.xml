@@ -6,7 +6,7 @@
 
 	<!--  관리자페이지의 예약 추가를 위한 멤버 아이디 조회 -->
 	<select id="searchMemberId"  resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM ig_member where m_id LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+		SELECT COUNT(*) FROM ig_member where m_id LIKE #{r_content}
 	</select>
 
 	<select id="check"  resultType="ignis.bean.ig_reserv">

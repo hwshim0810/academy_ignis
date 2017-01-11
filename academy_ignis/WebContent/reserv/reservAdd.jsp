@@ -48,29 +48,7 @@ body { font-size: 20px;}
   <link rel="stylesheet" href="/resources/demos/style.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  $( function() {
-    $( "#datepicker" ).datepicker({
-        minDate : 0
-    });
-    
-    
-    
-	$('#reservIdSearch').click(function () {
-		$.ajax({
-			type : "post",
-	 		url : "../reservAddAjax.jsp",
-	        data : {reservContent : $(".reservContent").val()},
-			success : function(data) { $('#reservContent').html(data); },
-			error : function(request, status, error){alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
-		});
-		return false;
-		
-		
-	});
-    
-  } );
-  </script>
+  
 <script type="text/javascript">
 	function chooseDate(num) {
 		var y = document.getElementById("num").value;
@@ -78,21 +56,36 @@ body { font-size: 20px;}
 		location.href = url; //url이 가지고 있는 값으로 이동
 	}
 </script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
-	crossorigin="anonymous">
-
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
-	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
-	crossorigin="anonymous">
-
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-	crossorigin="anonymous"></script>
+<script>
+  $( function() {      
+	$('#reservIdSearch').click(function () {
+		$.ajax({
+			type : "post",
+	 		url : '/academy_ignis/reserv/reservAddAjax.jsp',
+			data : {reservContent : $(".reservContent").val()},
+			success : function(data) { $('#getReservContent').html(data); },
+		});
+		return false;
+	});
+	$( "#datepicker" ).datepicker({
+        minDate : 0
+    });
+});
+</script>
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
+
+
+
+
+
+
+
+
+
 <body>
 <% pageContext.include("../header/header.jsp"); %>
 	<div class="container">
@@ -104,14 +97,17 @@ body { font-size: 20px;}
 					<h3 class="well">상담 및 예약</h3>
 						<div class="col-lg-12 well">
 							<div class="row reservForm">
-								<form name="joinform" action="./reservProcess" method="post">
+								<form name="joinform" action="./reservAddAction" method="post">
 									<div class="col-sm-12">
 										<div class="row">
 											<div class="col-sm-3 form-group">
 												<label>회원 아이디</label>
 											</div>
 											<div class="col-sm-3 form-group" >
-												<input type="text" id="reservContent" class="reservContent" placeholder="아이디를 입력하세요">
+												<input type="text" class="reservContent form-control input-lg" placeholder="아이디를 입력하세요" name=r_id>
+												<p><span id="getReservContent"></span></p>
+											</div>
+											<div class="col-sm-3 form-group" >
 												<button type="button" class="btn btn-default"  id="reservIdSearch">검색</button>
 											</div>
 										</div>
@@ -181,10 +177,7 @@ body { font-size: 20px;}
 		<%@include file="../footer/footer.jsp" %>
 		
 	</div>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
 
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>

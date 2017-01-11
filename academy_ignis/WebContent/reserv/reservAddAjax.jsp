@@ -4,23 +4,26 @@
 <%@ page import="ignis.bean.ig_reserv" %>
 <%@ page import="java.util.List" %>
 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+
 <%
 	ReservDAO reservDao = new ReservDAO();
 	String mem_id = request.getParameter("reservContent");
 	boolean result = reservDao.searchMemberId(mem_id);
 	System.out.println("mem_id는" + mem_id);
 %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
 </head>
 <body>
-<% if(result==true){ %>
-<%=request.getParameter("reservContent") %>
-		<% } else %>
-		<%=out.print("아이디를 다시입력하세요") %>
-		
+
+	<% if(result==true){ %>
+	<%=mem_id%><% out.println("회원님이 확인되었습니다."); %>
+	<% } else {%><% out.println("아이디가 없습니다."); %>
+	<% } %>
+	
 </body>
 </html>

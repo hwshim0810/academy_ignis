@@ -33,10 +33,8 @@ public class ReservBiz {
 	
 	public boolean insert(HttpServletRequest request, HttpServletResponse response) {
 		
-		
 		ReservDAO reservDao = new ReservDAO();
 		String r_guide = request.getParameter("r_guide");
-		System.out.println("ReservBiz내의 reservaDao.insert부분의 r_guide : " + r_guide);
 		String r_day = request.getParameter("r_day");
 		String r_time = request.getParameter("r_time");
 		String r_findDoc = "TRUE";
@@ -48,6 +46,23 @@ public class ReservBiz {
 		if (result) return result;
 		else return result;
 	}
+	
+public boolean adminInsert(HttpServletRequest request, HttpServletResponse response) {
+		
+		ReservDAO reservDao = new ReservDAO();
+		String r_id = request.getParameter("r_id");
+		String r_guide = request.getParameter("r_guide");
+		String r_day = request.getParameter("r_day");
+		String r_time = request.getParameter("r_time");
+		String r_findDoc = "TRUE";
+		// r_findDoc가 TRUE라는 것은 의사가 진료 예약이 잡혀있음을 의미.
+		boolean result = reservDao.insert(r_guide, r_day, r_time, r_findDoc, r_id);
+		
+		if (result) return result;
+		else return result;
+	}
+	
+	
 	
 	public boolean check(HttpServletRequest request, HttpServletResponse response) {
 
