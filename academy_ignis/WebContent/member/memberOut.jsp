@@ -22,87 +22,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Ignis 치과</title>
-  <link rel="stylesheet" href="/academy_ignis/css/memberJoin.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
-  <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<title>Ignis 치과</title>
+    <link rel="stylesheet" href="/academy_ignis/css/memberJoin.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+    <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
+	<link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body>
+<%-- Header 시작 --%>
 <%
 	pageContext.include("../header/header.jsp");
-	pageContext.include("../ignisCompany_info/leftList2.jsp"); 
 %>
-<div class="container">
-	<h3>회원 탈퇴</h3>
-	<div class="col-lg-12">
-	
-	<div class="row">
-		<form id="outForm" class="form-horizontal" method="post" action="/academy_ignis/memDelProcess">
-			<fieldset>
-				
-				<!-- Form Name -->
-				<legend class="sr-only">회원탈퇴</legend>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label">주의사항</label>  
-				  <div class="col-xs-8">
-				  <input type="hidden" name="m_id" value="<%=id%>">
-				  	탈퇴시 예약은 모두 취소되고,<br>같은 아이디로 3개월간 재가입하실수 없으며<br>
-				  	게시판의 모든 글은 3개월 후 삭제됩니다.
-				  </div>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
+<div class="wrapper">
+	<div class="container">
+		<%
+			pageContext.include("../ignisCompany_info/leftList2.jsp"); 
+		%>
+		<div class="container-fluid">
+			<div class="row content">
+				<div class="col-sm-9">
+					<h3>회원 탈퇴</h3>
+				<form id="outForm" class="form-horizontal" method="post" action="/academy_ignis/memDelProcess">
+					<fieldset>
+						<!-- Form Name -->
+						<legend class="sr-only">회원탈퇴</legend>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label">주의사항</label>  
+						  <div class="col-xs-8">
+						  <input type="hidden" name="m_id" value="<%=id%>">
+						  	탈퇴시 예약은 모두 취소되고,<br>같은 아이디로 3개월간 재가입하실수 없으며<br>
+						  	게시판의 모든 글은 3개월 후 삭제됩니다.
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label">회원님의 예약건수</label>  
+						  <div class="col-xs-8">
+						  <h4>현재 <%=resCount %>건</h4>
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label">회원님이 쓴 글 수</label>  
+						  <div class="col-xs-8">
+						  <h4>리뷰 게시판 <%=revCount %>개</h4>
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label"></label>
+						  <div class="col-xs-8">
+						  <h4>Qna 게시판 <%=qnaCount %>개</h4>
+						  </div>
+						</div>
+						
+						<!-- Text input-->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label" for="textinput">회원님이 쓴 댓글 수</label>  
+						  <div class="col-xs-8">
+						  <h4>리뷰 게시판 <%=revReplyCount %>개</h4>
+						  </div>
+						</div>
+						
+						<!-- Button -->
+						<div class="form-group">
+						  <label class="col-xs-4 control-label"></label>
+						  <div class="col-xs-8">
+						    <a id="outBtn" class="btn btn-primary">회원탈퇴</a>
+						  </div>
+						</div>
+						
+					</fieldset>
+				</form>
 				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label">회원님의 예약건수</label>  
-				  <div class="col-xs-8">
-				  <h4>현재 <%=resCount %>건</h4>
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label">회원님이 쓴 글 수</label>  
-				  <div class="col-xs-8">
-				  <h4>리뷰 게시판 <%=revCount %>개</h4>
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label"></label>
-				  <div class="col-xs-8">
-				  <h4>Qna 게시판 <%=qnaCount %>개</h4>
-				  </div>
-				</div>
-				
-				<!-- Text input-->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label" for="textinput">회원님이 쓴 댓글 수</label>  
-				  <div class="col-xs-8">
-				  <h4>리뷰 게시판 <%=revReplyCount %>개</h4>
-				  </div>
-				</div>
-				
-				<!-- Button -->
-				<div class="form-group">
-				  <label class="col-xs-4 control-label"></label>
-				  <div class="col-xs-8">
-				    <a id="outBtn" class="btn btn-primary">회원탈퇴</a>
-				  </div>
-				</div>
-				
-			</fieldset>
-		</form> 
+			</div>
+		</div>
 	</div>
-	</div>
-	</div>
-<%
-	pageContext.include("../footer/footer.jsp");
-%>
+</div>
+<%-- Body 종료 --%>
+<%-- Footer 시작 --%>
+<%@include file="../footer/footer.jsp" %>
+<%-- Footer 종료 --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
