@@ -6,6 +6,11 @@
 <%@ page import = "ignis.bean.ig_event" %>
 <%@ page import = "ignis.dao.EventDAO" %>
 <% 
+	String id = null;
+	
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	
 	EventDAO eventDao = EventDAO.getInstance();
 	int totalRows = eventDao.getListCount(); // 전체 게시물 갯수
 %>
@@ -21,8 +26,8 @@
 <meta http-equiv="X-UA-Compatible"  content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+  <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
   <style type="text/css">
   	<style type="text/css">
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -185,4 +190,15 @@
 %>
 <%-- Footer 종료 --%>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </html>
