@@ -53,8 +53,8 @@
 		delete from ig_reserv where R_num =#{getR_num}
 	</delete>
 	
-	<select id="selectResCount" resultType="int">
-		SELECR count(*) FROM ig_reserv WHERE m_id = #{m_id}
+	<select id="selectResCount" resultType="int" parameterType="String">
+		SELECT count(*) FROM ig_reserv WHERE m_id = #{m_id}
 	</select>
 	
 	<delete id="deleteMem" parameterType="String">

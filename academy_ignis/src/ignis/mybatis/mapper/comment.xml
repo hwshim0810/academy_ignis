@@ -6,7 +6,7 @@
 	<select id="selectAll" resultType="ignis.bean.ig_comment">
 		SELECT * FROM ig_comment
 	</select>
-	<select id="selectReplyCount" resultType="int">
+	<select id="selectReplyCount" resultType="int" parameterType="String">
 		SELECT count(*) FROM ig_comment WHERE m_name = #{m_id}
 	</select>
 </mapper>

@@ -30,7 +30,7 @@
 	<select id="selectListCount" resultType="int">
 		select count(*) from ig_review
 	</select>
-	<select id="selectReviewCount" resultType="int">
+	<select id="selectReviewCount" resultType="int" parameterType="String">
 		SELECT count(*) FROM ig_review WHERE m_name = #{m_id}
 	</select>
 	<update id="upReadCount" parameterType="int">
