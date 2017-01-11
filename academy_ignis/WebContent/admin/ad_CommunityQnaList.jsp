@@ -3,7 +3,7 @@
 <%@ page import="ignis.bean.ig_qna" %>
 <%@ page import="java.util.*" %>
 <%
-if ((Integer)session.getAttribute("m_level") <3) 
+if (session.getAttribute("m_level")==null||(Integer)session.getAttribute("m_level") <3) 
 	response.sendRedirect("./login");
 int pagenum=1;//현재 페이지
 int pagelimit=10;//한 페이지 리스트수
@@ -62,8 +62,8 @@ if(endpage>pageCount){endpage=pageCount;}
 						<td><%=list.get(i).getQb_mal() %></td>
 						<td>
 <%if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){
-%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?login=admin&qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getQb_title() %></a>
-						</td>
+%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?login=admin&qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getQb_title() %>
+</a><%if(list.get(i).getQb_private()==1) {%>&nbsp;<span class="glyphicon glyphicon-lock"></span><%} %></td>
 						<td><%=list.get(i).getM_id() %></td>
 						<td><%if(list.get(i).getQb_private()==0) {%><td>공개</td><%}else{ %><td>비공개</td><%} %></td>
 						<td><%=list.get(i).getQb_regdate()%></td>
