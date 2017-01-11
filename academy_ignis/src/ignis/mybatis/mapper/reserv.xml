@@ -26,6 +26,7 @@
 		UPDATE ig_reserv SET r_content=#{r_content} where m_id =#{m_id}
 	</update>
 	
+	<!-- 관리자 페이지 예약 상세보기의 삭제 -->
 	<delete id="deleteReserv" parameterType="java.util.HashMap">
 		delete from ig_reserv where R_num =#{getR_num}
 	</delete>

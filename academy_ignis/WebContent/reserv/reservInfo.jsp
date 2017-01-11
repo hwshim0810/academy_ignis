@@ -82,9 +82,10 @@
 					<%	} %>
 					</tbody>
 				</table>
+				<input type="text" hidden="hidden" id="reservNum" value=<%=reserv_num %>>
 				<div class="panel-end">
-					<button type="button" class="btn btn-default add"  id="reservUpdate"  style="list-style-position: "><strong>예약 수정</strong></button>
-					<button type="button" class="btn btn-default add"  id="reservDelete"  style="list-style-position: "><strong>예약 삭제</strong></button>
+					<button type="button" class="btn btn-default add"  id="reservUpdate" ><strong>예약 수정</strong></button>
+					<button type="button" class="btn btn-default add reservDel"  id="reservDelete" ><strong>예약 삭제</strong></button>
 					<a href="javascript:history.go(-1)"><button type="button" class="btn btn-default add"><strong>뒤로 가기</strong></button></a></div>
 			</div>
 </div>
@@ -94,6 +95,7 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script src="/academy_ignis/script/reserv_Delete.js?v=1"></script>
  
  
  

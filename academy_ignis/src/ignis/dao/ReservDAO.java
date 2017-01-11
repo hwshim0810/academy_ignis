@@ -15,6 +15,26 @@ public class ReservDAO {
 		return reservDAO;
 	}
 	
+	
+
+	public int deleteAdminMem(String reservDel) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		int result = ss.delete("reserv.deleteReserv", reservDel);
+		ss.close();
+		
+		return (result > 0) ? 1 : 0;
+	}
+	public boolean deleteMem(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		int result = ss.delete("reserv.deleteMem", m_id);
+		ss.close();
+		
+		return (result > 0) ? true : false;
+	}
+	
+	
 
 	public boolean delete(int getR_num) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -22,7 +42,6 @@ public class ReservDAO {
 		System.out.println("delete확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
-
 	
 	public boolean update(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -153,14 +172,6 @@ public class ReservDAO {
 	}
 
 
-	public boolean deleteMem(String m_id) {
-		SqlSession ss = FactoryService.getFactory().openSession(true);
-		
-		int result = ss.delete("reserv.deleteMem", m_id);
-		ss.close();
-		
-		return (result > 0) ? true : false;
-	}
 	
 	// 관리자페이지의 멤버 아이디 조회
 	public boolean searchMemberId(String m_id){

@@ -129,7 +129,7 @@
 							<td><%=reserv.getR_day() %></td>
 							<td><%=reserv.getR_time() %></td>
 							<td><%=reserv.getR_regdate() %></td>
-							<td><a href="/academy_ignis/deleteReserv?getR_num=<%=reserv.getR_num()%>&pageNo=<%=pageNo%>">삭제</a>
+							<td><a href="/academy_ignis/deleteReserv?getR_num=<%=reserv.getR_num()%>&pageNo=<%=pageNo%>" class="reservDel">삭제</a>
 						</tr>
 						<%
 								}
@@ -183,6 +183,7 @@
 <script src="/academy_ignis/script/ad_Manage.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
+ <script src="/academy_ignis/script/reserv_Delete.js?v=1"></script>
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>

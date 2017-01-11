@@ -10,6 +10,17 @@ import ignis.bean.ig_reserv;
 import ignis.dao.ReservDAO;
 
 public class ReservBiz {
+	public int deleteAdmin(HttpServletRequest request, HttpServletResponse response) {
+
+		ReservDAO reservDao = ReservDAO.getInstance();
+	
+		String num = request.getParameter("reservDel");
+		
+			int result = reservDao.deleteAdminMem(num);
+			
+			return result;
+	}
+	
 	
 	public boolean delete(HttpServletRequest request, HttpServletResponse response) {
 		ReservDAO reservDao = new ReservDAO();
