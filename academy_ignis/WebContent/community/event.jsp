@@ -87,8 +87,8 @@
 			<div class="col-sm-9">
 				<h4>EVENT</h4>
 				<hr>
-				<table class="table">
-					<caption>이벤트 게시판</caption>
+				<table class="table table-responsive">
+					<caption class="sr-only">이벤트 게시판</caption>
 					<thead>
 						<tr>
 							<th>No</th>

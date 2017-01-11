@@ -98,7 +98,7 @@
 			<div class="col-sm-9">
 				<h4>Review</h4>
 				<hr>
-				<table class="table">
+				<table class="table table-responsive">
 					<caption>Review게시판</caption>
 					<thead>
 						<tr>

@@ -6,6 +6,11 @@
 <%@ page import = "ignis.bean.ig_event" %>
 <%@ page import = "ignis.dao.EventDAO" %>
 <% 
+	String id = null;
+	
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	
 	int num = 0;
 	if (request.getParameter("num") != null || Integer.parseInt(request.getParameter("num")) != 0) {
 		num = Integer.valueOf((String) request.getParameter("num"));
@@ -28,9 +33,8 @@
 <title>EVENT</title>
 <meta http-equiv="X-UA-Compatible"  content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style type="text/css">
   	<style type="text/css">
   	    /* Remove the navbar's default margin-bottom and rounded borders */ 
@@ -146,6 +150,15 @@
 	pageContext.include("../footer/footer.jsp");
 %>
 <%-- Footer 종료 --%>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>

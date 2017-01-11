@@ -32,9 +32,9 @@
 <body>
 
  <h3>공지사항</h3><hr>
- <table class="table">
+ <table class="table table-responsive">
     <thead>
-      <tr class="info">
+      <tr>
         <th>번호</th>
         <th>제목</th>
         <th>작성일</th>
