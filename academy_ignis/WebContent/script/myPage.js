@@ -1,14 +1,3 @@
-function userLogin() {
-	$("#login").html('<a href="#" id="logout">Logout</a>');
-	$("#mypage").html('<a href="/academy_ignis/myPage">My page</a>');
-}
-
-function userLogout() {
-	$("#login").html('<a href="/academy_ignis/login">Login</a>');
-	$("#mypage").html('<a href="/academy_ignis/memberJoin?page=home">MemberJoin</a>');
-}
-
-
 $(function() {
     $('input[name="m_birth"]').daterangepicker({
         singleDatePicker: true,

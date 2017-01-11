@@ -25,9 +25,13 @@
 </head>
 <body>
 <%
-	//pageContext.include("../header/header.jsp");
+	pageContext.include("../header/header.jsp");
 %>
 <div class="container">
+<%
+	pageContext.include("../ignisCompany_info/leftList2.jsp"); 
+%>
+	<div class="col-xs-12 col-sm-9 col-md-10">
 	<h2>회원정보</h2>
 		<ul class="nav nav-tabs">
 			<li class="active"><a href="#home" data-toggle="tab">회원정보 보기</a></li>
@@ -221,10 +225,8 @@
 				</form>
 			</div>
 		</div>
-
-
+	</div>
 </div>
-
 
 <%-- Footer 시작 --%>
 <%@include file="../footer/footer.jsp" %>
@@ -233,6 +235,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
 <%
