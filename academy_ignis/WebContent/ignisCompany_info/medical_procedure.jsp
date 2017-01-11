@@ -15,7 +15,6 @@
   </style>
 </head>
 <body>
-<%pageContext.include("header_noTop.jsp"); %>
 <%pageContext.include("../header/header.jsp"); %>
   <div class="container">
 <%pageContext.include("leftList.jsp"); %>
