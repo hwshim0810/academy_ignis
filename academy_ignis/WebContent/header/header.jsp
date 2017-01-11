@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <style type="text/css">
+	div.divNav { 
+	  	position : relative;
+	  	display : block;
+	  	z-index : 1;
+	  }
 	div.wrapper { 
 		position : relative;
 		max-width : 970px; 
