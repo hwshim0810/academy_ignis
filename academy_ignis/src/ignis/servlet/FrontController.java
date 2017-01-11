@@ -539,6 +539,12 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+		
+		case "/memOutpage" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/memberOut.jsp");
+			break;
 			
 //		case "/" :
 //			action = new Action();

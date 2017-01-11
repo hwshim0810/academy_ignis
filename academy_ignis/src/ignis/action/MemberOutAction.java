@@ -15,10 +15,10 @@ public class MemberOutAction implements ActionInterface {
 		MemberBiz memBiz = MemberBiz.getInstance();
 		ReservBiz resBiz = new ReservBiz();
 		
-		boolean resResult = resBiz.deleteMem(request, response);
+		resBiz.deleteMem(request, response);
 		boolean memResult = memBiz.outMemUpdate(request, response);
 		
-		if (resResult && memResult) {
+		if (memResult) {
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
