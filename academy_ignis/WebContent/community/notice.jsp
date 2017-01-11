@@ -44,26 +44,27 @@
   </script>
 </head>
 <body><%pageContext.include("../header/header.jsp"); %>
- <div class="container">
- <%pageContext.include("leftList.jsp"); %>
-   <div class="col-xs-12 col-sm-9 col-md-10 ">
- <%pageContext.include("contentList.jsp"); %>
- 
-   <form class="form-inline" >
-   <label for="sel1">검색 범위</label>
-  <select class="form-control" id="searchOption">
-    <option value="nb_all">전체</option>
-    <option value="nb_title">제목</option>
-    <option value="nb_content">내용</option>
-  </select>
-  <div class="form-group">
-    <label class="sr-only" for="search">검색 내용:</label>
-    <input type="text" class="form-control" id="searchContent">
-  </div>
-  <input type="submit" class="btn btn-default" onclick="searchAll()" value="검색" />
-</form>
-   </div>
-  </div>
+<div class="wrapper">
+	<div class="container">
+		<%pageContext.include("leftList.jsp"); %>
+		<div class="col-xs-12 col-sm-9 col-md-10 ">
+			<%pageContext.include("contentList.jsp"); %>
+			<form class="form-inline" >
+				<label for="sel1">검색 범위</label>
+				<select class="form-control" id="searchOption">
+					<option value="nb_all">전체</option>
+					<option value="nb_title">제목</option>
+					<option value="nb_content">내용</option>
+				</select>
+				<div class="form-group">
+					<label class="sr-only" for="search">검색 내용:</label>
+					<input type="text" class="form-control" id="searchContent">
+				</div>
+				<input type="submit" class="btn btn-default" onclick="searchAll()" value="검색" />
+			</form>
+		</div>
+	</div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>

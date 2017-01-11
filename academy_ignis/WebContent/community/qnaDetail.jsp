@@ -2,17 +2,21 @@
     pageEncoding="UTF-8"%>
 <%@ page import="ignis.bean.ig_qna" %>
 <%@ page import="java.util.*" %>
-        <%
+<%
     int pagenum=1;//현재 페이지
     int qb_groupCount=1;
     pagenum=(Integer)request.getAttribute("pagenum");
     qb_groupCount=(Integer)request.getAttribute("qb_groupCount");
-    System.out.println(session.getAttribute("m_id"));
-    if(session.getAttribute("m_id") ==null){
+	
+    String id = null;
+    
+    if (session.getAttribute("m_id") ==null) {
 		out.println("<script>");
 		out.println("alert('로그인후 이용해주시기 바랍니다.');");
 		out.println("location.href='/academy_ignis/login?page=qnaDetail&pagenum="+pagenum+"';");
 		out.println("</script>");
+    } else {
+		id = (String) session.getAttribute("m_id");
     }
     	%>
 <!DOCTYPE html>
@@ -22,9 +26,8 @@
 <title>qnaDetail</title>
 <meta http-equiv="X-UA-Compatible"  content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body><%pageContext.include("../header/header.jsp"); %>
  <div class="container">
@@ -102,5 +105,15 @@ if(list.get(0).getQb_num()== list.get(0).getQb_groupnum()
 <%} %>
   </div>
  </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+<%
+	if (id != null) {
+%>		<script type="text/javascript">userLogin();</script>
+<% 	} else { %>
+		<script type="text/javascript">userLogout();</script>
+<%  } %>
 </body>
 </html>
