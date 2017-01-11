@@ -46,7 +46,6 @@ if(endpage>pageCount){endpage=pageCount;}
         <th>말머리</th>
         <th>제목</th>
         <th>작성자</th>
-        <th>공개여부</th>
         <th>등록일</th>
        <th>조회수</th>
       </tr>
@@ -59,10 +58,9 @@ if(endpage>pageCount){endpage=pageCount;}
     	%>
       <tr>
         <td><%=list.get(i).getQb_mal() %></td>
-        <td><%
-        if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getQb_title() %></a></td>
-        <td><%=list.get(i).getM_id() %></td>
-        <%if(list.get(i).getQb_private()==0) {%><td>공개</td><%}else{ %><td>비공개</td><%} %>
+<td><%
+        if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"
+        ><%=list.get(i).getQb_title() %></a><%if(list.get(i).getQb_private()==1) {%>&nbsp;<span class="glyphicon glyphicon-lock"></span><%} %></td>
         <td><%=list.get(i).getQb_regdate()%></td>
         <td><%=list.get(i).getQb_readcount()%></td>
       </tr>
