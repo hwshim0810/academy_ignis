@@ -18,6 +18,32 @@ grant resource, connect to ignis;
 conn ignis/1234
 
 
+
+//삭제용
+
+drop table ig_notice purge;
+drop table ig_event purge;
+drop table ig_qna purge;
+drop table ig_reserv purge;
+drop table ig_comment purge;
+drop table ig_review purge;
+drop table ig_member purge;
+
+drop sequence co_num;
+drop sequence rb_num;
+drop sequence eb_num;
+drop sequence qb_num;
+drop sequence nb_num;
+drop sequence r_num;
+
+
+
+
+
+
+
+
+
 create table ig_member  (
 				m_id VARCHAR2(30) PRIMARY KEY, 
 				m_pass VARCHAR2(30) NOT NULL, 
@@ -101,26 +127,7 @@ create sequence co_num;
 
 
 
-
-//삭제용
-
-drop table ig_notice purge;
-drop table ig_event purge;
-drop table ig_qna purge;
-drop table ig_reserv purge;
-drop table ig_comment purge;
-drop table ig_review purge;
-drop table ig_member purge;
-
-drop sequence co_num;
-drop sequence rb_num;
-drop sequence eb_num;
-drop sequence qb_num;
-drop sequence nb_num;
-drop sequence r_num;
-
-
-//데이타 입력
+//데이타 입력 - 공지사항
 
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목11', '내용11',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목12', '내용12',0, SYSDATE );
@@ -153,6 +160,7 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목38', '내용3
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목39', '내용39',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목40', '내용40',0, SYSDATE );
 
+// 데이터 입력 - 회원 
 
 INSERT INTO IG_member VALUES ( 'admin','admin','관리자','850101','서울',01011112222,'a@a.com',3, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a','850101','서울',01011112222,'a@a.com',2, SYSDATE );
@@ -166,6 +174,9 @@ INSERT INTO IG_member VALUES ( 'user555','bbb222','이름b','850101','서울',01
 INSERT INTO IG_member VALUES ( 'user666','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'user777','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 
+
+// 데이터 입력 - Q&A
+
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'aaa', 'qna제목01', 'qna내용01',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', 'qna제목02', 'qna내용02',1,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목03', 'qna내용03',0,qb_num.currval,0, SYSDATE );
@@ -178,6 +189,29 @@ INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'bbb', 'qna제목09', 
 INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',1,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',1,qb_num.currval,0, SYSDATE );
+
+
+// 데이터 입력 - EVENT
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트1', '이벤트 내용1', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트2', '이벤트 내용2', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트3', '이벤트 내용3', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트4', '이벤트 내용4', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트5', '이벤트 내용5', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트6', '이벤트 내용6', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트7', '이벤트 내용7', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트8', '이벤트 내용8', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트9', '이벤트 내용9', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트10', '이벤트 내용10', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트11', '이벤트 내용11', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트12', '이벤트 내용12', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트13', '이벤트 내용13', 0, SYSDATE);
+
+
+// 데이터 입력 - REVIEW
+
+
+
+
 commit;
 
 // Number 테스트
