@@ -29,7 +29,7 @@
                   <li><a href="abouts_us">병원소개</a></li>
                   <li><a href="#">진료과목</a></li>
                   <li><a href="reserv">상담 및 예약</a></li>
-                  <li><a href="http://localhost:8080/academy_ignis/notice">커뮤니티</a></li>
+                  <li><a href="/academy_ignis/notice">커뮤니티</a></li>
               </ul>
         </div>
 	</nav>
