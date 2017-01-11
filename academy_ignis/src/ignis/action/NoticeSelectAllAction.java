@@ -28,6 +28,23 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		int startRowNum=(pagenum-1)*pagelimit+1;//가져오는 리스트
 		int endRowNum=startRowNum+pagelimit-1;//가져오는 리스트
 		int listCount=noticeBiz.getListcount();//총 리스트 수
+		List<ig_notice> list=null;
+		String  searchOption= request.getParameter("searchOption");
+		String  searchContent= request.getParameter("searchContent");
+		if(request.getAttribute("searchOption")!=null&&request.getAttribute("searchContent")!=null){
+			searchOption=request.getAttribute("searchOption").toString();
+			searchContent=request.getAttribute("searchContent").toString();
+		}
+		if(searchContent!=null&&searchOption!=null){
+			list= noticeBiz.searchAll(startRowNum, endRowNum, searchOption, searchContent);
+			listCount=noticeBiz.getListcount(searchOption,searchContent);
+			request.setAttribute("searchOption", searchOption);
+			request.setAttribute("searchContent", searchContent);
+		}else{
+			list = noticeBiz.selectAll(startRowNum,endRowNum);
+			}
+		
+
 		if(listCount%pagelimit==0){
 			pageCount = listCount/pagelimit;//총 리스트수로 페이지수 계산
 		}else{
@@ -35,8 +52,6 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		}
 		startpage= ((pagenum-1)/10)*10+1;
 		endpage=startpage+10-1;
-		
-		List<ig_notice> list = noticeBiz.selectAll(startRowNum,endRowNum);
 		request.setAttribute("pagenum", pagenum);
 		request.setAttribute("pagelimit", pagelimit);
 		request.setAttribute("pageCount", pageCount);

@@ -35,8 +35,6 @@ public class NoticeDAO {
 		return list;
 
 	}
-	
-
 	public List<ig_notice> searchAll(int startRowNum, int endRowNum, String searchOption, String searchContent){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap map= new HashMap();
@@ -44,7 +42,6 @@ public class NoticeDAO {
 		map.put("endRowNum", endRowNum);
 		map.put("searchContent", searchContent);
 		List<ig_notice> list=null;
-
 		if(searchOption.equals("nb_all")){
 			map.put("searchContent1", searchContent);
 			map.put("searchContent2", searchContent);
@@ -62,13 +59,32 @@ public class NoticeDAO {
 		return list;
 
 	}
+	
 	public int getListcount() {
-		
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		int listCount = ss.selectOne("notice.listCount");
 		return listCount;
 	}
 
+	public int getListcount(String searchOption, String searchContent) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap map= new HashMap();
+		map.put("searchOption", searchOption);
+		map.put("searchContent", searchContent);
+		int listCount = 0;
+		if(searchOption.equals("nb_all")){
+			map.put("searchContent1", searchContent);
+			map.put("searchContent2", searchContent);
+			listCount = ss.selectOne("notice.searchAllCount",map);
+			
+		}else if(searchOption.equals("nb_title")){
+			listCount = ss.selectOne("notice.searchTitleCount",map);
+		}
+		else if(searchOption.equals("nb_content")){
+			listCount = ss.selectOne("notice.searchContentCount",map);
+		}
+		return listCount;
+	}
 
 	public List<ig_notice> selectDetail(int nb_num) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
@@ -109,5 +125,8 @@ public class NoticeDAO {
 		if(result>0){return true;}
 		return false;
 	}
+
+
+
 
 }

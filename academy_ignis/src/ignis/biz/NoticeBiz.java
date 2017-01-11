@@ -77,4 +77,10 @@ public class NoticeBiz {
 		
 		return result;
 	}
+
+	public int getListcount(String searchOption, String searchContent) {
+		NoticeDAO noticeDao = new NoticeDAO();
+		int listCount = noticeDao.getListcount(searchOption,searchContent);
+		return listCount;
+	}
 }
