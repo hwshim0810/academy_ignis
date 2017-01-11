@@ -90,7 +90,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label"></label>
 				  <div class="col-md-4">
-				    <button id="outBtn" name="singlebutton" class="btn btn-primary">회원탈퇴</button>
+				    <a id="outBtn" name="singlebutton" class="btn btn-primary">회원탈퇴</a>
 				  </div>
 				</div>
 				

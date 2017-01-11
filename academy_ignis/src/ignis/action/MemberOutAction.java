@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ignis.biz.LogoutBiz;
 import ignis.biz.MemberBiz;
 import ignis.biz.ReservBiz;
 
@@ -14,11 +15,13 @@ public class MemberOutAction implements ActionInterface {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		MemberBiz memBiz = MemberBiz.getInstance();
 		ReservBiz resBiz = new ReservBiz();
+		LogoutBiz outBiz = new LogoutBiz();
 		
 		resBiz.deleteMem(request, response);
 		boolean memResult = memBiz.outMemUpdate(request, response);
 		
 		if (memResult) {
+			outBiz.logOut(request, response);
 			response.setContentType("text/html;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

@@ -54,7 +54,7 @@
 		SELECT count(*) FROM ig_member WHERE m_email LIKE '%'||#{content}||'%'
 	</select>
 	<select id="selectId" resultType="ignis.bean.User">
-		SELECT * FROM ig_member where m_id = #{id}
+		SELECT * FROM ig_member where m_id = #{id} and m_enterdate != '1970-01-01'
 	</select>
 	<select id="selectEmail" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_email = #{email}

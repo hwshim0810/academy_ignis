@@ -142,7 +142,7 @@ public class ReservDAO {
 	public boolean deleteMem(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		
-		int result = ss.selectOne("reserv.deleteMem", m_id);
+		int result = ss.delete("reserv.deleteMem", m_id);
 		ss.close();
 		
 		return (result > 0) ? true : false;
