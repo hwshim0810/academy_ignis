@@ -22,11 +22,11 @@
 %>
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
-<div class="container">
-    <h1 class="well">회원 가입</h1>
-	<div class="col-lg-12 well">
-		<div class="row">
-			<div class="wrapper">
+<div class="wrapper">
+    <div class="container">
+    	<h1 class="well">회원 가입</h1>
+		<div class="col-lg-12 well">
+			<div class="row">
 				<form id="joinForm" class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=home">
 					<fieldset>
 						
@@ -159,9 +159,9 @@
 						
 					</fieldset>
 				</form>
-			</div> 
+			</div>
 		</div>
-	</div>
+    </div>
 </div>
 <%-- Body 종료 --%>
 <%-- Footer 시작 --%>

@@ -1,5 +1,10 @@
 @CHARSET "UTF-8";
 
+.navbar {
+	margin-bottom: 0!Important;
+	border-radius: 0;
+}
+
 .carousel-inner img {
     width: 100%; /* Set width to 100% */
     margin: auto;

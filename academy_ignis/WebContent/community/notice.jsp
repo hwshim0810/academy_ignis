@@ -47,7 +47,7 @@
 <div class="wrapper">
 	<div class="container">
 		<%pageContext.include("leftList.jsp"); %>
-		<div class="col-xs-12 col-sm-9 col-md-10 ">
+		<div class="col-xs-12 col-sm-9 col-md-10">
 			<%pageContext.include("contentList.jsp"); %>
 			<form class="form-inline" >
 				<label for="sel1">검색 범위</label>

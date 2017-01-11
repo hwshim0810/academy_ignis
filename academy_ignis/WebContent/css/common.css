@@ -1,10 +1,6 @@
 @CHARSET "UTF-8";
 
 /* Header */
-.navbar {
-	margin-bottom: 0;
-	border-radius: 0;
-}
 header nav.navbar-default { background-color : #fff!Important; }
 div.divNav { 
 	position : relative;
@@ -29,3 +25,4 @@ div.wrapper {
 	padding : 0;
 	overflow : hidden;	
 }
+div.container { max-width : 970px!Important; }
