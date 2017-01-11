@@ -32,10 +32,11 @@
 <body>
 <%
 	pageContext.include("../header/header.jsp");
+	pageContext.include("../ignisCompany_info/leftList2.jsp"); 
 %>
 <div class="container">
-    <h1 class="well">회원 탈퇴</h1>
-	<div class="col-lg-12 well">
+	<h3>회원 탈퇴</h3>
+	<div class="col-lg-12">
 	
 	<div class="row">
 		<form id="outForm" class="form-horizontal" method="post" action="/academy_ignis/memDelProcess">

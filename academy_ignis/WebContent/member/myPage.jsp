@@ -34,6 +34,7 @@
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-9">
+
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#home" data-toggle="tab">회원정보 보기</a></li>
 						<li><a href="#menu1" data-toggle="tab">비밀번호 변경</a></li>
