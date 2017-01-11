@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-fixed-top" style="background-color : #fff!Important;">
+
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".myNavbar">
@@ -9,7 +10,10 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a href="/academy_ignis" class="navbar-brand"><img src="/academy_ignis/image/logo.jpg" alt="로고" title="로고"/></a>
+				<a href="/academy_ignis" class="navbar-brand">
+					<%-- <img src="/academy_ignis/image/logo.jpg" alt="로고" title="로고"/> --%>
+					IGNIS
+				</a>
 			</div>
 			<div class="collapse navbar-collapse myNavbar">
 				<ul class="nav navbar-nav navbar-right nav-pills">
