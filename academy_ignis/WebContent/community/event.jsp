@@ -79,7 +79,8 @@
 </head>
 <body>
 <%pageContext.include("../header/header.jsp"); %>
-<div class="container">
+<div class="wrapper">
+	<div class="container">
 	<%pageContext.include("leftList.jsp"); %> 
 	<%-- Body 영역 --%>
 	<div class="container-fluid">
@@ -158,6 +159,7 @@
 		</div>
 	</div>
 	<%-- Body 영역 --%>
+</div>
 </div>
 <%-- Footer 시작 --%>
 <%

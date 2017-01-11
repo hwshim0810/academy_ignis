@@ -36,65 +36,67 @@ if(endpage>pageCount){endpage=pageCount;}
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 <body><%pageContext.include("../header/header.jsp"); %>
- <div class="container">
- <%pageContext.include("leftList.jsp"); %>
- <div class="col-xs-12 col-sm-9 col-md-10 ">
-<h3>Q&A</h3><hr>
- <table class="table table-responsive">
-    <thead>
-      <tr>
-        <th>말머리</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>등록일</th>
-       <th>조회수</th>
-      </tr>
-    </thead>
-    <tbody>
-     <%List<ig_qna> list=null;
-    if(request.getAttribute("qnalist")!=null){
-    	list = (List)request.getAttribute("qnalist");
-    for(int i=0;i<list.size();i++){
-    	%>
-      <tr>
-        <td><%=list.get(i).getQb_mal() %></td>
-<td><%
-        if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"
-        ><%=list.get(i).getQb_title() %></a><%if(list.get(i).getQb_private()==1) {%>&nbsp;<span class="glyphicon glyphicon-lock"></span><%} %></td>
-        <td><%=list.get(i).getQb_regdate()%></td>
-        <td><%=list.get(i).getQb_readcount()%></td>
-      </tr>
-      <%}
-    } %>
-    </tbody>
-  </table>
-  <ul class="pager">
-  <%if(pagenum==1){%>
-    <li><a>첫 페이지</a></li>
-	  <li><a>◁</a></li>
- <% }else{ %>
-   <li><a href="qna?pagenum=1">첫 페이지</a></li>
-  <li><a href="qna?pagenum=<%=pagenum-1%>">◁</a></li>
-  <%} %>
- <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
- <% if(pagelist==pagenum){%>
- <li class="active"><a><%=pagelist %></a></li>
- <%}else{ %>
-  <li><a href="qna?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
-  <%}} %>
-  <%if(pagenum==pageCount){ %>
-  <li><a>▷</a></li>
-  <li><a>마지막 페이지</a></li>
-  <%}else{ %>
-  <li><a href="qna?pagenum=<%=pagenum+1%>">▷</a></li>
-  <li><a href="qna?pagenum=<%=pageCount%>">마지막 페이지</a></li>
-  <%} %>
-</ul>
-    <%if(session.getAttribute("m_level")==null||!session.getAttribute("m_level").toString().equals("3")) {%>  
- <a href="qnaInsertView"><button type="button" class="btn btn-success" >문의하기</button></a>
- <%} %>
- </div>
- </div>
+<div class="wrapper">
+	<div class="container">
+		 <%pageContext.include("leftList.jsp"); %>
+		 <div class="col-xs-12 col-sm-9 col-md-10 ">
+		<h3>Q&A</h3><hr>
+		 <table class="table table-responsive">
+		    <thead>
+		      <tr>
+		        <th>말머리</th>
+		        <th>제목</th>
+		        <th>작성자</th>
+		        <th>등록일</th>
+		       <th>조회수</th>
+		      </tr>
+		    </thead>
+		    <tbody>
+		     <%List<ig_qna> list=null;
+		    if(request.getAttribute("qnalist")!=null){
+		    	list = (List)request.getAttribute("qnalist");
+		    for(int i=0;i<list.size();i++){
+		    	%>
+		      <tr>
+		        <td><%=list.get(i).getQb_mal() %></td>
+		<td><%
+		        if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"
+		        ><%=list.get(i).getQb_title() %></a><%if(list.get(i).getQb_private()==1) {%>&nbsp;<span class="glyphicon glyphicon-lock"></span><%} %></td>
+		        <td><%=list.get(i).getQb_regdate()%></td>
+		        <td><%=list.get(i).getQb_readcount()%></td>
+		      </tr>
+		      <%}
+		    } %>
+		    </tbody>
+		  </table>
+		  <ul class="pager">
+		  <%if(pagenum==1){%>
+		    <li><a>첫 페이지</a></li>
+			  <li><a>◁</a></li>
+		 <% }else{ %>
+		   <li><a href="qna?pagenum=1">첫 페이지</a></li>
+		  <li><a href="qna?pagenum=<%=pagenum-1%>">◁</a></li>
+		  <%} %>
+		 <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
+		 <% if(pagelist==pagenum){%>
+		 <li class="active"><a><%=pagelist %></a></li>
+		 <%}else{ %>
+		  <li><a href="qna?pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+		  <%}} %>
+		  <%if(pagenum==pageCount){ %>
+		  <li><a>▷</a></li>
+		  <li><a>마지막 페이지</a></li>
+		  <%}else{ %>
+		  <li><a href="qna?pagenum=<%=pagenum+1%>">▷</a></li>
+		  <li><a href="qna?pagenum=<%=pageCount%>">마지막 페이지</a></li>
+		  <%} %>
+		</ul>
+		    <%if(session.getAttribute("m_level")==null||!session.getAttribute("m_level").toString().equals("3")) {%>  
+		 <a href="qnaInsertView"><button type="button" class="btn btn-success" >문의하기</button></a>
+		 <%} %>
+		 </div>
+		 </div>
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
