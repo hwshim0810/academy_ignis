@@ -74,9 +74,13 @@
 			        <th>조회수</th>
 			        <td><%=list.get(0).getQb_readcount() %></td>
 			      </tr>
+			      <tr>
+			      	<td colspan="6">
+			      		<%=list.get(0).getQb_content() %>
+			      	</td>
+			      </tr>
 			    </tbody>
 			  </table>
-			<h5><%=list.get(0).getQb_content() %></h5>
 			      <%
 			    } %>
 			
