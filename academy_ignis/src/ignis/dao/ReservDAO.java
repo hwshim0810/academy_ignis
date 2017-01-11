@@ -18,9 +18,7 @@ public class ReservDAO {
 
 	public boolean delete(int getR_num) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, Object> map = new HashMap<>();
-		map.put("getR_num", getR_num);			
-		int cnt = ss.delete("reserv.deleteReserv", map);
+		int cnt = ss.delete("reserv.deleteReserv", getR_num);
 		System.out.println("delete확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
@@ -38,6 +36,10 @@ public class ReservDAO {
 	public boolean insert(String r_guide, String r_day, String r_time, String r_findDoc, String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(r_guide);
+		System.out.println(r_day);
+		System.out.println(r_time);
+		System.out.println(m_id);
 		map.put("r_guide", r_guide);
 		map.put("r_day", r_day);
 		map.put("r_time", r_time);
@@ -160,8 +162,14 @@ public class ReservDAO {
 		return (result > 0) ? true : false;
 	}
 	
-	
-	
+	// 관리자페이지의 멤버 아이디 조회
+	public boolean searchMemberId(String m_id){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int num = ss.selectOne("reserv.searchMemberId", m_id);
+		ss.close();
+		
+		return (num>0) ? true: false;
+	}
 	
 	
 	
@@ -195,6 +203,7 @@ public class ReservDAO {
 		
 		default : System.out.println("잘못 찍혔습니다. "); break;
 		}
+		ss.close();
 		return num;
 		}
 	
@@ -234,7 +243,7 @@ public class ReservDAO {
 		default : System.out.println("잘못 찍혔습니다. "); break;
 		}
 		
-		
+		ss.close();
 		return list;
 	}
 	

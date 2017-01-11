@@ -39,9 +39,11 @@
 	int end = pageNo * ROW_PER_PAGE;
 	
 	//요부분도 적당한 DAO로 수정해서 쓸것
+	System.out.println("totalRows는 " + totalRows);
 
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
+	System.out.println("totalPages는 " + totalPages);
 
 	final int PAGE_PER_PAGE = 10; // 화면당 페이지 출력 갯수
 	int totalRanges = (int) Math.ceil((double) totalPages

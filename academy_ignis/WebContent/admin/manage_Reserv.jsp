@@ -153,9 +153,7 @@
 					 
 					</form>
 					<div style="float : right">
-						<button type="button" class="btn btn-default add"  id="reservAdd"  style="list-style-position: "><strong>예약 추가</strong></button>
-						<button type="button" class="btn btn-default add"  id="reservUpdate"  style="list-style-position: "><strong>예약 수정</strong></button>
-						<button type="button" class="btn btn-default add"  id="reservDelete"  style="list-style-position: "><strong>예약 삭제</strong></button>
+						<a href="/academy_ignis/reservAdd"><button type="button" class="btn btn-default add"  id="reservAdd"  style="list-style-position: "><strong>예약 추가</strong></button></a>
 					
 					</div>
 			</div>

@@ -5,13 +5,14 @@
 <%@ page import="ignis.dao.ReservDAO" %>
 <%@ page import="ignis.bean.ig_reserv" %>
 <%@ page import="java.util.List" %>
+
 <% 
 	String id = null;
-	if (session.getAttribute("m_id") != null) {
+	
+	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
-	}
 	else
-		response.sendRedirect("./member/login.jsp");
+		response.sendRedirect("/academy_ignis/admin/ad_Login.jsp");
 %>
     
 <% String reserv_num = request.getParameter("getR_num"); %>

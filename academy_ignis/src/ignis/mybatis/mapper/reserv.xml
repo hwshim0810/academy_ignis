@@ -4,7 +4,10 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserv">
 
-	
+	<!--  관리자페이지의 예약 추가를 위한 멤버 아이디 조회 -->
+	<select id="searchMemberId"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_member where m_id LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
 
 	<select id="check"  resultType="ignis.bean.ig_reserv">
 		SELECT * FROM ig_reserv WHERE m_id= #{m_id}

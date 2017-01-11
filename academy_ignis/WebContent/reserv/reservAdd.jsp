@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
-<%
-	request.setCharacterEncoding("utf-8");
+<% request.setCharacterEncoding("utf-8");%>
+
+<% 
+	String id = null;
 	
-	String id= null;
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		response.sendRedirect("./member/login.jsp");
-	System.out.println("id는 " +id);
+		response.sendRedirect("/academy_ignis/admin/ad_Login.jsp");
 %>
-
 
 <!DOCTYPE html>
 <html>
@@ -45,16 +44,31 @@ body { font-size: 20px;}
 
 </style>
 
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
     $( "#datepicker" ).datepicker({
         minDate : 0
     });
+    
+    
+    
+	$('#reservIdSearch').click(function () {
+		$.ajax({
+			type : "post",
+	 		url : "../reservAddAjax.jsp",
+	        data : {reservContent : $('.reservContent').val().trim()},
+			success : function(data) { $('#reservContent').html(data); },
+			error : function(request, status, error){alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
+		});
+		return false;
+		
+		
+	});
+    
   } );
   </script>
 <script type="text/javascript">
@@ -64,6 +78,20 @@ body { font-size: 20px;}
 		location.href = url; //url이 가지고 있는 값으로 이동
 	}
 </script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+	integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	crossorigin="anonymous">
+
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+	integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	crossorigin="anonymous"></script>
 </head>
 <body>
 <% pageContext.include("../header/header.jsp"); %>
@@ -78,6 +106,15 @@ body { font-size: 20px;}
 							<div class="row reservForm">
 								<form name="joinform" action="./reservProcess" method="post">
 									<div class="col-sm-12">
+										<div class="row">
+											<div class="col-sm-3 form-group">
+												<label>회원 아이디</label>
+											</div>
+											<div class="col-sm-3 form-group" >
+												<input type="text" id="reservContent" class="reservContent" placeholder="아이디를 입력하세요">
+												<button type="button" class="btn btn-default"  id="reservIdSearch">검색</button>
+											</div>
+										</div>
 										<div class="row">
 											<div class="col-sm-3 form-group">
 												<label>진료 항목 </label>
@@ -97,9 +134,9 @@ body { font-size: 20px;}
 												<label>예약날짜 선택</label>
 											</div>
 											<div class="col-sm-9 form-group">
-												<p><input type="text" class="form-control input-lg" id="datepicker" 
-														onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
-														onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day" required = "required"/></p>	
+											<p><input type="text" class="form-control input-lg" id="datepicker" 
+												onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
+												onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day" required = "required"/></p>	
 											</div>
 										</div>
 										<div class="row">
@@ -144,11 +181,9 @@ body { font-size: 20px;}
 		<%@include file="../footer/footer.jsp" %>
 		
 	</div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
 <%
 	if (id != null) {
@@ -160,4 +195,13 @@ body { font-size: 20px;}
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
 
