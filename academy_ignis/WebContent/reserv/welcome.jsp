@@ -45,29 +45,13 @@
 <% 
 	ReservDAO reservDao = ReservDAO.getInstance();
 	 String reservSearchSecond = request.getParameter("reservSearch");
-	 System.out.println("welcome.jsp내의 reservSearch를 처음으로 찍어보겠습니다. " + reservSearchSecond);
-	 int totalRows = reservDao.getReservedListcount(reservSearchSecond); %>
+	 int totalRows = reservDao.getReservedListcount(reservSearchSecond, id); %>
 <% ReservDAO reservDAO = new ReservDAO(); %>
 <%@include file="../paging/getPageNum.jsp" %>
-<% List<ig_reserv> reservList = reservDAO.getSearchReserv(reservSearchSecond, begin, end); %>
-<% pageContext.include("../ignisCompany_info/header_noTop.jsp");
-	 pageContext.include("../header/header.jsp");
+<% List<ig_reserv> reservList = reservDAO.getSearchReserv(id, reservSearchSecond, begin, end); %>
+<% pageContext.include("../header/header.jsp");
 	 pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
-<% 
-	 String getServletPath = request.getServletPath();
-	 String contextPath = request.getContextPath();
-	 String command = getServletPath.substring(7,15);
-	 System.out.println("getServletPath " + getServletPath);
-	 System.out.println("contextPath " + contextPath);
-	 System.out.println("command는 " + command);
-	 if(command == "/welcome"){
-		pageContext.include("../ignisCompany_info/header_noTop.jsp");
-		pageContext.include("../header/header.jsp");
-		System.out.println("안녕");
-		pageContext.include("../ignisCompany_info/leftList2.jsp");
-	 } %>	
-	 
-	 <div class="container-fluid main-container">	
+	 <div class="container-fluid main-container">
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 					<div class="panel-heading">

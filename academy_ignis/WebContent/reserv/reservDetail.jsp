@@ -14,7 +14,7 @@
 		response.sendRedirect("./member/login.jsp");
 
 	ReservDAO reservDao = ReservDAO.getInstance();
-	int totalRows = reservDao.getListcount(); // 전체 게시물 갯수
+	int totalRows = reservDao.getResCount(id); // 해당 회원의 전체 예약 수
 	
 %>
     

@@ -14,7 +14,7 @@
 	</select>
 	
 	<select id="reservedlistCount"  resultType="java.lang.Integer">
-		SELECT COUNT(*) FROM ig_reserv where r_guide LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+		SELECT COUNT(*) FROM ig_reserv where r_guide LIKE CONCAT('%',CONCAT(#{r_content}, '%')) AND m_id=#{m_id}
 	</select>
 	
 	<insert id="add" parameterType="java.util.HashMap">
@@ -52,7 +52,7 @@
 	<select id="searchReserv" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
 		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
 		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		SELECT * FROM IG_reserv where r_guide LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		SELECT * FROM IG_reserv where r_guide LIKE CONCAT('%', CONCAT(#{r_content}, '%')) AND m_id LIKE #{m_id} order by r_num desc)
 		)
 		where num between #{begin}  and  #{end}
 	</select>

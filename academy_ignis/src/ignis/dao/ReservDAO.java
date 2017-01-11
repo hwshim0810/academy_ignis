@@ -76,14 +76,15 @@ public class ReservDAO {
 		return listCount;
 	}
 	
-	public int getReservedListcount(String r_content) {
+	public int getReservedListcount(String r_content, String m_id) {
 		
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println("ReservDAO내의 r_content 조회용 : " + r_content);
 		map.put("r_content", r_content);
+		map.put("m_id", m_id);
+		
 		int listCount = ss.selectOne("reserv.reservedlistCount",map);
-		System.out.println("ReservDDAO내의 r_content에 찍히는 숫자 " + listCount);
+		System.out.println(listCount + "listcount");
 		return listCount;
 	}
 	
@@ -121,10 +122,11 @@ public class ReservDAO {
 	}
 	
 	
-	public List<ig_reserv> getSearchReserv(String r_content, int begin, int end) {
+	public List<ig_reserv> getSearchReserv(String m_id, String r_content, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
 		System.out.println("ReservDAO내의 r_title, r_content확인용 : " + r_content);
+		map.put("m_id", m_id);
 		map.put("r_content", r_content);
 		map.put("begin", begin);	
 		map.put("end", end);
