@@ -55,67 +55,59 @@
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">아이디</label>  
+								  <label class="col-md-4 control-label">아이디</label>  
 								  <div class="col-md-4">
-								  <input type="text" placeholder="아이디" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_id()%>">
+								 	<h5><%=userInfo.getM_id()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">이름</label>  
+								  <label class="col-md-4 control-label">이름</label>  
 								  <div class="col-md-4">
-								  <input type="text" placeholder="이름" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_name()%>">
+								  	<h5><%=userInfo.getM_name()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">가입일</label>  
+								  <label class="col-md-4 control-label">가입일</label>  
 								  <div class="col-md-4">
-								  <input type="text" placeholder="가입일" readonly="readonly" class="form-control input-md" value="<%=userInfo.getM_enterdate()%>">
+								  	<h5><%=userInfo.getM_enterdate()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
+								  <label class="col-md-4 control-label">생년월일</label>  
 								  <div class="col-md-4">
-								  <input type="text" readonly="readonly" placeholder="생년월일" class="form-control input-md" value="<%=userInfo.getM_birth()%>">
+								  	<h5><%=userInfo.getM_birth()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">주소</label>  
-								  <div class="col-md-4">
-								  <input type="text" readonly="readonly" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+								  <label class="col-md-4 control-label">주소</label>  
+								  <div class="col-md-7">
+								  	<h5><%=userInfo.getM_addr()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">휴대폰 번호</label>  
+								  <label class="col-md-4 control-label">휴대폰 번호</label>  
 								  <div class="col-md-4">
-								  <input type="tel" readonly="readonly" placeholder="휴대폰 번호" class="form-control input-md" value="<%=userInfo.getM_phone()%>">
+								  	<h5><%=userInfo.getM_phone()%></h5>
 								  </div>
 								</div>
 								
 								<!-- Text input-->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="textinput">Email 주소</label>  
+								  <label class="col-md-4 control-label">Email 주소</label>  
 								  <div class="col-md-4">
-								  <input type="email" readonly="readonly" placeholder="Email 주소" class="form-control input-md" value="<%=userInfo.getM_email()%>">
+								  	<h5><%=userInfo.getM_email()%></h5>
 								  </div>
 								</div>
-								
-								<!-- Button 
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="singlebutton"></label>
-								  <div class="col-md-4">
-								    <button name="singlebutton" class="btn btn-primary backBtn">돌아가기</button>
-								  </div>
-								</div>-->
 								
 								</fieldset>
 								</form>
@@ -123,31 +115,31 @@
 							<div class="tab-pane fade" id="menu1">
 								<h3>비밀번호 변경</h3>
 								<form class="form-horizontal">
-								<fieldset>
-								<legend class="sr-only">비밀번호 변경</legend>
-								
-								<div class="form-group">
-									<div class="col-xs-12">
-										<p>개인정보 보호를 위하여 비밀번호를 입력해주십시오.</p>
-									</div>
-								</div>
-								
-								<div class="form-group">
-								<label class="col-md-4 control-label" for="m_pass">비밀번호</label>
-									<div class="col-md-4">
-										<input name="hidden_id" id="hidden_id" type="hidden" value="<%=id%>">
-										<input name="m_pass" id="m_pass" type="password" placeholder="비밀번호" class="form-control input-md">
-									</div>
-								</div>
-								
-								<div class="form-group">
-								  <label class="col-md-4 control-label" for="singlebutton"></label>
-								  <div class="col-md-4">
-								    <a id="passChk" class="btn btn-primary">입력하기</a>
-								  </div>
-								</div>
-								
-								</fieldset>
+									<fieldset>
+										<legend class="sr-only">비밀번호 변경</legend>
+										
+										<div class="form-group">
+											<div class="col-xs-12">
+												<p>개인정보 보호를 위하여 비밀번호를 입력해주십시오.</p>
+											</div>
+										</div>
+										
+										<div class="form-group">
+											<label class="col-md-4 control-label" for="m_pass">비밀번호</label>
+											<div class="col-md-4">
+												<input name="hidden_id" id="hidden_id" type="hidden" value="<%=id%>">
+												<input name="m_pass" id="m_pass" type="password" placeholder="비밀번호" class="form-control input-md">
+											</div>
+										</div>
+										
+										<div class="form-group">
+										  <label class="col-md-4 control-label" for="singlebutton"></label>
+										  <div class="col-md-4">
+										    <a id="passChk" class="btn btn-primary">입력하기</a>
+										  </div>
+										</div>
+									
+									</fieldset>
 								</form>
 							</div>
 							<div class="tab-pane fade" id="menu2">
@@ -190,13 +182,32 @@
 								  </div>
 								</div>
 								
-								<!-- Text input-->
+								<!-- 우편번호 API 이용 -->
 								<div class="form-group">
-								  <label class="col-md-4 control-label" for="m_addr">주소</label>  
-								  <div class="col-md-4">
-								  <input name="m_addr" id="m_addr" type="text" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+									<label class="col-md-4 control-label" for="m_addr">주소*</label>
+									<div class="col-md-4">
+									  <div class="input-group">
+										  <input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
+										  <div class="input-group-btn">
+										  <a class="btn btn-default" id="postSearch2"><i class="glyphicon glyphicon-search"></i></a>
+										  </div>
+									  </div>
 								  </div>
 								</div>
+								
+								<div class="form-group">
+									<div class="col-md-4">
+										<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+										<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+										</div>
+									</div>
+									<div class="col-md-6">
+										<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
+									</div>
+								</div>
+								
+								<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+								<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin_post.js?v=12"></script>
 								
 								<!-- Text input-->
 								<div class="form-group">

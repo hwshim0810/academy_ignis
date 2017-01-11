@@ -99,7 +99,7 @@
 						    <input type="text" class="form-control" id="searchContent">
 						  </div>
 						  <button type="button" id="searchBtn" class="btn btn-default">검색</button>
-						  <a class="btn btn-default" href="/academy_ignis/memberJoin?page=admin">추가</a>
+						  <a class="btn btn-success" href="/academy_ignis/memberJoin?page=admin">추가</a>
 						 </form>
 				</div>
 			</div>

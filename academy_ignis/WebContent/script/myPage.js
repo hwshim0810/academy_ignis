@@ -1,4 +1,8 @@
 $(function() {
+	$("#postSearch2").click(function() {
+		sample3_execDaumPostcode();
+	});
+	
     $('input[name="m_birth"]').daterangepicker({
         singleDatePicker: true,
         showDropdowns: true

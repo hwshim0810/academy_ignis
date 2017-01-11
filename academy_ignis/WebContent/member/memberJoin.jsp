@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/daterangepicker.css">
-  <link rel="stylesheet" href="/academy_ignis/css/messagebox.css">
+  <link rel="stylesheet" href="/academy_ignis/css/messagebox.css?v=1">
   <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body>
@@ -34,14 +34,13 @@
 						<legend class="sr-only">회원가입</legend>
 						
 						<div class="form-group">
-						  <label class="col-md-8 control-label" for="textinput">(*는 필수입력란입니다.)</label> 
-						  <div class="col-md-3">
-						  </div>
+						  <label class="col-md-8 control-label">(*는 필수입력란입니다.)</label> 
+						  <div class="col-md-3"></div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">아이디*</label>  
+						  <label class="col-md-4 control-label" for="m_id">아이디*</label>  
 						  <div class="col-md-4">
 							  <div class="input-group">
 								  <input id="m_id" name="m_id" type="text" readonly="readonly" placeholder="아이디" required="required" class="form-control input-md">
@@ -52,9 +51,15 @@
 						  </div>
 						</div>
 						
+						<div class="form-group">
+							<div class="col-md-4"></div>
+							&nbsp;&nbsp;&nbsp;
+							<span class="label label-default">아이디는 알파벳으로 시작하고 알파벳과 숫자를 사용하여 5~11자까지 가능합니다.</span>
+						</div>
+						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">이름*</label>  
+						  <label class="col-md-4 control-label" for="m_name">이름*</label>  
 						  <div class="col-md-4">
 						  <input name="m_name" type="text" placeholder="이름" required="required" class="form-control input-md">
 						  </div>
@@ -62,33 +67,31 @@
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">패스워드*</label>  
+						  <label class="col-md-4 control-label" for="m_pass">패스워드*</label>  
 						  <div class="col-md-4">
-						  <input id="m_pass" name="m_pass" type="password" required="required" placeholder="패스워드" class="form-control input-md">
+						  <input id="m_pass" name="m_pass" type="password" maxlength="12" required="required" placeholder="패스워드" class="form-control input-md">
 						  </div>
 						</div>
 						
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">패스워드확인*</label>  
+						  <label class="col-md-4 control-label" for="m_passchk">패스워드확인*</label>  
 						  <div class="col-md-4">
-						  <input id="m_passchk" name="m_passchk" type="password"  required="required" placeholder="패스워드 확인" class="form-control input-md">
+						  <input id="m_passchk" name="m_passchk" type="password" maxlength="12" required="required" placeholder="패스워드 확인" class="form-control input-md">
 						  </div>
 						  <div class="col-md-4" id="passmsg">
 						  </div>
 						</div>
 						
-						<!-- File Button --> 
-						<!--  <div class="form-group">
-						  <label class="col-md-4 control-label" for="filebutton">photo</label>
-						  <div class="col-md-4">
-						    <input id="filebutton" name="filebutton" class="input-file" type="file">
-						  </div>
-						</div> -->
+						<!-- Text input-->
+						<div class="form-group">
+							<div class="col-md-4"></div>
+							&nbsp;&nbsp;&nbsp;
+							<span class="label label-default"> 패스워드는 7~12자까지 가능합니다.</span>
+						</div>
 						
 						<!-- 우편번호 API 이용 -->
 						<div class="form-group">
-							<div class="col-md-4">
-							</div>
+							<label class="col-md-4 control-label" for="m_addr">주소*</label>
 							<div class="col-md-4">
 							  <div class="input-group">
 								  <input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
@@ -105,9 +108,9 @@
 								<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 								</div>
 							</div>
-						<div class="col-md-6">
-							<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
-						</div>
+							<div class="col-md-6">
+								<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
+							</div>
 						</div>
 						
 						<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js?v=1"></script>
@@ -115,25 +118,25 @@
 		
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label"  for="textinput">휴대폰 번호*</label>  
+						  <label class="col-md-4 control-label" for="m_phone">휴대폰 번호*</label>  
 						  <div class="col-md-4">
-						  <input name="m_phone" maxlength="12" type="tel" required="required" placeholder="숫자만 입력해주세요" class="form-control input-md">
+						  <input id="m_phone" name="m_phone" maxlength="12" type="tel" required="required" placeholder="숫자만 입력해주세요" class="form-control input-md">
 						  </div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">Email 주소*</label>  
+						  <label class="col-md-4 control-label" for="m_email">Email 주소*</label>  
 						  <div class="col-md-4">
-						  <input name="m_email" type="email" required="required" placeholder="exam@example.com" class="form-control input-md">
+						  <input id="m_email" name="m_email" type="email" required="required" placeholder="exam@example.com" class="form-control input-md">
 						  </div>
 						</div>
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
+						  <label class="col-md-4 control-label" for="m_birth">생년월일</label>  
 						  <div class="col-md-4">
-						  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
+						  <input name="m_birth" id="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
 						  </div>
 						</div>
 						

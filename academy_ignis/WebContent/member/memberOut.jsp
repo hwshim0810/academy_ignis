@@ -53,10 +53,9 @@
 						
 						<!-- Text input-->
 						<div class="form-group">
-						  <label class="col-xs-4 control-label">주의사항</label>  
-						  <div class="col-xs-8">
+						  <div class="col-xs-12 alert alert-warning text-center">
 						  <input type="hidden" name="m_id" value="<%=id%>">
-						  	탈퇴시 예약은 모두 취소되고,<br>같은 아이디로 3개월간 재가입하실수 없으며<br>
+						  	<h4><strong>주의사항!!</strong></h4>탈퇴시 예약은 모두 취소되고,<br>같은 아이디로 3개월간 재가입하실수 없으며<br>
 						  	게시판의 모든 글은 3개월 후 삭제됩니다.
 						  </div>
 						</div>
@@ -64,7 +63,7 @@
 						<!-- Text input-->
 						<div class="form-group">
 						  <label class="col-xs-4 control-label">회원님의 예약건수</label>  
-						  <div class="col-xs-8">
+						  <div class="col-xs-8 text-center">
 						  <h4>현재 <%=resCount %>건</h4>
 						  </div>
 						</div>
@@ -72,7 +71,7 @@
 						<!-- Text input-->
 						<div class="form-group">
 						  <label class="col-xs-4 control-label">회원님이 쓴 글 수</label>  
-						  <div class="col-xs-8">
+						  <div class="col-xs-8 text-center">
 						  <h4>리뷰 게시판 <%=revCount %>개</h4>
 						  </div>
 						</div>
@@ -80,7 +79,7 @@
 						<!-- Text input-->
 						<div class="form-group">
 						  <label class="col-xs-4 control-label"></label>
-						  <div class="col-xs-8">
+						  <div class="col-xs-8 text-center">
 						  <h4>Qna 게시판 <%=qnaCount %>개</h4>
 						  </div>
 						</div>
@@ -88,7 +87,7 @@
 						<!-- Text input-->
 						<div class="form-group">
 						  <label class="col-xs-4 control-label" for="textinput">회원님이 쓴 댓글 수</label>  
-						  <div class="col-xs-8">
+						  <div class="col-xs-8 text-center">
 						  <h4>리뷰 게시판 <%=revReplyCount %>개</h4>
 						  </div>
 						</div>
@@ -96,8 +95,8 @@
 						<!-- Button -->
 						<div class="form-group">
 						  <label class="col-xs-4 control-label"></label>
-						  <div class="col-xs-8">
-						    <a id="outBtn" class="btn btn-primary">회원탈퇴</a>
+						  <div class="col-xs-8 text-center">
+						    <input id="outBtn" class="btn btn-danger" value="회원탈퇴">
 						  </div>
 						</div>
 						

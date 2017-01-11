@@ -45,7 +45,7 @@
 				<h2 id="memTitle">회원 정보</h2>
 				<h5>&nbsp;현재 보고있는 회원 : <%=user.getM_name() %>&nbsp;님</h5>
 			</div>
-			<div class="panel-body">
+			<div class="panel-body text-center">
 				<!-- Text input-->
 				<div class="row">
 				  <label class="col-md-4 control-label">아이디</label>  
@@ -82,7 +82,7 @@
 				<!-- Text input-->
 				<div class="row">
 				  <label class="col-md-4 control-label">주소</label>  
-				  <div class="col-md-4">
+				  <div class="col-md-6">
 				  <h4><%=user.getM_addr() %></h4>
 				  </div>
 				</div>
