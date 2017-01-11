@@ -7,7 +7,7 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
-		response.sendRedirect("./ad_Login.jsp");
+		response.sendRedirect("./login");
 %>
 <!DOCTYPE html>
 <html>

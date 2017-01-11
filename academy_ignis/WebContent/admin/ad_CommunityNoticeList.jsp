@@ -3,8 +3,8 @@
 <%@ page import="ignis.bean.ig_notice" %>
 <%@ page import="java.util.*" %>
 <%
-if ((Integer)session.getAttribute("m_id") <3) 
-	response.sendRedirect("./ad_Login.jsp");
+if ((Integer)session.getAttribute("m_level") <3) 
+	response.sendRedirect("./login");
 %>
     <%
     int pagenum=1;//현재 페이지

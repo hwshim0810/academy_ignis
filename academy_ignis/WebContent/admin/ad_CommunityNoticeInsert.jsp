@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%	if ((Integer)session.getAttribute("m_id") <3) 
-		response.sendRedirect("./ad_Login.jsp"); %>
+<%	if ((Integer)session.getAttribute("m_level") <3) 
+	response.sendRedirect("./login");%>
 <!DOCTYPE html>
 <html>
 <head>

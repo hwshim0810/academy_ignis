@@ -3,8 +3,8 @@
 <%@ page import="ignis.bean.ig_qna" %>
 <%@ page import="java.util.*" %>
 <%
-if ((Integer)session.getAttribute("m_id") <3) 
-	response.sendRedirect("./ad_Login.jsp");
+if ((Integer)session.getAttribute("m_level") <3) 
+	response.sendRedirect("./login");
 int pagenum=1;//현재 페이지
 int pagelimit=10;//한 페이지 리스트수
 int pageCount=10;//마지막 페이지
