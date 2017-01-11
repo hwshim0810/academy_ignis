@@ -40,9 +40,9 @@ if(endpage>pageCount){endpage=pageCount;}
  <%pageContext.include("leftList.jsp"); %>
  <div class="col-xs-12 col-sm-9 col-md-10 ">
 <h3>Q&A</h3><hr>
- <table class="table">
+ <table class="table table-responsive">
     <thead>
-      <tr class="info">
+      <tr>
         <th>말머리</th>
         <th>제목</th>
         <th>작성자</th>
