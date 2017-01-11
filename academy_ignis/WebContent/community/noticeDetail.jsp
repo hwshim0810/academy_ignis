@@ -20,12 +20,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body><%pageContext.include("../header/header.jsp"); %>
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
   <div class="col-xs-12 col-sm-9 col-md-10 ">
-  <h4>공지사항</h4><hr>
+  <h4>공지사항</h4>
  <table class="table">
     <tbody>
     <%List<ig_notice> list=null;
@@ -33,16 +34,22 @@
     	list = (List)request.getAttribute("noticeDetail");
     	%>
       <tr>
-      <th>제목</th>
-        <td><%=list.get(0).getNb_title() %></td></tr><tr>
+     	<th>제목</th>
+        <td colspan="3"><%=list.get(0).getNb_title() %></td>
+       </tr>
+       <tr>
         <th>등록일</th>
         <td><%=list.get(0).getNb_regdate() %></td>
         <th>조회수</th>
         <td><%=list.get(0).getNb_readcount() %></td>
       </tr>
+      <tr>
+      	<td colspan="4">
+      		<%=list.get(0).getNb_content() %>
+      	</td>
+      </tr>
     </tbody>
   </table>
-<h5><%=list.get(0).getNb_content() %></h5>
       <%
     } %>
   <a href="notice?pagenum=<%=pagenum%>"><button type="button" class="btn btn-info" >목록</button></a>

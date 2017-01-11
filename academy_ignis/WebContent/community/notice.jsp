@@ -17,7 +17,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script>
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
+  <script>
   function searchAll(){
 	  
 	  var searchOption=$("#searchOption").val();
