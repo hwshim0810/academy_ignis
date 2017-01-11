@@ -97,7 +97,6 @@
 
 
 <div id="reservContent">
-<% pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 <% pageContext.include("../header/header.jsp"); %>
 <% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
 
