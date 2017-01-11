@@ -35,11 +35,18 @@ if(endpage>pageCount){endpage=pageCount;}
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
 <script type="text/javascript">
 $
 </script>
 </head>
-<body><%pageContext.include("../header/header.jsp"); %>
+<body>
+<%-- Header 시작 --%>
+<%
+	pageContext.include("../header/header.jsp");
+%>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
 <div class="wrapper">
 	<div class="container">
 		 <%pageContext.include("leftList.jsp"); %>
@@ -52,7 +59,7 @@ $
 		        <th>제목</th>
 		        <th>작성자</th>
 		        <th>등록일</th>
-		       <th>조회수</th>
+		       	<th>조회수</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -63,9 +70,19 @@ $
 		    	%>
 		      <tr>
 		        <td><%=list.get(i).getQb_mal() %></td>
-		<td><%
-		        if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){%>&nbsp;&nbsp;&nbsp;▶<%}%><a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>"
-		        ><%=list.get(i).getQb_title() %></a><%if(list.get(i).getQb_private()==1) {%>&nbsp;<span class="glyphicon glyphicon-lock"></span><%} %></td>
+				<td>
+					<%
+			        	if(list.get(i).getQb_num()!= list.get(i).getQb_groupnum()){
+			        %>
+			        &nbsp;&nbsp;&nbsp;▶
+			        <%}%>
+			        <a href="qnaDetail?qb_num=<%=list.get(i).getQb_num()%>&pagenum=<%=pagenum%>">
+			        	<%=list.get(i).getQb_title() %>
+			        </a>
+			        <%if(list.get(i).getQb_private()==1) {%>&nbsp;
+			        <span class="glyphicon glyphicon-lock"></span><%} %>
+		        </td>
+		        <td><%=list.get(i).getM_id()%></td>
 		        <td><%=list.get(i).getQb_regdate()%></td>
 		        <td><%=list.get(i).getQb_readcount()%></td>
 		      </tr>
@@ -101,6 +118,10 @@ $
 		 </div>
 		 </div>
 </div>
+<%-- Body 종료 --%>
+<%-- Footer 시작 --%>
+<%@include file="../footer/footer.jsp" %>
+<%-- Footer 종료 --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
