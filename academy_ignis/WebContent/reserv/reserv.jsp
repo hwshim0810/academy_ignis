@@ -12,6 +12,7 @@
 	System.out.println("id는 " +id);
 %>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -76,7 +77,6 @@ body { font-size: 20px;}
 	crossorigin="anonymous"></script>
 </head>
 <body>
-<% pageContext.include("../ignisCompany_info/header_noTop.jsp"); %>
 <% pageContext.include("../header/header.jsp"); %>
 	<div class="container">
 	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
@@ -155,15 +155,18 @@ body { font-size: 20px;}
 		<%@include file="../footer/footer.jsp" %>
 		
 	</div>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
-
-
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>
 <% 	} else { %>
 		<script type="text/javascript">userLogout();</script>
 <%  } %>
+
+
 </body>
 </html>
 

@@ -183,6 +183,7 @@
  
  
 </div>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
 <%
 	if (id != null) {

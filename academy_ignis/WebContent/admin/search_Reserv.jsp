@@ -47,12 +47,13 @@
 	String searchContent = request.getParameter("searchContent");
 	System.out.println("searchType은 " + searchType);
 	System.out.println("searchContent은 " + searchContent);
+	System.out.println("pageNum는 " + request.getParameter("pageNum"));
 	
 	// manage_Reserv.jsp에서 보낸 파라미터 값들을 받아온다. 
 	ReservDAO reservDao = ReservDAO.getInstance();
 	int pageNo = 1;
-	if (request.getParameter("page") != null)
-		pageNo = Integer.valueOf(request.getParameter("page"));
+	if (request.getParameter("pageNum") != null)
+		pageNo = Integer.valueOf(request.getParameter("pageNum"));
 	 int totalRows = reservDao.getAdminListCount(searchType, searchContent); 
 	//검색항목별로 해당 게시물의 수를 출력한다. %>
 <%
@@ -122,17 +123,17 @@
 		<div class="panel-end">
 			
 			<ul class="pager">
-			  <li><a href="/academy_ignis/manage_Reserv?pageNo=1">첫 페이지</a></li>
+			  <li><a href="/academy_ignis/search_Reserv?pageNo=1">첫 페이지</a></li>
 			  <li>
-			  	<% if (prevPage != 0) { %><a href="/academy_ignis/manage_Reserv?pageNo=<%=prevPage %>">◁</a><% } %>
+			  	<% if (prevPage != 0) { %><a href="/academy_ignis/search_Reserv?pageNo=<%=prevPage %>">◁</a><% } %>
 			  </li>
 			 	<% for (int i = beginPage; i <= endPage; i++) { %>
-			  <li><a href="/academy_ignis/manage_Reserv?pageNo=<%=i %>"><%=i %></a></li>
+			  <li><a href="/academy_ignis/search_Reserv?pageNo=<%=i %>"><%=i %></a></li>
 			  	<% } %>
 			  <li>
-				 <% if (nextPage != 0) { %><a href="/academy_ignis/manage_Reserv?pageNo=<%=nextPage%>">▷</a><% } %>
+				 <% if (nextPage != 0) { %><a href="/academy_ignis/search_Reserv?pageNo=<%=nextPage%>">▷</a><% } %>
 			  </li>
-			  <li><a href="/academy_ignis/manage_Reserv?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+			  <li><a href="/academy_ignis/search_Reserv?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 			</ul>
 		</div>
 			

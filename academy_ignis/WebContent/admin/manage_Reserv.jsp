@@ -17,33 +17,29 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script>
 
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/academy_ignis/script/ad_Manage.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+<script>
 	$(function() {
 		$('#reservSubmit').click(function (event) {
-			
 			$.ajax({
 				type : "post",
 	 			url : "/academy_ignis/admin/search_Reserv.jsp",
-			  	data : {searchType : $('#searchType').val().trim(), searchContent : $('#searchContent').val().trim(), page : 1},
+			  	data : {searchType : $('#searchType').val(), 
+			  		searchContent : $("#searchContent").val(), 
+			  		pageNum : 1},
 				success : function(data) { $('#reservContent2').html(data); },
-				error : function error(){alert("error"); }
+				error : function(request, status, error){alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
 			});
 			return false;
 		});
-		
-		
 	});
-	
-	
 </script>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
 
@@ -133,7 +129,7 @@
 					<form class="form-inline">
 					  <div class="form-group">
 					  	<label for="sel1">검색 범위</label>
-					  <select class="form-control" id="reservType" name="reservType">
+					  <select class="form-control" id="searchType" name="searchType">
 					    <option value="all">전체</option>
 					    <option value="r_num">예약번호</option>
 					    <option value="m_id">회원아이디</option>
@@ -145,7 +141,7 @@
 					  </div>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class="form-control" id="reservSearch" name =" reservSearch">
+					    <input type="text" class="form-control" id="searchContent" name =" "searchContent"">
 					  </div>
 					  <button type="button" class="btn btn-default"  id="reservSubmit">검색</button>
 					</form>
