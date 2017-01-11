@@ -35,66 +35,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <style type="text/css">
-  	<style type="text/css">
-  	    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;   
-      border-radius: 0;
-    }
-                        
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-      text-align : center;
-      margin-bottom : 50px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
-
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-
-
-	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height: auto;} 
-    }
-  </style>
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body>
-<%pageContext.include("../header/header.jsp"); %>
- <div class="container">
- <%pageContext.include("leftList.jsp"); %>
- 
-<%-- Body 영역 --%>
-<div class="container-fluid">
-	<div class="row content">
-		<div class="col-sm-9">
-			<h4>EVENT</h4>
-			<hr>
+<%-- Header 시작 --%>
+<%
+	pageContext.include("../header/header.jsp");
+%>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
+<div class="wrapper">
+	<div class="container">
+		<%pageContext.include("leftList.jsp"); %>
+		<div class="col-xs-12 col-sm-9 col-md-10"">
+			<h3>EVENT</h3><hr>
 			<table class="table">
 				<tbody>
 					<tr>
@@ -141,7 +95,6 @@
 			</table>
 		</div>
 	</div>
-</div>
 </div>
 
 <%-- Body 영역 --%>

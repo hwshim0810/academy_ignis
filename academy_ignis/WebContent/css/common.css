@@ -25,4 +25,4 @@ div.wrapper {
 	padding : 0;
 	overflow : hidden;	
 }
-div.container { max-width : 970px!Important; }
+div.container { max-width : 970px!Important; margin-bottom : 50px; }

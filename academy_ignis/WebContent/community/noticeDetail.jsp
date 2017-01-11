@@ -22,12 +22,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
-<body><%pageContext.include("../header/header.jsp"); %>
- <div class="container">
+<body>
+<%-- Header 시작 --%>
+<%
+	pageContext.include("../header/header.jsp");
+%>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
+<div class="container">
  <%pageContext.include("leftList.jsp"); %>
   <div class="col-xs-12 col-sm-9 col-md-10 ">
-  <h4>공지사항</h4>
- <table class="table">
+  <h3>공지사항</h3><hr>
+ 	<table class="table">
     <tbody>
     <%List<ig_notice> list=null;
     if(request.getAttribute("noticeDetail")!=null){
@@ -56,6 +62,10 @@
 
   </div>
  </div>
+<%-- Body 종료 --%>
+<%-- Footer 시작 --%>
+<%@include file="../footer/footer.jsp" %>
+<%-- Footer 종료 --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>

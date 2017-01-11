@@ -28,143 +28,93 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">
-  <style type="text/css">
-  	<style type="text/css">
-  	    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;   
-      border-radius: 0;
-    }
-                        
-    /* Add a gray background color and some padding to the footer */
-    footer {
-      background-color: #f2f2f2;
-      padding: 25px;
-      text-align : center;
-      margin-bottom : 50px;
-    }
-    
-  .carousel-inner img {
-      width: 100%; /* Set width to 100% */
-      margin: auto;
-      min-height:200px;
-  }
-
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
-  @media (max-width: 600px) {
-    .carousel-caption {
-      display: none; 
-    }
-  }
-
-
-	/* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height: auto;} 
-    }
-  </style>
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body>
-<%pageContext.include("../header/header.jsp"); %>
+<%-- Header 시작 --%>
+<%
+	pageContext.include("../header/header.jsp");
+%>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
 <div class="wrapper">
 	<div class="container">
 	<%pageContext.include("leftList.jsp"); %> 
-	<%-- Body 영역 --%>
-	<div class="container-fluid">
-		<div class="row content">
-			<div class="col-sm-9">
-				<h4>EVENT</h4>
-				<hr>
-				<table class="table table-responsive">
-					<caption class="sr-only">이벤트 게시판</caption>
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>제목</th>
-							<th>글쓴이</th>
-							<th>등록일</th>
-							<th>조회수</th>
-						</tr>
-					</thead>
-					<tbody>
-					<%
-						Iterator<ig_event> it = list.iterator();
-						int cnt = 0;
-						int no = list.size();
-						while(it.hasNext()){
-							cnt++;
-							ig_event event = it.next();				
-					%>
-					<tr>
-						<td><%= no %></td>
-						<td>
-							<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
-								<%= event.getEb_title() %>
-							</a>
-						</td>
-						<td>이그니스 치과</td>
-						<td><%= event.getEb_regdate() %></td>
-						<td><%= event.getEb_readcount() %></td>
-					</tr>
-					<%
-							no--;
-						}
-						System.out.println(cnt);
-						if (cnt == 0) {
-					%>
-					<tr>
-						<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
-					</tr>
-					<% }%>
-					</tbody>
-				</table>
-				<ul class="pager">
-				  <li><a href="/academy_ignis/Event?login=member&pageNo=1">첫 페이지</a></li>
-				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
-				  </li>
-				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=i %>"><%=i %></a></li>
-				  	<% } %>
-				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
-				  </li>
-				  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
-				</ul>
-				<form class="form-inline">
-					<select name="eventSearch" class="form-control" id="eventSearch">
-						<option value="">전체</option>
-						<option value="title">제목</option>
-						<option value="regdate">등록일</option>
-					</select>
-					<div class="form-group">
-						<input type="text" class="form-control" id="searchEvent">
-					</div>
-					<button type="submit" class="btn btn-default">검색</button>
-				</form>
+	<div class="col-xs-12 col-sm-9 col-md-10">
+		<h3>EVENT</h3><hr>
+		<table class="table table-responsive">
+			<caption class="sr-only">이벤트 게시판</caption>
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>제목</th>
+					<th>글쓴이</th>
+					<th>등록일</th>
+					<th>조회수</th>
+				</tr>
+			</thead>
+			<tbody>
+			<%
+				Iterator<ig_event> it = list.iterator();
+				int cnt = 0;
+				int no = list.size();
+				while(it.hasNext()){
+					cnt++;
+					ig_event event = it.next();				
+			%>
+			<tr>
+				<td><%= no %></td>
+				<td>
+					<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
+						<%= event.getEb_title() %>
+					</a>
+				</td>
+				<td>이그니스 치과</td>
+				<td><%= event.getEb_regdate() %></td>
+				<td><%= event.getEb_readcount() %></td>
+			</tr>
+			<%
+					no--;
+				}
+				System.out.println(cnt);
+				if (cnt == 0) {
+			%>
+			<tr>
+				<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
+			</tr>
+			<% }%>
+			</tbody>
+		</table>
+		<ul class="pager">
+		  <li><a href="/academy_ignis/Event?login=member&pageNo=1">첫 페이지</a></li>
+		  <li>
+		  	<% if (prevPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
+		  </li>
+		 	<% for (int i = beginPage; i <= endPage; i++) { %>
+		  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=i %>"><%=i %></a></li>
+		  	<% } %>
+		  <li>
+		 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
+		  </li>
+		  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+		</ul>
+		<form class="form-inline">
+			<select name="eventSearch" class="form-control" id="eventSearch">
+				<option value="">전체</option>
+				<option value="title">제목</option>
+				<option value="regdate">등록일</option>
+			</select>
+			<div class="form-group">
+				<input type="text" class="form-control" id="searchEvent">
 			</div>
-		</div>
+			<button type="submit" class="btn btn-default">검색</button>
+		</form>
 	</div>
-	<%-- Body 영역 --%>
 </div>
 </div>
+<%-- Body 종료 --%>
 <%-- Footer 시작 --%>
-<%
-	pageContext.include("../footer/footer.jsp");
-%>
+<%@include file="../footer/footer.jsp" %>
 <%-- Footer 종료 --%>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

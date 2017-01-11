@@ -44,7 +44,13 @@
   }
   </script>
 </head>
-<body><%pageContext.include("../header/header.jsp"); %>
+<body>
+<%-- Header 시작 --%>
+<%
+	pageContext.include("../header/header.jsp");
+%>
+<%-- Header 종료 --%>
+<%-- Body 시작 --%>
 <div class="wrapper">
 	<div class="container">
 		<%pageContext.include("leftList.jsp"); %>
@@ -66,6 +72,10 @@
 		</div>
 	</div>
 </div>
+<%-- Body 종료 --%>
+<%-- Footer 시작 --%>
+<%@include file="../footer/footer.jsp" %>
+<%-- Footer 종료 --%>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
