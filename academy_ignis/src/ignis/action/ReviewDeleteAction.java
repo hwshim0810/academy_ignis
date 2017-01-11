@@ -25,21 +25,23 @@ public class ReviewDeleteAction implements ActionInterface {
 		}
 		
 		int commentCount = reviewDao.getListCommentCount(num);
-		if(commentCount > 0) {
-			response.setContentType("text/html; charset=UTF-8");
-			PrintWriter outR = response.getWriter();
-			outR.println("<script>");
-			outR.println("alert('댓글이 있는 글은 삭제할 수 없습니다!');");
-			outR.println("location.href='/academy_ignis/ReviewView?login=member&pageNo=" + pageNo + "&num="+ num + "&commPageNo=1';");
-			outR.println("</script>");
-			outR.close();
+		
+		
+		if(login.equals("admin")){		// 관리자
+			if(commentCount > 0) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter outR = response.getWriter();
+				outR.println("<script>");
+				outR.println("alert('댓글이 있는 글은 삭제할 수 없습니다!');");
+				outR.println("location.href='/academy_ignis/ReviewView?login=admin&pageNo=" + pageNo + "&num="+ num + "&commPageNo=1';");
+				outR.println("</script>");
+				outR.close();
+				
+				return null;
+			}
 			
-			return null;
-		}
-		
-		boolean result = reviewBiz.deleteReview(request, response);
-		
-		if(login.equals("admin")){
+			boolean result = reviewBiz.deleteReview(request, response);
+			
 			if(result){
 				
 				response.setContentType("text/html; charset=UTF-8");
@@ -59,7 +61,21 @@ public class ReviewDeleteAction implements ActionInterface {
 				outR.close();
 				return null;
 			}
-		} else if (login.equals("member")){
+		} else if (login.equals("member")){		// 회원
+			if(commentCount > 0) {
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter outR = response.getWriter();
+				outR.println("<script>");
+				outR.println("alert('댓글이 있는 글은 삭제할 수 없습니다!');");
+				outR.println("location.href='/academy_ignis/ReviewView?login=member&pageNo=" + pageNo + "&num="+ num + "&commPageNo=1';");
+				outR.println("</script>");
+				outR.close();
+				
+				return null;
+			}
+			
+			boolean result = reviewBiz.deleteReview(request, response);
+			
 			if(result){
 				
 				response.setContentType("text/html; charset=UTF-8");

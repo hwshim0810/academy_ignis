@@ -161,7 +161,11 @@
 						<td colspan="4">
 							<div class="form-group">
 								<%= view.getRb_content() %>
-								<img src="/academy_ignis/reviewUpload/<%= view.getRb_file() %>">
+								<%
+									if(view.getRb_file() != null && view.getRb_file().length() > 0 ){
+								%>
+									<img src="/academy_ignis/reviewUpload/<%= view.getRb_file() %>">
+								<% } %>
 							</div>
 						</td>
 					</tr>

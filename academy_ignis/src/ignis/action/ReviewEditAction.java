@@ -14,7 +14,7 @@ public class ReviewEditAction implements ActionInterface {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		ReviewBiz reviewBiz = new ReviewBiz();
 		ActionForward forward = new ActionForward();
-		
+		System.out.println("ReveiwEditeAction");
 		int num = Integer.valueOf(request.getParameter("num"));
 		String login = request.getParameter("login");
 		String pageNo = "1";
@@ -22,7 +22,7 @@ public class ReviewEditAction implements ActionInterface {
 		if(request.getParameter("pageNo") != null){
 			pageNo = request.getParameter("pageNo");
 		}
-	
+		
 		boolean result = reviewBiz.updateReview(request, response);
 		
 		if(login.equals("admin")){

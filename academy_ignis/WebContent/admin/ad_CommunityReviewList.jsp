@@ -17,6 +17,7 @@
 <% 
 	ReviewDAO reviewDao = ReviewDAO.getInstance();
 	int totalRows = reviewDao.getListCount(); // 전체 게시물 갯수
+	int commPageNo = 1;
 %>
 <%@include file="../paging/getPageNum.jsp" %>
 <%
@@ -66,13 +67,18 @@
 						while(it.hasNext()){
 							cnt ++;
 							ig_review review = it.next();
+							int commentCount = reviewDao.getListCommentCount(review.getRb_num());
 					%>
 						<tr>
 							<td><%= review.getRb_num() %></td>
 							<td>
-								<a href="/academy_ignis/ReviewView?login=admin&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%> ">
-									<%= review.getRb_title() %>
-								</a>
+								<a href="/academy_ignis/ReviewView?login=admin&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
+								<span class="badge"><%=commentCount %></span>
+									<%
+										if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
+									%>
+										<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+									<% } %>
 							</td>
 							<td><%= review.getM_name() %></td>
 							<td><%= review.getRb_regdate() %></td>
@@ -108,17 +114,17 @@
 				  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
 				<form class="form-inline">
-				<select name="reviewSearch" class="form-control" id="reviewSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="writer">글쓴이</option>
-					<option value="regdate">등록일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchReview">
-				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
+					<select name="reviewSearch" class="form-control" id="reviewSearch">
+						<option value="">전체</option>
+						<option value="title">제목</option>
+						<option value="writer">글쓴이</option>
+						<option value="regdate">등록일</option>
+					</select>
+					<div class="form-group">
+						<input type="text" class="form-control" id="searchReview">
+					</div>
+					<button type="submit" class="btn btn-default">검색</button>
+				</form>
 			</div>
 		</div>
  	</div>

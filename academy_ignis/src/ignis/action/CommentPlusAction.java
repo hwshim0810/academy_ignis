@@ -32,7 +32,7 @@ public class CommentPlusAction implements ActionInterface {
 		if(login.equals("admin")){
 			if(result){
 				forward.setRedirect(true);
-				forward.setPath("/academy_ignis/ReviewView?login=admin");
+				forward.setPath("/academy_ignis/ReviewView?login=admin&pageNo=" + pageNo + "&num="+ num + "&commPageNo=" + commPageNo);
 				return forward;
 			}
 		} else if (login.equals("member")){
