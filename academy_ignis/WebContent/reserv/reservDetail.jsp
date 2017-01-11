@@ -106,12 +106,12 @@
 	  		<div class="col-xs-12 col-sm-9 col-md-10">
 	  			<div class="panel panel-default">
 					<div class="panel-heading">
-						<h2 id="memTitle">예약 관리 리스트</h2>
+						<h3 id="memTitle">예약 관리 리스트</h3>
 					</div>
-					<table class="table">
+					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>예약 삭제</th></tr>
 						</thead>
 						<tbody>
