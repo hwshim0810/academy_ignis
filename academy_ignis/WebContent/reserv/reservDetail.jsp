@@ -11,7 +11,7 @@
 		id = (String) session.getAttribute("m_id");
 	}
 	else
-		response.sendRedirect("./ad_Login.jsp");
+		response.sendRedirect("./member/login.jsp");
 
 	ReservDAO reservDao = ReservDAO.getInstance();
 	int totalRows = reservDao.getListcount(); // 전체 게시물 갯수
