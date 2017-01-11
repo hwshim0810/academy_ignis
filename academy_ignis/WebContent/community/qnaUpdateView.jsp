@@ -31,9 +31,7 @@
   textarea{resize: none;}
   </style>
 </head>
-<body>
-<%pageContext.include("header_noTop.jsp"); %>
-<%pageContext.include("../header/header.jsp"); %>
+<body><%pageContext.include("../header/header.jsp"); %>
  <div class="container">
  <%pageContext.include("leftList.jsp"); %>
   <div class="col-xs-12 col-sm-9 col-md-10 ">
