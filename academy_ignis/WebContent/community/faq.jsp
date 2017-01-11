@@ -68,35 +68,12 @@
   </style>
 </head>
 <body>
-<%pageContext.include("header_noTop.jsp"); %>
 <%pageContext.include("../header/header.jsp"); %>
 <div class="container">
 	<%pageContext.include("leftList.jsp"); %> 
 	<%-- Body 영역 --%>
 	<div class="container-fluid">
 		<div class="row content">
-			<div class="col-sm-3">
-				<%--
-					<ul class="nav nav-pills nav-stacked">
-					<li><a href="notice.jsp">공지사항</a></li>
-					<li class="active"><a href="comm_event.jsp">이벤트</a></li>
-					<li><a href="#">치료후기</a></li>
-					<li><a href="qna.jsp">Q&A</a></li>
-					<li><a href="#">FAQ</a></li>
-				</ul>
-				--%>
-				<br>
-				<%-- 검색기능
-				<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search Blog..">
-				<span class="input-group-btn">
-				<button class="btn btn-default" type="button">
-				 <span class="glyphicon glyphicon-search"></span>
-				</button>
-				</span>
-				</div>
-				 --%>
-			</div>
 			<div class="col-sm-9">
 				<h4>FAQ</h4>
 				<hr>
