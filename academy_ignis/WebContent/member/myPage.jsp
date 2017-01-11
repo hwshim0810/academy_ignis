@@ -34,7 +34,6 @@
 	<div class="container-fluid">
 		<div class="row content">
 			<div class="col-sm-9">
-				<h2>회원정보</h2>
 					<ul class="nav nav-tabs">
 						<li class="active"><a href="#home" data-toggle="tab">회원정보 보기</a></li>
 						<li><a href="#menu1" data-toggle="tab">비밀번호 변경</a></li>
@@ -106,13 +105,13 @@
 							  </div>
 							</div>
 							
-							<!-- Button -->
+							<!-- Button 
 							<div class="form-group">
 							  <label class="col-md-4 control-label" for="singlebutton"></label>
 							  <div class="col-md-4">
 							    <button name="singlebutton" class="btn btn-primary backBtn">돌아가기</button>
 							  </div>
-							</div>
+							</div>-->
 							
 							</fieldset>
 							</form>
@@ -124,8 +123,7 @@
 							<legend class="sr-only">비밀번호 변경</legend>
 							
 							<div class="form-group">
-							<label class="col-md-4 control-label"></label>
-								<div class="col-md-4">
+								<div class="col-xs-12">
 									<p>개인정보 보호를 위하여 비밀번호를 입력해주십시오.</p>
 								</div>
 							</div>
@@ -137,8 +135,6 @@
 									<input name="m_pass" id="m_pass" type="password" placeholder="비밀번호" class="form-control input-md">
 								</div>
 							</div>
-							
-							<br>
 							
 							<div class="form-group">
 							  <label class="col-md-4 control-label" for="singlebutton"></label>
@@ -219,7 +215,7 @@
 							  <label class="col-md-4 control-label"></label>
 							  <div class="col-md-4">
 							    <button type="submit" class="btn btn-primary">수정하기</button>
-							    <button id="backBtn" class="btn btn-primary backBtn">돌아가기</button>
+							    <!-- <button id="backBtn" class="btn btn-primary backBtn">돌아가기</button> -->
 							  </div>
 							</div>
 							

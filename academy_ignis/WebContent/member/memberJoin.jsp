@@ -39,10 +39,12 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label" for="textinput">아이디*</label>  
 				  <div class="col-md-4">
-				  <input id="m_id" name="m_id" type="text" readonly="readonly" placeholder="아이디" required="required" class="form-control input-md">
-				  </div>
-				  <div class="col-md-4">
-					  <input type="button" id="idChk" class="btn btn-default" value="아이디 검색">
+					  <div class="input-group">
+						  <input id="m_id" name="m_id" type="text" readonly="readonly" placeholder="아이디" required="required" class="form-control input-md">
+						  <div class="input-group-btn">
+						  <a class="btn btn-default" id="idChk"><i class="glyphicon glyphicon-search"></i></a>
+						  </div>
+					  </div>
 				  </div>
 				</div>
 				
@@ -84,11 +86,13 @@
 					<div class="col-md-4">
 					</div>
 					<div class="col-md-4">
-						<input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
-					</div>
-					<div class="col-md-2">
-						<input id="postSearch" class="btn btn-default" value="우편번호 찾기">
-					</div>
+					  <div class="input-group">
+						  <input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
+						  <div class="input-group-btn">
+						  <a class="btn btn-default" id="postSearch"><i class="glyphicon glyphicon-search"></i></a>
+						  </div>
+					  </div>
+				  </div>
 				</div>
 				
 				<div class="form-group">
@@ -97,8 +101,8 @@
 						<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 						</div>
 					</div>
-				<div class="col-md-8">
-					<input type="text" id="m_addr" name="m_addr" readonly="readonly" placeholder="주소" class="form-control input-md">
+				<div class="col-md-6">
+					<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
 				</div>
 				</div>
 				
@@ -109,7 +113,7 @@
 				<div class="form-group">
 				  <label class="col-md-4 control-label"  for="textinput">휴대폰 번호*</label>  
 				  <div class="col-md-4">
-				  <input name="m_phone" type="tel" required="required" placeholder="숫자만 입력해주세요" class="form-control input-md">
+				  <input name="m_phone" maxlength="12" type="tel" required="required" placeholder="숫자만 입력해주세요" class="form-control input-md">
 				  </div>
 				</div>
 				
@@ -142,9 +146,10 @@
 				
 				<!-- Button -->
 				<div class="form-group">
-				  <label class="col-md-4 control-label"></label>
-				  <div class="col-md-4">
-				    <button id="joinBtn" name="singlebutton" class="btn btn-primary">회원가입</button>
+				  <label class="col-xs-4 control-label"></label>
+				  <div class="col-xs-8">
+				  	<br><br>
+				    <input id="joinBtn" name="singlebutton" class="btn btn-success" value="회원가입">
 				  </div>
 				</div>
 				

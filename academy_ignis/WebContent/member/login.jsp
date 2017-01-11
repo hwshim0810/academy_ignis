@@ -37,7 +37,7 @@
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
 		<form role="form" method="post" action="/academy_ignis/loginProcess?page=<%=pageURI%>&pagenum=<%=pagenum%>">
 			<fieldset>
-				<h2>Ignis 치과</h2>
+				<h2>Ignis치과</h2><h3>로그인하시면 모든 서비스가 이용가능합니다.</h3>
 				<hr class="colorgraph">
 				<div class="form-group">
                     <input type="text" name="m_id" id="m_id" class="form-control input-lg" placeholder="아이디" required="required">

@@ -100,7 +100,7 @@
 				<h4>Review</h4>
 				<hr>
 				<table class="table table-responsive">
-					<caption>Review게시판</caption>
+					<caption class="sr-only">Review게시판</caption>
 					<thead>
 						<tr>
 							<th>No</th>
