@@ -155,6 +155,12 @@
 	</select>
 	
 	
+	<!-- 예약번호 검색을 통한 예약 상세정보 조회 -->
+	
+	<select id="reservInfo"  resultType="ignis.bean.ig_reserv">
+		SELECT * FROM ig_reserv WHERE r_num= #{r_num}
+	</select>
+	
 </mapper>
 
 

@@ -51,7 +51,9 @@ body { font-size: 20px;}
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   <script>
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker" ).datepicker({
+        minDate : 0
+    });
   } );
   </script>
 <script type="text/javascript">
@@ -108,9 +110,9 @@ body { font-size: 20px;}
 												<label>예약날짜 선택</label>
 											</div>
 											<div class="col-sm-9 form-group">
-												<p><input type="text" class="form-control input-lg" id="datepicker" value="날짜를 선택하세요" 
-												onfocus="if(this.value=='날짜를 선택하세요'){this.value=''}"
-												onblur="if(this.value==''){this.value='날짜를 선택하세요'}" onclick ="chooseDate(this.value)" name="r_day"/></p>	
+												<p>
+												<input type="text" class="form-control input-lg" id="datepicker" placeholder="날짜를 선택하세요" required="required"
+												/></p>	
 											</div>
 										</div>
 										<div class="row">

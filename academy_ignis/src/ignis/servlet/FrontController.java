@@ -310,7 +310,13 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			break;	
+			break;
+			
+		case "/reservInfo" :
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/reservInfo.jsp");
+			break;
 			
 			
 		/* 예약 수정 부분 잠시만 가릴게요
