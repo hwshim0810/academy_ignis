@@ -11,7 +11,7 @@ function userLogout() {
 
 function confirmLogout() {
 	$.confirm({
-		theme: 'supervan',
+		theme: 'light',
 		title: '로그아웃',
 	    content: '로그아웃 하시겠습니까?',
 	    buttons: {

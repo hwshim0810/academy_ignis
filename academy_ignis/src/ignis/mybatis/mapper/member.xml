@@ -30,6 +30,9 @@
 				WHERE m_name LIKE '%'||#{content}||'%' 
 				ORDER BY m_enterdate DESC ) ) WHERE num between #{begin} and #{end}
 	</select>
+	<select id="countByName" resultType="int">
+		SELECT count(*) FROM ig_member WHERE m_name LIKE '%'||#{content}||'%'
+	</select>
 	<select id="searchByPhone" resultType="ignis.bean.User" parameterType="java.util.HashMap">
 		SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
 		FROM( SELECT ROWNUM num, m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
@@ -37,12 +40,18 @@
 				WHERE m_phone LIKE '%'||#{content}||'%' 
 				ORDER BY m_enterdate DESC ) ) WHERE num between #{begin} and #{end}
 	</select>
+	<select id="countByPhone" resultType="int">
+		SELECT count(*) FROM ig_member WHERE m_phone LIKE '%'||#{content}||'%'
+	</select>
 	<select id="searchByEmail" resultType="ignis.bean.User" parameterType="java.util.HashMap">
 		SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
 		FROM( SELECT ROWNUM num, m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate 
 			FROM ( SELECT m_id, m_name, m_birth, m_addr, m_phone, m_email, m_enterdate FROM ig_member 
 				WHERE m_email LIKE '%'||#{content}||'%' 
 				ORDER BY m_enterdate DESC ) ) WHERE num between #{begin} and #{end}
+	</select>
+	<select id="countByEmail" resultType="int">
+		SELECT count(*) FROM ig_member WHERE m_email LIKE '%'||#{content}||'%'
 	</select>
 	<select id="selectId" resultType="ignis.bean.User">
 		SELECT * FROM ig_member where m_id = #{id}

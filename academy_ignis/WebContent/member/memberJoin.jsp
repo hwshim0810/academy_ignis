@@ -156,6 +156,6 @@
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
 <script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=2"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=3"></script>
 </body>
 </html>

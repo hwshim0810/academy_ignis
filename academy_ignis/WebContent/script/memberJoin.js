@@ -1,35 +1,51 @@
 $(function() {
     $('input[name="m_birth"]').daterangepicker({
-    	autoUpdateInput: false,
     	singleDatePicker: true,
-        showDropdowns: true
+        showDropdowns: true,
     });
     
     $("#joinBtn").click(function() {
-			var pass = $('#m_pass').val().trim();
-	var passchk = $('#m_passchk').val().trim();
-	
-	if (pass == passchk) {
-		$('#joinForm').submit();
-	} else {
-		$.alert({
-			buttons: {
-				tryAgain: {
-		            text: '돌아가기',
-		            btnClass: 'btn-red',
-		            action: function(){
-		            }
-				}
-			},
-			title: '비밀번호',
-		    type: 'red',
-		    content: '비밀번호를 일치시켜주세요.'
-		});
-		$('#m_passchk').val("");
-		$('#m_passchk').focus();
-		return false;
-	}
-	})
+		var pass = $('#m_pass').val().trim();
+		var passchk = $('#m_passchk').val().trim();
+		var _plength = pass.lenth;
+		var _pclength = passchk.length;
+		
+		if (pass == passchk && _plength >= 7 && _pclength >= 7) {
+			$('#joinForm').submit();
+		} else if (pass != passchk){
+			$.alert({
+				buttons: {
+					tryAgain: {
+			            text: '돌아가기',
+			            btnClass: 'btn-red',
+			            action: function(){
+			            }
+					}
+				},
+				title: '비밀번호',
+			    type: 'red',
+			    content: '비밀번호를 일치시켜주세요.'
+			});
+			$('#m_passchk').val("");
+			$('#m_passchk').focus();
+			return false;
+		} else if (_plength < 7 || _pclength < 7) {
+			$.alert({
+				buttons: {
+					tryAgain: {
+			            text: '돌아가기',
+			            btnClass: 'btn-red',
+			            action: function(){
+			            }
+					}
+				},
+				title: '비밀번호',
+			    type: 'red',
+			    content: '비밀번호는 7~12글자로 해주세요.'
+			});
+			return false;
+		}
+	});
 	
 	$("#postSearch").click(function() {
 		sample3_execDaumPostcode();
@@ -44,6 +60,21 @@ $(function() {
 		} else {
 			$("#passmsg").html("<h4><span class='label label-success'>비밀번호가 일치합니다.</span></h4>")
 		}
+	});
+	
+	$("#m_pass").keyup(function() {
+		var chk = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ-_0123456789\~!@#$%^&*()_+| ";
+        var length = 0;
+		var m_pass = $("#m_pass").val();
+		  
+        for (var i = 0; i < m_pass.length; i++){
+               if (chk.indexOf(m_pass.charAt(i)) >= 0 ) {
+					length++;
+               } else {
+					length += 2;
+               }
+          }
+         $("#lengthmsg").html("<h4><span class='label label-success'> 패스워드길이: " + length + "</span></h4>")
 	});
 	
 	$("#idChk").click(function() {

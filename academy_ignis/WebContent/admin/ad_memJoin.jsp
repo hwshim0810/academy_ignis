@@ -35,7 +35,6 @@
 				<div class="panel-body">
 					<form class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=admin">
 						<fieldset>
-							
 							<!-- Form Name -->
 							<legend class="sr-only">회원추가</legend>
 							
@@ -68,41 +67,41 @@
 							<div class="form-group">
 							  <label class="col-md-4 control-label" for="textinput">패스워드*</label>  
 							  <div class="col-md-4">
-							  <input id="m_pass" name="m_pass" type="password" required="required" placeholder="패스워드" class="form-control input-md">
+							  <input id="m_pass" name="m_pass" type="password" maxlength="12" required="required" placeholder="패스워드" class="form-control input-md">
+							  </div>
+							  <div class="col-md-4" id="lengthmsg">
 							  </div>
 							</div>
 							
 							<div class="form-group">
 							  <label class="col-md-4 control-label" for="textinput">패스워드확인*</label>  
 							  <div class="col-md-4">
-							  <input id="m_passchk" name="m_passchk" type="password"  required="required" placeholder="패스워드" class="form-control input-md">
+							  <input id="m_passchk" name="m_passchk" type="password" maxlength="12" required="required" placeholder="패스워드 확인" class="form-control input-md">
+							  </div>
+							  <div class="col-md-4" id="passmsg">
 							  </div>
 							</div>
 							
-							<div class="form-group" id="passmsg">
+							<!-- File Button --> 
+							<!--  <div class="form-group">
+							  <label class="col-md-4 control-label" for="filebutton">photo</label>
 							  <div class="col-md-4">
+							    <input id="filebutton" name="filebutton" class="input-file" type="file">
 							  </div>
-							</div>
-							
-							<!-- Text input-->
-							<div class="form-group">
-							  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
-							  <div class="col-md-4">
-							  <input name="m_birth" type="date" placeholder="생년월일" class="form-control input-md">
-							  </div>
-							</div>
+							</div> -->
 							
 							<!-- 우편번호 API 이용 -->
 							<div class="form-group">
 								<div class="col-md-4">
 								</div>
 								<div class="col-md-4">
-									<input type="text" id="m_postcode" placeholder="우편번호" class="form-control input-md">
+									<input type="text" id="m_postcode" readonly="readonly" placeholder="우편번호" class="form-control input-md">
 								</div>
 								<div class="col-md-2">
 									<input id="postSearch" class="btn btn-default" value="우편번호 찾기">
 								</div>
 							</div>
+							
 							<div class="form-group">
 								<div class="col-md-4">
 									<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
@@ -110,7 +109,7 @@
 									</div>
 								</div>
 							<div class="col-md-8">
-								<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
+								<input type="text" id="m_addr" name="m_addr" readonly="readonly" placeholder="주소" class="form-control input-md">
 							</div>
 							</div>
 							
@@ -130,28 +129,36 @@
 							  <label class="col-md-4 control-label" for="textinput">Email 주소*</label>  
 							  <div class="col-md-4">
 							  <input name="m_email" type="email" required="required" placeholder="exam@example.com" class="form-control input-md">
-							    
+							  </div>
+							</div>
+							
+							<!-- Text input-->
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="textinput">생년월일</label>  
+							  <div class="col-md-4">
+							  <input name="m_birth" type="text" placeholder="생년월일" class="form-control input-md">
 							  </div>
 							</div>
 							
 							<!-- Select Basic -->
-							<div class="form-group">
-							  <label class="col-md-4 control-label" for="selectbasic">회원레벨*</label>
+							<!-- <div class="form-group">
+							  <label class="col-md-4 control-label" for="selectbasic">gender</label>
 							  <div class="col-md-4">
-							    <select id="selectbasic" name="m_level" class="form-control">
-							      	<option value="2">회원</option>
-							      	<option value="3">관리자</option>
+							    <select id="selectbasic" name="selectbasic" class="form-control">
+							      <option value="1">Male</option>
+							      <option value="2">Female</option>
 							    </select>
 							  </div>
-							</div>
+							</div> -->
 							
 							<!-- Button -->
 							<div class="form-group">
-							  <label class="col-md-4 control-label" for="singlebutton"></label>
+							  <label class="col-md-4 control-label"></label>
 							  <div class="col-md-4">
-							    <button id="singlebutton" name="singlebutton" type="submit" class="btn btn-primary">회원가입</button>
+							    <button id="joinBtn" name="singlebutton" class="btn btn-primary">회원가입</button>
 							  </div>
 							</div>
+							
 						</fieldset>
 					</form>
 				</div>
@@ -168,6 +175,6 @@
  <script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/memberJoin.js?v=1"></script>
 </body>
 </html>

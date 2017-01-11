@@ -159,7 +159,8 @@ public class MemberDAO {
 		HashMap<String, Object> map = new HashMap<>();
 		List<User> list = null;
 		
-		map.put("content", content);
+		if (!type.equals("all")) map.put("content", content);
+		
 		map.put("begin", begin);	
 		map.put("end", end);
 		
@@ -177,6 +178,7 @@ public class MemberDAO {
 			list = ss.selectList("member.searchByEmail", map);
 			break;
 		case "all":
+			list = ss.selectList("member.selectAll", map);
 			break;
 
 		default:
@@ -191,7 +193,29 @@ public class MemberDAO {
 	public int getSearchCount(String type, String content) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		
-		int count = ss.selectOne("member.countById", content);
+		int count = 0;
+		
+		switch (type) {
+		case "m_id":
+			count = ss.selectOne("member.countById", content);
+			break;
+		case "m_name":
+			count = ss.selectOne("member.countByName", content);
+			break;
+		case "m_phone":
+			count = ss.selectOne("member.countByPhone", content);
+			break;
+		case "m_email":
+			count = ss.selectOne("member.countByEmail", content);
+			break;
+		case "all":
+			count = ss.selectOne("member.selectUserCount");
+			break;
+		
+		default:
+			break;
+		}
+		
 		
 		return count;
 	}

@@ -193,4 +193,13 @@ public class ReviewDAO {
 		return(result > 0) ? true : false;
 	} 
 	
+	public int getReviewCount(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = ss.selectOne("review.selectReviewCount", m_id);
+		ss.close();
+		
+		return count;
+	}
+	
 }
