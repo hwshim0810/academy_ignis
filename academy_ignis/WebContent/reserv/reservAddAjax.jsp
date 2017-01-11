@@ -11,14 +11,14 @@
 <title>Insert title here</title>
 <%
 	ReservDAO reservDao = new ReservDAO();
-	String mem_id = request.getParameter("reservIdSearch");
+	String mem_id = request.getParameter("reservContent");
 	boolean result = reservDao.searchMemberId(mem_id);
 	System.out.println("mem_id는" + mem_id);
 %>
 </head>
 <body>
 <% if(result==true){ %>
-<%=request.getParameter("m_id") %>
+<%=request.getParameter("reservContent") %>
 		<% } else %>
 		<%=out.print("아이디를 다시입력하세요") %>
 		

@@ -60,7 +60,7 @@ body { font-size: 20px;}
 		$.ajax({
 			type : "post",
 	 		url : "../reservAddAjax.jsp",
-	        data : {reservContent : $('.reservContent').val().trim()},
+	        data : {reservContent : $(".reservContent").val()},
 			success : function(data) { $('#reservContent').html(data); },
 			error : function(request, status, error){alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
 		});
