@@ -42,6 +42,12 @@
       display: none; 
     }
   }
+  div.divNav { 
+  	position : relative;
+  	display : block;
+  	z-index : 1;
+  }
+
   </style>
 </head>
 <body>
