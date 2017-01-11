@@ -1,1 +1,13 @@
-인덱스페이지 style
+@CHARSET "UTF-8";
+
+.carousel-inner img {
+    width: 100%; /* Set width to 100% */
+    margin: auto;
+    min-height:200px;
+}
+
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; 
+  }
+}

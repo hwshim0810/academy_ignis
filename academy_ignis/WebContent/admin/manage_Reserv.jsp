@@ -33,7 +33,7 @@
 			  	data : {searchType : $('#searchType').val(), 
 			  		searchContent : $("#searchContent").val(), 
 			  		pageNum : 1},
-				success : function(data) { $('#reservContent2').html(data); },
+				success : function(data) { $('#reservContent').html(data); },
 				error : function(request, status, error){alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); }
 			});
 			return false;
@@ -62,7 +62,7 @@
 					<h5>&nbsp;총 예약수 : <%=totalRows %></h5>
 				</div>
 				<div class="panel-body" >
-				<div id="reservContent2">
+				<div id="reservContent">
 					<div class= "table-responsive">
 					<table class="table">
 					<caption class="sr-only">회원명단</caption>
