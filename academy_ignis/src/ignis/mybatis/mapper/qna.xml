@@ -41,7 +41,7 @@ INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_con
 	</select>
 	
 
-	<select id="selectQnaCount" resultType="int" parameterType="String">
+	<select id="selectQnaCount" resultType="int">
 		SELECT count(*) FROM IG_qna WHERE m_id = #{m_id}
 	</select>
 	<select id="listCount"  resultType="java.lang.Integer">
@@ -68,5 +68,8 @@ INSERT INTO IG_qna VALUES (#{qb_mal},qb_num.nextval,#{m_id},#{qb_title},#{qb_con
 	</select>
 		<select id="Update"  parameterType="java.util.HashMap" >
 		UPDATE IG_qna SET qb_title=#{qb_title},qb_content=#{qb_content} where qb_num=#{qb_num}		
+	</select>
+	<select id="MaxQb_num"  resultType="int">
+		SELECT MAX(qb_num) FROM IG_qna
 	</select>
 </mapper>

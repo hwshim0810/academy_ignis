@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%	if ((Integer)session.getAttribute("m_id") <3) 
+		response.sendRedirect("./ad_Login.jsp"); %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +11,10 @@
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
-<%
-	pageContext.include("./manage_Header.jsp");
-%>
+<%pageContext.include("./manage_Header.jsp");%>
   	<div class="container-fluid main-container">
-<%
-	pageContext.include("./manage_sideNav.jsp");
-%><div class="col-md-10 content">
+<%pageContext.include("./manage_sideNav.jsp");%>
+<div class="col-md-10 content">
  			  <div class="panel panel-default">
 			<div class="panel-heading">
 				<h3>공지사항 등록</h3>

@@ -84,6 +84,7 @@
     <input type="password" class="form-control" name="password" />
   </div>
   <button type="submit" class="btn btn-primary">수정</button>
+  <a href="javascript:history.go(-1)"><button type="button" class="btn btn-danger" >취소</button></a>
 </form>
 
 <h5></h5>

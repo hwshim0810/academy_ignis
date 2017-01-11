@@ -42,12 +42,19 @@ public class QnaSelectAllAction  implements ActionInterface{
 		request.setAttribute("pageCount", pageCount);
 		request.setAttribute("startpage", startpage);
 		request.setAttribute("endpage", endpage);
+		request.setAttribute("qnalist", list);
+		
 		if (list !=null) {
-			request.setAttribute("qnalist", list);
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("./admin/ad_CommunityQnaList.jsp?login=admin&pagenum="+pagenum);
+				return forward;
+			}else {
 			forward.setRedirect(false);
 			forward.setPath("./community/qna.jsp?pagenum="+pagenum);
-			
 			return forward;
+			}
 		}
 		
 		return null;

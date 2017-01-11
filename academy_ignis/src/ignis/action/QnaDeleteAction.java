@@ -37,6 +37,12 @@ public class QnaDeleteAction  implements ActionInterface{
 		
 		request.setAttribute("pagenum", pagenum);
 		if (result) {
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("./qna?login=admin&pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(false);
 			forward.setPath("./qna");
 			return forward;

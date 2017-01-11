@@ -118,4 +118,10 @@ public class QnaBiz {
 		boolean result = qnaDao.update(qb_num,qb_title,qb_content);
 		return result;
 	}
+
+	public int getMaxQb_num() {
+		QnaDAO qnaDao = new QnaDAO();
+		int MaxQb_num=qnaDao.getMaxQb_num();
+		return MaxQb_num;
+	}
 }

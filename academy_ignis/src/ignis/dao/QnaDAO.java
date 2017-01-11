@@ -163,4 +163,11 @@ public class QnaDAO {
 		
 		return count;
 	}
+
+	public int getMaxQb_num() {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int MaxQb_num = ss.selectOne("qna.MaxQb_num");
+		ss.close();
+		return MaxQb_num;
+	}
 }

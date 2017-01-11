@@ -109,7 +109,7 @@
 <input  type="hidden" name="qb_private"  value="<%=list.get(0).getQb_private()%>"/>
 <input  type="hidden" name="qb_groupnum"  value="<%=list.get(0).getQb_num()%>"/>
 <input  type="hidden" name="qb_mal"  value="<%=list.get(0).getQb_mal()%>"/>
-
+<input  type="hidden" name="qb_num"  value="<%=list.get(0).getQb_num()%>"/>
 </form>
   </div>
   </div>

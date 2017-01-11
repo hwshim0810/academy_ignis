@@ -23,10 +23,16 @@ public class QnaUpdateViewAction  implements ActionInterface{
 		}
 		
 		List<ig_qna> list = qnaBiz.selectDetail(qb_num);//상세 정보 가져옴
-
 		request.setAttribute("pagenum", pagenum);
+		
 		if (list !=null) {
 			request.setAttribute("qnaDetail", list);
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("./admin/ad_CommunityQnaUpdateView.jsp?login=admin&pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(false);
 			forward.setPath("./community/qnaUpdateView.jsp");
 			return forward;

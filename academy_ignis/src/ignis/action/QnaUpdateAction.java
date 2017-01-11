@@ -38,7 +38,13 @@ public class QnaUpdateAction  implements ActionInterface{
 		boolean result =qnaBiz.update(request, response);
 		System.out.println(result);
 		if (result) {
-			forward.setRedirect(false);
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(true);
+				forward.setPath("qnaDetail?login=admin&pagenum="+pagenum+"&qb_num="+qb_num);
+				return forward;
+			}
+			forward.setRedirect(true);
 			forward.setPath("/qnaDetail?qb_num="+qb_num+"&pagenum="+pagenum);
 			return forward;
 		}

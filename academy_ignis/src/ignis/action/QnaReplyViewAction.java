@@ -29,6 +29,12 @@ public class QnaReplyViewAction  implements ActionInterface{
 		request.setAttribute("qb_groupCount", qb_groupCount);
 		if (list !=null) {
 			request.setAttribute("qnaDetail", list);
+			String login = request.getParameter("login");//admin 이면 관지자창 이동
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("./admin/ad_CommunityQnaReplyView.jsp?login=admin&pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(false);
 			forward.setPath("./community/qnaReplyView.jsp");
 			return forward;
