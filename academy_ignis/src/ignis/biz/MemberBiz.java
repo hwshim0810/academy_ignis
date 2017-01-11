@@ -105,4 +105,15 @@ public class MemberBiz {
 		}
 	}
 
+	public boolean outMemUpdate(HttpServletRequest request, HttpServletResponse response) {
+		MemberDAO memDao = MemberDAO.getInstance();
+		
+		String m_id = request.getParameter("m_id");
+		
+		boolean result = memDao.outMemUpdate(m_id);
+		
+		
+		return result;
+	}
+
 }

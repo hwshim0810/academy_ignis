@@ -82,4 +82,7 @@
 	<delete id="deleteMem" parameterType="String">
 		DELETE FROM ig_member WHERE m_id = #{id}
 	</delete>
+	<update id="outMemUpdate" parameterType="String">
+		UPDATE ig_member SET m_enterdate = '1970-01-01' WHERE m_id = #{m_id}
+	</update>
 </mapper>

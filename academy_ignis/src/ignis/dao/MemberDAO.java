@@ -216,7 +216,17 @@ public class MemberDAO {
 			break;
 		}
 		
-		
+		ss.close();
 		return count;
+	}
+
+	public boolean outMemUpdate(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		int result = ss.update("member.outMemUpdate", m_id);
+		
+		ss.close();
+		
+		return (result > 0) ? true : false;
 	}
 }

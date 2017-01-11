@@ -128,5 +128,24 @@ public class ReservDAO {
 		List<ig_reserv> list = ss.selectList("reserv.checkAll");
 		ss.close();					return list;
 	}
+	
+	public int getResCount(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = ss.selectOne("reserv.selectResCount", m_id);
+		ss.close();
+		
+		return count;
+	}
+
+
+	public boolean deleteMem(String m_id) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		int result = ss.selectOne("reserv.deleteMem", m_id);
+		ss.close();
+		
+		return (result > 0) ? true : false;
+	}
 }
 

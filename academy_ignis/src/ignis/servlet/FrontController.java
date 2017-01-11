@@ -530,6 +530,16 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
+		case "/memDelProcess":
+			action = new MemberOutAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 //		case "/" :
 //			action = new Action();
 //			

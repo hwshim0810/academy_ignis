@@ -86,4 +86,13 @@ public class ReservBiz {
 		return listCount;
 	}
 
+	public boolean deleteMem(HttpServletRequest request, HttpServletResponse response) {
+		ReservDAO reservDao = new ReservDAO();
+		
+		String m_id = request.getParameter("m_id");
+		boolean result = reservDao.deleteMem(m_id);
+		
+		return result;
+	}
+
 }
