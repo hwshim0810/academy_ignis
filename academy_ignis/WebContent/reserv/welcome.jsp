@@ -10,7 +10,7 @@
 		id = (String) session.getAttribute("m_id");
 	}
 	else
-		response.sendRedirect("./ad_Login.jsp");
+		response.sendRedirect("./member/login.jsp");
 %>
 <!DOCTYPE html>
 <html>

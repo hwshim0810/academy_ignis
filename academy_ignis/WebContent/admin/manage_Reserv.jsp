@@ -17,25 +17,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script>
+
 	$(function() {
-		$('#reservSubmit').click(function () {
+		$('#reservSubmit').click(function (event) {
 			
 			$.ajax({
 				type : "post",
-	 			url : "./reserv/manage_Reserv.jsp",
-			  	data : {reservSearch : $('#reservSearchSecond').val().trim()},
-				success : function(data) { $('#reservContent').html(data); },
+	 			url : "/academy_ignis/admin/search_Reserv.jsp",
+			  	data : {searchType : $('#searchType').val().trim(), searchContent : $('#searchContent').val().trim(), page : 1},
+				success : function(data) { $('#reservContent2').html(data); },
 				error : function error(){alert("error"); }
 			});
 			return false;
 		});
+		
+		
 	});
+	
+	
 </script>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
@@ -43,35 +49,26 @@
 
 <% 
 	ReservDAO reservDao = ReservDAO.getInstance();
-	 int totalRows = reservDao.getListcount(); %>
+	 int totalRows = reservDao.getListcount(); %> 
+	 <%-- getListcount는 모든 회원의 전체 예약 수 --%>
 <% ReservDAO reservDAO = new ReservDAO(); %>
 <%@include file="../paging/getPageNum.jsp" %>
 <% List<ig_reserv> reservList = reservDAO.getReservListAll(begin, end); %>
-
+	 <%-- getReservListAll은 begin부터 end까지의 게시물을 최신글(r_num의 역순)
+	 순서대로 조회 --%>
 <% pageContext.include("./manage_Header.jsp"); %>
-<% 
-	 String getServletPath = request.getServletPath();
-	 String contextPath = request.getContextPath();
-	 String command = getServletPath.substring(7,15);
-	 System.out.println("getServletPath " + getServletPath);
-	 System.out.println("contextPath " + contextPath);
-	 System.out.println("command는 " + command);
-	 if(command == "/welcome"){
-		 pageContext.include("./manage_Header.jsp");
-		pageContext.include("./manage_sideNav.jsp");
-	 } %>	
-	 
 	 <div class="container-fluid main-container">	
 	<% pageContext.include("./manage_sideNav.jsp"); %>
-	
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 관리 리스트</h2>
 					<h5>&nbsp;총 예약수 : <%=totalRows %></h5>
 				</div>
-				<div class="panel-body" id="reservContent">
-				<table class="table">
+				<div class="panel-body" >
+				<div id="reservContent2">
+					<div class= "table-responsive">
+					<table class="table">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
 						<tr class="info"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
@@ -111,26 +108,12 @@
 					</tbody>
 				</table>
 				
+					
+					
+					</div>
+				
 				<div class="panel-end">
-					<form class="form-inline" action="welcome">
-					  <div class="form-group">
-					  	<label for="sel1">검색 범위</label>
-					  <select class="form-control" id="sel1" name="reservType">
-					    <option value="">전체</option>
-					    <option value="t_guide">예약번호</option>
-					    <option value="t_guide">회원아이디</option>
-					    <option value="t_guide">진료 항목</option>
-					    <option value="t_guide">진료 일자</option>
-					    <option value="t_guide">진료 시간</option>
-					    <option value="t_guide">예약 신청일</option>
-					  </select>
-					  </div>
-					  <div class="form-group">
-					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class="form-control" id="reservSearchSecond" name =" reservSearchSecond">
-					  </div>
-					  <button type="submit" class="btn btn-default"  id="reservSubmit">검색</button>
-					</form>
+					
 					<ul class="pager">
 					  <li><a href="/academy_ignis/manage_Reserv?pageNo=1">첫 페이지</a></li>
 					  <li>
@@ -145,6 +128,28 @@
 					  <li><a href="/academy_ignis/manage_Reserv?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 					</ul>
 				</div>
+			</div>
+			
+					<form class="form-inline">
+					  <div class="form-group">
+					  	<label for="sel1">검색 범위</label>
+					  <select class="form-control" id="reservType" name="reservType">
+					    <option value="all">전체</option>
+					    <option value="r_num">예약번호</option>
+					    <option value="m_id">회원아이디</option>
+					    <option value="r_guide">진료 항목</option>
+					    <option value="r_day">진료 일자</option>
+					    <option value="r_time">진료 시간</option>
+					    <option value="r_regdate">예약 신청일</option>
+					  </select>
+					  </div>
+					  <div class="form-group">
+					    <label class="sr-only" for="search">검색 내용:</label>
+					    <input type="text" class="form-control" id="reservSearch" name =" reservSearch">
+					  </div>
+					  <button type="button" class="btn btn-default"  id="reservSubmit">검색</button>
+					</form>
+			
 			</div>
 			</div>
 		</div>

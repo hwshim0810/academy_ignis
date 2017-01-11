@@ -4,36 +4,10 @@
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reserv">
 
-	<select id="searchReserv" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
-		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
-		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		SELECT * FROM IG_reserv where r_guide LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
-		)
-		where num between #{begin}  and  #{end}
-	</select>
 	
-	<select id="selectAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
-		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		SELECT * FROM IG_reserv where m_id = #{m_id} order by r_num desc))
-		where num between #{begin}  and  #{end}
-	</select>
-
-
-	<select id="selectListAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
-		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
-		SELECT * FROM IG_reserv order by r_num desc))
-		where num between #{begin}  and  #{end}
-	</select>
-
 
 	<select id="check"  resultType="ignis.bean.ig_reserv">
 		SELECT * FROM ig_reserv WHERE m_id= #{m_id}
-	</select>
-	
-	<select id="listCount"  resultType="java.lang.Integer">
-		SELECT count(*) FROM ig_reserv
 	</select>
 	
 	<select id="reservedlistCount"  resultType="java.lang.Integer">
@@ -60,6 +34,127 @@
 	<delete id="deleteMem" parameterType="String">
 		DELETE FROM ig_reserv WHERE m_id = #{m_id}
 	</delete>
+	
+	
+	
+	
+	
+	<!--전체 회원 예약 수  -->
+	<select id="listCount"  resultType="java.lang.Integer">
+		SELECT count(*) FROM ig_reserv
+	</select>
+	
+	<!-- 진료항목 일치 회원 리스트 begin부터 end까지 -->
+	<select id="searchReserv" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_guide LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	
+	
+	<!-- ID일치 회원 리스트 begin부터 end까지 -->
+	<select id="selectAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where m_id LIKE CONCAT('%', CONCAT(#{m_id}, '%')) order by r_num desc))
+		where num between #{begin}  and  #{end}
+	</select>
+
+	<!-- 전체 회원 리스트 begin부터 end까지 -->
+	<select id="selectListAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv order by r_num desc))
+		where num between #{begin}  and  #{end}
+	</select>
+	
+	
+	
+	
+	
+	
+	<!-- 검색항목별 예약 수 (관리자용) -->
+	<select id="selectAdminCountNum"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where r_num LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountGuide"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where r_guide LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountDay"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where r_day LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountTime"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where r_time LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountRegdate"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where r_regdate LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountId"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv where m_id LIKE CONCAT('%',CONCAT(#{r_content}, '%'))
+	</select>
+	<select id="selectAdminCountAll"  resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM ig_reserv 
+	</select>
+	
+	
+	
+	
+	
+	<!-- 검색항목별 예약 리스트 (관리자용) -->
+	
+	<select id="selectAdminListNum" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_num LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	<select id="selectAdminListGuide" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_guide LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	<select id="selectAdminListDay" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_day LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	
+	<select id="selectAdminListTime" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_time LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	<select id="selectAdminListRegdate" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where r_regdate LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	<select id="selectAdminListId" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv where m_id LIKE CONCAT('%', CONCAT(#{r_content}, '%')) order by r_num desc)
+		)
+		where num between #{begin}  and  #{end}
+	</select>
+	<select id="selectAdminListAll" resultType="ignis.bean.ig_reserv" parameterType="java.util.HashMap">
+		select r_num,r_guide,r_day,r_time,r_findDoc, r_regdate,  m_id from(
+		select ROWNUM num,r_num,r_guide,r_day,r_time,r_findDoc, r_regdate, m_id from(
+		SELECT * FROM IG_reserv order by r_num desc)
+		)	where num between #{begin}  and  #{end}
+	</select>
+	
+	
 </mapper>
 
 

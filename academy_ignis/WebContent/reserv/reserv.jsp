@@ -120,7 +120,7 @@ body { font-size: 20px;}
 												</div>	
 												<div class="col-sm-4">
 													<select class="form-control  input-lg" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
-														<option value = "09:00" selected>09:00&nbsp;&nbsp;(예약 가능)</option> 
+														<option value = "09:00" selected>09:00&nbsp;&nbsp;</option> 
 														<option value = "09:30">09:30&nbsp;&nbsp;</option>
 														<option value = "10:00">10:00&nbsp;&nbsp;</option>
 														<option value = "10:30">10:30&nbsp;&nbsp;</option>

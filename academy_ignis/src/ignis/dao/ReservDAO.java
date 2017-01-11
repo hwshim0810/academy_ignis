@@ -112,8 +112,11 @@ public class ReservDAO {
 		ss.close();
 		
 		return list;
-		
 	}
+	
+	
+	
+	
 	
 	public List<ig_reserv> check(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession();
@@ -147,5 +150,87 @@ public class ReservDAO {
 		
 		return (result > 0) ? true : false;
 	}
+	
+	
+	
+	
+	
+	
+	public int getAdminListCount(String r_type, String r_content) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int num = 0;
+		
+		switch (r_type) {
+		case "r_num":
+			num = ss.selectOne("reserv.selectAdminCountNum", r_content);
+			break;
+		case "r_guide":
+			num = ss.selectOne("reserv.selectAdminCountGuide", r_content);
+			break;
+		case "r_day":
+			num = ss.selectOne("reserv.selectAdminCountDay", r_content);
+			break;
+		case "r_time":
+			num = ss.selectOne("reserv.selectAdminCountTime", r_content);
+			break;
+		case "r_regdate":
+			num = ss.selectOne("reserv.selectAdminCountRegdate", r_content);
+			break;
+		case "m_id":
+			num = ss.selectOne("reserv.selectAdminCountId", r_content);
+			break;
+		case "all":
+			num = ss.selectOne("reserv.selectAdminCountAll");
+			break;
+		
+		default : System.out.println("잘못 찍혔습니다. "); break;
+		}
+		return num;
+		}
+	
+	
+	public List<ig_reserv> getAdminSearchReserv(String r_type, String r_content, int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println("ReservDAO내의 r_title, r_content확인용 : " + r_content);
+		map.put("r_content", r_content);
+		map.put("begin", begin);	
+		map.put("end", end);
+		List<ig_reserv> list = null;
+		
+		switch (r_type) {
+		case "r_num" : 
+			list = ss.selectList("reserv.selectAdminListNum", map);
+			break;
+		case "r_guide" : 
+			list = ss.selectList("reserv.selectAdminListGuide", map);
+			break;
+		case "r_day" : 
+			list = ss.selectList("reserv.selectAdminListDay", map);
+			break;
+		case "r_time" : 
+			list = ss.selectList("reserv.selectAdminListTime", map);
+			break;
+		case "r_regdate" : 
+			list = ss.selectList("reserv.selectAdminListRegdate", map);
+			break;
+		case "m_id" : 
+			list = ss.selectList("reserv.selectAdminListId", map);
+			break;
+		case "all" : 
+			list = ss.selectList("reserv.selectAdminListAll", map);
+			break;
+			
+		default : System.out.println("잘못 찍혔습니다. "); break;
+		}
+		
+		
+		return list;
+	}
+	
+	
+	
+	
 }
 
