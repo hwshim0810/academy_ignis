@@ -3,6 +3,7 @@
 <%
 	String id = null;
 	String pageURI = null;
+	String login = request.getParameter("login");
 	int pagenum = 1;
 	
 	if (request.getParameter("pagenum") != null) 
@@ -18,6 +19,7 @@
 	} else {
 		pageURI = "home";
 	}
+	
 %>
 <!DOCTYPE html>
 <html>

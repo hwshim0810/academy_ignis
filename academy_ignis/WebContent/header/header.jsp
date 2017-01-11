@@ -23,9 +23,9 @@
 			</div>
 			<div class="collapse navbar-collapse myNavbar">
 				<ul class="nav navbar-nav navbar-left">
-					<li><a href="abouts_us">병원소개</a></li>
+					<li><a href="/academy_ignis/abouts_us">병원소개</a></li>
 					<li><a href="#">진료과목</a></li>
-					<li><a href="reserv">상담 및 예약</a></li>
+					<li><a href="/academy_ignis/reserv">상담 및 예약</a></li>
 					<li><a href="/academy_ignis/notice">커뮤니티</a></li>
 				</ul>
 			</div>

@@ -5,13 +5,12 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<div class="navbar-header">
 			<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-			메뉴
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
 			</button>
 			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
+				<span class="glyphicon glyphicon-user"></span>
 			</button>
 			<a class="navbar-brand" href="/academy_ignis/admin/ad_Manage.jsp">관리자님 환영합니다</a>
 		</div>
