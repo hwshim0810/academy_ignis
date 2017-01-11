@@ -1,5 +1,6 @@
 package ignis.action;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,7 +27,6 @@ public class NoticeUpdateAction  implements ActionInterface{
 		String m_id = (String)session.getAttribute("m_id");
 		User user = memDao.isMember(m_id);
 		if (user == null||!m_pass.equals(user.getM_pass())){
-			System.out.println("비밀번호 일치하지 않음");
 			forward.setRedirect(true);
 			forward.setPath("./notice?login=admin");
 			return forward;

@@ -1,5 +1,6 @@
 package ignis.action;
 
+import java.io.PrintWriter;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,8 +26,13 @@ public class QnaUpdateAction  implements ActionInterface{
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		User user = memDao.isMember(m_id);
+		String login = request.getParameter("login");//admin 이면 관지자창 이동
 		if (user == null||!m_pass.equals(user.getM_pass())){
-			System.out.println("비밀번호 일치하지 않음");
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(true);
+				forward.setPath("./qna?login=admin&pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(true);
 			forward.setPath("./qna");
 			return forward;
@@ -38,7 +44,6 @@ public class QnaUpdateAction  implements ActionInterface{
 		boolean result =qnaBiz.update(request, response);
 		System.out.println(result);
 		if (result) {
-			String login = request.getParameter("login");//admin 이면 관지자창 이동
 			if(login!=null&&login.equals("admin")){
 				forward.setRedirect(true);
 				forward.setPath("qnaDetail?login=admin&pagenum="+pagenum+"&qb_num="+qb_num);

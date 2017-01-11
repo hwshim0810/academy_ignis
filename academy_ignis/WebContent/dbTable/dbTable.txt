@@ -186,9 +186,9 @@ INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목06', 
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'bbb', 'qna제목07', 'qna내용07',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목08', 'qna내용08',1,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'bbb', 'qna제목09', 'qna내용09',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'admin', 'qna제목10', 'qna내용10',1,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'qna제목11', 'qna내용11',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'admin', 'qna제목12', 'qna내용12',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'bbb', 'qna제목10', 'qna내용10',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'bbb', 'qna제목11', 'qna내용11',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목12', 'qna내용12',1,qb_num.currval,0, SYSDATE );
 
 
 // 데이터 입력 - EVENT

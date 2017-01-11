@@ -26,18 +26,24 @@ public class QnaDeleteAction  implements ActionInterface{
 		HttpSession session = request.getSession();
 		String m_id = (String)session.getAttribute("m_id");
 		User user = memDao.isMember(m_id);
+		String login = request.getParameter("login");//admin 이면 관지자창 이동
 		if (user == null||!m_pass.equals(user.getM_pass())){
-			System.out.println("비밀번호 일치하지 않음");
+			if(login!=null&&login.equals("admin")){
+				forward.setRedirect(false);
+				forward.setPath("./qna?login=admin&pagenum="+pagenum);
+				return forward;
+			}
 			forward.setRedirect(true);
 			forward.setPath("./qna");
 			return forward;
+			
 		}
 		
 		boolean result =qnaBiz.qnaDelete(request, response);
 		
 		request.setAttribute("pagenum", pagenum);
 		if (result) {
-			String login = request.getParameter("login");//admin 이면 관지자창 이동
+
 			if(login!=null&&login.equals("admin")){
 				forward.setRedirect(false);
 				forward.setPath("./qna?login=admin&pagenum="+pagenum);
