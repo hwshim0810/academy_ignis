@@ -1,15 +1,16 @@
+<%@page import="javafx.scene.control.Alert"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
 <%
 	request.setCharacterEncoding("utf-8");
-	
 	String id= null;
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	else
 		response.sendRedirect("./member/login.jsp");
 	System.out.println("id는 " +id);
+
 %>
 
 
@@ -95,11 +96,11 @@ body { font-size: 20px;}
 										</div>
 										<div class="col-sm-6 form-group">
 											<select class="form-control input-lg" id="y"
-												onchange="changeDate();" name="r_guide">
-												<option value="치아교정">치아교정</option>
-												<option value="임플란트">임플란트</option>
-												<option value="치아미백">치아미백</option>
-												<option value="일반진료">일반진료</option>
+												onchange="changeDate();" name="r_guide" >
+												 <option value="치아교정" >치아교정</option>			
+												 <option value="임플란트" >임플란트</option>				
+												 <option value="치아미백" >치아미백</option>			
+												 <option value="일반진료" >일반진료</option>
 											</select>
 										</div>
 									</div>
