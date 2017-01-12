@@ -82,7 +82,7 @@
 				<!-- Text input-->
 				<div class="row">
 				  <label class="col-md-4 control-label">주소</label>  
-				  <div class="col-md-6">
+				  <div class="col-md-4">
 				  <h4><%=user.getM_addr() %></h4>
 				  </div>
 				</div>

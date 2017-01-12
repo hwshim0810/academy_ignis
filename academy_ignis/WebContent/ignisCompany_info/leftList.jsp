@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div class="col-xs-12 col-sm-3 col-md-2">
+<div class="hidden-xs hidden-sm col-md-2">
 	<div id="public-image-menu-m">
       <ul class="public-image-tag-m">
           <li class="public-image-category-a" ><a href="abouts_us">병원소개</a></li>
