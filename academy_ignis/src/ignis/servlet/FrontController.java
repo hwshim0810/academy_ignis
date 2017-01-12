@@ -262,13 +262,11 @@ public class FrontController extends HttpServlet {
 			break;
 
 		case "/reserv" :
-			action = new ReservBeforeAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./reserv/reserv.jsp");
 			break;
+			
 		case "/reservProcess" :
 			action = new ReservAction();
 			
