@@ -26,12 +26,7 @@
   <div class="container">
 <%pageContext.include("leftList.jsp"); %>
       <div class="col-xs-12 col-sm-9 col-md-10">
-		<h1>1asdfasd fasdf asfsa fasdfsdf</h1>
-		<h1>2asdfasd fasdfasf saf asdfsdf</h1>
-		<h1>3asdfasdfasdfasfsafa sdfsdf</h1>
-		<h1>4asdfasd fasdfa sfsaf asdfsdf</h1>
-		<h1>5asdfasd fasdfasfs afasdfsdf</h1>
-		
+<img alt="진료절차 사진" src="/academy_ignis/image/진료절차.jpg" class="img-rounded img-responsive"">
 		</div>
 	</div>
 </div>

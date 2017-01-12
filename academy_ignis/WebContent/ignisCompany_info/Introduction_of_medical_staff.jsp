@@ -33,7 +33,6 @@
 			<h1>5asdfasd fasdfasfs afasdfsdf</h1>
 			<h1>6asdfasdf asdfas fsafasdfsdf</h1>
 			<h1>6asdfasdf asdfas fsafasdfsdf</h1>
-			
 		</div>
 	</div>
 </div>
