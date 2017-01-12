@@ -54,7 +54,7 @@
 									</label>						
 									<div class="container-tiny">
 										<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;					
-										<a href ="./departmentInfo?guide='치아교정'"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+										<a href ="/academy_ignis/departmentInfo?guide=gyoj"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>							
 							</div>
@@ -75,7 +75,7 @@
 									</label>
 									<div class="container-tiny">
 									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;			
-									<a href ="./departmentInfo?guide='임플란트'"><button type="button"  class="btn btn-default btn-depart">상세보기</button></a>
+									<a href ="/academy_ignis/departmentInfo?guide=imple"><button type="button"  class="btn btn-default btn-depart">상세보기</button></a>
 									</div>
 								</div>							
 							</div>
@@ -96,7 +96,7 @@
 									</label>
 									<div class="container-tiny">
 									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;							
-									<a href ="./departmentInfo?guide='치아미백"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+									<a href ="/academy_ignis/departmentInfo?guide=mibak"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>
 							</div>
@@ -117,7 +117,7 @@
 									</label>
 									<div class="container-tiny">
 									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;						
-									<a href ="./departmentInfo?guide='일반진료'"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+									<a href ="/academy_ignis/departmentInfo?guide=normal"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>
 							</div>

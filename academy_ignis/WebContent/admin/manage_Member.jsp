@@ -22,6 +22,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Ignis치과 관리자페이지</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link href="/academy_ignis/css/messagebox.css" rel="stylesheet">

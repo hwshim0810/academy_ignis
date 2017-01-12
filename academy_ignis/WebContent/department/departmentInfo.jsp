@@ -21,27 +21,28 @@
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
 	
-	String guideValue = String.valueOf(request.getParameter("guide"));
+	String guideValue = request.getParameter("guide");
 	System.out.println("guideValue의 값은 " +guideValue);
-	String pictureName = null;
-	String guideContent = null;
 	
-	switch (guideValue) {
-	case "치아교정" :pictureName="gyoj.jpg";
-	guideContent="치아교정 세부 내용"; break;
+	String pictureName = "";
+	String guideContent = "";
 	
-	case "임플란트" :pictureName="imple.jpg";
-	guideContent="임플란트 세부 내용"; break;
-	
-	case "치아미백" :pictureName="mibak.png";
-	guideContent="치아미백 세부 내용"; break;
-	
-	case "일반진료" :pictureName="normal.png";
-	guideContent="일반진료 세부 내용"; break;
-	
-	default : System.out.println(guideValue+"는 오류입니다.");
+	if (guideValue.equals("gyoj")) {
+		pictureName="gyoj.jpg";
+		guideContent="치아교정 세부 내용";
+	} else if (guideValue.equals("imple")) {
+		pictureName="imple.jpg";
+		guideContent="임플란트 세부 내용";
+	} else if (guideValue.equals("mibik")) {
+		pictureName="mibak.png";
+		guideContent="치아미백 세부 내용";
+	} else if (guideValue.equals("normal")) {
+		pictureName="normal.png";
+		guideContent="일반진료 세부 내용";
+	} else {
+		System.out.println(guideValue+"는 오류입니다.");
 	}
-	%>
+%>
 	
 
 <body>
