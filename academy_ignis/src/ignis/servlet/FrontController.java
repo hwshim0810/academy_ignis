@@ -605,6 +605,12 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./member/memberOut.jsp");
 			break;
 			
+		case "/myEvent":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./member/myEvent.jsp");
+			break;
+			
 //		case "/" :
 //			action = new Action();
 //			
