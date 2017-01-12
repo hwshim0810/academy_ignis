@@ -197,11 +197,11 @@
 								
 								<div class="form-group">
 									<div class="col-md-4">
+									</div>
+									<div class="col-md-6">
 										<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
 										<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
 										</div>
-									</div>
-									<div class="col-md-6">
 										<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md" value="<%=userInfo.getM_addr()%>">
 									</div>
 								</div>
@@ -250,7 +250,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js?v=6"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/moment.js"></script>
 <script type="text/javascript"src="/academy_ignis/script/daterangepicker.js"></script>
