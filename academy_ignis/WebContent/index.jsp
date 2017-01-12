@@ -103,7 +103,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=3"></script>
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>
