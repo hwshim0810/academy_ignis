@@ -16,3 +16,9 @@
     display: none; 
   }
 }
+
+div.well { border-top : none!Important; }
+ul.nav-tabs { border-bottom : none; }
+ul.nav li.active a { border-bottom : 1px solid #fff; }
+
+div.reservIndex:hover img { opacity : 0.5; }

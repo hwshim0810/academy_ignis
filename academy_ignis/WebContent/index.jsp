@@ -75,6 +75,34 @@
 	  <br><br>
 	  <div class="row">
 	  	<div class="col-sm-6">
+		  	<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#home">공지사항</a></li>
+			  <li><a data-toggle="tab" href="#menu1">이벤트</a></li>
+			</ul>
+	  		<div class="well" style="background-color : #fff;">
+	  			<div class="container-fluid">
+					<div class="tab-content">
+						<div id="home" class="tab-pane fade in active">
+							<div class="list-group">
+								<% for(int i=0;i<noticeList.size();i++){ %>
+								<a href="noticeDetail?nb_num=<%=noticeList.get(i).getNb_num()%>" class="list-group-item"><%=noticeList.get(i).getNb_title() %></a>
+								<% } %>
+							</div>
+						</div>
+					  	<div id="menu1" class="tab-pane fade">
+							<div class="list-group">
+					      		<% for(int i=0;i<eventList.size();i++){ %>
+						      	<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eventList.get(i).getEb_num()%>" class="list-group-item"><%=eventList.get(i).getEb_title() %></a>
+						      	</tr>
+						      	<%} %>
+							</div>
+						</div>
+					</div>
+	  			</div>
+	  		</div>
+	  	</div>
+	  	<%-- 
+	  	<div class="col-sm-6">
 	      <div class="well">
 	      <div class="container-fluid">
 	      	<h5>공지사항</h5>
@@ -100,9 +128,12 @@
 	      	</table>
 	      </div>
 	    </div>
+	    --%>
 	    <div class="col-sm-6">
-	      <img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
-	      <p>진료안내 (예약)</p>
+	    	<div class="reservIndex">
+	    		<img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%" alt="Image">
+	    	</div>
+	    	<p>진료안내 (예약)</p>
 	    </div>
 	  </div>
 	</div>	
