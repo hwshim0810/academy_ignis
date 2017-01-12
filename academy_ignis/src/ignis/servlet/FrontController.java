@@ -482,7 +482,7 @@ public class FrontController extends HttpServlet {
 			
 		case "/EventEntry":
 			action = new EventEntryAction();
-			System.out.println("EventDeleteAction_FrontController");
+			System.out.println("EventEntryAction_FrontController");
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
