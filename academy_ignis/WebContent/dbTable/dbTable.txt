@@ -129,8 +129,6 @@ create table ig_evententry (
 
 
 
-//데이타 입력
-
 
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목01', '내용01',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목02', '내용02',0, SYSDATE );
