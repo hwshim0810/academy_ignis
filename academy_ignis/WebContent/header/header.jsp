@@ -36,14 +36,14 @@
 					</li>
 					
 					<li class="dropdown">
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#">진료과목
+						<a class="dropdown-toggle" data-toggle="dropdown" href="departmentAll">진료과목
 						<span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
-							<li><a href="abouts_us">병원소개</a></li>
-							<li><a href="Introduction_of_medical_staff">의료진 소개</a></li>
-							<li><a href="medical_procedure">진료 절차</a></li>
-							<li><a href="map_to_the_ignis">찾아오시는 길</a></li>
+							<li><a href="abouts_us">치아교정</a></li>
+							<li><a href="Introduction_of_medical_staff">임플란트</a></li>
+							<li><a href="medical_procedure">치아미백</a></li>
+							<li><a href="map_to_the_ignis">일반진료</a></li>
 						</ul>
 					</li>
 					

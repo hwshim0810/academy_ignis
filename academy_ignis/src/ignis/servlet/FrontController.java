@@ -43,6 +43,12 @@ public class FrontController extends HttpServlet {
 			forward.setRedirect(false);
 			forward.setPath("./error/errorPage.jsp");
 			break;
+		
+		case "/departmentAll":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./department/departmentAll.jsp");
+			break;
 			
 		case "/abouts_us":
 			forward = new ActionForward();
