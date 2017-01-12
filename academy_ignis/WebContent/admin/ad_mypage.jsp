@@ -48,8 +48,8 @@
 			<div class="panel-body text-center">
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">아이디</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">아이디</label>  
+				  <div class="col-xs-5">
 				  <input type="hidden" name="m_id" id="m_id" value="<%=user.getM_id()%>">
 				  <h4><%=user.getM_id() %></h4>
 				  </div>
@@ -57,56 +57,56 @@
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">이름</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">이름</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_name() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">가입일</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">가입일</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_enterdate() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">생년월일</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">생년월일</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_birth() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">주소</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">주소</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_addr() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">휴대폰 번호</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">휴대폰 번호</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_phone() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">Email 주소</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">Email 주소</label>  
+				  <div class="col-xs-5">
 				  <h4><%=user.getM_email() %></h4>
 				  </div>
 				</div>
 				
 				<!-- Text input-->
 				<div class="row">
-				  <label class="col-md-4 control-label">회원 레벨</label>  
-				  <div class="col-md-4">
+				  <label class="col-xs-5 control-label">회원 레벨</label>  
+				  <div class="col-xs-5">
 				      <% if (user.getM_level() == 2) { %>		      
 						<h4>회원</h4>
 				      <% } else { %>
@@ -117,11 +117,9 @@
 		
 				<!-- Button -->
 				<div class="row">
-				  <div class="col-md-5">
-				  </div>
-				  <div class="col-md-7">
-				  <a class="btn btn-default" href="/academy_ignis/admin/ad_mypage_update.jsp?userId=<%=userId%>">정보수정</a>
-				  <button id="delBtn" class="btn btn-default">정보삭제</button>
+				  <div class="col-xs-12">
+				  <a class="btn btn-primary" href="/academy_ignis/admin/ad_mypage_update.jsp?userId=<%=userId%>">정보수정</a>
+				  <button id="delBtn" class="btn btn-danger">정보삭제</button>
 				  <button id="backBtn" class="btn btn-default">돌아가기</button>
 				  </div>
 				</div>

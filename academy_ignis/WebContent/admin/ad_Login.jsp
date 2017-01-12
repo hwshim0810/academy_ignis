@@ -16,7 +16,7 @@
 </head>
 <body>
 <div class="login">
-    <h1>Login</h1>
+    <h1>Admin Level</h1>
     <form method="post" action="../loginProcess?page=admin">
     	<input type="text" name="m_id" placeholder="Username" required="required" />
         <input type="password" name="m_pass" placeholder="Password" required="required" />
