@@ -54,7 +54,7 @@
 						<div class="form-group">
 							<div class="col-md-4"></div>
 							&nbsp;&nbsp;&nbsp;
-							<span class="label label-default">아이디는 알파벳으로 시작하고 알파벳과 숫자를 사용하여 5~11자까지 가능합니다.</span>
+							<span class="label label-default">아이디는 알파벳으로 시작, 알파벳과 숫자 혼용하여 5~11자까지 가능.</span>
 						</div>
 						
 						<!-- Text input-->
@@ -86,7 +86,7 @@
 						<div class="form-group">
 							<div class="col-md-4"></div>
 							&nbsp;&nbsp;&nbsp;
-							<span class="label label-default"> 패스워드는 7~12자까지 가능합니다.</span>
+							<span class="label label-default"> 패스워드는 7~12자까지 가능.</span>
 						</div>
 						
 						<!-- 우편번호 API 이용 -->

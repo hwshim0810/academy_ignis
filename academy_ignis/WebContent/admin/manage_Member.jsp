@@ -96,9 +96,9 @@
 						    <option value="m_email">Email</option>
 						  </select>
 						    <label class="sr-only">검색 내용:</label>
-						    <input type="text" class="form-control" id="searchContent">
+						    <input type="text" class="form-control" id="searchContent" name="searchContent">
 						  </div>
-						  <button type="button" id="searchBtn" class="btn btn-default">검색</button>
+						  <a type="button" id="searchBtn" class="btn btn-default">검색</a>
 						  <a class="btn btn-success" href="/academy_ignis/memberJoin?page=admin">추가</a>
 						 </form>
 				</div>
@@ -113,6 +113,6 @@
  <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
  <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=12"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=16"></script>
 </body>
 </html>

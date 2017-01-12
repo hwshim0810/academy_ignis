@@ -28,7 +28,7 @@
 	<title>로그인</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/academy_ignis/css/login.css">
-	<link rel="stylesheet" href="/academy_ignis/css/common.css">
+	<link rel="stylesheet" href="/academy_ignis/css/common.css?v=3">
 </head>
 <body>
 <%-- Header 시작 --%>
@@ -46,6 +46,7 @@
 						<h2>Ignis치과</h2><br><h4>로그인하시면 모든 서비스가 이용가능합니다.</h4>
 						<hr class="colorgraph">
 						<div class="form-group">
+							<input type="hidden" name="login" value="<%=login%>">
 		                    <input type="text" name="m_id" id="m_id" class="form-control input-lg" placeholder="아이디" required="required">
 						</div>
 						<div class="form-group">

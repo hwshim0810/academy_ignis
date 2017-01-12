@@ -1,4 +1,11 @@
 $(function() {
+    $("input[name=searchContent]").keydown(function(key) {
+    	 
+        if (key.keyCode == 13) {
+	           $("#searchBtn").click();
+	        }
+	});
+	
 	$("#searchBtn").click(function(event) {
 		
 		$.ajax({

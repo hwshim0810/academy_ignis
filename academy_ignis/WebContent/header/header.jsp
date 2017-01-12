@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a href="/academy_ignis" class="navbar-brand"><%-- <img src="/academy_ignis/image/logo.jpg" alt="로고" title="로고"/> --%>IGNIS</a>
+					<a id="logo" href="/academy_ignis" class="navbar-brand">IGNIS Dental Clinic</a>
 				</div>
 				<div class="collapse navbar-collapse myNavbar">
 					<ul class="nav navbar-nav navbar-right nav-pills">
