@@ -96,6 +96,9 @@ create table ig_event  (
 				eb_num NUMBER PRIMARY KEY, 
 				eb_title VARCHAR2(100) NOT NULL, 
 				eb_content VARCHAR2(2000) NOT NULL, 
+				eb_winner NUMBER NOT NULL,
+				eb_period VARCHAR2(50) NOT NULL,
+				eb_announceday VARCHAR2(15) NOT NULL,
 				eb_readcount NUMBER NOT NULL, 
 				eb_regdate DATE) SEGMENT CREATION IMMEDIATE;
 
@@ -123,6 +126,12 @@ create table ig_comment  (
 				co_regdate DATE) SEGMENT CREATION IMMEDIATE;
 
 create sequence co_num;
+
+create table ig_evententry (
+				eb_num NUMBER REFERENCES ig_event(eb_num),
+				m_name VARCHAR2(30) REFERENCES ig_member(m_id),
+				eb_entrydate DATE) SEGMENT CREATION IMMEDIATE;
+
 
 
 
