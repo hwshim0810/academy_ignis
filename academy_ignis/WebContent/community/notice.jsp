@@ -7,6 +7,7 @@
 
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
+	
 %>
 <!DOCTYPE html>
 <html>
@@ -56,18 +57,18 @@
 		<%pageContext.include("leftList.jsp"); %>
 		<div class="col-xs-12 col-sm-9 col-md-10">
 			<%pageContext.include("contentList.jsp"); %>
-			<form class="form-inline" >
+			<form class="form-inline"  action="notice" method="get">
 				<label for="sel1">검색 범위</label>
-				<select class="form-control" id="searchOption">
+				<select class="form-control" id="searchOption" name="searchOption">
 					<option value="nb_all">전체</option>
 					<option value="nb_title">제목</option>
 					<option value="nb_content">내용</option>
 				</select>
 				<div class="form-group">
 					<label class="sr-only" for="search">검색 내용:</label>
-					<input type="text" class="form-control" id="searchContent">
+					<input type="text" class="form-control" id="searchContent" name="searchContent" required="required">
 				</div>
-				<input type="submit" class="btn btn-default" onclick="searchAll()" value="검색" />
+				<input type="submit" class="btn btn-default"  value="검색" />
 			</form>
 		</div>
 	</div>

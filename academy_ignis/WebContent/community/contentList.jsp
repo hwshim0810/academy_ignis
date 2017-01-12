@@ -59,6 +59,37 @@
     } %>
     </tbody>
   </table>
+  <%String searchOption=null;
+  String searchContent=null;
+  if(request.getAttribute("searchOption")!=null&&request.getAttribute("searchContent")!=null){
+  searchOption=request.getAttribute("searchOption").toString();
+	searchContent=request.getAttribute("searchContent").toString();%>
+	<ul class="pager">
+  <%if(pagenum==1){%>
+    <li><a>첫 페이지</a></li>
+	  <li><a>◁</a></li>
+ <% }else{ %>
+   <li><a href="notice?searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=1">첫 페이지</a></li>
+  <li><a href="notice?searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagenum-1%>">◁</a></li>
+  <%} %>
+ <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
+ 
+ <% if(pagelist==pagenum){%>
+ <li class="active"><a><%=pagelist %></a></li>
+ <%}else{ %>
+  <li><a href="notice?searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+  <%}} %>
+  <%if(pagenum==pageCount){ %>
+  <li><a>▷</a></li>
+  <li><a>마지막 페이지</a></li>
+  <%}else{ %>
+  <li><a href="notice?searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagenum+1%>">▷</a></li>
+  <li><a href="notice?searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pageCount%>">마지막 페이지</a></li>
+  <%} %>
+</ul>
+<%}else{ 
+
+%>
   <ul class="pager">
   <%if(pagenum==1){%>
     <li><a>첫 페이지</a></li>
@@ -80,7 +111,7 @@
   <%}else{ %>
   <li><a href="notice?pagenum=<%=pagenum+1%>">▷</a></li>
   <li><a href="notice?pagenum=<%=pageCount%>">마지막 페이지</a></li>
-  <%} %>
+  <%} }%>
 </ul>
 </body>
 </html>
