@@ -94,6 +94,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/common.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+
 </head>
 <body>
 <div id="reservContent">
@@ -131,6 +133,8 @@
 							<td><%=reserv.getR_regdate() %></td>
 							<td><a href="/academy_ignis/deleteReserv?getR_num=<%=reserv.getR_num()%>&pageNo=<%=pageNo%>" class="reservDel">삭제</a>
 						</tr>
+											
+						
 						<%
 								}
 							} else {

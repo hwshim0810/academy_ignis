@@ -100,8 +100,7 @@
 <input id="hidden_searchType" type="hidden" value="<%=searchType%>">
 <input id="hidden_searchContent" type="hidden" value="<%=searchContent%>">
 	<div id="reservContent">
-		<div class= "table-responsive">
-			<table class="table">
+			<table class="table table-responsive">
 			<caption class="sr-only">회원명단</caption>
 			<thead>
 				<tr class="info"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
@@ -129,7 +128,6 @@
 			<%	} %>
 			</tbody>
 		</table>
-		</div>
 		
 		<div class="panel-end">			
 			<ul class="pager">
