@@ -8,13 +8,17 @@
 
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
+	
 	NoticeDAO noticeDao=new NoticeDAO();
 	List<ig_notice> noticeList=noticeDao.lastFiveNotice();
+	
+	EventDAO eventDao = EventDAO.getInstance();
+	List<ig_event> eventList = eventDao.eventList(1, 5);
 %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <title>Bootstrap Example</title>
+  <title>IGNIS 치과</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
@@ -84,9 +88,16 @@
 	      	</table>
 	      	</div>
 	      </div>
-	      
 	      <div class="well">
-	       <p>이벤트</p>
+	      	<h5>이벤트</h5>
+	      	<table class="table table-responsive">
+	      	<% 
+	      		for(int i=0;i<eventList.size();i++){
+	      	%>
+	      	<tr><td><a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eventList.get(i).getEb_num()%>"><%=eventList.get(i).getEb_title() %></a></td>
+	      	</tr>
+	      	<%} %>
+	      	</table>
 	      </div>
 	    </div>
 	    <div class="col-sm-6">
