@@ -48,7 +48,7 @@
 				<tr>
 					<th>No</th>
 					<th>제목</th>
-					<th>글쓴이</th>
+					<th>기간</th>
 					<th>등록일</th>
 					<th>조회수</th>
 				</tr>
@@ -69,7 +69,7 @@
 						<%= event.getEb_title() %>
 					</a>
 				</td>
-				<td>이그니스 치과</td>
+				<td><%= event.getEb_period() %></td>
 				<td><%= event.getEb_regdate() %></td>
 				<td><%= event.getEb_readcount() %></td>
 			</tr>
@@ -80,7 +80,7 @@
 				if (cnt == 0) {
 			%>
 			<tr>
-				<td colspan="4">현재 등록된 이벤트가 없습니다.</td>
+				<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
 			</tr>
 			<% }%>
 			</tbody>
