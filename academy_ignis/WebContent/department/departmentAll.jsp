@@ -38,7 +38,7 @@
 						<div class = "container-large col-xs-12">
 							<div class="container-median">
 								<div class="container-small col-xs-5">
-									<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive">
+									<img alt="사진" src="/academy_ignis/image/gyoj.jpg" class="img-rounded img-responsive">
 								</div>
 								<div class="container-small col-xs-7">
 								
@@ -48,7 +48,7 @@
 						<div class = "container-large col-xs-12">
 							<div class="container-median">
 								<div class="container-small col-xs-5">
-									<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive">
+									<img alt="사진" src="/academy_ignis/image/imple.jpg" class="img-rounded img-responsive">
 								</div>
 								<div class="container-small col-xs-7">
 								
@@ -58,7 +58,7 @@
 						<div class = "container-large col-xs-12">
 							<div class="container-median">
 								<div class="container-small col-xs-5">
-									<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive">
+									<img alt="사진" src="/academy_ignis/image/mibak.png" class="img-rounded img-responsive">
 								</div>
 								<div class="container-small col-xs-7">
 								
@@ -68,7 +68,7 @@
 						<div class = "container-large col-xs-12">
 							<div class="container-median">
 								<div class="container-small col-xs-5">
-									<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive">
+									<img alt="사진" src="/academy_ignis/image/normal.png" class="img-rounded img-responsive">
 								</div>
 								<div class="container-small col-xs-7">
 								
