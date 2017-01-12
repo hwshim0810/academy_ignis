@@ -1,12 +1,13 @@
 package ignis.biz;
 
+import java.util.HashMap;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import ignis.action.ActionForward;
 import ignis.bean.ig_event;
+import ignis.bean.ig_evententry;
 import ignis.dao.EventDAO;
 
 public class EventBiz {
@@ -74,4 +75,32 @@ public class EventBiz {
 		
 		return eventBean;
 	}
+	
+	
+	public boolean insertEventEntry(HttpServletRequest request, HttpServletResponse response) {
+		int eb_num = Integer.valueOf(request.getParameter("num"));
+		String m_name = request.getParameter("id");
+		 
+		boolean result = eventDao.insertEventEntry(eb_num, m_name);
+		
+		if (result) return result;
+		else return result;
+	}
+
+	public boolean isCanEntry(HttpServletRequest request, HttpServletResponse response) {
+		EventDAO eventDao = new EventDAO();
+		int eb_num = Integer.valueOf(request.getParameter("num"));
+		String m_name = request.getParameter("id");
+		
+		boolean result = eventDao.isCanEntry(eb_num);
+		boolean result2 = eventDao.isCanEntryId(eb_num, m_name);
+		
+		if (result && result2) {
+			eventDao.updateWinner(eb_num);
+			eventDao.insertEventEntry(eb_num, m_name);
+		}
+		
+		return result;
+	}
+	
 }

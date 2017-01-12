@@ -12,21 +12,17 @@ public class EventEntryAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		EventEntryBiz entryBiz = new EventEntryBiz();
+		ActionForward forward = new ActionForward();
 
 		int memberChk = entryBiz.isMember(request, response);
+		int num = Integer.valueOf(request.getParameter("num"));
+		String id = request.getParameter("id");
 		
 		switch(memberChk){
 			case MemberLoginAction.MEMBERLEVEL :	// 고객인 경우
-				response.setContentType("text/html; charset=UTF-8");
-				PrintWriter out1 = response.getWriter();
-				out1.println("<script>");
-				out1.println("loacation.href='/academy_ignis/EventEntryPlus'");
-				out1.println("alert('이벤트에 응모되었습니다!');");
-				out1.println("location.href='/academy_ignis/Event?login=member';");
-				out1.println("</script>");
-				out1.close();
-				
-				return null;
+				forward.setRedirect(true);
+				forward.setPath("/academy_ignis/EventEntryPlus?num=" + num + "&id=" + id);
+				return forward;
 			
 			case MemberLoginAction.ADMINLEVEL :	// 관리자인 경우
 				response.setContentType("text/html; charset=UTF-8");

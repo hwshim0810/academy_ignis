@@ -2,10 +2,16 @@ package ignis.dao;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
 import ignis.bean.ig_event;
+import ignis.bean.ig_evententry;
+import ignis.bean.ig_review;
 import ignis.mybatis.service.FactoryService;
 
 public class EventDAO {
@@ -113,5 +119,113 @@ public class EventDAO {
 		
 		return(result > 0) ? true : false;
 	}
+	
+	
+	public boolean insertEventEntry(int eb_num, String m_name){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("eb_num", eb_num);
+		map.put("m_name", m_name);
 
+		
+		int cnt = ss.insert("event.insertEventEntry", map);
+		
+		if(cnt > 0 ){
+			System.out.println("event 참여 성공!");
+		} else{
+			System.out.println("event 참여 실패");
+		}
+		
+		ss.commit();
+		ss.close();
+		return(cnt > 0) ? true : false;
+	}
+
+	public boolean isCanEntry(int eb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		ig_event view = ss.selectOne("event.selectCanEntry", eb_num);
+		ss.close();
+		
+		return (view.getEb_winner() > 0) ? true : false;
+	}
+
+	public void updateWinner(int eb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		ss.update("event.updateWinner", eb_num);
+		ss.close();
+	}
+	
+	public List<ig_evententry> selectEntryList(int eb_num){
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		List<ig_evententry> list = ss.selectList("event.selectEntryList", eb_num);
+		
+		ss.close();
+		
+		return list;
+	}
+
+	public boolean isCanEntryId(int eb_num, String m_name) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		boolean result = true;
+		
+		List<ig_evententry> entryList = ss.selectList("event.selectEntryList", eb_num);
+		
+		
+		for (ig_evententry entryBean : entryList) {
+			if (m_name.equals(entryBean.getM_name()))
+					result = false;
+		}
+		
+		return result;
+	}
+	
+//	public Map<String, Object> selectEntryList(int begin, int end) {
+//		SqlSession ss = FactoryService.getFactory().openSession();
+//		Map<String, Object> resultMap = new HashMap<>();
+//		HashMap<String, Object> map = new HashMap<>();
+//		
+//		map.put("begin", begin);
+//		map.put("end", end);
+//		
+//		resultMap = ss.selectMap("event.selectEntryList", map, "eb_num");
+//		
+//		return resultMap;
+//	}
+	
+//	public HashMap<String, Object> entryList(int begin, int end){
+//		SqlSession ss = FactoryService.getFactory().openSession(true);
+//		
+//		HashMap<String, Object> resultMap = new HashMap<>();
+//		HashMap<String, Integer> map = new HashMap<>();
+//		
+//		map.put("begin", begin);
+//		map.put("end", end);
+//		
+//		List<ig_evententry> entrylist = ss.selectList("event.eventEntryList", map);
+//		List<ig_event> eventlist = ss.selectList("event.eventList", map);
+//		
+//		resultMap.put("entrylist", entrylist);
+//		resultMap.put("eventlist", eventlist);
+//		
+//		ss.close();
+//		
+//		return resultMap;
+//	} 
+	
+	public List<ig_evententry> eventEntryList(int begin, int end){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		HashMap<String, Integer> map = new HashMap<>();
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		
+		List<ig_evententry> list = ss.selectList("event.eventEntryList", map);
+		ss.close();
+		return list;
+	}
 }

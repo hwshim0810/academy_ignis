@@ -3,6 +3,7 @@
  	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"	
  	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="event">
+	
 	<select id="eventList" resultType="ignis.bean.ig_event">
 		select eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday, eb_regdate, eb_readcount 
 		from (select rownum rnum, eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday, eb_regdate, eb_readcount
@@ -34,10 +35,22 @@
 		where eb_num = #{eb_num}
 	</update>
 	
-	<select id="eventEntryList" resultType="ignis.bean.ig_event">
+	<select id="eventEntryList" resultType="ignis.bean.ig_evententry">
 		select eb_num, m_name, eb_entrydate
 		from (select rownum rnum, eb_num, m_name, eb_entrydate
 			from(select eb_num, m_name, eb_entrydate from ig_evententry
 				order by eb_entrydate desc )) where rnum between #{begin} and #{end}
 	</select>
+	<insert id="insertEventEntry" parameterType="java.util.HashMap">
+		insert into ig_evententry
+		values(#{eb_num}, #{m_name}, SYSDATE)
+	</insert>
+	<select id="selectCanEntry" parameterType="int" resultType="ignis.bean.ig_event">
+	 	SELECT * FROM ig_event WHERE eb_num = #{eb_num}
+	</select>
+	<update id="updateWinner" parameterType="int">
+		UPDATE ig_event SET eb_winner = eb_winner - 1 WHERE eb_num = #{eb_num}
+	</update>
+	
+	
 </mapper>

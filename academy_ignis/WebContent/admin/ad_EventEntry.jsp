@@ -1,9 +1,11 @@
+<%@page import="java.util.HashMap"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import = "java.util.List" %>
 <%@ page import = "java.util.Iterator" %>
 <%@ page import = "ignis.biz.EventBiz" %>
 <%@ page import = "ignis.bean.ig_event" %>
+<%@ page import = "ignis.bean.ig_evententry" %>
 <%@ page import = "ignis.dao.EventDAO" %>
 <% 
 	String id = null;
@@ -17,8 +19,13 @@
 	int totalRows = eventDao.getListCount(); // 전체 게시물 갯수
 %>
 <%@include file="../paging/getPageNum.jsp" %>
+<%--
+HashMap<String, Object> resultMap = eventDao.entryList(begin, end);
+List<ig_event> eventlist = (List<ig_event>) resultMap.get("eventlist");
+List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry");
+--%>
 <%
-List<ig_event> list = eventDao.eventList(begin, end);
+	List<ig_evententry> list = eventDao.eventEntryList(begin, end);
 %>
 <!DOCTYPE html>
 <html>
@@ -53,25 +60,26 @@ List<ig_event> list = eventDao.eventList(begin, end);
 							<th>이벤트명</th>
 							<th>응모 기간</th>
 							<th>발표일</th>
-							<th>응모날짜</th>
+							<th>응모한 날짜</th>
 						</tr>
 					</thead>
 					<tbody>
 					<%
-						Iterator<ig_event> it = list.iterator();
-						int cnt = 0;
-						while(it.hasNext()){
-							cnt++;
-							ig_event event = it.next();				
+					Iterator<ig_evententry> it = list.iterator();
+					int cnt = 0;
+					int no = list.size();
+					while(it.hasNext()){
+						cnt ++;
+						ig_evententry evententry = it.next();
+						int eb_num = evententry.getEb_num();
+						ig_event event = eventDao.eventSelectOne(eb_num);
 					%>
 					<tr>
-						<td><%=totalRows %></td>
-						<td>
-							<a href="/academy_ignis/EventView?login=admin&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
-						</td>
+						<td><%= evententry.getM_name() %></td>
+						<td><%= event.getEb_title()%></td>
 						<td><%= event.getEb_period() %></td>
-						<td><%= event.getEb_regdate() %></td>
-						<td><%= event.getEb_readcount() %></td>
+						<td><%= event.getEb_announceday() %></td>
+						<td><%= evententry.getEb_entrydate()%></td>
 					</tr>
 					<%
 						totalRows--;

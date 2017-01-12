@@ -78,7 +78,7 @@
 							<div class="form-group">
 					            <div class="col-md-offset-2 col-md-10">
 					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member&pageNo=<%=pageNo %>'">목록</button>
-									<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry?num=<%= view.getEb_num()%>'">응모하기</button>								
+									<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry?num=<%= view.getEb_num()%>&id=<%= id %>'">응모하기</button>								
 					            </div>
 					        </div>
 						</td>
