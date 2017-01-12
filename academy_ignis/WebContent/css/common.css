@@ -135,7 +135,6 @@ div.wrapper {
 	max-width : 970px; 
 	margin : 0 auto;
 	padding : 0;
-	overflow : hidden;	
 }
 div.container { max-width : 970px!Important; margin-bottom : 50px; }
 
