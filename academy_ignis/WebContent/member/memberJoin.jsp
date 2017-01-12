@@ -23,7 +23,7 @@
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div class="container">
-    <h1 class="col-lg-8 well">회원 가입</h1>
+    <h2 class="col-lg-8 well text-center">Ignis치과 회원가입</h2>
 	<div class="col-lg-8 well">
 		<div class="row">
 			<div class="wrapper">

@@ -45,7 +45,6 @@
 		<div class="container-fluid">
 			<div class="row content">
 				<div class="col-sm-9">
-					<h3>회원 탈퇴</h3>
 				<form id="outForm" class="form-horizontal" method="post" action="/academy_ignis/memDelProcess">
 					<fieldset>
 						<!-- Form Name -->

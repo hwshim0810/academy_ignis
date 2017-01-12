@@ -44,7 +44,7 @@
 				<div class="panel-body" id="panel-body">
 				<div id="tableArea">
 					<div>
-					<table class="table table-responsive">
+					<table class="table table-responsive table-hover">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
 							<tr><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>

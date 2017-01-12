@@ -47,6 +47,7 @@ body { font-size: 20px;}
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="/academy_ignis/css/common.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
@@ -80,6 +81,7 @@ body { font-size: 20px;}
 </head>
 <body>
 <% pageContext.include("../header/header.jsp"); %>
+<div class="wrapper">
 	<div class="container">
 	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
 		<div class="container-fluid">
@@ -155,6 +157,7 @@ body { font-size: 20px;}
 		<%@include file="../footer/footer.jsp" %>
 		
 	</div>
+</div>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
 

@@ -108,7 +108,7 @@
 	  		<div class="col-xs-12 col-sm-9 col-md-10">
 	  			<div class="panel panel-default">
 					<div class="panel-heading">
-						<h3 id="memTitle">예약 관리 리스트</h3>
+						<h3 id="memTitle">나의 예약현황</h3>
 					</div>
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>

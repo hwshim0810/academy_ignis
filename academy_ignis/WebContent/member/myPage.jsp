@@ -21,7 +21,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/daterangepicker.css">
-<link rel="stylesheet" href="/academy_ignis/css/common.css">
+<link rel="stylesheet" href="/academy_ignis/css/common.css?v=1">
 <title>Ignis치과</title>
 </head>
 <body>
@@ -32,7 +32,7 @@
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div class="wrapper">
-	<div class="container">
+	<div class="container godo normal w400">
 		<%
 			pageContext.include("../ignisCompany_info/leftList2.jsp"); 
 		%>
