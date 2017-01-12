@@ -89,10 +89,12 @@
 			});
 		});
 	</script>
-	
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
-	<link rel="stylesheet" href="/academy_ignis/css/common.css">
+<link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="/academy_ignis/css/common.css">
+<link rel="stylesheet" href="/academy_ignis/css/index.css">
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 </head>
 <body>
 <div id="reservContent">
@@ -114,10 +116,9 @@
 						<caption class="sr-only">회원명단</caption>
 						<thead>
 							<tr><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
-							<th>진료 시간</th><th>예약 신청일</th><th>예약 삭제</th></tr>
+							<th>진료 시간</th><th>예약 신청일</th><th>삭제</th></tr>
 						</thead>
 						<tbody>
-						
 						<%
 							if (reservList != null) {
 								for (int i = 0; i < reservList.size(); i++) {
