@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<nav class="navbar navbar-default navbar-fixed-top">
+	<nav class="navbar navbar-default navbar-static-top">
 		<div class="wrapper">
 			<div class="container-fluid">
 				<div class="navbar-header">
@@ -66,22 +66,4 @@
 			</div>
 		</div>
 	</nav>
-	<%-- nav 영역 맞추기 --%>
-	<div class="divNav">
-		<nav class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse myNavbar">
-					<ul class="nav navbar-nav navbar-right nav-pills">
-						<li><a href="#">　</a></li>
-					</ul>
-				</div>
-			</div>
-			<div class="collapse navbar-collapse myNavbar">
-				<ul class="nav navbar-nav navbar-left">
-					<li><a href="#">　</a></li>  
-				</ul>
-			</div>
-		</nav>
-	</div>
-	<%-- nav 영역 맞추기 --%>
 </header>
