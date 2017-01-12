@@ -33,4 +33,11 @@
 		update ig_event set eb_readcount = eb_readcount + 1
 		where eb_num = #{eb_num}
 	</update>
+	
+	<select id="eventEntryList" resultType="ignis.bean.ig_event">
+		select eb_num, m_name, eb_entrydate
+		from (select rownum rnum, eb_num, m_name, eb_entrydate
+			from(select eb_num, m_name, eb_entrydate from ig_evententry
+				order by eb_entrydate desc )) where rnum between #{begin} and #{end}
+	</select>
 </mapper>

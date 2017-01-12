@@ -49,11 +49,11 @@ List<ig_event> list = eventDao.eventList(begin, end);
 					<caption>응모 이벤트 게시판</caption>
 					<thead>
 						<tr>
-							<th>No</th>
-							<th>제목</th>
-							<th>기 간</th>
-							<th>응모 가능 인원</th>
-							<th>조회수</th>
+							<th>회원ID</th>
+							<th>이벤트명</th>
+							<th>응모 기간</th>
+							<th>발표일</th>
+							<th>응모날짜</th>
 						</tr>
 					</thead>
 					<tbody>
