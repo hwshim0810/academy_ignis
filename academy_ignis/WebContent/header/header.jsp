@@ -17,7 +17,7 @@
 						<!-- 아이디 부여해놓은 부분은 나중에 세션에서 검색해서 .html()로 로그아웃/내정보로 변경 -->
 						<li id="login"><a href="/academy_ignis/login">Login</a></li>
 						<li id="mypage" class="dropdown"><a href="/academy_ignis/memberJoin?page=home">MemberJoin</a></li>
-						<li><a href="#">SiteMap</a></li>
+						<li><a href="/academy_ignis/siteMap.jsp">SiteMap</a></li>
 					</ul>
 				</div>
 			</div>
