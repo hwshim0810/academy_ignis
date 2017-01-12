@@ -4,18 +4,14 @@ import java.io.PrintWriter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import ignis.biz.EventEntryBiz;
-import ignis.biz.LoginBiz;
 
 public class EventEntryAction implements ActionInterface {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		EventEntryBiz entryBiz = new EventEntryBiz();
-		ActionForward forward = new ActionForward();
-		
 
 		int memberChk = entryBiz.isMember(request, response);
 		

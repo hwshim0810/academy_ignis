@@ -1,9 +1,10 @@
 $(function() {
-    $("input[name=searchContent]").keydown(function(key) {
+    $("input[name=searchContent]").keypress(function(key) {
     	 
         if (key.keyCode == 13) {
-	           $("#searchBtn").click();
-	        }
+        	key.preventDefault();
+	        $("#searchBtn").click();
+	    }
 	});
 	
 	$("#searchBtn").click(function(event) {

@@ -37,9 +37,9 @@ List<ig_event> list = eventDao.eventList(begin, end);
 	pageContext.include("./manage_sideNav.jsp");
 %>
   	<div class="col-md-10 content">
- 			  <div class="panel panel-default">
+ 		<div class="panel panel-default">
 			<div class="panel-heading">
-				EVENT
+				응모 이벤트 관리
 			</div>
 			<div class="panel-body">
 				<%

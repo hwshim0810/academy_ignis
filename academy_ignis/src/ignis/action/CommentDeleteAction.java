@@ -13,7 +13,6 @@ public class CommentDeleteAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		ReviewBiz reviewBiz = new ReviewBiz();
-		ActionForward forward = new ActionForward();
 		
 		String login = request.getParameter("login");
 		String pageNo = "1";
