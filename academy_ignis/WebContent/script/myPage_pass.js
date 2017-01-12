@@ -2,6 +2,26 @@ function passChk(){
 	var pass = $('#m_pass').val().trim();
 	var passchk = $('#m_passchk').val().trim();
 	
+	var _plength = pass.lenth;
+	var _pclength = passchk.length;
+	
+	if (_plength < 7 || _pclength < 7) {
+		$.alert({
+			buttons: {
+				tryAgain: {
+		            text: '돌아가기',
+		            btnClass: 'btn-red',
+		            action: function(){
+		            }
+				}
+			},
+			title: '비밀번호',
+		    type: 'red',
+		    content: '비밀번호는 7~12글자로 해주세요.'
+		});
+		return false;
+	}
+	
 	if (pass == passchk) {
 		$('#passForm').submit();
 	} else {
@@ -25,6 +45,10 @@ function passChk(){
 }
 
 $(function() {
+	$("#passSubmit").click(function() {
+		passChk();
+	});
+	
 	
 	$("#m_passchk").keyup(function() {
 		var m_pass = $("#m_pass").val();

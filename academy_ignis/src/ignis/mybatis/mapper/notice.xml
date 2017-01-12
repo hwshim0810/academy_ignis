@@ -9,7 +9,7 @@
 	<select id="selectAll"  parameterType="java.util.HashMap"  resultType="ignis.bean.ig_notice">
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
-		SELECT * FROM IG_notice order by nb_regdate desc))
+		SELECT * FROM IG_notice order by nb_num desc))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	
@@ -17,7 +17,7 @@
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_notice where nb_title like '%'||#{searchContent1}||'%' or nb_content like '%'||#{searchContent2}||'%'
-		order by nb_regdate desc ))
+		order by nb_num desc ))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	
@@ -29,7 +29,7 @@
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_notice where nb_title like '%'||#{searchContent}||'%'
-		order by nb_regdate desc))
+		order by nb_num desc))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	<select id="searchTitleCount"  resultType="int">
@@ -40,7 +40,7 @@
 	select nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 	select ROWNUM  as nb_rnum,nb_num,nb_title,nb_content,nb_readcount,nb_regdate from(
 		SELECT * FROM IG_notice where nb_content like '%'||#{searchContent}||'%'
-		order by nb_regdate desc))
+		order by nb_num desc))
 		where nb_rnum between #{startRowNum}  and  #{endRowNum}		
 	</select>
 	<select id="searchContentCount"  resultType="int">

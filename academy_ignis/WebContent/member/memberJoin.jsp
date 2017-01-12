@@ -23,8 +23,8 @@
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div class="container">
-    <h2 class="col-lg-8 well text-center">Ignis치과 회원가입</h2>
-	<div class="col-lg-8 well">
+    <h2 class="col-lg-10 well text-center">Ignis치과 회원가입</h2>
+	<div class="col-lg-10 well">
 		<div class="row">
 			<div class="wrapper">
 				<form id="joinForm" class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=home">
@@ -104,11 +104,11 @@
 						
 						<div class="form-group">
 							<div class="col-md-4">
-								<div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
-								<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
-								</div>
 							</div>
 							<div class="col-md-6">
+								<div id="wrap" style="display:none;border:1px solid;width:330px;height:300px;margin:5px 0;position:relative">
+								<img src="//i1.daumcdn.net/localimg/localimages/07/postcode/320/close.png" id="btnFoldWrap" style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+								</div>
 								<input type="text" id="m_addr" name="m_addr" placeholder="주소" class="form-control input-md">
 							</div>
 						</div>

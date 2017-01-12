@@ -1,16 +1,10 @@
 package ignis.dao;
 
-import java.io.IOException;
-import java.io.Reader;
 import java.util.HashMap;
 import java.util.List;
 
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import ignis.bean.User;
 import ignis.bean.ig_event;
 import ignis.mybatis.service.FactoryService;
 
@@ -22,12 +16,15 @@ public class EventDAO {
 	}
 	
 	// 이벤트 추가
-	public static boolean insertEvent(String eb_title, String eb_content){
+	public boolean insertEvent(String eb_title, String eb_content, int eb_winner, String eb_period, String eb_announceday){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
-		HashMap<String, String> map = new HashMap<String, String>();
+		HashMap<String, Object> map = new HashMap<>();
 		
 		map.put("eb_title", eb_title);
 		map.put("eb_content", eb_content);
+		map.put("eb_winner", eb_winner);
+		map.put("eb_period", eb_period);
+		map.put("eb_announceday", eb_announceday);
 		
 		int cnt = ss.insert("event.insertEvent", map);
 		
@@ -57,13 +54,16 @@ public class EventDAO {
 	}
 
 	// 이벤트 수정
-	public boolean updateEvent(int eb_num, String eb_title, String eb_content){
+	public boolean updateEvent(int eb_num, String eb_title, String eb_content, int eb_winner, String eb_period, String eb_announceday){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 		System.out.println(eb_num+" ////DAO//");
 		map.put("eb_num", eb_num);
 		map.put("eb_title", eb_title);
 		map.put("eb_content", eb_content);
+		map.put("eb_winner", eb_winner);
+		map.put("eb_period", eb_period);
+		map.put("eb_announceday", eb_announceday);
 		
 		int result = ss.update("event.updateEvent", map);
 		

@@ -20,13 +20,12 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/common.css">
   <script>
-  function searchAll(){
+  function Act(){
 	  
-	  var searchOption=$("#searchOption").val();
-	  var searchContent=$("#searchContent").val();
-	  if(searchContent==""){alert("값을 입력!!!") ;return;}
-	  //alert(searchContent);	
-	  var xhttp;
+	  var searchOption=document.getElementById("searchOption").value;
+	  var searchContent=document.getElementById("searchContent").value;
+	  var a={"searchOption":searchOption,"searchContent":searchContent};
+	var xhttp;
 			xhttp = new XMLHttpRequest();
 		//응답을 받아왔을때 처리할 형식 정의
 		xhttp.onreadystatechange=function(){
@@ -40,7 +39,8 @@
 		};
 		//open send 함수 설정
 		//get방식으로 요청 데이터를 받을 페이지 true는 비동기통신을 지정
-		xhttp.open("GET","searchList?searchOption="+searchOption+"&searchContent="+searchContent,true);
+		xhttp.open("GET","/academy_ignis/test.jsp?searchOption="+searchOption+"&searchContent="+
+				searchContent,true);
 		xhttp.send();
   }
   </script>
@@ -56,8 +56,10 @@
 	<div class="container">
 		<%pageContext.include("leftList.jsp"); %>
 		<div class="col-xs-12 col-sm-9 col-md-10">
+		<div id="demo">
 			<%pageContext.include("contentList.jsp"); %>
-			<form class="form-inline"  action="notice" method="get">
+					</div>
+			<form name="search" class="form-inline"  action="notice" method="get">
 				<label for="sel1">검색 범위</label>
 				<select class="form-control" id="searchOption" name="searchOption">
 					<option value="nb_all">전체</option>
@@ -69,6 +71,7 @@
 					<input type="text" class="form-control" id="searchContent" name="searchContent" required="required">
 				</div>
 				<input type="submit" class="btn btn-default"  value="검색" />
+				<input type="button" class="btn btn-default"  onclick="Act()" value="테스트" />
 			</form>
 		</div>
 	</div>

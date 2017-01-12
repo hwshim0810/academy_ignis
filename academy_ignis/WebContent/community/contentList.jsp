@@ -27,10 +27,33 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+  <script>
+  function Act(){
+	  
+	  var searchOption=document.getElementById("searchOption").value;
+	  var searchContent=document.getElementById("searchContent").value;
+	  var a={"searchOption":searchOption,"searchContent":searchContent};
+	var xhttp;
+			xhttp = new XMLHttpRequest();
+		//응답을 받아왔을때 처리할 형식 정의
+		xhttp.onreadystatechange=function(){
+			//onreadystatechange속성이 변경될때마다
+			if(xhttp.readyState == 4&&xhttp.status==200){
+				//readystate=4는 응답완료상태
+				//status=200은 정상적으로 페이지 호출 성공
+				//alert(xhttp.responseText);
+				document.getElementById("demo").innerHTML=xhttp.responseText;
+			}
+		};
+		//open send 함수 설정
+		//get방식으로 요청 데이터를 받을 페이지 true는 비동기통신을 지정
+		xhttp.open("GET","/academy_ignis/test.jsp?searchOption="+searchOption+"&searchContent="+
+				searchContent,true);
+		xhttp.send();
+  }
+  </script>
 </head>
 <body>
-
  <h3>공지사항</h3><hr>
  <table class="table table-responsive">
     <thead>
