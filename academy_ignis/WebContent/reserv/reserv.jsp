@@ -41,17 +41,20 @@ body { font-size: 20px;}
  .row_second {margin : 60px 0;}
 .select1 { width : 30%; height : 40px; padding : 5px; }
 .select11 { width : 60%; height : 80px; margin : 10px 0; padding : 5px; }
-#datepicker {font-size : 16px; width : 30%; margin:5px 0; padding : 5px;}
+#datepicker {font-size : 16px; margin:5px 0; padding : 5px;}
 
 </style>
-
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/resources/demos/style.css">
 <link rel="stylesheet" href="/academy_ignis/css/common.css">
+
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+
 <script>
   $( function() {
     $( "#datepicker" ).datepicker({
@@ -70,86 +73,93 @@ body { font-size: 20px;}
 </head>
 <body>
 <% pageContext.include("../header/header.jsp"); %>
-<div class="wrapper">
-	<div class="container">
-	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
-		<div class="container-fluid">
-			<div class="row content">
-				<div class="col-sm-3"></div>
-				<div class="col-sm-9">
-					<h3 class="well">상담 및 예약</h3>
-						<div class="col-lg-12 well">
-							<div class="row reservForm">
-								<form name="joinform" action="./reservProcess" method="post">
-									<div class="col-sm-12">
-										<div class="row">
-											<div class="col-sm-3 form-group">
-												<label>진료 항목 </label>
-											</div>
-											<div class="col-sm-3 form-group" >
-												<select class="form-control input-lg" id="y" onchange="changeDate();" name="r_guide">
+	<div class="wrapper">
+		<div class="container">
+			<%
+				pageContext.include("../ignisCompany_info/leftList2.jsp");
+			%>
+			<div class="col-xs-12 col-sm-9 col-md-10">
+				<div class="panel panel-default">
+				
+					<div class="panel-heading form-group">
+						<h3 id="memTitle">상담 및 예약</h3>
+					</div>
+
+					<div class="panel-end">
+						<div class="row reservForm">
+							<form name="joinform" action="./reservProcess" method="post">
+								<div class="col-sm-12">
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											<label>&nbsp;&nbsp;진료 항목 </label>
+										</div>
+										<div class="col-sm-6 form-group">
+											<select class="form-control input-lg" id="y"
+												onchange="changeDate();" name="r_guide">
 												<option value="치아교정">치아교정</option>
 												<option value="임플란트">임플란트</option>
 												<option value="치아미백">치아미백</option>
 												<option value="일반진료">일반진료</option>
-												</select> 
-											</div>
+											</select>
 										</div>
-										
-										<div class="row">
+									</div>
+									<div class="row">
+										<div class="col-sm-3 form-group">
+											<label>&nbsp;&nbsp;예약날짜 선택</label>
+										</div>
+										<div class="col-xs-12 col-sm-6 form-group">
+											<input type="text" class="form-control input-lg col-xs-12"
+												id="datepicker" name="r_day" required="required" >
+										</div>
+									</div>
+									<div class="row">
+										<div class="row_second">
 											<div class="col-sm-3 form-group">
-												<label>예약날짜 선택</label>
+												<label>&nbsp;&nbsp;예약시간 선택</label>
 											</div>
-											<div class="col-sm-9 form-group">
-												<p><input type="text" class="form-control input-lg" id="datepicker" name="r_day" required = "required"/></p>	
-											</div>
-										</div>
-										<div class="row">
-											<div class = "row_second">
-												<div class="col-sm-3 form-group">
-													<label>예약시간 선택</label>
-												</div>	
-												<div class="col-sm-4">
-													<select class="form-control  input-lg" name="r_time" onchange="changeTime(this.value);" multiple = "multiple">
-														<option value = "09:00" selected>09:00&nbsp;&nbsp;</option> 
-														<option value = "09:30">09:30&nbsp;&nbsp;</option>
-														<option value = "10:00">10:00&nbsp;&nbsp;</option>
-														<option value = "10:30">10:30&nbsp;&nbsp;</option>
-														<option value = "11:00">11:00&nbsp;&nbsp;</option>
-														<option value = "11:30">11:30&nbsp;&nbsp;</option>
-														<option value = "12:00">12:00&nbsp;&nbsp;</option>
-														<option value = "14:00">14:00&nbsp;&nbsp;</option>
-														<option value = "14:30">14:30&nbsp;&nbsp;</option>
-														<option value = "15:00">15:00&nbsp;&nbsp;</option>
-														<option value = "15:30">15:30&nbsp;&nbsp;</option>
-														<option value = "16:00">16:00&nbsp;&nbsp;</option>
-														<option value = "16:30">16:30&nbsp;&nbsp;</option>
-														<option value = "17:00">17:00&nbsp;&nbsp;</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<div class="row" style="text-align : center; margin-top : 3%;">
-											<div class="col-sm-12 form-group">
-												<input type="text" name="m_id" value="<%=id %>" hidden="hidden">
-												<input type="submit" class="btn btn-lg btn-info" value="예약하기">
-												<a href="javascript:history.go(-1)"><button type="button" class="btn btn-lg btn-info">뒤로 가기</button></a>
+											<div class="col-sm-6 form-group">
+												<select class="form-control  input-lg" name="r_time"
+													onchange="changeTime(this.value);" multiple="multiple">
+													<option value="09:00" selected>09:00&nbsp;&nbsp;</option>
+													<option value="09:30">09:30&nbsp;&nbsp;</option>
+													<option value="10:00">10:00&nbsp;&nbsp;</option>
+													<option value="10:30">10:30&nbsp;&nbsp;</option>
+													<option value="11:00">11:00&nbsp;&nbsp;</option>
+													<option value="11:30">11:30&nbsp;&nbsp;</option>
+													<option value="12:00">12:00&nbsp;&nbsp;</option>
+													<option value="14:00">14:00&nbsp;&nbsp;</option>
+													<option value="14:30">14:30&nbsp;&nbsp;</option>
+													<option value="15:00">15:00&nbsp;&nbsp;</option>
+													<option value="15:30">15:30&nbsp;&nbsp;</option>
+													<option value="16:00">16:00&nbsp;&nbsp;</option>
+													<option value="16:30">16:30&nbsp;&nbsp;</option>
+													<option value="17:00">17:00&nbsp;&nbsp;</option>
+												</select>
 											</div>
 										</div>
 									</div>
-								</form>
-							</div>
+									<div class="row" style="text-align: center; margin-top: 3%;">
+										<div class="col-sm-12 form-group">
+											<input type="text" name="m_id" value="<%=id%>"
+												hidden="hidden"> <input type="submit"
+												class="btn btn-lg btn-info" value="예약하기"> <a
+												href="javascript:history.go(-1)"><button type="button"
+													class="btn btn-lg btn-info">뒤로 가기</button></a>
+										</div>
+									</div>
+								</div>
+							</form>
 						</div>
+					</div>
+					
 				</div>
 			</div>
 		</div>
-		<%@include file="../footer/footer.jsp" %>
-		
 	</div>
-</div>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+	<%@include file="../footer/footer.jsp" %>
+<script src="/academy_ignis/script/ad_Manage.js"></script>
 
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
 <%
 	if (id != null) {

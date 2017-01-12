@@ -89,12 +89,11 @@
 			});
 		});
 	</script>
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <link rel="stylesheet" href="/academy_ignis/css/common.css">
-<link rel="stylesheet" href="/academy_ignis/css/index.css">
-<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
 <div id="reservContent">
@@ -115,7 +114,7 @@
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>삭제</th></tr>
 						</thead>
 						<tbody>
@@ -143,7 +142,7 @@
 					<div class="panel-end">
 						<form class="form-inline" action="reservDetail">
 						  <div class="form-group">
-						  	<label for="sel1">검색 범위</label>
+						  	<label for="sel1">&nbsp;&nbsp;검색 범위</label>
 						  <select class="form-control" id="sel1" name="reservType">
 						    <option>전체</option>
 						    <option value="t_guide">진료 항목</option>
@@ -170,6 +169,9 @@
 						  <li><a href="/academy_ignis/reservDetail?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 						</ul>
 					</div>
+					
+					
+					
 				</div>
 	  		</div>
 		</div>

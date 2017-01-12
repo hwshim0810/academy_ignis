@@ -17,13 +17,13 @@ public class ReservDAO {
 	
 	
 
-	public int deleteAdminMem(String reservDel) {
+	public boolean deleteAdminMem(String reservDel) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		
 		int result = ss.delete("reserv.deleteReserv", reservDel);
 		ss.close();
 		
-		return (result > 0) ? 1 : 0;
+		return (result > 0) ? true : false;
 	}
 	public boolean deleteMem(String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);

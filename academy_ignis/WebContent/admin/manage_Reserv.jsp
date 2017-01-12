@@ -146,7 +146,7 @@
 					  </div>
 					  <div class="form-group">
 					    <label class="sr-only" for="search">검색 내용:</label>
-					    <input type="text" class="form-control" id="searchContent" name =" "searchContent"">
+					    <input type="text" class="form-control" id="searchContent" name ="searchContent">
 					  </div>
 					  <button type="button" class="btn btn-default"  id="reservSubmit">검색</button>
 					

@@ -27,23 +27,30 @@
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 
 <script>
-	$(function() {
-		$('#reservSubmit').click(function () {
-			
-			$.ajax({
-				type : "post",
-	 			url : "./reserv/welcome.jsp",
-			  	data : {reservSearch : $('#reservSearch').val().trim()},
-				success : function(data) { $('#reservContent').html(data); },
-				error : function error(){alert("error"); }
-			});
-			return false;
-		});
+function confirmReservDelete() {
+	$.confirm({
+		theme: 'light',
+		title: '예약취소',
+	    content: '예약을 취소하시겠습니까?',
+	    buttons: {
+	    	네: {
+	            text: '네',
+	            btnClass: 'btn-primary',
+	            keys: ['enter'],
+	            action: function(){
+	            	location.href='/academy_ignis/reservAdminDelete?getR_num=<%=reserv_num%>';
+	            }
+	        },
+	        아니요: function () {
+	        }
+	    }
 	});
+}
 </script>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+<link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 </head>
 <body>
 
@@ -54,7 +61,7 @@
   		<div class="col-md-10 content" >
   			  <div class="panel panel-default">
 				<div class="panel-heading">
-					<h2 id="memTitle">예약 관리 리스트</h2>
+					<h2 id="memTitle">예약 상세 보기</h2>
 				</div>
 				<table class="table">
 					<caption class="sr-only">회원명단</caption>
@@ -85,7 +92,7 @@
 				<input type="text" hidden="hidden" id="reservNum" value=<%=reserv_num %>>
 				<div class="panel-end">
 					<button type="button" class="btn btn-default add"  id="reservUpdate" ><strong>예약 수정</strong></button>
-					<button type="button" class="btn btn-default add reservDel"  id="reservDelete" ><strong>예약 삭제</strong></button>
+					<button type="button" class="btn btn-default add reservDel" onclick="confirmReservDelete()"><strong>예약 취소</strong></button>
 					<a href="javascript:history.go(-1)"><button type="button" class="btn btn-default add"><strong>뒤로 가기</strong></button></a></div>
 			</div>
 </div>
@@ -96,6 +103,7 @@
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
  <script src="/academy_ignis/script/reserv_Delete.js?v=1"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
  
  
  

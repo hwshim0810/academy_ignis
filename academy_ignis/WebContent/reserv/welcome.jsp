@@ -12,6 +12,14 @@
 	else
 		response.sendRedirect("./member/login.jsp");
 %>
+<% 
+	ReservDAO reservDao = ReservDAO.getInstance();
+	 String reservSearchSecond = request.getParameter("reservSearch");
+	 int totalRows = reservDao.getReservedListcount(reservSearchSecond, id); %>
+<% ReservDAO reservDAO = new ReservDAO(); %>
+<%@include file="../paging/getPageNum.jsp" %>
+<% List<ig_reserv> reservList = reservDAO.getSearchReserv(id, reservSearchSecond, begin, end); %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +42,9 @@
 	});
 </script>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
 <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/common.css">
 </head>
 <body>
@@ -44,25 +52,18 @@
 <div id="reservContent">
 <% pageContext.include("../header/header.jsp"); %>
 
-<% 
-	ReservDAO reservDao = ReservDAO.getInstance();
-	 String reservSearchSecond = request.getParameter("reservSearch");
-	 int totalRows = reservDao.getReservedListcount(reservSearchSecond, id); %>
-<% ReservDAO reservDAO = new ReservDAO(); %>
-<%@include file="../paging/getPageNum.jsp" %>
-<% List<ig_reserv> reservList = reservDAO.getSearchReserv(id, reservSearchSecond, begin, end); %>
 	<div class="wrapper">
 	 <div class="container">
 		<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
   		<div class="col-xs-12 col-sm-9 col-md-10">
   			  <div class="panel panel-default">
-					<div class="panel-heading">
-						<h3 id="memTitle">예약 관리 리스트</h3>
+					<div class="panel-heading ">
+						<h3 id="memTitle">나의 예약현황</h3>
 					</div>
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info"><th>예약번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>삭제</th></tr>
 						</thead>
 						<tbody>
@@ -124,8 +125,8 @@
 	<% pageContext.include("../footer/footer.jsp"); %>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/academy_ignis/script/ad_Manage.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
  <script src="/academy_ignis/script/reserv_Delete.js?v=1"></script>
