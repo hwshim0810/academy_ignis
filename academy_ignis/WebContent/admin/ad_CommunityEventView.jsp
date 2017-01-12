@@ -48,43 +48,35 @@
 					EVENT
 				</div>
 				<div class="panel-body">
-					<table class="table">
+					<table class="table table-bordered">
 					<%
 								
 						%>
 						<tbody>
 							<tr>
-								<th>글번호</th>
-								<td>
-									<div class="form-group">
-										<%= view.getEb_num() %>
-									</div>
-								</td>
-							</tr>
-							<tr>
-								<th>글쓴이</th>
-								<td>
-									<div class="form-group">이그니스 치과</div>
-								</td>
-							</tr>
-							<tr>
 								<th>제목</th>
 								<td>
-									<div class="form-group">
 										<%= view.getEb_title() %>
-									</div>
 								</td>
+								<th>글쓴이</th>
+								<td>
+									이그니스 치과
+								</td>
+								<th>당첨자 수</th>
+								<td><%= view.getEb_winner() %></td>
+							</tr>
+							<tr>
+								<th>이벤트 기간</th>
+								<td colspan="3"><%= view.getEb_period() %></td>
+								<th>발표 날짜</th>
+								<td><%= view.getEb_announceday() %></td>
 							</tr>
 							<tr>
 								<th>이벤트 내용</th>
-								<td>
-									<div class="form-group">
-										<%= view.getEb_content() %>
-									</div>
-								</td>
+								<td colspan="5" style="min-height : 100px;"><%= view.getEb_content() %></td>
 							</tr>
 							<tr>
-								<td colspan="2" style="text-align : center;">
+								<td colspan="6" style="text-align : center;">
 									<div class="form-group">
 							            <div class="col-md-offset-2 col-md-10">
 							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=admin&pageNo=<%=pageNo %>'">목록</button>

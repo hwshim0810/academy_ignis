@@ -16,8 +16,11 @@ public class EventBiz {
 		//int eb_num = Integer.parseInt(request.getParameter("eb_num"));
 		String eb_title = request.getParameter("eb_title");
 		String eb_content = request.getParameter("eb_content");
+		int eb_winner = Integer.parseInt(request.getParameter("eb_winner"));
+		String eb_period = request.getParameter("eb_period");
+		String eb_announceday = request.getParameter("eb_announceday");
 		 
-		boolean result = eventDao.insertEvent(eb_title, eb_content);
+		boolean result = eventDao.insertEvent(eb_title, eb_content, eb_winner, eb_period, eb_announceday);
 		
 		if (result) return result;
 		else return result;
@@ -28,8 +31,11 @@ public class EventBiz {
 		int eb_num = Integer.parseInt(request.getParameter("num"));
 		String eb_title = request.getParameter("eb_title");
 		String eb_content = request.getParameter("eb_content");
+		int eb_winner = Integer.parseInt(request.getParameter("eb_winner"));
+		String eb_period = request.getParameter("eb_period");
+		String eb_announceday = request.getParameter("eb_announceday");
 		
-		boolean result = eventDao.updateEvent(eb_num, eb_title, eb_content);
+		boolean result = eventDao.updateEvent(eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday );
 		
 		return result;
 		
