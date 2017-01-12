@@ -491,13 +491,9 @@ public class FrontController extends HttpServlet {
 			break;
 			
 		case "/EventEntryList":
-			action = new EventEntryListAction();
-			System.out.println("EventEntryListAction_FrontController");
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityEventEntry.jsp");
 			break;
 			
 		case "/Review" :
