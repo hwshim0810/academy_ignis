@@ -20,7 +20,7 @@ public class MemberLoginAction implements ActionInterface {
 		ActionForward forward = new ActionForward();
 		
 		int userLevel = loginBiz.isMember(request, response);
-		
+
 		HttpSession session = request.getSession();
 		String page = request.getParameter("page");
 

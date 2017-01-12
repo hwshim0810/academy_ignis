@@ -12,7 +12,7 @@ $(function() {
 		
 		if (pass == passchk && _plength >= 7 && _pclength >= 7) {
 			$('#joinForm').submit();
-		} else if (pass != passchk){
+		} else if (pass != passchk) {
 			$.alert({
 				buttons: {
 					tryAgain: {

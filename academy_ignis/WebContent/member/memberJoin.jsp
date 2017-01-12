@@ -157,7 +157,7 @@
 						  <label class="col-xs-4 control-label"></label>
 						  <div class="col-xs-8">
 						  	<br><br>
-						    <input id="joinBtn" name="singlebutton" class="btn btn-success" value="회원가입">
+						    <button id="joinBtn" name="singlebutton" class="btn btn-success">회원가입</button>
 						  </div>
 						</div>
 						

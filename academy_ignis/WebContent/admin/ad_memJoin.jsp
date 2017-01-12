@@ -34,7 +34,7 @@
 					<h2 id="memTitle">회원 추가</h2>
 				</div>
 				<div class="panel-body">
-					<form class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=admin">
+					<form class="form-horizontal" method="post" action="/academy_ignis/joinProcess?page=admin" id="joinForm">
 						<fieldset>
 							<!-- Form Name -->
 							<legend class="sr-only">회원추가</legend>
@@ -146,23 +146,22 @@
 							  </div>
 							</div>
 							
-							<!-- Select Basic -->
-							<!-- <div class="form-group">
-							  <label class="col-md-4 control-label" for="selectbasic">gender</label>
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="m_level">회원레벨</label>
 							  <div class="col-md-4">
-							    <select id="selectbasic" name="selectbasic" class="form-control">
-							      <option value="1">Male</option>
-							      <option value="2">Female</option>
+							    <select id="m_level" name="m_level" class="form-control">
+							      	<option value="2" selected="selected">회원</option>
+							      	<option value="3">관리자</option>
 							    </select>
 							  </div>
-							</div> -->
+							</div>							
 							
 							<!-- Button -->
 							<div class="form-group">
 							  <label class="col-xs-4 control-label"></label>
 							  <div class="col-xs-8">
 							  	<br><br>
-							    <input id="joinBtn" name="singlebutton" class="btn btn-success" value="회원가입">
+							    <button id="joinBtn" class="btn btn-success">회원가입</button>
 							  </div>
 							</div>
 							
