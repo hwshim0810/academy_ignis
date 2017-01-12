@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="ignis.dao.*" %>
+<%@ page import="ignis.bean.*" %>
+<%@ page import="java.util.*" %>   
 <%
 	String id = null;
 
 	if (session.getAttribute("m_id") != null) 
 		id = (String) session.getAttribute("m_id");
+	NoticeDAO noticeDao=new NoticeDAO();
+	List<ig_notice> noticeList=noticeDao.lastFiveNotice();
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -67,8 +72,19 @@
 	  <div class="row">
 	  	<div class="col-sm-6">
 	      <div class="well">
-	      	<p>공지사항</p>
+	      <div class="container-fluid">
+	      	<h5>공지사항</h5>
+	      	<table class="table table-responsive">
+	      	<% 
+	      	for(int i=0;i<noticeList.size();i++){
+	      	%>
+	      	<tr><td><a href="noticeDetail?nb_num=<%=noticeList.get(i).getNb_num()%>"><%=noticeList.get(i).getNb_title() %></a></td>
+	      	</tr>
+	      	<%} %>
+	      	</table>
+	      	</div>
 	      </div>
+	      
 	      <div class="well">
 	       <p>이벤트</p>
 	      </div>

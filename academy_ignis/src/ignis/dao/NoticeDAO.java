@@ -94,6 +94,13 @@ public class NoticeDAO {
 		ss.close();			
 		return list;
 	}
+	
+	public List<ig_notice> lastFiveNotice() {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		List<ig_notice> list = ss.selectList("notice.lastFiveNotice");
+		ss.close();			
+		return list;
+	}
 
 
 	public int updateCount(int nb_num) {
@@ -125,8 +132,5 @@ public class NoticeDAO {
 		if(result>0){return true;}
 		return false;
 	}
-
-
-
 
 }
