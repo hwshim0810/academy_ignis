@@ -2,16 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*"%>
-<%
-	request.setCharacterEncoding("utf-8");
-	String id= null;
-	if (session.getAttribute("m_id") != null) 
-		id = (String) session.getAttribute("m_id");
-	else
-		response.sendRedirect("./member/login.jsp");
-	System.out.println("id는 " +id);
 
-%>
 
 
 <!DOCTYPE html>
@@ -55,7 +46,21 @@ body { font-size: 20px;}
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<%
+	request.setCharacterEncoding("utf-8");
+	String id= null;
+	if (session.getAttribute("m_id") != null) 
+		id = (String) session.getAttribute("m_id");
+	else{ %>
+	<script>
+		alert("로그인 후 이용해주시기 바랍니다.");
+	</script>
+	<%
+		response.sendRedirect("./member/login.jsp");
+	}
+	System.out.println("id는 " +id);
 
+%>
 <script>
   $( function() {
     $( "#datepicker" ).datepicker({
@@ -143,9 +148,9 @@ body { font-size: 20px;}
 										<div class="col-sm-12 form-group">
 											<input type="text" name="m_id" value="<%=id%>"
 												hidden="hidden"> <input type="submit"
-												class="btn btn-lg btn-info" value="예약하기"> <a
-												href="javascript:history.go(-1)"><button type="button"
-													class="btn btn-lg btn-info">뒤로 가기</button></a>
+												class="btn btn-lg btn-info" value="예약하기"> 
+											<a href="javascript:history.go(-1)"><button type="button"
+												class="btn btn-lg btn-info">뒤로 가기</button></a>
 										</div>
 									</div>
 								</div>

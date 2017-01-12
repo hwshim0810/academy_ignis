@@ -15,7 +15,6 @@ public class ReservDAO {
 		return reservDAO;
 	}
 	
-	
 
 	public boolean deleteAdminMem(String reservDel) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);

@@ -23,6 +23,7 @@
 <style>
 	.container-small {border-style:none;}
 	img {width:70%; height:20%; }
+	.container-tiny {margin : 5px 0;}
 </style>
 
 <body>
@@ -34,9 +35,8 @@
 			<%--
 				pageContext.include("departmentLeftList.jsp");
 			--%>
-			<div class="col-xs-12 col-sm-9 col-md-10">
+			<div class="col-xs-12 col-sm-12 col-md-10">
 				<div class="container-fulid">
-					<div class="col-xs-12 ">
 
 						<div class = "container-large col-xs-12">
 							<div class="container-median">
@@ -51,9 +51,11 @@
 										15% 고농도의 과산화수소를 사용하여 산화 작용으로	<br>
 										착색제 구조를 단순화시켜 미백이 일어나는 것입니다.<br>
 										</strong>
-									<a href ="./reserv"><button type="button" >예약하기</button></a>							
-									<button type="button" class="dentiDetail">상세보기</button>	
 									</label>						
+									<div class="container-tiny">
+										<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;					
+										<a href ="./departmentInfo?guide='치아교정'"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+									</div>
 								</div>							
 							</div>
 						</div>
@@ -70,9 +72,11 @@
 										15% 고농도의 과산화수소를 사용하여 산화 작용으로	<br>
 										착색제 구조를 단순화시켜 미백이 일어나는 것입니다.<br>
 										</strong>
-									<a href ="./reserv"><button type="button" >예약하기</button></a>							
-									<button type="button" class="dentiDetail">상세보기</button>	
 									</label>
+									<div class="container-tiny">
+									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;			
+									<a href ="./departmentInfo?guide='임플란트'"><button type="button"  class="btn btn-default btn-depart">상세보기</button></a>
+									</div>
 								</div>							
 							</div>
 						</div>
@@ -89,9 +93,11 @@
 										15% 고농도의 과산화수소를 사용하여 산화 작용으로	<br>
 										착색제 구조를 단순화시켜 미백이 일어나는 것입니다.<br>
 										</strong>
-									<a href ="./reserv"><button type="button" >예약하기</button></a>							
-									<button type="button" class="dentiDetail">상세보기</button>	
 									</label>
+									<div class="container-tiny">
+									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;							
+									<a href ="./departmentInfo?guide='치아미백"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+									</div>
 								</div>
 							</div>
 						</div>
@@ -108,16 +114,15 @@
 										15% 고농도의 과산화수소를 사용하여 산화 작용으로	<br>
 										착색제 구조를 단순화시켜 미백이 일어나는 것입니다.<br>
 										</strong>
-									<a href ="./reserv"><button type="button" >예약하기</button></a>							
-									<a href ="./departmentInfo"><button type="button" >예약하기</button></a>							
-									
-									<button type="button" class="dentiDetail">상세보기</button>	
 									</label>
+									<div class="container-tiny">
+									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;						
+									<a href ="./departmentInfo?guide='일반진료'"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+									</div>
 								</div>
 							</div>
 						</div>
 
-					</div>
 				</div>
 			</div>
 		</div>
