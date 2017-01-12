@@ -14,7 +14,7 @@
 	if (request.getParameter("page") != null)
 		pageLink = Integer.valueOf(request.getParameter("page"));
 	
-	final int ROW_PER_PAGE = 5;
+	final int ROW_PER_PAGE = 10;
 	int begin = (pageLink - 1) * ROW_PER_PAGE + 1;
 	int end = pageLink * ROW_PER_PAGE;
 	

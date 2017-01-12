@@ -12,7 +12,7 @@ public class EventDeleteAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		EventBiz eventBiz = new EventBiz();
-		ActionForward forward = new ActionForward();
+		
 		int num = Integer.valueOf(request.getParameter("num"));
 		boolean result = eventBiz.deleteEvent(request, response);
 		if(result){

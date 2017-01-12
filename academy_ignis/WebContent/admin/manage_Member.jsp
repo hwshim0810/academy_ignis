@@ -113,6 +113,6 @@
  <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
  <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=16"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/manage_member.js?v=18"></script>
 </body>
 </html>
