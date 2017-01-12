@@ -469,6 +469,7 @@ public class FrontController extends HttpServlet {
 				e.printStackTrace();
 			}
 			break;
+			
 		case "/EventDelete":
 			action = new EventDeleteAction();
 			System.out.println("EventDeleteAction_FrontController");
@@ -487,6 +488,12 @@ public class FrontController extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			break;
+			
+		case "/EventEntryList":
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./admin/ad_CommunityEventEntry.jsp");
 			break;
 			
 		case "/Review" :
