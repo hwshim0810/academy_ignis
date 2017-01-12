@@ -53,8 +53,8 @@
 										</strong>
 									</label>						
 									<div class="container-tiny">
-										<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;					
-										<a href ="/academy_ignis/departmentInfo?guide=gyoj"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+										<a href ="./reserv"><button type="button" class="btn btn-lg btn-info btn-default btn-reserv">예약하기</button></a>&nbsp;					
+										<a href ="/academy_ignis/departmentInfo?guide=gyoj"><button type="button" class="btn btn-lg btn-info btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>							
 							</div>
@@ -74,8 +74,8 @@
 										</strong>
 									</label>
 									<div class="container-tiny">
-									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;			
-									<a href ="/academy_ignis/departmentInfo?guide=imple"><button type="button"  class="btn btn-default btn-depart">상세보기</button></a>
+										<a href ="./reserv"><button type="button" class="btn btn-lg btn-info btn-default btn-reserv">예약하기</button></a>&nbsp;			
+										<a href ="/academy_ignis/departmentInfo?guide=imple"><button type="button"  class="btn btn-lg btn-info btn-default btn-depart">상세보기</button></a>
 									</div>
 								</div>							
 							</div>
@@ -95,8 +95,8 @@
 										</strong>
 									</label>
 									<div class="container-tiny">
-									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;							
-									<a href ="/academy_ignis/departmentInfo?guide=mibak"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+										<a href ="./reserv"><button type="button" class="btn btn-lg btn-info btn-default btn-reserv">예약하기</button></a>&nbsp;							
+										<a href ="/academy_ignis/departmentInfo?guide=mibak"><button type="button" class="btn btn-lg btn-info btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>
 							</div>
@@ -116,13 +116,13 @@
 										</strong>
 									</label>
 									<div class="container-tiny">
-									<a href ="./reserv"><button type="button" class="btn btn-default btn-reserv">예약하기</button></a>&nbsp;						
-									<a href ="/academy_ignis/departmentInfo?guide=normal"><button type="button" class="btn btn-default btn-depart">상세보기</button></a>							
+										<a href ="./reserv"><button type="button" class="btn btn-lg btn-info btn-default btn-reserv ">예약하기</button></a>&nbsp;						
+										<a href ="/academy_ignis/departmentInfo?guide=normal"><button type="button" class="btn btn-lg btn-info btn-default btn-depart">상세보기</button></a>							
 									</div>
 								</div>
 							</div>
 						</div>
-
+					<a href="javascript:history.go(-1)"><button type="button" class="btn btn-default btn-info">뒤로 가기</button></a>
 				</div>
 			</div>
 		</div>
