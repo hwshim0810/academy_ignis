@@ -490,6 +490,16 @@ public class FrontController extends HttpServlet {
 			}
 			break;
 			
+		case "/EventEntryPlus":
+			action = new EventEntryPlusAction();
+			System.out.println("EventEntryPlusAction_FrontController");
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 		case "/EventEntryList":
 			forward = new ActionForward();
 			forward.setRedirect(false);
