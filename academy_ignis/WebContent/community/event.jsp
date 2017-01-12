@@ -49,6 +49,7 @@
 					<th>No</th>
 					<th>제목</th>
 					<th>기간</th>
+					<th>응모 가능 인원</th>
 					<th>등록일</th>
 					<th>조회수</th>
 				</tr>
@@ -70,6 +71,7 @@
 					</a>
 				</td>
 				<td><%= event.getEb_period() %></td>
+				<td style="color : #f00;"><%= event.getEb_period() %></td>
 				<td><%= event.getEb_regdate() %></td>
 				<td><%= event.getEb_readcount() %></td>
 			</tr>

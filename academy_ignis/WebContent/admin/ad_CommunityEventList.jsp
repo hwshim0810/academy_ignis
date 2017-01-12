@@ -53,6 +53,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 							<th>제목</th>
 							<th>기 간</th>
 							<th>응모 가능 인원</th>
+							<th>등록일</th>
 							<th>조회수</th>
 						</tr>
 					</thead>
@@ -70,6 +71,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 							<a href="/academy_ignis/EventView?login=admin&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%>"><%= event.getEb_title() %></a>
 						</td>
 						<td><%= event.getEb_period() %></td>
+						<td style="color : #f00;"><%= event.getEb_winner() %></td>
 						<td><%= event.getEb_regdate() %></td>
 						<td><%= event.getEb_readcount() %></td>
 					</tr>

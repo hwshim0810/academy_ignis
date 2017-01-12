@@ -493,7 +493,7 @@ public class FrontController extends HttpServlet {
 		case "/EventEntryList":
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./admin/ad_CommunityEventEntry.jsp");
+			forward.setPath("./admin/ad_EventEntry.jsp");
 			break;
 			
 		case "/Review" :

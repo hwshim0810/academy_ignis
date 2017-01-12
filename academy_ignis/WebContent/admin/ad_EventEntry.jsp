@@ -46,7 +46,7 @@ List<ig_event> list = eventDao.eventList(begin, end);
 					if(session.getAttribute("m_id").equals("admin")) {
 				%>
 				<table class="table">
-					<caption>이벤트 게시판</caption>
+					<caption>응모 이벤트 게시판</caption>
 					<thead>
 						<tr>
 							<th>No</th>
@@ -85,9 +85,6 @@ List<ig_event> list = eventDao.eventList(begin, end);
 					</tbody>
 				<% } %>
 				</table>
-				<div class="form-group">
-					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityEventWrite.jsp'">
-				</div>
 				<ul class="pager">
 				  <li><a href="/academy_ignis/Event?login=admin&pageNo=1">첫 페이지</a></li>
 				  <li>
