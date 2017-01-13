@@ -99,7 +99,7 @@ if(endpage>pageCount){endpage=pageCount;}
   <li><a href="qna?login=admin&pagenum=<%=pageCount%>">마지막 페이지</a></li>
   <%} %>
 </ul>
-				<form class="form-inline">
+<!-- 				<form class="form-inline">
 				<select name="eventSearch" class="form-control" id="eventSearch">
 					<option value="">전체</option>
 					<option value="title">제목</option>
@@ -109,7 +109,7 @@ if(endpage>pageCount){endpage=pageCount;}
 					<input type="text" class="form-control" id="searchEvent">
 				</div>
 				<button type="submit" class="btn btn-default">검색</button>
-			</form>
+			</form> -->
 			</div>
 		</div>
  	</div>

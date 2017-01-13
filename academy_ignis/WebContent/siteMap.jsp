@@ -53,9 +53,10 @@
   <h2 class="left">진료과목</h2>
 <ul class="list-group">
 <div class="row"></div>
-<p><a href="abouts_us"><h4>병원소개</h4></a></p>
-<p><a href="medical_procedure"><h4>진료 절차</h4></a></p>
-<p><a href="map_to_the_ignis"><h4>찾아 오시는 길</h4></a></p>
+<p><a href="/academy_ignis/departmentInfo?guide=gyoj"><h4>치아교정</h4></a></p>
+<p><a href="/academy_ignis/departmentInfo?guide=imple"><h4>임플란트</h4></a></p>
+<p><a href="/academy_ignis/departmentInfo?guide=mibak"><h4>치아미백</h4></a></p>
+<p><a href="/academy_ignis/departmentInfo?guide=normal"><h4>일반진료</h4></a></p>
 </ul>
 </div>
 </div>
