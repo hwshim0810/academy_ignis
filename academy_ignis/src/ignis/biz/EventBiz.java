@@ -103,4 +103,22 @@ public class EventBiz {
 		return result;
 	}
 	
+	public boolean deleteMyEvent(HttpServletRequest request, HttpServletResponse response){
+		System.out.println("EventBizDelete"+request.getParameter("num"));
+		int eb_num = Integer.parseInt(request.getParameter("num"));
+		
+		boolean result = eventDao.deleteMyEvent(eb_num);
+		boolean result1 = eventDao.deleteWinner(eb_num);
+		
+		if(result && result1){
+			eventDao.deleteWinner(eb_num);
+			eventDao.deleteMyEvent(eb_num);
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
 }

@@ -144,6 +144,7 @@ public class EventDAO {
 
 	public boolean isCanEntry(int eb_num) {
 		SqlSession ss = FactoryService.getFactory().openSession();
+		System.out.println("isCanEntry eb_num : " + eb_num);
 		
 		ig_event view = ss.selectOne("event.selectCanEntry", eb_num);
 		ss.close();
@@ -170,17 +171,21 @@ public class EventDAO {
 
 	public boolean isCanEntryId(int eb_num, String m_name) {
 		SqlSession ss = FactoryService.getFactory().openSession();
-		boolean result = true;
-		
-		List<ig_evententry> entryList = ss.selectList("event.selectEntryList", eb_num);
-		
+		System.out.println("isCanEntryId eb_num : " + eb_num);
+		System.out.println("isCanEntryId m_name : " + m_name);
+		List<ig_evententry> entryList = ss.selectList("event.selectEntry", eb_num);
+		System.out.println("m_name1 : " + m_name);
 		
 		for (ig_evententry entryBean : entryList) {
-			if (m_name.equals(entryBean.getM_name()))
-					result = false;
+			System.out.println("m_name : " + m_name);
+			System.out.println("entryBean.getM_name() : " + entryBean.getM_name());
+			
+			if (m_name.equals(entryBean.getM_name())){
+				return false;
+			}
 		}
 		
-		return result;
+		return false;
 	}
 	
 //	public Map<String, Object> selectEntryList(int begin, int end) {
@@ -228,4 +233,27 @@ public class EventDAO {
 		ss.close();
 		return list;
 	}
+	
+	public boolean deleteWinner(int eb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		
+		ss.update("event.deleteWinner", eb_num);
+		ss.close();
+		
+		return true;
+	}
+	
+	public boolean deleteMyEvent(int eb_num){
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		HashMap<String, Object> map = new HashMap<>();
+		System.out.println(eb_num+" ////deleteDAO//");
+		map.put("eb_num", eb_num);
+		
+		int result = ss.delete("event.deleteMyEvent", map);
+		System.out.println(eb_num+" ////deleteDAO222222222//");
+		ss.commit();
+		ss.close();
+		
+		return(result > 0) ? true : false;
+	} 
 }
