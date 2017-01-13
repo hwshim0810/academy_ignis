@@ -57,7 +57,7 @@
 	 <%-- getReservListAll은 begin부터 end까지의 게시물을 최신글(r_num의 역순)
 	 순서대로 조회 --%>
 <% pageContext.include("./manage_Header.jsp"); %>
-	 <div class="container-fluid main-container">	
+	 <div class="container-fluid main-container godo">	
 	<% pageContext.include("./manage_sideNav.jsp"); %>
   		<div class="col-md-10 content">
   			  <div class="panel panel-default">

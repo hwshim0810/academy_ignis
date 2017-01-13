@@ -68,7 +68,7 @@
 	//검색항목별로 해당 게시물의 수를 출력한다. %>
 <%
 	
-	final int ROW_PER_PAGE = 5;
+	final int ROW_PER_PAGE = 10;
 	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
 	int end = pageNo * ROW_PER_PAGE;
 	
@@ -103,7 +103,7 @@
 			<table class="table table-responsive">
 			<caption class="sr-only">회원명단</caption>
 			<thead>
-				<tr class="info"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
+				<tr class="info godo"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
 				<th>진료 시간</th><th>예약 신청일</th><th>상세보기</th></tr>
 			</thead>
 			<tbody>
@@ -129,7 +129,7 @@
 			</tbody>
 		</table>
 		
-		<div class="panel-end">			
+		<div class="panel-end ">			
 			<ul class="pager">
 				<li><a class="pageNum" id="first" href="#">첫 페이지</a></li>
 				<li>
