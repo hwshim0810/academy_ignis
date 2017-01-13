@@ -269,14 +269,98 @@ INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'Re:qna제목19', 'qna내용19rrr',0,19,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목20', 'qna내용20qqq',1,20,0, SYSDATE );
 
+
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '수능할인 이벤트', '수험생 20%할인 이벤트', 10, '2017-01-01~2017-01-30', '2017-02-01', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '월초할인 이벤트', '20%할인 이벤트', 5, '2017-01-05~2017-02-20', '2017-02-21', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '방문고객할인 이벤트', '50%할인 이벤트', 15, '2017-01-01~2017-01-10', '2017-02-01', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '상담 후 할인 이벤트', '40%할인 이벤트', 5, '2016-12-01~2017-03-21', '2017-03-25', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '선착순 10명 이벤트', '10%할인 이벤트', 10, '2017-01-01~2017-01-07', '2017-02-01', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 병원 이벤트', '30%할인 이벤트', 10, '2017-02-01~2017-03-10', '2017-04-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 학기! 경품이 빵빵!', '초/중/고/대학생 새학기 맞이 경품 추첨!', 20, '2017-03-01~2017-03-31', '2017-04-01', 0, SYSDATE);
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새로운 시설 증축 이벤트', '40%할인 이벤트', 10, '2017-03-01~2017-04-30', '2017-05-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, 'Instagram #해쉬태그 일반진료 1회 무료 이벤트', '인스타그램 @이그니스 치과를 팔로우 하면 미백1회 무료! #해쉬태그 하면 일반진료 1회 무료!', 50, '2017-02-01~2017-06-30', '2017-06-30', 0, SYSDATE);
 
+
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '이빨이 하얘졌어요!', 'aaa2211', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '요새는 교정도 길게 안해요', 'usernnnb', '교정 최고~!~!', '02.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '하얀 이빨 넘나 좋은 것', 'bbb222', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '틀니 임플란트', 'usernnn', '임플란트 최고~!~!', '03.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '누렁니 빠이', 'aaa2211', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '스케일링 너무 쉬원해요', 'userrrr', '교정 최고~!~!', '04.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '웃을 때도 자신있게!', 'bbb222', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '시어머님 임플란트', 'aaa2211', '임플란트 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '이빨이 하얘졌어요!', 'aaa1111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '요새는 교정도 길게 안해요', 'user777', '교정 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '하얀 이빨 넘나 좋은 것', 'bbb111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '임플란트 .. 대박..', 'userzzz', '임플란트 최고~!~!', '03.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '치아미백 굳굳', 'aaa2211', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '충치치료', 'useruuu', '교정 최고~!~!', '04.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '웃는게 이쁜 그녀', 'bbb222', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '하나도 안아픈 임플란트', 'usernnn', '임플란트 최고~!~!', '03.jpg', 0, 0 , SYSDATE);
+
+
+
+INSERT INTO IG_EVENTENTRY VALUES (1, 'aaa2211',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (2, 'aaa2211',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (3, 'aaa2211',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (4, 'aaa2211',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (7, 'aaa2211',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (7, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (3, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (4, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (5, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (6, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (3, 'user444',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (4, 'user444',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (5, 'user444',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (4, 'bbb222',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (5, 'bbb222',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (6, 'bbb222',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (7, 'bbb222',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (5, 'usernnnb',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (8, 'usernnnb',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (9, 'usernnnb',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (2, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (8, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (9, 'userrrr',SYSDATE);
+INSERT INTO IG_EVENTENTRY VALUES (9, 'userrrr',SYSDATE);
+
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅎ2', 'aaa2211', 1, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅋㅋㅋ', 'aaa2211', 2, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '어이없다', 'aaa2211', 3, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '빠빠잉', 'aaa2211', 4, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '노잼ㅋ', 'aaa2211', 5, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '극혐', 'aaa2211', 6, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '좋아요', 'aaa2211', 7, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '^_^', 'aaa2211', 8, SYSDATE);
+
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅎ2', 'bbb22221', 2, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅋㅋㅋ', 'bbb22221', 4, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '어이없다', 'bbb22221', 8, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '빠빠잉', 'bbb22221', 8, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '노잼ㅋ', 'bbb22221', 12, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '극혐', 'bbb22221', 14, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '좋아요', 'bbb22221', 12, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '^_^', 'bbb22221', 13, SYSDATE);
+
+
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅎ2', 'userrrr', 6, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅋㅋㅋ', 'userrrr', 7, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '어이없다', 'userrrr', 8, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '빠빠잉', 'userrrr', 9, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '노잼ㅋ', 'userrrr', 7, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '극혐', 'userrrr', 8, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '좋아요', 'userrrr', 6, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '^_^', 'userrrr', 4, SYSDATE);
+
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅎ2', 'userttt', 1, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, 'ㅋㅋㅋ', 'userttt', 7, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '어이없다', 'userttt', 8, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '빠빠잉', 'userttt', 12, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '노잼ㅋ', 'userttt', 13, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '극혐', 'userttt', 14, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '좋아요', 'userttt', 15, SYSDATE);
+INSERT INTO IG_COMMENT VALUES (co_num.nextval, '^_^', 'userttt', 9, SYSDATE);
 
 commit;
 

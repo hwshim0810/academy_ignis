@@ -57,7 +57,7 @@
 onclick="document.location.href='noticeUpdateView?pagenum=<%= pagenum %>&nb_num=<%= list.get(0).getNb_num()%>'">수정</button>
 <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo1">삭제</button>
  <form id="demo1"  class="collapse" action="noticeDelete?pagenum=<%=pagenum%>&nb_num=<%=list.get(0).getNb_num()%>"  method="post" >
-확인을 위하여 비밀번호를 입력해주세요.<input type="password" name="password">
+확인을 위하여 비밀번호를 입력해주세요.<input type="password" name="password"  required="required">
 <button type="submit" class="btn btn-danger btn-sm" >공지사항 삭제 확인</button>
 </form>
 							            </div>

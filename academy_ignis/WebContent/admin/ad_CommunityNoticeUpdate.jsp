@@ -24,6 +24,9 @@
 <title>notice Update</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+	<style type="text/css">
+	  textarea{resize: none;}
+	</style>
 </head>
 <body>
 <%
@@ -47,7 +50,7 @@
 <th>제목</th>
 <td>
 <div class="form-group">
-<input type="text" name="nb_title"  class="form-control" value="<%=list.get(0).getNb_title() %>" />
+<input type="text" name="nb_title"  class="form-control" value="<%=list.get(0).getNb_title() %>"  required="required"/>
 </div>
 </td>
 </tr>
@@ -55,7 +58,7 @@
 <th>문내용</th>
 <td>
 <div class="form-group">
-<textarea class="form-control" name="nb_content"><%= list.get(0).getNb_content() %></textarea>
+<textarea class="form-control" name="nb_content" rows="5" required="required"><%= list.get(0).getNb_content() %></textarea>
 </div>
 </td>
 </tr>
@@ -63,7 +66,7 @@
 <th>비밀번호</th>
 <td>
   <div class="form-group">
-    <input type="password" class="form-control" name="password" />
+    <input type="password" class="form-control" name="password" required="required" />
   </div>
 </td>
 </tr>

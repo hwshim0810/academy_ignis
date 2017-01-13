@@ -33,7 +33,6 @@ public class QnaDetailAction  implements ActionInterface{
 		request.setAttribute("replyOwenr", replyOwenr);
 		request.setAttribute("qnaDetail", list);
 		if (list !=null) {
-			request.setAttribute("qnaDetail", list);
 			String login = request.getParameter("login");//admin 이면 관지자창 이동
 			if(login!=null&&login.equals("admin")){
 				forward.setRedirect(false);

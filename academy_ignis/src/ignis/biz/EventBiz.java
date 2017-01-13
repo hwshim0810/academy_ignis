@@ -94,13 +94,16 @@ public class EventBiz {
 		
 		boolean result = eventDao.isCanEntry(eb_num);
 		boolean result2 = eventDao.isCanEntryId(eb_num, m_name);
+		boolean result3 = false;
+	
 		
 		if (result && result2) {
 			eventDao.updateWinner(eb_num);
 			eventDao.insertEventEntry(eb_num, m_name);
+			result3 = true;
 		}
 		
-		return result;
+		return result3;
 	}
 	
 	public boolean deleteMyEvent(HttpServletRequest request, HttpServletResponse response){
