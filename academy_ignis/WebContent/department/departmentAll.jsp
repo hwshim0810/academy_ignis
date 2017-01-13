@@ -41,7 +41,7 @@
 			pageContext.include("departmentLeftList.jsp");
 		--%>
 		<div class="col-xs-12 col-sm-12 col-md-12">
-			<div class="container-fulid">
+			<div class="container-fulid godo">
 					<div class ="container-large col-xs-12 col-sm-12 col-md-12">
 						<div class="container-median">
 							<div class="container-small col-xs-12 col-sm-5 col-md-5">

@@ -64,7 +64,6 @@ public class ReservDAO {
 		map.put("r_findDoc", r_findDoc);
 		map.put("m_id", m_id);			
 		int cnt = ss.insert("reserv.add", map);
-		System.out.println("insert확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
 	
