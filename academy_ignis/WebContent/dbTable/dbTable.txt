@@ -127,14 +127,6 @@ create table ig_evententry (
 				eb_entrydate DATE) SEGMENT CREATION IMMEDIATE;
 
 
-create table ig_event2  (
-				eb_num VARCHAR2(30) PRIMARY KEY, 
-				eb_title VARCHAR2(100) NOT NULL, 
-				eb_content VARCHAR2(2000) NOT NULL, 
-				eb_readcount NUMBER(5) NOT NULL, 
-				eb_regdate DATE) SEGMENT CREATION IMMEDIATE;
-
-
 
 
 

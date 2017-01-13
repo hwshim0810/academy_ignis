@@ -9,6 +9,9 @@
 <title>notice insert용</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+	<style type="text/css">
+	  textarea{resize: none;}
+	</style>
 </head>
 <body>
 <%pageContext.include("./manage_Header.jsp");%>
@@ -29,7 +32,7 @@
 <th>제목</th>
 <td>
 <div class="form-group">
-<input type="text" name="nb_title"  class="form-control" />
+<input type="text" name="nb_title"  class="form-control" required="required" />
 </div>
 </td>
 </tr>
@@ -37,7 +40,7 @@
 <th>문내용</th>
 <td>
 <div class="form-group">
-<textarea class="form-control" name="nb_content"></textarea>
+<textarea class="form-control" name="nb_content" rows="5" required="required"></textarea>
 </div>
 </td>
 </tr>
