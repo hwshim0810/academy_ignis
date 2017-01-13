@@ -36,9 +36,6 @@ if(endpage>pageCount){endpage=pageCount;}
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="/academy_ignis/css/common.css">
-<script type="text/javascript">
-$
-</script>
 </head>
 <body>
 <%-- Header 시작 --%>

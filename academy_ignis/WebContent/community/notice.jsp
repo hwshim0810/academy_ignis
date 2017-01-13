@@ -14,11 +14,12 @@
 <head>
 <meta charset="UTF-8">
 <title>notice</title>
-<meta http-equiv="X-UA-Compatible"  content="IE=edge">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/academy_ignis/css/common.css">
+  <link rel="stylesheet" href="/academy_ignis/css/common.css?v=1">
+  <link rel="stylesheet" href="/academy_ignis/css/index.css">
   <script>
   function Act(){
 	  
@@ -47,9 +48,7 @@
 </head>
 <body>
 <%-- Header 시작 --%>
-<%
-	pageContext.include("../header/header.jsp");
-%>
+<%pageContext.include("../header/header.jsp");%>
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div class="wrapper">

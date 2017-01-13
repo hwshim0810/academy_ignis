@@ -19,7 +19,6 @@ public class NoticeSelectAllAction  implements ActionInterface{
 		int pagenum=1;//현재 페이지
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
-			System.out.println("pagenum을 request에서 가져옴:"+request.getParameter("pagenum"));
 		}
 		
 		if (list !=null) {
@@ -31,7 +30,7 @@ public class NoticeSelectAllAction  implements ActionInterface{
 				return forward;
 			}else{
 			forward.setRedirect(false);
-			forward.setPath("./community/notice.jsp");
+			forward.setPath("/community/notice.jsp");
 			return forward;
 			}
 		}

@@ -48,11 +48,11 @@ public class QnaSelectAllAction  implements ActionInterface{
 			String login = request.getParameter("login");//admin 이면 관지자창 이동
 			if(login!=null&&login.equals("admin")){
 				forward.setRedirect(false);
-				forward.setPath("./admin/ad_CommunityQnaList.jsp?login=admin&pagenum="+pagenum);
+				forward.setPath("/admin/ad_CommunityQnaList.jsp?login=admin&pagenum="+pagenum);
 				return forward;
 			}else {
 			forward.setRedirect(false);
-			forward.setPath("./community/qna.jsp?pagenum="+pagenum);
+			forward.setPath("/community/qna.jsp?pagenum="+pagenum);
 			return forward;
 			}
 		}
