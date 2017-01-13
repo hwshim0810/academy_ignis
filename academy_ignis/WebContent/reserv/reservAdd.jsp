@@ -76,20 +76,10 @@ body { font-size: 20px;}
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-
-
-
-
-
-
-
-
-
-
 <body>
-<% pageContext.include("../header/header.jsp"); %>
+<% pageContext.include("../admin/manage_Header.jsp"); %>
 	<div class="container">
-	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+	<% pageContext.include("../admin/manage_sideNav.jsp"); %>
 		<div class="container-fluid godo">
 			<div class="row content">
 				<div class="col-sm-3"></div>
