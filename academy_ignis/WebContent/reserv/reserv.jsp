@@ -82,7 +82,7 @@ System.out.println(type);
 <body>
 <% pageContext.include("../header/header.jsp"); %>
 	<div class="wrapper">
-		<div class="container">
+		<div class="container godo">
 			<%
 				pageContext.include("../ignisCompany_info/leftList2.jsp");
 			%>
@@ -120,6 +120,15 @@ System.out.println(type);
 												id="datepicker" name="r_day" required="required" >
 										</div>
 									</div>
+									
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									
 									<div class="row">
 										<div class="row_second">
 											<div class="col-sm-3 form-group">

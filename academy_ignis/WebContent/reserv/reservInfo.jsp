@@ -54,11 +54,12 @@ function confirmReservDelete() {
 </head>
 <body>
 
-<% pageContext.include("../header/header.jsp"); %>
-<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
+<% pageContext.include("../admin/manage_Header.jsp"); %>
 
   	<div class="container-fluid main-container">
-  		<div class="col-md-10 content" >
+  		<% pageContext.include("../admin/manage_sideNav.jsp"); %>
+  	
+  		<div class="col-md-10 content godo" >
   			  <div class="panel panel-default">
 				<div class="panel-heading">
 					<h2 id="memTitle">예약 상세 보기</h2>
@@ -91,7 +92,6 @@ function confirmReservDelete() {
 				</table>
 				<input type="text" hidden="hidden" id="reservNum" value=<%=reserv_num %>>
 				<div class="panel-end">
-					<button type="button" class="btn btn-default add"  id="reservUpdate" ><strong>예약 수정</strong></button>
 					<button type="button" class="btn btn-default add reservDel" onclick="confirmReservDelete()"><strong>예약 취소</strong></button>
 					<a href="javascript:history.go(-1)"><button type="button" class="btn btn-default add"><strong>뒤로 가기</strong></button></a></div>
 			</div>

@@ -19,12 +19,6 @@
 %>
     
 <%
-	// @page include대신에 아래에 풀었음.
-	//요부분은 게시판 전체 내용 가져오는걸로 대체
-	//MemberDAO memDao = MemberDAO.getInstance();
-	//List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
-	
-	//게시판으로 넘어올때 pageNo(페이지번호)를 get방식으로 넣어줘서 이동해야함
 	String tempNo = request.getParameter("pageNo");
 
 	int pageNo = 1;
@@ -110,13 +104,13 @@
 		<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
 	  		<div class="col-xs-12 col-sm-9 col-md-10">
 	  			<div class="panel panel-default">
-					<div class="panel-heading">
+					<div class="panel-heading godo">
 						<h3 id="memTitle">나의 예약현황</h3>
 					</div>
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr class="info  godo"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>삭제</th></tr>
 						</thead>
 						<tbody>
