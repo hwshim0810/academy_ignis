@@ -49,7 +49,7 @@
 					<table class='table'>
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info"><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
+							<tr><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
 							<th>휴대폰번호</th><th>Email</th><th>가입일</th><th></th></tr>
 						</thead>
 						<tbody>

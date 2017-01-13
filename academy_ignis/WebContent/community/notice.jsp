@@ -71,7 +71,7 @@
 					<input type="text" class="form-control" id="searchContent" name="searchContent" required="required">
 				</div>
 				<input type="submit" class="btn btn-default"  value="검색" />
-				<input type="button" class="btn btn-default"  onclick="Act()" value="테스트" />
+				<!--  <input type="button" class="btn btn-default"  onclick="Act()" value="테스트" />   -->
 			</form>
 		</div>
 	</div>
