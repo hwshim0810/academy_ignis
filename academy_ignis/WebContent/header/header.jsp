@@ -36,7 +36,7 @@
 					</li>
 					
 					<li class="dropdown">
-						<a class="dropdown-toggle" href="departmentAll">진료과목
+						<a class="dropdown-toggle" href="/academy_ignis/departmentAll">진료과목
 						</a>
 					</li>
 					
