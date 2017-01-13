@@ -29,7 +29,6 @@
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="abouts_us">병원소개</a></li>
-							<li><a href="Introduction_of_medical_staff">의료진 소개</a></li>
 							<li><a href="medical_procedure">진료 절차</a></li>
 							<li><a href="map_to_the_ignis">찾아오시는 길</a></li>
 						</ul>

@@ -269,9 +269,10 @@ public class FrontController extends HttpServlet {
 			break;
 
 		case "/reserv" :
+			String type=request.getParameter("type");
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./reserv/reserv.jsp");
+			forward.setPath("./reserv/reserv.jsp?type="+type);
 			break;
 			
 		case "/reservProcess" :

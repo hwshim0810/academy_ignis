@@ -43,7 +43,6 @@
 <ul class="list-group">
 <div class="row"></div>
 <p><a href="abouts_us"><h4>병원소개</h4></a></p>
-<p><a href="Introduction_of_medical_staff"><h4>의료진 소개</h4></a></p>
 <p><a href="medical_procedure"><h4>진료 절차</h4></a></p>
 <p><a href="map_to_the_ignis"><h4>찾아 오시는 길</h4></a></p>
 </ul>
@@ -55,7 +54,6 @@
 <ul class="list-group">
 <div class="row"></div>
 <p><a href="abouts_us"><h4>병원소개</h4></a></p>
-<p><a href="Introduction_of_medical_staff"><h4>의료진 소개</h4></a></p>
 <p><a href="medical_procedure"><h4>진료 절차</h4></a></p>
 <p><a href="map_to_the_ignis"><h4>찾아 오시는 길</h4></a></p>
 </ul>

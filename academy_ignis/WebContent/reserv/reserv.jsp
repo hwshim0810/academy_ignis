@@ -47,6 +47,8 @@ body { font-size: 20px;}
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
 <%
+String type=request.getParameter("type");
+System.out.println(type);
 	request.setCharacterEncoding("utf-8");
 	String id= null;
 	if (session.getAttribute("m_id") != null) 
@@ -102,10 +104,10 @@ body { font-size: 20px;}
 										<div class="col-sm-6 form-group">
 											<select class="form-control input-lg" id="y"
 												onchange="changeDate();" name="r_guide" >
-												 <option value="치아교정" >치아교정</option>			
-												 <option value="임플란트" >임플란트</option>				
-												 <option value="치아미백" >치아미백</option>			
-												 <option value="일반진료" >일반진료</option>
+												 <option value="치아교정" <%if(type.equals("gyoj")) {%>selected<%} %> >치아교정</option>			
+												 <option value="임플란트" <%if(type.equals("imple")) {%>selected<%} %>>임플란트</option>				
+												 <option value="치아미백" <%if(type.equals("mibak")) {%>selected<%} %>>치아미백</option>			
+												 <option value="일반진료" <%if(type.equals("normal")) {%>selected<%} %>>일반진료</option>
 											</select>
 										</div>
 									</div>
