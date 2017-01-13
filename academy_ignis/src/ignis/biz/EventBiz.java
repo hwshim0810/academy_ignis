@@ -80,7 +80,7 @@ public class EventBiz {
 	public boolean insertEventEntry(HttpServletRequest request, HttpServletResponse response) {
 		int eb_num = Integer.valueOf(request.getParameter("num"));
 		String m_name = request.getParameter("id");
-		 
+		
 		boolean result = eventDao.insertEventEntry(eb_num, m_name);
 		
 		if (result) return result;

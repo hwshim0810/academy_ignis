@@ -28,22 +28,23 @@
 %>
 		<div class="col-xs-12 col-sm-9 col-md-10">
 			<div></div>
-			<div id="map" style="width:100%;height:400px;"></div>
-			<h2 class="text-center godo normal w400">교통수단 안내</h2>
+			<div id="map" style="width:100%;height:400px;" alt="찾아오시는 길"></div>
+			<h2 class="text-center godo normal w400"  alt="교통수단 안내">교통수단 안내</h2>
 			<ul class="nav nav-tabs">
-				<li class="active"><a href="#home" data-toggle="tab">지하철</a></li>
-				<li><a href="#menu1" data-toggle="tab">버스</a></li>
-				<li><a href="#menu2" data-toggle="tab">자가용</a></li>
+				<li class="active"><a href="#home" data-toggle="tab" alt="지하철">지하철</a></li>
+				<li><a href="#menu1" data-toggle="tab" alt="버스">버스</a></li>
+				<li><a href="#menu2" data-toggle="tab" alt="자가용">자가용</a></li>
 			</ul>
 			<div class="tab-content">
 				<div class="tab-pane fade in active" id="home">
-					<p>토글링 가능한 동적 Tabs</p>
+					<p>지하철 2호선</p>
 				</div>
 				<div class="tab-pane fade" id="menu1">
-					<p>탭을 토글링하려면 각 링크에 data-toggle="tab"속성을 추가한다.</p>
+					<p>버스 번호:146<br>버스 번호:341<br></p>
 				</div>
 				<div class="tab-pane fade" id="menu2">
-					<p>.tab-content 클래스를 갖는 DIV요소 내부에 각 탭에 대한 고유 ID로 .tab-pane 클래스를 추가한다.</p>
+					<p>서울 강남구 테헤란로 119<br>
+(우) 06134 (135-912) | 대호빌딩</p>
 				</div>
 			</div>
 		</div>

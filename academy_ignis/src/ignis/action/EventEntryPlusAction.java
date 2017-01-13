@@ -12,13 +12,14 @@ public class EventEntryPlusAction implements ActionInterface {
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		EventBiz eventBiz = new EventBiz();
-		
+		System.out.println("Plus1");
 		boolean result = eventBiz.isCanEntry(request, response);
 		
-		
+		System.out.println("Plus2");
 		if (result) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter out1 = response.getWriter();
+			System.out.println("Plus3");
 			out1.println("<script>");
 			out1.println("alert('이벤트에 응모되었습니다!');");
 			out1.println("location.href='/academy_ignis/Event?login=member';");
