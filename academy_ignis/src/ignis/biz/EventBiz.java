@@ -91,10 +91,10 @@ public class EventBiz {
 		EventDAO eventDao = new EventDAO();
 		int eb_num = Integer.valueOf(request.getParameter("num"));
 		String m_name = request.getParameter("id");
-		System.out.println("Biz1");
+		
 		boolean result = eventDao.isCanEntry(eb_num);
 		boolean result2 = eventDao.isCanEntryId(eb_num, m_name);
-		System.out.println("Biz1");
+		
 		if (result && result2) {
 			eventDao.updateWinner(eb_num);
 			eventDao.insertEventEntry(eb_num, m_name);

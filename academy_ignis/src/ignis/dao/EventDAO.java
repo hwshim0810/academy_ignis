@@ -224,7 +224,7 @@ public class EventDAO {
 		map.put("begin", begin);
 		map.put("end", end);
 		
-		List<ig_evententry> list = ss.selectList("event.eventEntryList", map);
+		List<ig_evententry> list = ss.selectList("event.selectEntryList", map);
 		ss.close();
 		return list;
 	}
