@@ -40,17 +40,17 @@
 	<div class="container">
 	<%pageContext.include("leftList.jsp"); %> 
 	<%-- Body 영역 --%>
-	<div class="col-xs-12 col-sm-9 col-md-10"">
+	<div class="col-xs-12 col-sm-12 col-md-10"">
 		<h3>Review</h3><hr>
 		<table class="table table-responsive">
 			<caption class="sr-only">Review게시판</caption>
 			<thead>
 				<tr>
-					<th>No</th>
+					<th class="hidden-xs">No</th>
 					<th>제목</th>
 					<th>작성자</th>
 					<th>등록일</th>
-					<th>조회수</th>
+					<th class="hidden-xs">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,7 +64,7 @@
 					int commentCount = reviewDao.getListCommentCount(review.getRb_num());
 			%>
 				<tr>
-					<td><%= review.getRb_num() %></td>
+					<td class="hidden-xs"><%= review.getRb_num() %></td>
 					<td>
 						<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
 							<span class="badge"><%=commentCount %></span>
@@ -76,7 +76,7 @@
 					</td>
 					<td><%= review.getM_name() %></td>
 					<td><%= review.getRb_regdate() %></td>
-					<td><%= review.getRb_readcount() %></td>
+					<td class="hidden-xs"><%= review.getRb_readcount() %></td>
 				</tr>
 			<% 
 				no--;

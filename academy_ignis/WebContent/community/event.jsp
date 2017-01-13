@@ -40,18 +40,18 @@
 <div class="wrapper">
 	<div class="container">
 	<%pageContext.include("leftList.jsp"); %> 
-	<div class="col-xs-12 col-sm-9 col-md-10">
+	<div class="col-xs-12 col-sm-12 col-md-10">
 		<h3>EVENT</h3><hr>
 		<table class="table table-responsive">
 			<caption class="sr-only">이벤트 게시판</caption>
 			<thead>
 				<tr>
-					<th>No</th>
+					<th class="hidden-xs">No</th>
 					<th>제목</th>
 					<th>기간</th>
 					<th>응모 가능 인원</th>
-					<th>등록일</th>
-					<th>조회수</th>
+					<th class="hidden-xs">등록일</th>
+					<th class="hidden-xs">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -64,7 +64,7 @@
 					ig_event event = it.next();				
 			%>
 			<tr>
-				<td><%= no %></td>
+				<td class="hidden-xs"><%= no %></td>
 				<td>
 					<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
 						<%= event.getEb_title() %>
@@ -78,8 +78,8 @@
 						이벤트 마감
 					<% } %>
 				</td>
-				<td><%= event.getEb_regdate() %></td>
-				<td><%= event.getEb_readcount() %></td>
+				<td class="hidden-xs"><%= event.getEb_regdate() %></td>
+				<td class="hidden-xs"><%= event.getEb_readcount() %></td>
 			</tr>
 			<%
 					no--;

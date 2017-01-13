@@ -33,7 +33,7 @@
 	<div class="container">
 		<%pageContext.include("leftList.jsp"); %> 
 		<%-- Body 영역 --%>
-		<div class="col-xs-12 col-sm-9 col-md-10">
+		<div class="col-xs-12 col-sm-12 col-md-10">
 			<h3>FAQ</h3>
 			<hr>
 			<div class="panel-group" id="accordion">

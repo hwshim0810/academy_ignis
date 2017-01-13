@@ -53,10 +53,10 @@
  <table class="table table-responsive">
     <thead>
       <tr>
-        <th>번호</th>
+        <th class="hidden-xs">번호</th>
         <th>제목</th>
         <th>작성일</th>
-       <th>조회</th>
+        <th class="hidden-xs">조회</th>
       </tr>
     </thead>
     <tbody>
@@ -68,10 +68,10 @@
     	list.get(i).getNb_num();
     	%>
       <tr>
-        <td><%=list.get(i).getNb_num() %></td>
+        <td class="hidden-xs"><%=list.get(i).getNb_num() %></td>
         <td><a href="noticeDetail?nb_num=<%=list.get(i).getNb_num()%>&pagenum=<%=pagenum%>"><%=list.get(i).getNb_title() %></a></td>
         <td><%=list.get(i).getNb_regdate() %></td>
-        <td><%=list.get(i).getNb_readcount() %></td>
+        <td class="hidden-xs"><%=list.get(i).getNb_readcount() %></td>
       </tr>
       <%}
     } %>

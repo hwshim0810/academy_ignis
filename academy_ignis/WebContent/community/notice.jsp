@@ -54,7 +54,7 @@
 <div class="wrapper">
 	<div class="container">
 		<%pageContext.include("leftList.jsp"); %>
-		<div class="col-xs-12 col-sm-9 col-md-10">
+		<div class="col-xs-12 col-sm-12 col-md-10">
 		<div id="demo">
 			<%pageContext.include("contentList.jsp"); %>
 					</div>

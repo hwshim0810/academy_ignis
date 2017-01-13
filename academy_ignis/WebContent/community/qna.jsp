@@ -47,7 +47,7 @@ if(endpage>pageCount){endpage=pageCount;}
 <div class="wrapper">
 	<div class="container">
 		 <%pageContext.include("leftList.jsp"); %>
-		 <div class="col-xs-12 col-sm-9 col-md-10 ">
+		 <div class="col-xs-12 col-sm-12 col-md-10 ">
 		<h3>Q&A</h3><hr>
 		 <table class="table table-responsive">
 		    <thead>
@@ -55,8 +55,8 @@ if(endpage>pageCount){endpage=pageCount;}
 		        <th>말머리</th>
 		        <th>제목</th>
 		        <th>작성자</th>
-		        <th>등록일</th>
-		       	<th>조회수</th>
+		        <th class="hidden-xs">등록일</th>
+		       	<th class="hidden-xs">조회수</th>
 		      </tr>
 		    </thead>
 		    <tbody>
@@ -80,8 +80,8 @@ if(endpage>pageCount){endpage=pageCount;}
 			        <span class="glyphicon glyphicon-lock"></span><%} %>
 		        </td>
 		        <td><%=list.get(i).getM_id()%></td>
-		        <td><%=list.get(i).getQb_regdate()%></td>
-		        <td><%=list.get(i).getQb_readcount()%></td>
+		        <td class="hidden-xs"><%=list.get(i).getQb_regdate()%></td>
+		        <td class="hidden-xs"><%=list.get(i).getQb_readcount()%></td>
 		      </tr>
 		      <%}
 		    } %>

@@ -47,15 +47,15 @@
 		<%
 			pageContext.include("../ignisCompany_info/leftList2.jsp"); 
 		%>
-		<div class="col-xs-12 col-sm-9 col-md-10">
+		<div class="col-xs-12 col-sm-12 col-md-10">
 			<h3>내 이벤트 확인하기</h3>
 			<table class="table">
 				<caption class="sr-only">내 이벤트 확인 테이블</caption>
 				<thead>
 					<tr>
 						<th>이벤트명</th>
-						<th>기간</th>
-						<th>발표일</th>
+						<th class="hidden-xs">기간</th>
+						<th class="hidden-xs">발표일</th>
 						<th>상세보기</th>
 					</tr>
 				</thead>
@@ -72,8 +72,8 @@
 					%>
 					<tr>
 						<td><%= event.getEb_title()%></td>
-						<td><%= event.getEb_period() %></td>
-						<td><%= event.getEb_announceday() %></td>
+						<td class="hidden-xs"><%= event.getEb_period() %></td>
+						<td class="hidden-xs"><%= event.getEb_announceday() %></td>
 						<td>
 							<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eb_num %>">보기</a>
 						</td>
