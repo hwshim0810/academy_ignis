@@ -49,8 +49,8 @@
 					<table class='table'>
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr><th>아이디</th><th>이름</th><th>생일</th><th>주소</th>
-							<th>휴대폰번호</th><th>Email</th><th>가입일</th><th></th></tr>
+							<tr><th>아이디</th><th class="hidden-xs hidden-sm">이름</th><th class="hidden-xs hidden-sm">생일</th><th class="hidden-xs hidden-sm">주소</th>
+							<th class="hidden-xs hidden-sm">휴대폰번호</th><th class="hidden-xs hidden-sm">Email</th><th class="hidden-xs hidden-sm">가입일</th><th></th></tr>
 						</thead>
 						<tbody>
 						<% 
@@ -59,10 +59,10 @@
 									User user = userList.get(i);
 						%>
 						<tr>
-							<td><%=user.getM_id() %></td><td><%=user.getM_name() %></td>
-							<td><%=user.getM_birth() %></td><td><%=user.getM_addr() %></td>
-							<td><%=user.getM_phone() %></td><td><%=user.getM_email() %></td>
-							<td><%=user.getM_enterdate() %></td><td><a href="/academy_ignis/adMyPage?userId=<%=user.getM_id()%>">보기</a></td>
+							<td><%=user.getM_id() %></td><td class="hidden-xs hidden-sm"><%=user.getM_name() %></td>
+							<td class="hidden-xs hidden-sm"><%=user.getM_birth() %></td><td class="hidden-xs hidden-sm"><%=user.getM_addr() %></td>
+							<td class="hidden-xs hidden-sm"><%=user.getM_phone() %></td><td class="hidden-xs hidden-sm"><%=user.getM_email() %></td>
+							<td class="hidden-xs hidden-sm"><%=user.getM_enterdate() %></td><td><a href="/academy_ignis/adMyPage?userId=<%=user.getM_id()%>">보기</a></td>
 						</tr>
 						<%
 								}

@@ -35,7 +35,13 @@
 		where eb_num = #{eb_num}
 	</update>
 	
-	<select id="eventEntryList" resultType="ignis.bean.ig_evententry">
+	<select id="eventEntryList" resultType="java.util.HashMap">
+		select eb_num, m_name, eb_entrydate
+		from (select rownum rnum, eb_num, m_name, eb_entrydate
+			from(select eb_num, m_name, eb_entrydate from ig_evententry
+				order by eb_entrydate desc )) where rnum between #{begin} and #{end}
+	</select>
+	<select id="selectEntryList" resultType="ignis.bean.ig_evententry">
 		select eb_num, m_name, eb_entrydate
 		from (select rownum rnum, eb_num, m_name, eb_entrydate
 			from(select eb_num, m_name, eb_entrydate from ig_evententry

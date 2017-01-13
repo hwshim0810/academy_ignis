@@ -74,6 +74,7 @@
 	<div class="container text-center" style="max-width : 970px;">    
 	  <br><br>
 	  <div class="row">
+	  <%-- 공지사항 / 이벤트 --%>
 	  	<div class="col-sm-6">
 		  	<ul class="nav nav-tabs">
 			  <li class="active"><a data-toggle="tab" href="#home" alt="공지사항">공지사항</a></li>
@@ -93,7 +94,6 @@
 							<div class="list-group">
 					      		<% for(int i=0;i<eventList.size();i++){ %>
 						      	<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eventList.get(i).getEb_num()%>" class="list-group-item"><%=eventList.get(i).getEb_title() %></a>
-						      	</tr>
 						      	<%} %>
 							</div>
 						</div>
@@ -101,40 +101,13 @@
 	  			</div>
 	  		</div>
 	  	</div>
-	  	<%-- 
-	  	<div class="col-sm-6">
-	      <div class="well">
-	      <div class="container-fluid">
-	      	<h5>공지사항</h5>
-	      	<table class="table table-responsive">
-	      	<% 
-	      	for(int i=0;i<noticeList.size();i++){
-	      	%>
-	      	<tr><td><a href="noticeDetail?nb_num=<%=noticeList.get(i).getNb_num()%>"><%=noticeList.get(i).getNb_title() %></a></td>
-	      	</tr>
-	      	<%} %>
-	      	</table>
-	      	</div>
-	      </div>
-	      <div class="well">
-	      	<h5>이벤트</h5>
-	      	<table class="table table-responsive">
-	      	<% 
-	      		for(int i=0;i<eventList.size();i++){
-	      	%>
-	      	<tr><td><a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eventList.get(i).getEb_num()%>"><%=eventList.get(i).getEb_title() %></a></td>
-	      	</tr>
-	      	<%} %>
-	      	</table>
-	      </div>
-	    </div>
-	    --%>
+	  	<%-- 진료안내 / 온라인예약 --%>
 	    <div class="col-sm-6">
 	    	<div class="reservIndex">
 	    		<img src="/academy_ignis/image/reserv.png" class="img-responsive" style="width:100%" alt="진료시간 안내">
 	    		<div class="reservBtn">
-	    			<a href="/academy_ignis/departmentAll" class="btn godo" role="button">진료안내</a>
-	    			<a href="/academy_ignis/reserv" class="btn godo" role="button">온라인예약</a>
+	    			<a href="/academy_ignis/departmentAll" class="btn godo" role="button">진료 안내</a>
+	    			<a href="/academy_ignis/reserv" class="btn godo" role="button">온라인 예약</a>
 	    		</div>
 	    	</div>
 	    </div>

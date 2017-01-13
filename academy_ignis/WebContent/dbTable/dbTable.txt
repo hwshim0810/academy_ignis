@@ -95,6 +95,7 @@ create table ig_event  (
 				eb_readcount NUMBER NOT NULL, 
 				eb_regdate DATE) SEGMENT CREATION IMMEDIATE;
 
+
 create sequence eb_num;
 
 
@@ -172,11 +173,11 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목32', '내용3
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목33', '내용33',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목34', '내용34',0, SYSDATE );
 INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목35', '내용35',0, SYSDATE );
-INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목36', '내용36',0, SYSDATE );
-INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목37', '내용37',0, SYSDATE );
-INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목38', '내용38',0, SYSDATE );
-INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목39', '내용39',0, SYSDATE );
-INSERT INTO IG_notice VALUES ( nb_num.nextval, '공지사항 제목40', '내용40',0, SYSDATE );
+INSERT INTO IG_notice VALUES ( nb_num.nextval, '회원가입을 하시려면', '이러이러한 내용',0, SYSDATE );
+INSERT INTO IG_notice VALUES ( nb_num.nextval, '병원시설 추가안내', '공지사항에 걸맞는 내용',0, SYSDATE );
+INSERT INTO IG_notice VALUES ( nb_num.nextval, '병원시설 이전안내', '여기로 이전합니다',0, SYSDATE );
+INSERT INTO IG_notice VALUES ( nb_num.nextval, '의료진 교체안내', '새로운 선생님이 오십니다',0, SYSDATE );
+INSERT INTO IG_notice VALUES ( nb_num.nextval, '진료시간 변경안내', '어떤식으로 변경될까요',0, SYSDATE );
 
 INSERT INTO IG_reserv VALUES ( nb_num.nextval, '치아교정', '01/19/2017', '10:00', 'TRUE', SYSDATE, 'user777' );
 INSERT INTO IG_reserv VALUES ( nb_num.nextval, '치아미백', '01/20/2017', '09:30', 'TRUE', SYSDATE, 'user666' );
@@ -203,62 +204,51 @@ INSERT INTO IG_reserv VALUES ( nb_num.nextval, '일반진료', '02/02/2017', '14
 
 
 INSERT INTO IG_member VALUES ( 'admin','admin','관리자','850101','서울',01011112222,'a@a.com',3, SYSDATE );
-INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'aaa111','aaa111','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'bbb222','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user222','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user333','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user444','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user555','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user666','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user777','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'admin','admin','관리자','850101','서울',01011112222,'a@a.com',3, SYSDATE );
-INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'bbb','aaa','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'aaa111','aaa111','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'bbb222','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user222','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user333','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user444','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user555','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user666','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'user777','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'useraaa','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userbbb','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userccc','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userddd','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usereee','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa2211','11111111','홍길동','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb22221','11111111','고길등','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa111','aaa1111','이사람','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb222','bbb2222','저사람','851001','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user222','bbb2222','누구야','990101','서울',01011222222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user333','bbb2222','누굴까','850101','서울시 동작구',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user444','bbb2222','알바생','890101','서울시 강남구',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user555','bbb2222','도둑','850101','부산시 금정구',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user666','bbb2222','강도','870101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'user777','bbb2222','나누구','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'useraaa','bbb222','임창정','700110','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userbbb','bbb222','유재석','820501','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userccc','bbb222','손규성','850905','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'asdfddd','bbb222','강호동','850109','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'trrreee','bbb222','김성렬','811101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userfff','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userggg','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userhhh','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userkkk','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'useriii','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userlll','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userppp','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userooo','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'useruuu','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userggg','bbb222','내이름은','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userhhh','bbb222','강릉양','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userkkk','bbb222','파주양','850101','경기도 파주시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'useriii','bbb222','이름b','850101','대구광역시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userlll','bbb222','왜다이','750101','광주시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userppp','bbb222','하이고','450106','울산시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userooo','bbb222','또이름','850101','서울시 남대문구',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'useruuu','bbb222','어디징','650301','서울시 동작구',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'useryyy','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userttt','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userwww','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userrrr','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userwww','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userttt','bbb222','이거야','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userwww','bbb222','심현우','880801','서울시 강남구',01011112222,'ee@ee.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userrrr','bbb222','김혜경','941201','서울',01011112222,'ee@ee.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userwww','bbb222','이영광','890101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userqqq','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usersss','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userxxx','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userzzz','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'uservvv','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnn','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnna','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnb','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnc','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnd','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnne','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnf','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnng','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnh','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnni','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'usernnnj','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usersss','bbb222','너이름','900101','서울',01033332222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userxxx','bbb222','어디지','901101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'userzzz','bbb222','나졸려','550101','서울',01044442222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'uservvv','bbb222','이름b','931201','서귀포시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnn','bbb222','선생님','850101','제주시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnna','bbb222','강사님','640101','강릉시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnnb','bbb222','이름b','910101','부산시',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnnc','bbb222','나이름','910101','서울',01055552222,'assss@naver.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'qqqqqqqq','bbb222','나재미','920101','서울',01011112222,'aasdddd@naver.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnne','bbb222','너재미','990101','서울',01011118822,'aq11222a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'jjjk222','bbb222','아재미','850101','서울',01033312222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'dsddd222','bbb222','지겹당','860101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'tttsd22','bbb222','또있음','851101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnni','bbb222','이게뭐','920101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'usernnnj','bbb222','넘많아','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 
 
 
@@ -273,33 +263,28 @@ INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목08', 
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'bbb', 'qna제목09', 'qna내용09',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'bbb', 'qna제목10', 'qna내용10',1,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'bbb', 'qna제목11', 'qna내용11',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목12', 'qna내용12',1,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'bbb', 'qna제목13', 'qna내용13',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', 'qna제목14', 'qna내용14',1,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목15', 'qna내용15',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', 'qna제목16', 'qna내용16',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', 'qna제목17', 'qna내용17',1,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', 'qna제목18', 'qna내용18',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', 'qna제목19', 'qna내용19',0,qb_num.currval,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', 'qna제목20', 'qna내용20',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', '임플란트 비싼가요?', 'qna내용12',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'bbb', '미백은 누가담당합니까?', 'qna내용13',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '임플란트',qb_num.nextval,'bbb', '임플란트과정이 어떻게 되나요?', 'qna내용14',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', '미백을 하고싶습니다', 'qna내용15',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', '스케일링 보험이 될까요?', 'qna내용16',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아미맥',qb_num.nextval,'aaa', '미백과정이 궁금합니다', 'qna내용17',1,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', '교정은 아픈가요?', 'qna내용18',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', '충치치료도 되나요?', 'qna내용19',0,qb_num.currval,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', '교정비용은 얼마인가요?', 'qna내용20',1,qb_num.currval,0, SYSDATE );
 
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목18', 'qna내용18www',0,18,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'Re:qna제목19', 'qna내용19rrr',0,19,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목20', 'qna내용20qqq',1,20,0, SYSDATE );
 
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트1', '이벤트 내용1', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트2', '이벤트 내용2', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트3', '이벤트 내용3', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트4', '이벤트 내용4', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트5', '이벤트 내용5', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트6', '이벤트 내용6', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트7', '이벤트 내용7', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트8', '이벤트 내용8', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트9', '이벤트 내용9', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트10', '이벤트 내용10', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트11', '이벤트 내용11', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트12', '이벤트 내용12', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '이벤트13', '이벤트 내용13', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '수능할인 이벤트', '수험생 20%할인 이벤트', 10, '2017-01-01~2017-01-30', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '월초할인 이벤트', '20%할인 이벤트', 5, '2017-01-05~2017-02-20', '2017-02-21', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '방문고객할인 이벤트', '50%할인 이벤트', 15, '2017-01-01~2017-01-10', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '상담 후 할인 이벤트', '40%할인 이벤트', 5, '2016-12-01~2017-03-21', '2017-03-25', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '선착순 10명 이벤트', '10%할인 이벤트', 10, '2017-01-01~2017-01-07', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 병원 이벤트', '30%할인 이벤트', 10, '2017-02-01~2017-03-10', '2017-04-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새로운 시설 증축 이벤트', '40%할인 이벤트', 10, '2017-03-01~2017-04-30', '2017-05-01', 0, SYSDATE);
+
 
 commit;
 
@@ -338,8 +323,6 @@ create table ig_event2  (
 				m_level NUMBER NOT NULL,
 				m_enterdate DATE
 
-
-INSERT INTO ig_member VALUES ( '아이디','123','123',111111,'서울', 010, 'sgs@nav', 2, SYSDATE);
 
 
 INSERT INTO IG_EVENT2(eb_num, eb_title, eb_content, eb_readcount, eb_regdate) VALUES ( 'TEST01','TEST0121','0000001',1,SYSDATE);

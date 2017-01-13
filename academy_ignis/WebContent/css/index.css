@@ -21,6 +21,8 @@ div.well { border-top : none!Important; }
 ul.nav-tabs { border-bottom : none; }
 ul.nav li.active a { border-bottom : 1px solid #fff; }
 
+div.list-group { text-align : left!Important; }
+
 div.reservIndex:hover img { opacity : 1; }
 
 div.reservIndex { position : relative; }
