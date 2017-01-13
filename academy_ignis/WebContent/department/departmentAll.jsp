@@ -19,7 +19,7 @@
 
 
 
-</head>
+</head> 
 <style>
 	div.container-large { margin : 2% auto; }
 	.container-small {border-style:none;}
