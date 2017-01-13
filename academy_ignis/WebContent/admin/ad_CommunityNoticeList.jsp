@@ -85,7 +85,38 @@ if ((Integer)session.getAttribute("m_level") <3)
 					<input type="button"  class="btn btn-primary" value="공지사항 등록" 
 					onclick="document.location.href='noticeInsertView?login=admin'">
 				</div>
-				 <ul class="pager">
+  <%String searchOption=null;
+  String searchContent=null;
+  if(request.getAttribute("searchOption")!=null&&request.getAttribute("searchContent")!=null){
+  searchOption=request.getAttribute("searchOption").toString();
+	searchContent=request.getAttribute("searchContent").toString();%>
+	<ul class="pager">
+  <%if(pagenum==1){%>
+    <li><a>첫 페이지</a></li>
+	  <li><a>◁</a></li>
+ <% }else{ %>
+   <li><a href="notice?login=admin&searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=1">첫 페이지</a></li>
+  <li><a href="notice?login=admin&searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagenum-1%>">◁</a></li>
+  <%} %>
+ <%for(int pagelist=startpage ; pagelist<=endpage ; pagelist++){ %>
+ 
+ <% if(pagelist==pagenum){%>
+ <li class="active"><a><%=pagelist %></a></li>
+ <%}else{ %>
+  <li><a href="notice?login=admin&searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagelist%>"><%=pagelist %></a></li>
+  <%}} %>
+  <%if(pagenum==pageCount){ %>
+  <li><a>▷</a></li>
+  <li><a>마지막 페이지</a></li>
+  <%}else{ %>
+  <li><a href="notice?login=admin&searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pagenum+1%>">▷</a></li>
+  <li><a href="notice?login=admin&searchOption=<%=searchOption %>&searchContent=<%=searchContent %>&pagenum=<%=pageCount%>">마지막 페이지</a></li>
+  <%} %>
+</ul>
+<%}else{ 
+
+%>
+  <ul class="pager">
   <%if(pagenum==1){%>
     <li><a>첫 페이지</a></li>
 	  <li><a>◁</a></li>
@@ -106,18 +137,21 @@ if ((Integer)session.getAttribute("m_level") <3)
   <%}else{ %>
   <li><a href="notice?login=admin&pagenum=<%=pagenum+1%>">▷</a></li>
   <li><a href="notice?login=admin&pagenum=<%=pageCount%>">마지막 페이지</a></li>
-  <%} %>
+  <%} }%>
 </ul>
-				<form class="form-inline">
-				<select name="reviewSearch" class="form-control" id="reviewSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="writer">글쓴이</option>
+			<form name="search" class="form-inline"  action="notice?login=admin" method="get">
+				<label for="sel1">검색 범위</label>
+				<select class="form-control" id="searchOption" name="searchOption">
+					<option value="nb_all">전체</option>
+					<option value="nb_title">제목</option>
+					<option value="nb_content">내용</option>
 				</select>
 				<div class="form-group">
-					<input type="text" class="form-control" id="searchReview">
+					<label class="sr-only" for="search">검색 내용:</label>
+					<input type="text" class="form-control" id="searchContent" name="searchContent" required="required">
 				</div>
-				<button type="submit" class="btn btn-default">검색</button>
+				<input type="submit" class="btn btn-default"  value="검색" />
+<input  type="hidden" name="login"  value="admin"/>
 			</form>
 			</div>
 		</div>
