@@ -19,11 +19,11 @@
 
 </head>
 <body>
-
+	<div class="addreserv godo">
 	<% if(result==true){ %>
 	<%=mem_id%><% out.println("회원님이 확인되었습니다."); %>
 	<% } else {%><% out.println("아이디가 없습니다."); %>
 	<% } %>
-	
+	</div>
 </body>
 </html>

@@ -90,7 +90,7 @@ body { font-size: 20px;}
 <% pageContext.include("../header/header.jsp"); %>
 	<div class="container">
 	<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
-		<div class="container-fluid">
+		<div class="container-fluid godo">
 			<div class="row content">
 				<div class="col-sm-3"></div>
 				<div class="col-sm-9">
