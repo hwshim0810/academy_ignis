@@ -45,7 +45,7 @@
 					<div class ="container-large col-xs-12 col-sm-12 col-md-12">
 						<div class="container-median">
 							<div class="container-small col-xs-12 col-sm-5 col-md-5">
-								<img alt="사진" src="/academy_ignis/image/gyoj.jpg" class="img-rounded img-responsive">
+								<img alt="사진 치아교정" src="/academy_ignis/image/gyoj.jpg" class="img-rounded img-responsive">
 							</div>
 							<div class="container-small col-xs-12 col-sm-7 col-md-7">
 								<label class="sub-letter">
@@ -67,7 +67,7 @@
 					<div class = "container-large col-xs-12">
 						<div class="container-median">
 							<div class="container-small col-xs-12 col-sm-5 col-md-5">
-								<img alt="사진" src="/academy_ignis/image/imple.jpg" class="img-rounded img-responsive">
+								<img alt="사진 임플란트" src="/academy_ignis/image/imple.jpg" class="img-rounded img-responsive">
 							</div>
 							<div class="container-small col-xs-12 col-sm-7 col-md-7">
 								<label class="sub-letter">
@@ -89,7 +89,7 @@
 					<div class = "container-large col-xs-12">
 						<div class="container-median">
 							<div class="container-small col-xs-12 col-sm-5 col-md-5">
-								<img alt="사진" src="/academy_ignis/image/mibak.png" class="img-rounded img-responsive">
+								<img alt="사진 치아미백" src="/academy_ignis/image/mibak.png" class="img-rounded img-responsive">
 							</div>
 							<div class="container-small col-xs-12 col-sm-7 col-md-7">
 								<label class="sub-letter">
@@ -112,7 +112,7 @@
 					<div class = "container-large col-xs-12">
 						<div class="container-median">
 							<div class="container-small col-xs-12 col-sm-5 col-md-5">
-								<img alt="사진" src="/academy_ignis/image/normal.png" class="img-rounded img-responsive">
+								<img alt="사진 일반진료" src="/academy_ignis/image/normal.png" class="img-rounded img-responsive">
 							</div>
 							<div class="container-small col-xs-12 col-sm-7 col-md-7">
 								<label class="sub-letter">
@@ -134,7 +134,7 @@
 					</div>
 					<div class="hr"></div>
 				<label class="sub-letter">
-					<a href="javascript:history.go(-1)"><button type="button" class="btn btn-default btn-info">뒤로 가기</button></a>
+					<a href="javascript:history.go(-1)" ><button type="button" class="btn btn-default btn-info">뒤로 가기</button></a>
 				</label>
 			</div>
 		</div>

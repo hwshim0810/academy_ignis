@@ -76,16 +76,16 @@
 	  <div class="row">
 	  	<div class="col-sm-6">
 		  	<ul class="nav nav-tabs">
-			  <li class="active"><a data-toggle="tab" href="#home">공지사항</a></li>
-			  <li><a data-toggle="tab" href="#menu1">이벤트</a></li>
+			  <li class="active"><a data-toggle="tab" href="#home" alt="공지사항">공지사항</a></li>
+			  <li><a data-toggle="tab" href="#menu1"  alt="이벤트">이벤트</a></li>
 			</ul>
 	  		<div class="well" style="background-color : #fff;">
 	  			<div class="container-fluid">
 					<div class="tab-content">
 						<div id="home" class="tab-pane fade in active">
-							<div class="list-group">
+							<div class="list-group" >
 								<% for(int i=0;i<noticeList.size();i++){ %>
-								<a href="noticeDetail?nb_num=<%=noticeList.get(i).getNb_num()%>" class="list-group-item"><%=noticeList.get(i).getNb_title() %></a>
+								<a href="noticeDetail?nb_num=<%=noticeList.get(i).getNb_num()%>" class="list-group-item" ><%=noticeList.get(i).getNb_title() %></a>
 								<% } %>
 							</div>
 						</div>
@@ -131,7 +131,7 @@
 	    --%>
 	    <div class="col-sm-6">
 	    	<div class="reservIndex">
-	    		<img src="/academy_ignis/image/reserv.png" class="img-responsive" style="width:100%" alt="Image">
+	    		<img src="/academy_ignis/image/reserv.png" class="img-responsive" style="width:100%" alt="진료시간 안내">
 	    		<div class="reservBtn">
 	    			<a href="/academy_ignis/departmentAll" class="btn godo" role="button">진료안내</a>
 	    			<a href="/academy_ignis/reserv" class="btn godo" role="button">온라인예약</a>

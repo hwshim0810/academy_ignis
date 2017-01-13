@@ -25,7 +25,7 @@
 	<div class="col-xs-12 col-sm-9 col-md-10">
 			<div class="container-fulid">
 				<div class="col-xs-12 " >
-					<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive"">
+					<img alt="사진" src="/academy_ignis/image/01.jpg" class="img-rounded img-responsive" >
 				</div>
 				<div class="col-xs-12"></div>
 			</div>
