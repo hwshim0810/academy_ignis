@@ -74,7 +74,7 @@
 							<div class="form-group">
 							  <label class="col-xs-6 col-sm-5 control-label">회원님이 쓴 글 수</label>  
 							  <div class="col-xs-6 col-sm-7 text-center">
-							  <h4>리뷰 게시판 <%=revCount %>개</h4>
+							  <h4>리뷰게시판 <%=revCount %>개</h4>
 							  </div>
 							</div>
 							
@@ -91,7 +91,7 @@
 							<div class="form-group">
 							  <label class="col-xs-6 col-sm-5 control-label" for="textinput">회원님이 쓴 댓글 수</label>  
 							  <div class="col-xs-6 col-sm-7 text-center">
-							  <h4>리뷰 게시판 <%=revReplyCount %>개</h4>
+							  <h4>리뷰게시판 <%=revReplyCount %>개</h4>
 							  </div>
 							</div>
 						</div>
