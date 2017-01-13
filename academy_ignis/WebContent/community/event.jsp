@@ -42,16 +42,16 @@
 	<%pageContext.include("leftList.jsp"); %> 
 	<div class="col-xs-12 col-sm-12 col-md-10">
 		<h3>EVENT</h3><hr>
-		<table class="table table-responsive">
+		<table class="table table-responsive" style="text-align : center;">
 			<caption class="sr-only">이벤트 게시판</caption>
 			<thead>
 				<tr>
-					<th class="hidden-xs">No</th>
-					<th>제목</th>
-					<th>기간</th>
-					<th>응모 가능 인원</th>
-					<th class="hidden-xs">등록일</th>
-					<th class="hidden-xs">조회수</th>
+					<th class="hidden-xs" style="text-align : center;">No</th>
+					<th style="text-align : center;">제목</th>
+					<th style="text-align : center;">기간</th>
+					<th style="text-align : center;">응모가능수</th>
+					<th class="hidden-xs" style="text-align : center;">등록일</th>
+					<th class="hidden-xs" style="text-align : center;">조회수</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -65,7 +65,7 @@
 			%>
 			<tr>
 				<td class="hidden-xs"><%= no %></td>
-				<td>
+				<td style="text-align : left;">
 					<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
 						<%= event.getEb_title() %>
 					</a>
