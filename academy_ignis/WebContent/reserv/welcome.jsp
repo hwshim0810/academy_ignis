@@ -57,13 +57,13 @@
 		<% pageContext.include("../ignisCompany_info/leftList2.jsp"); %>
   		<div class="col-xs-12 col-sm-9 col-md-10">
   			  <div class="panel panel-default">
-					<div class="panel-heading ">
+					<div class="panel-heading  godo">
 						<h3 id="memTitle">나의 예약현황</h3>
 					</div>
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr class="info  godo"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>삭제</th></tr>
 						</thead>
 						<tbody>
@@ -93,9 +93,8 @@
 						  <div class="form-group">
 						  	<label for="sel1">검색 범위</label>
 						  	<select class="form-control" id="sel1" name="reservType">
-							    <option>전체</option>
+							    <option value="t_guide">전체</option>
 							    <option value="t_guide">진료 항목</option>
-							    <option>내용</option>
 						  </select>
 						  </div>
 						  <div class="form-group">
