@@ -33,7 +33,7 @@ public class MemberLoginAction implements ActionInterface {
 			session.setAttribute("m_id", request.getParameter("m_id"));
 			session.setAttribute("m_level",ADMINLEVEL);
 			forward.setRedirect(true);
-			forward.setPath("./admin/ad_Manage.jsp");
+			forward.setPath("./admin/manage_Reserv.jsp");
 			return forward;
 		
 		case MEMBERLEVEL:

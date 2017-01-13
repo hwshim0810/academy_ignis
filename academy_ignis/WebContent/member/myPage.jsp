@@ -32,7 +32,7 @@
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
 <div class="wrapper">
-	<div class="container godo normal w400">
+	<div class="container">
 		<%
 			pageContext.include("../ignisCompany_info/leftList2.jsp"); 
 		%>
