@@ -62,7 +62,7 @@
 <th>답변 제목</th>
 <td>
 <div class="form-group">
-<input type="text" name="qb_title"  class="form-control"  value="Re:<%=list.get(0).getQb_title()%>"/>
+<input type="text" name="qb_title"  class="form-control"  value="Re:<%=list.get(0).getQb_title()%>" required="required"/>
 </div>
 </td>
 </tr>
@@ -70,7 +70,7 @@
 <th>답변</th>
 <td>
 <div class="form-group">
-<textarea class="form-control" name="qb_content" rows="5"></textarea>
+<textarea class="form-control" name="qb_content" rows="5" required="required"></textarea>
 </div>
 </td>
 </tr>

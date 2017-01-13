@@ -48,7 +48,7 @@
 <th>말머리</th>
 <td>
 <div class="form-group">
-<input type="text"  class="form-control"  value="<%=list.get(0).getQb_mal() %>" readonly="readonly"/>
+<input type="text"  class="form-control"  value="<%=list.get(0).getQb_mal() %>" readonly="readonly" />
 </div>
 </td>
 </tr>
@@ -64,7 +64,7 @@
 <th>답변 제목</th>
 <td>
 <div class="form-group">
-<input type="text" name="qb_title"  class="form-control"  value="<%=list.get(0).getQb_title()%>"/>
+<input type="text" name="qb_title"  class="form-control"  value="<%=list.get(0).getQb_title()%>" required="required"/>
 </div>
 </td>
 </tr>
@@ -72,7 +72,7 @@
 <th>답변</th>
 <td>
 <div class="form-group">
-<textarea class="form-control" name="qb_content" rows="5"><%=list.get(0).getQb_content() %></textarea>
+<textarea class="form-control" name="qb_content" rows="5" required="required"><%=list.get(0).getQb_content() %></textarea>
 </div>
 </td>
 </tr>
@@ -80,7 +80,7 @@
 <th>비밀번호:</th>
 <td>
 <div class="form-group">
-<input type="password" class="form-control" name="password" />
+<input type="password" class="form-control" name="password"  required="required"/>
 </div>
 </td>
 </tr>
