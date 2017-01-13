@@ -53,9 +53,6 @@
 <% 
 	String searchType = request.getParameter("searchType");
 	String searchContent = request.getParameter("searchContent");
-	System.out.println("searchType" + searchType);
-	System.out.println("searchContent" + searchContent);
-	System.out.println("pageNum" + request.getParameter("pageNum"));
 	
 	// manage_Reserv.jsp에서 보낸 파라미터 값들을 받아온다. 
 	ReservDAO reservDao = ReservDAO.getInstance();
@@ -63,7 +60,6 @@
 	if (request.getParameter("pageNum") != null)
 		pageNo = Integer.valueOf(request.getParameter("pageNum"));
 	
-	System.out.println("pageNo는 이것입니다. " + pageNo);
 	 int totalRows = reservDao.getAdminListCount(searchType, searchContent); 
 	//검색항목별로 해당 게시물의 수를 출력한다. %>
 <%

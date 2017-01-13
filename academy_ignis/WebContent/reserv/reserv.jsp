@@ -120,6 +120,15 @@ System.out.println(type);
 												id="datepicker" name="r_day" required="required" >
 										</div>
 									</div>
+									
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									<br>
+									
 									<div class="row">
 										<div class="row_second">
 											<div class="col-sm-3 form-group">

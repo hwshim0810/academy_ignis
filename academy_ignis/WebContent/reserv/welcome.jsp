@@ -17,7 +17,48 @@
 	 String reservSearchSecond = request.getParameter("reservSearch");
 	 int totalRows = reservDao.getReservedListcount(reservSearchSecond, id); %>
 <% ReservDAO reservDAO = new ReservDAO(); %>
-<%@include file="../paging/getPageNum.jsp" %>
+<%
+	String tempNo = request.getParameter("pageNo");
+
+	int pageNo = 1;
+	
+	try {
+		pageNo = Integer.parseInt(tempNo);
+	} catch (Exception e) {
+	}
+
+	final int ROW_PER_PAGE = 5; // 페이지당 레코드 출력 갯수
+	int begin = (pageNo - 1) * ROW_PER_PAGE + 1;
+	int end = pageNo * ROW_PER_PAGE;
+	
+	//요부분도 적당한 DAO로 수정해서 쓸것
+	System.out.println("totalRows는 " + totalRows);
+
+	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
+	// 전체 페이지 갯수
+	System.out.println("totalPages는 " + totalPages);
+
+	final int PAGE_PER_PAGE = 10; // 화면당 페이지 출력 갯수
+	int totalRanges = (int) Math.ceil((double) totalPages
+			/ PAGE_PER_PAGE); // 전체 Range 갯수
+	int currentRange = (int) Math.ceil((double) pageNo / PAGE_PER_PAGE);
+	//요청된 pageNo의 현재 range
+	int beginPage = (currentRange - 1) * PAGE_PER_PAGE + 1; // 시작 페이지 번호
+	int endPage = currentRange * PAGE_PER_PAGE; // 마지막 페이지 번호
+	if (totalRanges == 0) {
+		endPage = 1;
+	} else if (currentRange == totalRanges)
+		endPage = totalPages; // currentRange가 맨 마지막 range인 경우
+
+	int prevPage = 0;
+	if (currentRange != 1)
+		prevPage = (currentRange - 2) * PAGE_PER_PAGE + 1;
+	int nextPage = 0;
+	if (currentRange != totalRanges) 
+		nextPage = currentRange * PAGE_PER_PAGE + 1;
+	if (totalRanges == 0)
+		nextPage = 0;
+%>
 <% List<ig_reserv> reservList = reservDAO.getSearchReserv(id, reservSearchSecond, begin, end); %>
 
 <!DOCTYPE html>

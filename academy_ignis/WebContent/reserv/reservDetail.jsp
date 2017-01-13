@@ -19,12 +19,6 @@
 %>
     
 <%
-	// @page include대신에 아래에 풀었음.
-	//요부분은 게시판 전체 내용 가져오는걸로 대체
-	//MemberDAO memDao = MemberDAO.getInstance();
-	//List<User> userList = memDao.getUserAll(MemberLoginAction.MEMBERLEVEL);
-	
-	//게시판으로 넘어올때 pageNo(페이지번호)를 get방식으로 넣어줘서 이동해야함
 	String tempNo = request.getParameter("pageNo");
 
 	int pageNo = 1;
