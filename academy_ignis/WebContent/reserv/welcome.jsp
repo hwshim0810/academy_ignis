@@ -93,9 +93,8 @@
 						  <div class="form-group">
 						  	<label for="sel1">검색 범위</label>
 						  	<select class="form-control" id="sel1" name="reservType">
-							    <option>전체</option>
+							    <option value="t_guide">전체</option>
 							    <option value="t_guide">진료 항목</option>
-							    <option>내용</option>
 						  </select>
 						  </div>
 						  <div class="form-group">
