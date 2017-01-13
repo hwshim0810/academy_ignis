@@ -97,12 +97,12 @@
 		</div>
 		
 		<%}else if(list.get(0).getM_id().equals(session.getAttribute("m_id"))&&qb_groupCount==2){%>
-		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo2">그룹삭제</button>
+		<button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo2">삭제</button>
 		<div class="container">
 		  <div id="demo2" class="collapse">
 		  <form action="qnaDelete?pagenum=<%=pagenum%>&qb_groupnum=<%=list.get(0).getQb_num()%>"  method="post" >
 		확인을 위하여 비밀번호를 입력해주세요.<input type="password" name="password">
-		<button type="submit" class="btn btn-danger" >그룹삭제 확인</button>
+		<button type="submit" class="btn btn-danger" >삭제 확인</button>
 		</form>
 	  </div>
 	</div>
