@@ -57,6 +57,7 @@
 						<th class="hidden-xs">기간</th>
 						<th class="hidden-xs">발표일</th>
 						<th>상세보기</th>
+						<th>응모 취소</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -77,6 +78,9 @@
 						<td>
 							<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eb_num %>">보기</a>
 						</td>
+						<td>
+							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>" class="btn btn-danger">취소</a>
+						</td>
 					</tr>
 					<%
 						totalRows--;
@@ -87,9 +91,32 @@
 						<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
 					</tr>
 					<% } %> 
-					</tbody>
 				</tbody>
 			</table>
+			<ul class="pager">
+			  <li><a href="/academy_ignis/Event?login=member&pageNo=1">첫 페이지</a></li>
+			  <li>
+			  	<% if (prevPage != 0) { %><a href="/academy_ignis/myEvent?pageNo=<%=prevPage %>">◁</a><% } %>
+			  </li>
+			 	<% for (int i = beginPage; i <= endPage; i++) { %>
+			  <li><a href="/academy_ignis/myEvent?pageNo=<%=i %>"><%=i %></a></li>
+			  	<% } %>
+			  <li>
+			 	 <% if (nextPage != 0) { %><a href="/academy_ignis/myEvent?pageNo=<%=nextPage%>">▷</a><% } %>
+			  </li>
+			  <li><a href="/academy_ignis/myEvent?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+			</ul>
+			<form class="form-inline">
+				<select name="myeventSearch" class="form-control" id="myeventSearch">
+					<option value="">전체</option>
+					<option value="title">이벤트명</option>
+					<option value="regdate">발표일</option>
+				</select>
+				<div class="form-group">
+					<input type="text" class="form-control" id="searchEvent">
+				</div>
+				<button type="submit" class="btn btn-default">검색</button>
+			</form>
 		</div>
 	</div>
 </div>

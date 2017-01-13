@@ -57,6 +57,15 @@
 	<update id="updateWinner" parameterType="int">
 		UPDATE ig_event SET eb_winner = eb_winner - 1 WHERE eb_num = #{eb_num}
 	</update>
-	
-	
+	<delete id="deleteMyEvent" parameterType="java.util.HashMap">
+		delete from ig_evententry
+		where eb_num = #{eb_num}
+	</delete>
+	<update id="deleteWinner" parameterType="int">
+		UPDATE ig_event SET eb_winner = eb_winner + 1 WHERE eb_num = #{eb_num}
+	</update>
+	<select id="selectEntry" resultType="ignis.bean.ig_evententry" parameterType="int">
+		select * from ig_evententry
+		where eb_num = #{eb_num}
+	</select>
 </mapper>

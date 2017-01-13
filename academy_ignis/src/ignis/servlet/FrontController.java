@@ -612,6 +612,16 @@ public class FrontController extends HttpServlet {
 			forward.setPath("./member/myEvent.jsp");
 			break;
 			
+		case "/myEventCancle":
+			action = new myEventCancleAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			break;
+			
 //		case "/" :
 //			action = new Action();
 //			
