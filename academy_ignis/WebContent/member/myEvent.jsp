@@ -79,7 +79,7 @@
 							<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eb_num %>">보기</a>
 						</td>
 						<td>
-							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>" class="btn btn-danger">취소</a>
+							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=member" class="btn btn-danger">취소</a>
 						</td>
 					</tr>
 					<%

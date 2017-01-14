@@ -61,6 +61,7 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 							<th>응모 기간</th>
 							<th>발표일</th>
 							<th>응모한 날짜</th>
+							<th>취소</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -80,6 +81,9 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 						<td><%= event.getEb_period() %></td>
 						<td><%= event.getEb_announceday() %></td>
 						<td><%= evententry.getEb_entrydate()%></td>
+						<td>
+							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=admin" class="btn btn-danger">취소</a>
+						</td>
 					</tr>
 					<%
 						totalRows--;
@@ -94,17 +98,17 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 				<% } %>
 				</table>
 				<ul class="pager">
-				  <li><a href="/academy_ignis/Event?login=admin&pageNo=1">첫 페이지</a></li>
+				  <li><a href="/academy_ignis/EventEntryList?pageNo=1">첫 페이지</a></li>
 				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/Event?login=admin&pageNo=<%=prevPage %>">◁</a><% } %>
+				  	<% if (prevPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=prevPage %>">◁</a><% } %>
 				  </li>
 				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/Event?login=admin&pageNo=<%=i %>"><%=i %></a></li>
+				  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=i %>"><%=i %></a></li>
 				  	<% } %>
 				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=admin&pageNo=<%=nextPage%>">▷</a><% } %>
+				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=nextPage%>">▷</a><% } %>
 				  </li>
-				  <li><a href="/academy_ignis/Event?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+				  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
 				<form class="form-inline">
 				<select name="eventSearch" class="form-control" id="eventSearch">

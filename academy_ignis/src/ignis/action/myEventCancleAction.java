@@ -15,6 +15,9 @@ public class myEventCancleAction implements ActionInterface {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		EventBiz eventBiz = new EventBiz();
 		
+		
+		String login = request.getParameter("login");
+		String pageNo = "1";
 		int num = Integer.valueOf(request.getParameter("num"));
 		boolean result = eventBiz.deleteMyEvent(request, response);
 		if(result){
@@ -22,7 +25,11 @@ public class myEventCancleAction implements ActionInterface {
 			PrintWriter outR = response.getWriter();
 			outR.println("<script>");
 			outR.println("alert('삭제되었습니다.');");
-			outR.println("location.href='/academy_ignis/myEvent';");
+			if(login.equals("admin")){
+				outR.println("location.href='/academy_ignis/EventEntryList?pageNo=1';");
+			} else if(login.equals("member")) {
+				outR.println("location.href='/academy_ignis/myEvent';");
+			}
 			outR.println("</script>");
 			outR.close();
 			return null;
