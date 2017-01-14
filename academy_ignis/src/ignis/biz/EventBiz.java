@@ -6,6 +6,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ignis.action.EventEntryPlusAction;
 import ignis.bean.ig_event;
 import ignis.bean.ig_evententry;
 import ignis.dao.EventDAO;
@@ -87,24 +88,31 @@ public class EventBiz {
 		else return result;
 	}
 
-	public boolean isCanEntry(HttpServletRequest request, HttpServletResponse response) {
+	public int isCanEntry(HttpServletRequest request, HttpServletResponse response) {
+		
 		EventDAO eventDao = new EventDAO();
 		int eb_num = Integer.valueOf(request.getParameter("num"));
 		String m_name = request.getParameter("id");
 		
 		boolean result = eventDao.isCanEntry(eb_num);
 		boolean result2 = eventDao.isCanEntryId(eb_num, m_name);
-		boolean result3 = false;
+		int result3 = 0;
 	
 		
 		if (result && result2) {
 			eventDao.updateWinner(eb_num);
 			eventDao.insertEventEntry(eb_num, m_name);
-			result3 = true;
+			result3 = EventEntryPlusAction.ENTRYSUCCESS;
+		} else if (!result) {
+			result3 = EventEntryPlusAction.ENTRYFULL;
+		} else if (!result2) {
+			result3 = EventEntryPlusAction.ENTRYFAIL;
 		}
 		
 		return result3;
 	}
+	
+	
 	
 	public boolean deleteMyEvent(HttpServletRequest request, HttpServletResponse response){
 		System.out.println("EventBizDelete"+request.getParameter("num"));
@@ -112,13 +120,13 @@ public class EventBiz {
 		
 		boolean result = eventDao.deleteMyEvent(eb_num);
 		boolean result1 = eventDao.deleteWinner(eb_num);
+		boolean result2 = false;
 		
 		if(result && result1){
-			eventDao.deleteWinner(eb_num);
-			eventDao.deleteMyEvent(eb_num);
+			result2 = true;
 		}
 		
-		return result;
+		return result2;
 		
 	}
 	

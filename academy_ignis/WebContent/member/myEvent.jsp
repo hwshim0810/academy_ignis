@@ -22,7 +22,7 @@
 %>
 <%@include file="../paging/getPageNum.jsp" %>
 <%
-	List<ig_evententry> list = eventDao.eventEntryList(begin, end);
+	List<ig_evententry> list = eventDao.eventEntryById(begin, end, id);
 %>
 <!DOCTYPE html>
 <html>

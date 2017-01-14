@@ -185,7 +185,7 @@ public class EventDAO {
 			}
 		}
 		
-		return false;
+		return true;
 	}
 	
 //	public Map<String, Object> selectEntryList(int begin, int end) {
@@ -234,9 +234,23 @@ public class EventDAO {
 		return list;
 	}
 	
-	public boolean deleteWinner(int eb_num) {
+	public List<ig_evententry> eventEntryById(int begin, int end, String id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		
+		HashMap<String, Object> map = new HashMap<>();
+		
+		map.put("begin", begin);
+		map.put("end", end);
+		map.put("m_name", id);
+		
+		List<ig_evententry> list = ss.selectList("event.eventEntryById", map);
+		ss.close();
+		return list;
+	}
+	
+	public boolean deleteWinner(int eb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession(true);
+		System.out.println("응모가능인원 + 1");
 		ss.update("event.deleteWinner", eb_num);
 		ss.close();
 		

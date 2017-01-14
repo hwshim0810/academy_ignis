@@ -27,8 +27,8 @@ drop table ig_qna purge;
 drop table ig_reserv purge;
 drop table ig_comment purge;
 drop table ig_review purge;
-drop table ig_member purge;
 drop table ig_evententry purge;
+drop table ig_member purge;
 
 drop sequence co_num;
 drop sequence rb_num;
@@ -289,9 +289,9 @@ INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '누렁니 빠이', 'aaa2211', '�
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '스케일링 너무 쉬원해요', 'userrrr', '교정 최고~!~!', '04.jpg', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '웃을 때도 자신있게!', 'bbb222', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '시어머님 임플란트', 'aaa2211', '임플란트 최고~!~!', '', 0, 0 , SYSDATE);
-INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '이빨이 하얘졌어요!', 'aaa1111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '이빨이 하얘졌어요!', 'aaa111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '요새는 교정도 길게 안해요', 'user777', '교정 최고~!~!', '', 0, 0 , SYSDATE);
-INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '하얀 이빨 넘나 좋은 것', 'bbb111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
+INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '하얀 이빨 넘나 좋은 것', 'aaa111', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '임플란트 .. 대박..', 'userzzz', '임플란트 최고~!~!', '03.jpg', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '치아미백 굳굳', 'aaa2211', '치아미백 최고~!~!', '01.jpg', 0, 0 , SYSDATE);
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '충치치료', 'useruuu', '교정 최고~!~!', '04.jpg', 0, 0 , SYSDATE);
