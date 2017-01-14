@@ -20,8 +20,6 @@
   <link rel="stylesheet" href="/academy_ignis/css/index.css">
   <style>
   #wellColor {background-color:#f2f2f2 ;margin-bottom: 0;}
-  ul {text-align: left;}
-  .left {text-align: left;}
   </style>
 </head>
 <body>
@@ -31,58 +29,54 @@
 %>
 <%-- Header 종료 --%>
 <%-- Body 시작 --%>
-	      <div class="well container" id="wellColor">
-	       <h2>SITEMAP</h2>
-	      </div>
+<div class="container" id="wellColor">
+	<h2>SITEMAP</h2>
+</div>
 <div class="wrapper">
 	<div class="container text-center" style="max-width : 970px;">    
-	  <div class="row">
-	  	<div class="col-sm-3">
-<div class="container-fulid">
-  <h2 class="left">병원소개</h2>
-<ul class="list-group">
-<div class="row"></div>
-<p><a href="abouts_us"><h4>병원소개</h4></a></p>
-<p><a href="medical_procedure"><h4>진료 절차</h4></a></p>
-<p><a href="map_to_the_ignis"><h4>찾아 오시는 길</h4></a></p>
-</ul>
-</div>
-</div>
-	  	<div class="col-sm-3">
-<div class="container-fulid">
-  <h2 class="left">진료과목</h2>
-<ul class="list-group">
-<div class="row"></div>
-<p><a href="/academy_ignis/departmentInfo?guide=gyoj"><h4>치아교정</h4></a></p>
-<p><a href="/academy_ignis/departmentInfo?guide=imple"><h4>임플란트</h4></a></p>
-<p><a href="/academy_ignis/departmentInfo?guide=mibak"><h4>치아미백</h4></a></p>
-<p><a href="/academy_ignis/departmentInfo?guide=normal"><h4>일반진료</h4></a></p>
-</ul>
-</div>
-</div>
-	  	<div class="col-sm-3">
-<div class="container-fulid">
-  <h2 class="left">상담 및 예약</h2>
-<ul class="list-group">
-<div class="row"></div>
-<p><a href="/academy_ignis/reserv"><h4>상담 및 예약</h4></a></p>
-</ul>
-</div>
-</div>
-	  	<div class="col-sm-3">
-<div class="container-fulid">
-  <h2 class="left">커뮤니티</h2>
-<ul class="list-group">
-<div class="row"></div>
-<p><a href="/academy_ignis/notice"><h4>공지사항</h4></a></p>
-<p><a href="/academy_ignis/Event?login=member"><h4>이벤트</h4></a></p>
-<p><a href="/academy_ignis/Review?login=membe"><h4>수술후기</h4></a></p>
-<p><a href="/academy_ignis/qna"><h4>Q&A</h4></a></p>
-<p><a href="/academy_ignis/community/faq.jsp"><h4>자주묻는 질문</h4></a></p>
-</ul>
-</div>
-</div>
-	  </div>
+		<div class="row godo">
+			<div class="col-sm-3">
+				<div class="container-fulid text-center">
+					<h2 class="left">병원소개</h2>
+					<ul class="list-unstyled">
+						<li><a href="abouts_us">병원소개</a></li>
+						<li><a href="medical_procedure">진료 절차</a></li>
+						<li><a href="map_to_the_ignis">찾아 오시는 길</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="container-fulid">
+					<h2 class="left">진료과목</h2>
+					<ul class="list-unstyled">
+						<li><a href="/academy_ignis/departmentInfo?guide=gyoj">치아교정</a></li>
+						<li><a href="/academy_ignis/departmentInfo?guide=imple">임플란트</a></li>
+						<li><a href="/academy_ignis/departmentInfo?guide=mibak">치아미백</a></li>
+						<li><a href="/academy_ignis/departmentInfo?guide=normal">일반진료</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="container-fulid">
+					<h2 class="left">상담 및 예약</h2>
+					<ul class="list-unstyled">
+						<li><a href="/academy_ignis/reserv">상담 및 예약</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-sm-3">
+				<div class="container-fulid">
+					<h2 class="left">커뮤니티</h2>
+					<ul class="list-unstyled">
+						<li><a href="/academy_ignis/notice">공지사항</a></li>
+						<li><a href="/academy_ignis/Event?login=member">이벤트</a></li>
+						<li><a href="/academy_ignis/Review?login=membe">수술후기</a></li>
+						<li><a href="/academy_ignis/qna">Q&A</a></li>
+						<li><a href="/academy_ignis/community/faq.jsp">자주묻는 질문</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div>	
 </div>
 <%-- Body 종료 --%>

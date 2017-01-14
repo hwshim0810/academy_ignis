@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ignis.dao.MemberDAO;
+import ignis.dao.ReservDAO;
 
 public class MemberBiz {
 	public static final int ADSUCCESS = 1;
@@ -87,12 +88,14 @@ public class MemberBiz {
 	
 	public int delete(HttpServletRequest request, HttpServletResponse response) {
 		MemberDAO memDao = MemberDAO.getInstance();
+		ReservDAO resDao = new ReservDAO();
 	
 		String page = request.getParameter("page");
 		String id = request.getParameter("m_id");
 		
 		if (page.equals("admin")) {
 			boolean result = memDao.deleteMem(id);
+			resDao.deleteMem(id);
 			
 			if (result) return ADSUCCESS;
 			else return ADFAIL;

@@ -1,7 +1,7 @@
 
 function userLogin() {
 	$("#login").html('<a href="#" id="logout">Logout</a>');
-	$("#mypage").html('<a class="dropdown-toggle" data-toggle="dropdown" href="#">My page<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/academy_ignis/reservDetail">예약정보 확인</a></li><li><a href="#"><a href="/academy_ignis/myPagePath">내정보 확인</a></li><li><a href="#"><a href="/academy_ignis/myEvent">내 이벤트 확인</a></li><li><a href="#"><a href="/academy_ignis/memOutpage">회원 탈퇴</a></li></ul>');
+	$("#mypage").html('<a class="dropdown-toggle" data-toggle="dropdown" href="#">My page<span class="caret"></span></a><ul class="dropdown-menu"><li><a href="/academy_ignis/reservDetail">예약정보 확인</a></li><li class="divider"></li><li><a href="/academy_ignis/myPagePath">내정보 확인</a></li><li><a href="/academy_ignis/myEvent">내 이벤트 확인</a></li><li><a href="/academy_ignis/memOutpage">회원 탈퇴</a></li></ul>');
 }
 
 function userLogout() {

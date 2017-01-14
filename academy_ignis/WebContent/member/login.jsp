@@ -65,7 +65,7 @@
 		                        <input type="submit" class="btn btn-lg btn-success btn-block" value="로그인">
 							</div>
 							<div class="col-xs-6 col-sm-6 col-md-6">
-								<a href="./memberJoin" class="btn btn-lg btn-primary btn-block">회원가입</a>
+								<a href="./memberJoin?page=home" class="btn btn-lg btn-primary btn-block">회원가입</a>
 							</div>
 						</div>
 						<div class="row">
