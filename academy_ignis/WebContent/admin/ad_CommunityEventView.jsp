@@ -64,7 +64,7 @@
 									이그니스 치과
 								</td>
 								<th>당첨자 수</th>
-								<td><%= view.getEb_winner() %></td>
+								<td><%= view.getEb_winner() + entryCount %></td>
 							</tr>
 							<tr>
 								<th>이벤트 기간</th>
