@@ -270,4 +270,12 @@ public class EventDAO {
 		
 		return(result > 0) ? true : false;
 	} 
+	
+	public int eventEntryCount(int eb_num) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		int count = ss.selectOne("event.eventEntryCount", eb_num);
+		ss.close();
+		
+		return count;
+	}
 }

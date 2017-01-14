@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, java.text.*"  %>
 <%@ page import="ignis.dao.MemberDAO" %>
 <%@ page import="ignis.bean.User" %>
 <%@ page import = "java.util.List" %>
@@ -71,6 +72,13 @@
 							int eb_num = evententry.getEb_num();
 							ig_event event = eventDao.eventSelectOne(eb_num);
 					%>
+					<%
+						java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+						Date today = new Date();
+						String endDate = event.getEb_period().substring(13);
+						Date endDay = formatter.parse(endDate);
+						int result = today.compareTo(endDay);
+					%>
 					<tr>
 						<td><%= event.getEb_title()%></td>
 						<td class="hidden-xs"><%= event.getEb_period() %></td>
@@ -79,7 +87,9 @@
 							<a href="/academy_ignis/EventView?login=member&pageNo=1&num=<%= eb_num %>">보기</a>
 						</td>
 						<td>
-							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=member" class="btn btn-danger">취소</a>
+							<% if(result <= 0)  {%>
+								<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=member" class="btn btn-danger">취소</a>
+							<% } %>
 						</td>
 					</tr>
 					<%

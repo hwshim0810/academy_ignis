@@ -24,6 +24,7 @@
 	
 	EventDAO eventDao = new EventDAO();
 	ig_event view = eventDao.eventSelectOne(num);
+	int entryCount = eventDao.eventEntryCount(num);
 	String pageNo = request.getParameter("pageNo");
 %>
 <!DOCTYPE html>
@@ -67,9 +68,11 @@
 							</tr>
 							<tr>
 								<th>이벤트 기간</th>
-								<td colspan="3"><%= view.getEb_period() %></td>
+								<td><%= view.getEb_period() %></td>
 								<th>발표 날짜</th>
 								<td><%= view.getEb_announceday() %></td>
+								<th>응모자 수</th>
+								<td><%= entryCount %></td>
 							</tr>
 							<tr>
 								<th>이벤트 내용</th>
@@ -81,7 +84,7 @@
 							            <div class="col-md-offset-2 col-md-10">
 							                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=admin&pageNo=<%=pageNo %>'">목록</button>
 							            	<button type="button" class="btn btn-primary" onclick="document.location.href='/academy_ignis/EventEditView?pageNo=<%= pageNo %>&num=<%= view.getEb_num()%>'">수정</button>
-							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventDelete?num=<%= view.getEb_num() %>'">삭제</button>
+							            	<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventDelete?pageNo=<%= pageNo %>&num=<%= view.getEb_num() %>'">삭제</button>
 							            </div>
 							        </div>
 								</td>

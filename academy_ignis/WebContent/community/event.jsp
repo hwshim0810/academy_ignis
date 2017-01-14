@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, java.text.*"  %>
 <%@ page import = "java.util.List" %>
 <%@ page import = "java.util.Iterator" %>
 <%@ page import = "ignis.biz.EventBiz" %>
@@ -63,6 +64,13 @@
 					cnt++;
 					ig_event event = it.next();				
 			%>
+			<%
+				java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+				Date today = new Date();
+				String endDate = event.getEb_period().substring(13);
+				Date endDay = formatter.parse(endDate);
+				int result = today.compareTo(endDay);
+			%>
 			<tr>
 				<td class="hidden-xs"><%= no %></td>
 				<td style="text-align : left;">
@@ -72,10 +80,14 @@
 				</td>
 				<td><%= event.getEb_period() %></td>
 				<td style="color : #f00;">
-					<% if( event.getEb_winner() > 0) { %>
-						<%= event.getEb_winner() %>
-					<% } else { %>
+					<% if(result > 0){ %>
 						이벤트 마감
+					<% } else { 
+						 if( event.getEb_winner() > 0) { %>
+							<%= event.getEb_winner() %>
+						<% } else { %>
+							이벤트 마감
+						<% } %>
 					<% } %>
 				</td>
 				<td class="hidden-xs"><%= event.getEb_regdate() %></td>

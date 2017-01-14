@@ -22,12 +22,12 @@ conn ignis/1234
 //삭제용
 
 drop table ig_notice purge;
+drop table ig_evententry purge;
 drop table ig_event purge;
 drop table ig_qna purge;
 drop table ig_reserv purge;
 drop table ig_comment purge;
 drop table ig_review purge;
-drop table ig_evententry purge;
 drop table ig_member purge;
 
 drop sequence co_num;
@@ -270,15 +270,15 @@ INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'Re:qna제목
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목20', 'qna내용20qqq',1,20,0, SYSDATE );
 
 
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '수능할인 이벤트', '수험생 20%할인 이벤트', 10, '2017-01-01~2017-01-30', '2017-02-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '월초할인 이벤트', '20%할인 이벤트', 5, '2017-01-05~2017-02-20', '2017-02-21', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '방문고객할인 이벤트', '50%할인 이벤트', 15, '2017-01-01~2017-01-10', '2017-02-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '상담 후 할인 이벤트', '40%할인 이벤트', 5, '2016-12-01~2017-03-21', '2017-03-25', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '선착순 10명 이벤트', '10%할인 이벤트', 10, '2017-01-01~2017-01-07', '2017-02-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 병원 이벤트', '30%할인 이벤트', 10, '2017-02-01~2017-03-10', '2017-04-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 학기! 경품이 빵빵!', '초/중/고/대학생 새학기 맞이 경품 추첨!', 20, '2017-03-01~2017-03-31', '2017-04-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새로운 시설 증축 이벤트', '40%할인 이벤트', 10, '2017-03-01~2017-04-30', '2017-05-01', 0, SYSDATE);
-INSERT INTO IG_EVENT VALUES (eb_num.nextval, 'Instagram #해쉬태그 일반진료 1회 무료 이벤트', '인스타그램 @이그니스 치과를 팔로우 하면 미백1회 무료! #해쉬태그 하면 일반진료 1회 무료!', 50, '2017-02-01~2017-06-30', '2017-06-30', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '수능할인 이벤트', '수험생 20%할인 이벤트', 10, '2017-01-01 - 2017-01-30', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '월초할인 이벤트', '20%할인 이벤트', 5, '2017-01-05 - 2017-02-20', '2017-02-21', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '방문고객할인 이벤트', '50%할인 이벤트', 15, '2017-01-01 - 2017-01-10', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '상담 후 할인 이벤트', '40%할인 이벤트', 5, '2016-12-01 - 2017-03-21', '2017-03-25', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '선착순 10명 이벤트', '10%할인 이벤트', 10, '2017-01-01 - 2017-01-07', '2017-02-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 병원 이벤트', '30%할인 이벤트', 10, '2017-02-01 - 2017-03-10', '2017-04-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새 학기! 경품이 빵빵!', '초/중/고/대학생 새학기 맞이 경품 추첨!', 20, '2017-03-01 - 2017-03-31', '2017-04-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, '새로운 시설 증축 이벤트', '40%할인 이벤트', 10, '2017-03-01 - 2017-04-30', '2017-05-01', 0, SYSDATE);
+INSERT INTO IG_EVENT VALUES (eb_num.nextval, 'Instagram #해쉬태그 일반진료 1회 무료 이벤트', '인스타그램 @이그니스 치과를 팔로우 하면 미백1회 무료! #해쉬태그 하면 일반진료 1회 무료!', 50, '2017-02-01 - 2017-06-30', '2017-06-30', 0, SYSDATE);
 
 
 INSERT INTO IG_REVIEW VALUES (rb_num.nextval, '이빨이 하얘졌어요!', 'aaa2211', '치아미백 최고~!~!', '', 0, 0 , SYSDATE);

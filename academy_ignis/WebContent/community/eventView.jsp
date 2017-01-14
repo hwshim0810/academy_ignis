@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, java.text.*"  %>
 <%@ page import = "java.util.List" %>
 <%@ page import = "java.util.Iterator" %>
 <%@ page import = "ignis.biz.EventBiz" %>
@@ -24,6 +25,12 @@
 	ig_event view = eventDao.eventSelectOne(num);
 	
 	String pageNo = request.getParameter("pageNo");
+	
+	java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+	Date today = new Date();
+	String endDate = view.getEb_period().substring(13);
+	Date endDay = formatter.parse(endDate);
+	int result = today.compareTo(endDay);
 %>
 
 <!DOCTYPE html>
@@ -78,7 +85,9 @@
 							<div class="form-group">
 					            <div class="col-md-offset-2 col-md-10">
 					                <button type="button" class="btn btn-info"  onclick="document.location.href='/academy_ignis/Event?login=member&pageNo=<%=pageNo %>'">목록</button>
-									<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry?num=<%= view.getEb_num()%>&id=<%= id %>'">응모하기</button>								
+					                <% if(result <= 0)  {%>
+										<button type="button" class="btn btn-danger" onclick="document.location.href='/academy_ignis/EventEntry?num=<%= view.getEb_num()%>&id=<%= id %>'">응모하기</button>								
+					            	<% } %>
 					            </div>
 					        </div>
 						</td>

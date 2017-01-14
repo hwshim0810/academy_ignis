@@ -67,4 +67,8 @@
 		select * from ig_evententry
 		where eb_num = #{eb_num}
 	</select>
+	<select id="eventEntryCount" resultType="int">
+		SELECT count(*) FROM ig_evententry
+		where eb_num = #{eb_num}
+	</select>
 </mapper>
