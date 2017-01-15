@@ -42,82 +42,84 @@
 	<%-- Body 영역 --%>
 	<div class="col-xs-12 col-sm-12 col-md-10"">
 		<h3>Review</h3><hr>
-		<table class="table table-responsive">
-			<caption class="sr-only">Review게시판</caption>
-			<thead>
+		<div id="ContentArea">
+			<table class="table table-responsive">
+				<caption class="sr-only">Review게시판</caption>
+				<thead>
+					<tr>
+						<th class="hidden-xs">No</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>등록일</th>
+						<th class="hidden-xs">조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%
+					Iterator<ig_review> it = list.iterator();
+					int cnt = 0;
+					int no = list.size();
+					while(it.hasNext()){
+						cnt ++;
+						ig_review review = it.next();
+						int commentCount = reviewDao.getListCommentCount(review.getRb_num());
+				%>
+					<tr>
+						<td class="hidden-xs"><%= review.getRb_num() %></td>
+						<td>
+							<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
+								<span class="badge"><%=commentCount %></span>
+								<%
+									if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
+								%>
+									<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+								<% } %>
+						</td>
+						<td><%= review.getM_name() %></td>
+						<td><%= review.getRb_regdate() %></td>
+						<td class="hidden-xs"><%= review.getRb_readcount() %></td>
+					</tr>
+				<% 
+					no--;
+					} 
+					
+					if(cnt == 0) {
+				%>
 				<tr>
-					<th class="hidden-xs">No</th>
-					<th>제목</th>
-					<th>작성자</th>
-					<th>등록일</th>
-					<th class="hidden-xs">조회수</th>
+					<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
 				</tr>
-			</thead>
-			<tbody>
-			<%
-				Iterator<ig_review> it = list.iterator();
-				int cnt = 0;
-				int no = list.size();
-				while(it.hasNext()){
-					cnt ++;
-					ig_review review = it.next();
-					int commentCount = reviewDao.getListCommentCount(review.getRb_num());
-			%>
-				<tr>
-					<td class="hidden-xs"><%= review.getRb_num() %></td>
-					<td>
-						<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
-							<span class="badge"><%=commentCount %></span>
-							<%
-								if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
-							%>
-								<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-							<% } %>
-					</td>
-					<td><%= review.getM_name() %></td>
-					<td><%= review.getRb_regdate() %></td>
-					<td class="hidden-xs"><%= review.getRb_readcount() %></td>
-				</tr>
-			<% 
-				no--;
-				} 
-				
-				if(cnt == 0) {
-			%>
-			<tr>
-				<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
-			</tr>
-			<% } %>
-			</tbody>
-		</table>
+				<% } %>
+				</tbody>
+			</table>
+			
+			<ul class="pager">
+				<li><a href="/academy_ignis/Review?login=member&pageNo=1">첫 페이지</a></li>
+				<li>
+					<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
+				</li>
+				<% for (int i = beginPage; i <= endPage; i++) { %>
+				<li><a href="/academy_ignis/Review?login=member&pageNo=<%=i %>"><%=i %></a></li>
+				<% } %>
+				<li>
+				 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
+				</li>
+				<li><a href="/academy_ignis/Review?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+			</ul>
+		</div>
 		<div class="form-group">
 			<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='reviewWrite.jsp'">
 		</div>
-		<ul class="pager">
-			<li><a href="/academy_ignis/Review?login=member&pageNo=1">첫 페이지</a></li>
-			<li>
-				<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
-			</li>
-			<% for (int i = beginPage; i <= endPage; i++) { %>
-			<li><a href="/academy_ignis/Review?login=member&pageNo=<%=i %>"><%=i %></a></li>
-			<% } %>
-			<li>
-			 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
-			</li>
-			<li><a href="/academy_ignis/Review?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
-		</ul>
 		<form class="form-inline">
-			<select name="reviewSearch" class="form-control" id="reviewSearch">
-				<option value="">전체</option>
-				<option value="title">제목</option>
-				<option value="writer">글쓴이</option>
-				<option value="regdate">등록일</option>
-			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="searchReview">
-				<input type="hidden" value="member" id="lo">
+				<select class="form-control" name="reviewSearch"  id="reviewSearch">
+					<option value="review_all">전체</option>
+					<option value="review_title">제목</option>
+					<option value="review_writer">작성자</option>
+					<option value="review_regdate">등록일</option>
+				</select>
+				<input type="text" class="form-control" name="searchReview" id="searchReview">
 			</div>
-			<button type="submit" class="btn btn-default">검색</button>
+			<a type="button" class="btn btn-default" id="searchBtn">검색</a>
 		</form>
 	</div>
 </div>
@@ -132,6 +134,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/search_review_client.js"></script>
 <%
 	String id= null;
 	if (session.getAttribute("m_id") != null) {
