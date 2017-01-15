@@ -92,18 +92,18 @@
 		} 
 		
 		if(cnt == 0) {
+			prevPage = 0;
+			endPage = 1;
+			nextPage = 0;
 	%>
 	<tr>
-		<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
+		<td colspan="5" style="padding : 10% 0; text-align : center;">검색된 치료후기가 없습니다.</td>
 	</tr>
-	<% } %>
+		<% } %>
 	<% } %>
 	</tbody>
 </table>
 <% } %>
-<div class="form-group">
-	<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityReviewWrite.jsp'">
-</div>
 <ul class="pager">
   <li><a href="/academy_ignis/Review?login=admin&pageNo=1">첫 페이지</a></li>
   <li>

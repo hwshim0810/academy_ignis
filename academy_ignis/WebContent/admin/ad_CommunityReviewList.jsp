@@ -96,25 +96,24 @@
 						</tr>
 						<% } %>
 						</tbody>
-					</table>
-				
-				<% } %>
-				<div class="form-group">
-					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityReviewWrite.jsp'">
+					</table>				
+					<% } %>
+					<ul class="pager">
+					  <li><a href="/academy_ignis/Review?login=admin&pageNo=1">첫 페이지</a></li>
+					  <li>
+					  	<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=admin&pageNo=<%=prevPage %>">◁</a><% } %>
+					  </li>
+					 	<% for (int i = beginPage; i <= endPage; i++) { %>
+					  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=i %>"><%=i %></a></li>
+					  	<% } %>
+					  <li>
+					 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=admin&pageNo=<%=nextPage%>">▷</a><% } %>
+					  </li>
+					  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+					</ul>
 				</div>
-				<ul class="pager">
-				  <li><a href="/academy_ignis/Review?login=admin&pageNo=1">첫 페이지</a></li>
-				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/Review?login=admin&pageNo=<%=prevPage %>">◁</a><% } %>
-				  </li>
-				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=i %>"><%=i %></a></li>
-				  	<% } %>
-				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Review?login=admin&pageNo=<%=nextPage%>">▷</a><% } %>
-				  </li>
-				  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
-				</ul>
+				<div class="pager" style="text-align : right;">
+					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityReviewWrite.jsp'">
 				</div>
 				<form class="form-inline">
 					<div class="form-group">
