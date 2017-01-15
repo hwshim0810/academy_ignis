@@ -47,11 +47,11 @@
 				<caption class="sr-only">Review게시판</caption>
 				<thead>
 					<tr>
-						<th class="hidden-xs">No</th>
+						<th class="hidden-xs hidden-sm">No</th>
 						<th>제목</th>
 						<th>작성자</th>
 						<th>등록일</th>
-						<th class="hidden-xs">조회수</th>
+						<th class="hidden-xs hidden-sm">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -65,7 +65,7 @@
 						int commentCount = reviewDao.getListCommentCount(review.getRb_num());
 				%>
 					<tr>
-						<td class="hidden-xs"><%= review.getRb_num() %></td>
+						<td class="hidden-xs hidden-sm"><%= review.getRb_num() %></td>
 						<td>
 							<a href="/academy_ignis/ReviewView?login=member&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
 								<span class="badge"><%=commentCount %></span>
@@ -77,7 +77,7 @@
 						</td>
 						<td><%= review.getM_name() %></td>
 						<td><%= review.getRb_regdate() %></td>
-						<td class="hidden-xs"><%= review.getRb_readcount() %></td>
+						<td class="hidden-xs hidden-sm"><%= review.getRb_readcount() %></td>
 					</tr>
 				<% 
 					no--;

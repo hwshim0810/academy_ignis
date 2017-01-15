@@ -111,8 +111,14 @@
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info  godo"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
-							<th>진료 시간</th><th>예약 신청일</th><th>예약 취소</th></tr>
+							<tr class="info  godo">
+								<th class="hidden-xs hidden-sm">예약 번호</th>
+								<th>진료 항목</th>
+								<th>진료 일자</th>
+								<th>진료 시간</th>
+								<th class="hidden-xs hidden-sm">예약 신청일</th>
+								<th>예약 취소</th>
+							</tr>
 						</thead>
 						<tbody>
 						<%
@@ -121,11 +127,11 @@
 									ig_reserv reserv = reservList.get(i);	
 						%>
 						<tr >
-							<td><%=reserv.getR_num() %></td>
+							<td class="hidden-xs hidden-sm"><%=reserv.getR_num() %></td>
 							<td><%=reserv.getR_guide() %></td>
 							<td><%=reserv.getR_day() %></td>
 							<td><%=reserv.getR_time() %></td>
-							<td><%=reserv.getR_regdate() %></td>
+							<td class="hidden-xs hidden-sm"><%=reserv.getR_regdate() %></td>
 							<td><a href="/academy_ignis/deleteReserv?getR_num=<%=reserv.getR_num()%>&pageNo=<%=pageNo%>" class="reservDel">취소</a>
 						</tr>
 											
