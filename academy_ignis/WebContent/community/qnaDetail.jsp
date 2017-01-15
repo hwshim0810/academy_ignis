@@ -6,7 +6,6 @@
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
     String id = null;
-    System.out.println(session.getAttribute("m_id"));
     if (!(session.getAttribute("m_id") !=null)) {
 		out.println("<script>");
 		out.println("alert('로그인후 이용해주시기 바랍니다.');");
