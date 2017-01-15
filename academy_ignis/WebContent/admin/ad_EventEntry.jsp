@@ -113,17 +113,6 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 			  </li>
 			  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 			</ul>
-			<form class="form-inline">
-				<div class="form-group">	
-					<select class="form-control" name="eventEntrySearch"  id="eventEntrySearch">
-						<option value="entry_all">전체</option>
-						<option value="entry_title">이벤트명</option>
-						<option value="entry_id">아이디</option>
-					</select>
-					<input type="text" class="form-control" id="searchEventEntry">
-				</div>
-				<a type="button" id="searchBtn" class="btn btn-default">검색</a>
-			</form>
 		</div>
  	</div>
 	<%

@@ -116,17 +116,6 @@
 			  </li>
 			  <li><a href="/academy_ignis/myEvent?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 			</ul>
-			<form class="form-inline">
-				<select name="myeventSearch" class="form-control" id="myeventSearch">
-					<option value="">전체</option>
-					<option value="title">이벤트명</option>
-					<option value="regdate">발표일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchEvent">
-				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
 		</div>
 	</div>
 </div>
