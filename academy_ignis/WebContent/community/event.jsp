@@ -48,12 +48,12 @@
 				<caption class="sr-only">이벤트 게시판</caption>
 				<thead>
 					<tr>
-						<th class="hidden-xs" style="text-align : center;">No</th>
+						<th class="hidden-xs hidden-sm" style="text-align : center;">No</th>
 						<th style="text-align : center;">제목</th>
 						<th style="text-align : center;">기간</th>
 						<th style="text-align : center;">응모가능수</th>
-						<th class="hidden-xs" style="text-align : center;">등록일</th>
-						<th class="hidden-xs" style="text-align : center;">조회수</th>
+						<th class="hidden-xs hidden-sm" style="text-align : center;">등록일</th>
+						<th class="hidden-xs hidden-sm" style="text-align : center;">조회수</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -73,7 +73,7 @@
 					int result = today.compareTo(endDay);
 				%>
 				<tr>
-					<td class="hidden-xs"><%= no %></td>
+					<td class="hidden-xs hidden-sm"><%= no %></td>
 					<td style="text-align : left;">
 						<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
 							<%= event.getEb_title() %>
@@ -91,8 +91,8 @@
 							<% } %>
 						<% } %>
 					</td>
-					<td class="hidden-xs"><%= event.getEb_regdate() %></td>
-					<td class="hidden-xs"><%= event.getEb_readcount() %></td>
+					<td class="hidden-xs hidden-sm"><%= event.getEb_regdate() %></td>
+					<td class="hidden-xs hidden-sm"><%= event.getEb_readcount() %></td>
 				</tr>
 				<%
 						no--;
