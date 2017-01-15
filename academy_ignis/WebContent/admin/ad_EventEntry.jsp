@@ -57,12 +57,12 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 						<caption class="sr-only">응모 이벤트 게시판</caption>
 						<thead>
 							<tr>
-								<th>회원ID</th>
+								<th style="text-align : center">회원ID</th>
 								<th>이벤트명</th>
 								<th class="hidden-xs hidden-sm">응모 기간</th>
 								<th class="hidden-xs hidden-sm">발표일</th>
 								<th class="hidden-xs hidden-sm">응모한 날짜</th>
-								<th>취소</th>
+								<th style="text-align : center">취소</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -77,12 +77,12 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 							ig_event event = eventDao.eventSelectOne(eb_num);
 						%>
 						<tr>
-							<td><%= evententry.getM_name() %></td>
+							<td style="text-align : center"><%= evententry.getM_name() %></td>
 							<td><%= event.getEb_title()%></td>
 							<td class="hidden-xs hidden-sm"><%= event.getEb_period() %></td>
 							<td class="hidden-xs hidden-sm"><%= event.getEb_announceday() %></td>
 							<td class="hidden-xs hidden-sm"><%= evententry.getEb_entrydate()%></td>
-							<td>
+							<td style="text-align : center">
 								<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=admin" class="btn btn-danger">취소</a>
 							</td>
 						</tr>
