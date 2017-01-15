@@ -122,6 +122,5 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
- <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/search_evententry.js"></script>
 </body>
 </html>
