@@ -17,12 +17,8 @@ public class QnaUpdateViewAction  implements ActionInterface{
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
 		}
-		int qb_num=1;//상세정보 요청 number
-		if(request.getParameter("qb_num")!=null){
-			qb_num=Integer.parseInt(request.getParameter("qb_num"));
-		}
 		
-		List<ig_qna> list = qnaBiz.selectDetail(qb_num);//상세 정보 가져옴
+		List<ig_qna> list = qnaBiz.selectDetail(request,response);//상세 정보 가져옴
 		request.setAttribute("pagenum", pagenum);
 		
 		if (list !=null) {

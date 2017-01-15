@@ -39,9 +39,10 @@
 <div class="wrapper">
 	<div class="container">
 		 <%pageContext.include("leftList.jsp"); %>
+		 
 		  <div class="col-xs-12 col-sm-9 col-md-10 ">
 		  		<h3>Q&A</h3><hr>
-			 <table class="table">
+			 <table class="table table-bordered">
 			    <tbody>
 			    <%List<ig_qna> list=null;
 			    if(request.getAttribute("qnaDetail")!=null){
@@ -62,8 +63,10 @@
 			    	}
 			    	%>
 			      <tr>
-			      <th>말머리</th>
+			     <th>말머리</th>
+			      
 			        <td><%=list.get(0).getQb_mal() %></td>
+			        
 			        <th>작성자</th>
 			        <td colspan="3"><%=list.get(0).getM_id()%></td>
 			      </tr><tr>

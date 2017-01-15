@@ -271,9 +271,9 @@ INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', '교정은 아�
 INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'aaa', '충치치료도 되나요?', 'qna내용19',0,qb_num.currval,0, SYSDATE );
 INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'aaa', '교정비용은 얼마인가요?', 'qna내용20',1,qb_num.currval,0, SYSDATE );
 
-INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목18', 'qna내용18www',0,18,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'Re:qna제목19', 'qna내용19rrr',0,19,0, SYSDATE );
-INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:qna제목20', 'qna내용20qqq',1,20,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:교정은 아픈가요?', 'qna내용18www',0,18,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '일반진료',qb_num.nextval,'admin', 'Re:충치치료도 되나요?', 'qna내용19rrr',0,19,0, SYSDATE );
+INSERT INTO IG_qna VALUES ( '치아교정',qb_num.nextval,'admin', 'Re:교정비용은 얼마인가요?', 'qna내용20qqq',1,20,0, SYSDATE );
 
 
 INSERT INTO IG_EVENT VALUES (eb_num.nextval, '수능할인 이벤트', '수험생 20%할인 이벤트', 10, '2017-01-01 - 2017-01-30', '2017-02-01', 0, SYSDATE);

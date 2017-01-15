@@ -13,6 +13,12 @@ public class QnaDetailAction  implements ActionInterface{
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		QnaBiz qnaBiz = new QnaBiz();
 		ActionForward forward = new ActionForward();
+		request.removeAttribute("qnalist");
+		request.removeAttribute("pagelimit");
+		request.removeAttribute("pageCount");
+		request.removeAttribute("startpage");
+		request.removeAttribute("pagenum");
+		request.removeAttribute("endpage");
 		int pagenum=1;//현재 페이지
 		if(request.getParameter("pagenum")!=null){
 			pagenum=Integer.parseInt(request.getParameter("pagenum"));
