@@ -23,14 +23,15 @@
 <body>
 <%pageContext.include("../header/header.jsp"); %>
 <div class="wrapper">
-  <div class="container">
-<%pageContext.include("leftList.jsp"); %>
-
-      <div class="col-xs-12 col-sm-9 col-md-10">
-      	      <div class="well container-fulid" id="wellColor">
-	       <h2>IGNIS 치과 진료 절차</h2>
-	      </div>
-<img alt="진료절차 사진" src="/academy_ignis/image/진료절차.jpg" class="img-rounded img-responsive"">
+	<div class="container">
+		<%pageContext.include("leftList.jsp"); %>
+		<div class="col-xs-12 col-sm-9 col-md-10">
+			<div class="container-fulid" id="wellColor">
+				<h2 class="text-center godo normal w400"  alt="교통수단 안내">교통수단 안내</h2>
+			</div>
+			<div class="pager">
+				<img alt="진료절차 사진" src="/academy_ignis/image/진료절차.jpg" class="img-rounded img-responsive"">
+			</div>
 		</div>
 	</div>
 </div>
