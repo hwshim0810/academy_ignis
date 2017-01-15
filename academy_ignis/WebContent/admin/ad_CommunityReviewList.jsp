@@ -48,54 +48,56 @@
 				<%
 					if(session.getAttribute("m_id").equals("admin")) {
 				%>
-				<table class="table">
-					<caption>Review게시판</caption>
-					<thead>
+				<div id="ContentArea">
+					<table class="table">
+						<caption class="sr-only">Review게시판</caption>
+						<thead>
+							<tr>
+								<th class="hidden-xs hidden-sm">No</th>
+								<th>제목</th>
+								<th>작성자</th>
+								<th>등록일</th>
+								<th class="hidden-xs hidden-sm">조회수</th>
+							</tr>
+						</thead>
+						<tbody>
+						<%
+							Iterator<ig_review> it = list.iterator();
+							int cnt = 0;
+							int no = list.size();
+							while(it.hasNext()){
+								cnt ++;
+								ig_review review = it.next();
+								int commentCount = reviewDao.getListCommentCount(review.getRb_num());
+						%>
+							<tr>
+								<td class="hidden-xs hidden-sm"><%= review.getRb_num() %></td>
+								<td>
+									<a href="/academy_ignis/ReviewView?login=admin&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
+									<span class="badge"><%=commentCount %></span>
+										<%
+											if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
+										%>
+											<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+										<% } %>
+								</td>
+								<td><%= review.getM_name() %></td>
+								<td><%= review.getRb_regdate() %></td>
+								<td class="hidden-xs hidden-sm"><%= review.getRb_readcount() %></td>
+							</tr>
+						<% 
+							no--;
+							} 
+							
+							if(cnt == 0) {
+						%>
 						<tr>
-							<th>No</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>등록일</th>
-							<th>조회수</th>
+							<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
 						</tr>
-					</thead>
-					<tbody>
-					<%
-						Iterator<ig_review> it = list.iterator();
-						int cnt = 0;
-						int no = list.size();
-						while(it.hasNext()){
-							cnt ++;
-							ig_review review = it.next();
-							int commentCount = reviewDao.getListCommentCount(review.getRb_num());
-					%>
-						<tr>
-							<td><%= review.getRb_num() %></td>
-							<td>
-								<a href="/academy_ignis/ReviewView?login=admin&pageNo=<%= pageNo %>&num=<%= review.getRb_num()%>&commPageNo=<%= commPageNo%>"><%= review.getRb_title() %></a>
-								<span class="badge"><%=commentCount %></span>
-									<%
-										if(review.getRb_file() != null && review.getRb_file().length() > 0 ){
-									%>
-										<span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
-									<% } %>
-							</td>
-							<td><%= review.getM_name() %></td>
-							<td><%= review.getRb_regdate() %></td>
-							<td><%= review.getRb_readcount() %></td>
-						</tr>
-					<% 
-						no--;
-						} 
-						
-						if(cnt == 0) {
-					%>
-					<tr>
-						<td colspan="5">현재 등록된 수강후기가 없습니다.</td>
-					</tr>
-					<% } %>
-					</tbody>
-				</table>
+						<% } %>
+						</tbody>
+					</table>
+				
 				<% } %>
 				<div class="form-group">
 					<input type="button"  class="btn btn-primary" value="write" onclick="document.location.href='ad_CommunityReviewWrite.jsp'">
@@ -113,17 +115,18 @@
 				  </li>
 				  <li><a href="/academy_ignis/Review?login=admin&pageNo=<%=totalPages %>">마지막 페이지</a></li>
 				</ul>
+				</div>
 				<form class="form-inline">
-					<select name="reviewSearch" class="form-control" id="reviewSearch">
-						<option value="">전체</option>
-						<option value="title">제목</option>
-						<option value="writer">글쓴이</option>
-						<option value="regdate">등록일</option>
-					</select>
 					<div class="form-group">
-						<input type="text" class="form-control" id="searchReview">
+						<select class="form-control" name="reviewSearch"  id="reviewSearch">
+							<option value="review_all">전체</option>
+							<option value="review_title">제목</option>
+							<option value="review_writer">작성자</option>
+							<option value="review_regdate">등록일</option>
+						</select>
+						<input type="text" class="form-control" name="searchReview" id="searchReview">
 					</div>
-					<button type="submit" class="btn btn-default">검색</button>
+					<a type="button" class="btn btn-default" id="searchBtn">검색</a>
 				</form>
 			</div>
 		</div>
@@ -135,5 +138,6 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/search_review.js"></script>
 </body>
 </html>

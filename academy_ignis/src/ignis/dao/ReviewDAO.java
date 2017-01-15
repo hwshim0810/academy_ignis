@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
+import ignis.bean.User;
 import ignis.bean.ig_comment;
 import ignis.bean.ig_event;
 import ignis.bean.ig_review;
@@ -84,21 +85,6 @@ public class ReviewDAO {
 	}
 	
 	public boolean updateReview(ig_review reviewBean){
-//		SqlSession ss = FactoryService.getFactory().openSession(true);
-//		HashMap<String, Object> map = new HashMap<>();
-//		System.out.println(rb_num+" ////DAO//");
-//
-//		map.put("rb_num", rb_num);
-//		map.put("rb_title", rb_title);
-//		map.put("rb_content", rb_content);
-//		map.put("rb_file", rb_file);
-//		
-//		int result = ss.update("review.updateReview", map);
-//		System.out.println(rb_num+" ////DAO2//");
-//		ss.commit();
-//		ss.close();
-//		
-//		return(result > 0) ? true : false;
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
 		map.put("rb_num", reviewBean.getRb_num());
@@ -208,6 +194,67 @@ public class ReviewDAO {
 		int count = ss.selectOne("comment.selectReplyCount", m_id);
 		ss.close();
 		
+		return count;
+	}
+	
+	// 검색기능
+	public List<ig_review> getSearchReview(String type, String content, int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		List<ig_review> list = null;
+		
+		if (!type.equals("review_all")) map.put("content", content);
+		
+		map.put("begin", begin);	
+		map.put("end", end);
+		
+		switch (type) {
+		case "review_title":
+			list = ss.selectList("review.searchByTitle", map);
+			break;
+		case "review_writer":
+			list = ss.selectList("review.searchByWriter", map);
+			break;
+		case "review_regdate":
+			list = ss.selectList("review.searchByDate", map);
+			break;
+		case "review_all":
+			list = ss.selectList("review.selectAll", map);
+			break;
+
+		default:
+			break;
+		}
+		
+		ss.close();
+		
+		return list;
+	}
+	
+	public int getSearchCount(String type, String content) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = 0;
+		
+		switch (type) {
+		case "review_title":
+			count = ss.selectOne("review.countByTitle", content);
+			break;
+		case "review_writer":
+			count = ss.selectOne("review.countByWriter", content);
+			break;
+		case "review_regdate":
+			count = ss.selectOne("review.countByDate", content);
+			break;
+		case "review_all":
+			count = ss.selectOne("review.selectReviewListCount");
+			break;
+		
+		default:
+			break;
+		}
+		
+		ss.close();
 		return count;
 	}
 	

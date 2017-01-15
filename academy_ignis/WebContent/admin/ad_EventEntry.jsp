@@ -39,7 +39,7 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 <%
 	pageContext.include("./manage_Header.jsp");
 %>
-  	<div class="container-fluid main-container">
+<div class="container-fluid main-container">
 <%
 	pageContext.include("./manage_sideNav.jsp");
 %>
@@ -49,79 +49,81 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
 				응모 이벤트 관리
 			</div>
 			<div class="panel-body">
-				<%
-					if(session.getAttribute("m_id").equals("admin")) {
-				%>
-				<table class="table">
-					<caption>응모 이벤트 게시판</caption>
-					<thead>
+				<div id="contentArea">
+					<table class="table">
+					<%
+						if(session.getAttribute("m_id").equals("admin")) {
+					%>
+						<caption class="sr-only">응모 이벤트 게시판</caption>
+						<thead>
+							<tr>
+								<th>회원ID</th>
+								<th>이벤트명</th>
+								<th class="hidden-xs hidden-sm">응모 기간</th>
+								<th class="hidden-xs hidden-sm">발표일</th>
+								<th class="hidden-xs hidden-sm">응모한 날짜</th>
+								<th>취소</th>
+							</tr>
+						</thead>
+						<tbody>
+						<%
+						Iterator<ig_evententry> it = list.iterator();
+						int cnt = 0;
+						int no = list.size();
+						while(it.hasNext()){
+							cnt ++;
+							ig_evententry evententry = it.next();
+							int eb_num = evententry.getEb_num();
+							ig_event event = eventDao.eventSelectOne(eb_num);
+						%>
 						<tr>
-							<th>회원ID</th>
-							<th>이벤트명</th>
-							<th>응모 기간</th>
-							<th>발표일</th>
-							<th>응모한 날짜</th>
-							<th>취소</th>
+							<td><%= evententry.getM_name() %></td>
+							<td><%= event.getEb_title()%></td>
+							<td class="hidden-xs hidden-sm"><%= event.getEb_period() %></td>
+							<td class="hidden-xs hidden-sm"><%= event.getEb_announceday() %></td>
+							<td class="hidden-xs hidden-sm"><%= evententry.getEb_entrydate()%></td>
+							<td>
+								<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=admin" class="btn btn-danger">취소</a>
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-					<%
-					Iterator<ig_evententry> it = list.iterator();
-					int cnt = 0;
-					int no = list.size();
-					while(it.hasNext()){
-						cnt ++;
-						ig_evententry evententry = it.next();
-						int eb_num = evententry.getEb_num();
-						ig_event event = eventDao.eventSelectOne(eb_num);
-					%>
-					<tr>
-						<td><%= evententry.getM_name() %></td>
-						<td><%= event.getEb_title()%></td>
-						<td><%= event.getEb_period() %></td>
-						<td><%= event.getEb_announceday() %></td>
-						<td><%= evententry.getEb_entrydate()%></td>
-						<td>
-							<a href="/academy_ignis/myEventCancle?num=<%= eb_num %>&login=admin" class="btn btn-danger">취소</a>
-						</td>
-					</tr>
-					<%
-						totalRows--;
-						}
-						if (cnt == 0) {
-					%>
-					<tr>
-						<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
-					</tr>
-					<% } %> 
-					</tbody>
-				<% } %>
-				</table>
-				<ul class="pager">
-				  <li><a href="/academy_ignis/EventEntryList?pageNo=1">첫 페이지</a></li>
-				  <li>
-				  	<% if (prevPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=prevPage %>">◁</a><% } %>
-				  </li>
-				 	<% for (int i = beginPage; i <= endPage; i++) { %>
-				  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=i %>"><%=i %></a></li>
-				  	<% } %>
-				  <li>
-				 	 <% if (nextPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=nextPage%>">▷</a><% } %>
-				  </li>
-				  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=totalPages %>">마지막 페이지</a></li>
-				</ul>
-				<form class="form-inline">
-				<select name="eventSearch" class="form-control" id="eventSearch">
-					<option value="">전체</option>
-					<option value="title">제목</option>
-					<option value="regdate">등록일</option>
-				</select>
-				<div class="form-group">
-					<input type="text" class="form-control" id="searchEvent">
+						<%
+							totalRows--;
+							}
+							if (cnt == 0) {
+						%>
+						<tr>
+							<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
+						</tr>
+						<% } %> 
+						</tbody>
+					<% } %>
+					</table>
 				</div>
-				<button type="submit" class="btn btn-default">검색</button>
-			</form>
 			</div>
+			<ul class="pager">
+			  <li><a href="/academy_ignis/EventEntryList?pageNo=1">첫 페이지</a></li>
+			  <li>
+			  	<% if (prevPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=prevPage %>">◁</a><% } %>
+			  </li>
+			 	<% for (int i = beginPage; i <= endPage; i++) { %>
+			  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=i %>"><%=i %></a></li>
+			  	<% } %>
+			  <li>
+			 	 <% if (nextPage != 0) { %><a href="/academy_ignis/EventEntryList?pageNo=<%=nextPage%>">▷</a><% } %>
+			  </li>
+			  <li><a href="/academy_ignis/EventEntryList?pageNo=<%=totalPages %>">마지막 페이지</a></li>
+			</ul>
+			<form class="form-inline">
+				<div class="form-group">	
+					<select class="form-control" name="eventEntrySearch"  id="eventEntrySearch">
+						<option value="entry_all">전체</option>
+						<option value="entry_title">이벤트명</option>
+						<option value="entry_id">아이디</option>
+					</select>
+					<input type="text" class="form-control" id="searchEventEntry">
+				</div>
+				<a type="button" id="searchBtn" class="btn btn-default">검색</a>
+			</form>
 		</div>
  	</div>
 	<%
@@ -131,5 +133,6 @@ List<ig_evententry> entrylist = (List<ig_evententry>) resultMap.get("evententry"
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script src="/academy_ignis/script/ad_Manage.js"></script>
+ <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/search_evententry.js"></script>
 </body>
 </html>

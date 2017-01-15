@@ -89,22 +89,22 @@
 						  <li><a href="/academy_ignis/member?pageNo=<%=totalPages %>">마지막 페이지</a></li>
 						</ul>
 					</div>
-						<form class="form-inline">
+					<form class="form-inline">
 						<div class="form-group">
-						<label for="sel1">검색 범위</label>
-						  <select class="form-control" id="searchType">
-						    <option value="all">전체</option>
-						    <option value="m_id">아이디</option>
-						    <option value="m_name">이름</option>
-						    <option value="m_phone">휴대폰번호</option>
-						    <option value="m_email">Email</option>
-						  </select>
-						    <label class="sr-only">검색 내용:</label>
-						    <input type="text" class="form-control" id="searchContent" name="searchContent">
-						  </div>
-						  <a type="button" id="searchBtn" class="btn btn-default">검색</a>
-						  <a class="btn btn-success" href="/academy_ignis/memberJoin?page=admin">추가</a>
-						 </form>
+							<label for="sel1" class="sr-only">검색 범위</label>
+							<select class="form-control" id="searchType">
+								<option value="all">전체</option>
+								<option value="m_id">아이디</option>
+								<option value="m_name">이름</option>
+								<option value="m_phone">휴대폰번호</option>
+								<option value="m_email">Email</option>
+							</select>
+							<label class="sr-only">검색 내용:</label>
+							<input type="text" class="form-control" id="searchContent" name="searchContent">
+						</div>
+						<a type="button" id="searchBtn" class="btn btn-default">검색</a>
+						<a class="btn btn-success" href="/academy_ignis/memberJoin?page=admin">추가</a>
+					</form>
 				</div>
 			</div>
   		</div>
