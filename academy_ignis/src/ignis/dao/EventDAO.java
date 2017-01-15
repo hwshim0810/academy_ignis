@@ -247,6 +247,55 @@ public class EventDAO {
 		return count;
 	}
 	
+	// 이벤트 검색기능
+	public List<ig_event> getSearchEvent(String type, String content, int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		List<ig_event> list = null;
+		
+		if (!type.equals("event_all")) map.put("content", content);
+		
+		map.put("begin", begin);	
+		map.put("end", end);
+		
+		switch (type) {
+		case "event_title":
+			list = ss.selectList("event.searchByTitle", map);
+			break;
+		case "event_all":
+			list = ss.selectList("event.eventList", map);
+			break;
+
+		default:
+			break;
+		}
+		
+		ss.close();
+		
+		return list;
+	}
+	
+	public int getSearchEventCount(String type, String content) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = 0;
+		
+		switch (type) {
+		case "event_title":
+			count = ss.selectOne("event.countByTitle", content);
+			break;
+		case "event_all":
+			count = ss.selectOne("event.selectListCount");
+			break;
+		
+		default:
+			break;
+		}
+		
+		ss.close();
+		return count;
+	}
+	
 	// 응모 이벤트 관리 검색기능 
 	public List<ig_evententry> getSearchEntry(String type, String content, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();

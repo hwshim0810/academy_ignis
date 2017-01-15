@@ -72,5 +72,14 @@
 		where eb_num = #{eb_num}
 	</select>
 	
-
+	<select id="searchByTitle" resultType="ignis.bean.ig_event" parameterType="java.util.HashMap">
+		SELECT eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday, eb_regdate, eb_readcount 
+		FROM( SELECT ROWNUM rnum, eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday, eb_regdate, eb_readcount 
+			FROM ( SELECT eb_num, eb_title, eb_content, eb_winner, eb_period, eb_announceday, eb_regdate, eb_readcount  FROM ig_event
+				WHERE eb_title LIKE '%'||#{content}||'%' 
+				ORDER BY eb_regdate DESC ) ) WHERE rnum between #{begin} and #{end}
+	</select>
+	<select id="countByTitle" resultType="int">
+		SELECT count(*) FROM ig_event WHERE eb_title LIKE '%'||#{content}||'%'
+	</select>
 </mapper>
