@@ -104,7 +104,7 @@
 					<table class="table table-responsive">
 						<caption class="sr-only">회원명단</caption>
 						<thead>
-							<tr class="info  godo"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
+							<tr class="info godo"><th>예약 번호</th><th>진료 항목</th><th>진료 일자</th>
 							<th>진료 시간</th><th>예약 신청일</th><th>예약 취소</th></tr>
 						</thead>
 						<tbody>
@@ -165,11 +165,9 @@
 	<% pageContext.include("../footer/footer.jsp"); %>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="/academy_ignis/script/ad_Manage.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?v=2"></script>
-<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/myPage.js"></script>
- <script src="/academy_ignis/script/reserv_Delete.js?v=1"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js?"></script>
 
 <%
 	if (id != null) {

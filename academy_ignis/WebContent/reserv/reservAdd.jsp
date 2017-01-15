@@ -46,6 +46,8 @@ body { font-size: 20px;}
 
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+  <link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
   <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
   <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
   
@@ -75,10 +77,13 @@ body { font-size: 20px;}
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet"	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+ <script src="/academy_ignis/script/ad_Manage.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
+
 </head>
 <body>
 <% pageContext.include("../admin/manage_Header.jsp"); %>
-	<div class="container">
+	<div class="container-fluid main-container">
 	<% pageContext.include("../admin/manage_sideNav.jsp"); %>
 		<div class="container-fluid godo">
 			<div class="row content">

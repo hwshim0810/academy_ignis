@@ -38,7 +38,6 @@ public class ReservDAO {
 	public boolean delete(int getR_num) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		int cnt = ss.delete("reserv.deleteReserv", getR_num);
-		System.out.println("delete확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
 	
@@ -47,17 +46,12 @@ public class ReservDAO {
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("m_id", m_id);			
 		int cnt = ss.insert("reserv.updateReserv", map);
-		System.out.println("update확인용 cnt" + cnt);
 		ss.close();					return (cnt > 0) ? true : false;
 	}
 
 	public boolean insert(String r_guide, String r_day, String r_time, String r_findDoc, String m_id) {
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println(r_guide);
-		System.out.println(r_day);
-		System.out.println(r_time);
-		System.out.println(m_id);
 		map.put("r_guide", r_guide);
 		map.put("r_day", r_day);
 		map.put("r_time", r_time);
@@ -90,16 +84,12 @@ public class ReservDAO {
 	public List<ig_reserv> getReservAll(String m_id, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println("ReservDAO내의 m_id확인용 : " + m_id);
-		System.out.println("ReservDAO내의 begin확인용 : " + begin);
-		System.out.println("ReservDAO내의 end확인용 : " + end);
 		map.put("m_id", m_id);
 		map.put("begin", begin);	
 		map.put("end", end);
 		
 		List<ig_reserv> list = ss.selectList("reserv.selectAll", map);
 		ss.close();
-		System.out.println("ReservDAO내의 list의 사이즈입니다. " + list.size());
 		return list;
 	}
 	
@@ -108,14 +98,11 @@ public class ReservDAO {
 	public List<ig_reserv> getReservListAll(int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println("ReservDAO내의 begin확인용 : " + begin);
-		System.out.println("ReservDAO내의 end확인용 : " + end);
 		map.put("begin", begin);	
 		map.put("end", end);
 		
 		List<ig_reserv> list = ss.selectList("reserv.selectListAll", map);
 		ss.close();
-		System.out.println("ReservDAO내의 getReservListAll의 사이즈입니다. " + list.size());
 		return list;
 	}
 	
@@ -123,7 +110,6 @@ public class ReservDAO {
 	public List<ig_reserv> getSearchReserv(String m_id, String r_content, int begin, int end) {
 		SqlSession ss = FactoryService.getFactory().openSession();
 		HashMap<String, Object> map = new HashMap<>();
-		System.out.println("ReservDAO내의 r_title, r_content확인용 : " + r_content);
 		map.put("m_id", m_id);
 		map.put("r_content", r_content);
 		map.put("begin", begin);	

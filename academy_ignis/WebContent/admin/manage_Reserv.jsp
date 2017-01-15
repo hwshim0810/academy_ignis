@@ -17,13 +17,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+<link rel="stylesheet" href="/academy_ignis/css/jquery-confirm.min.css">
 
 <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="/academy_ignis/script/ad_Manage.js"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" href="/academy_ignis/css/ad_Manage.css">
+
 <script>
 	$(function() {
 		$('#reservSubmit').click(function (event) {
@@ -70,7 +72,7 @@
 					<table class="table table-responsive">
 					<caption class="sr-only">회원명단</caption>
 					<thead>
-						<tr><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
+						<tr class="info godo"><th>예약번호</th><th>회원 아이디</th><th>진료 항목</th><th>진료 일자</th>
 						<th>진료 시간</th><th>예약 신청일</th><th>상세보기</th></tr>
 					</thead>
 					<tbody>
