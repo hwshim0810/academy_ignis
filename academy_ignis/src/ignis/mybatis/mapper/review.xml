@@ -61,4 +61,38 @@
 		delete from ig_comment
 		where co_num = #{co_num}
 	</delete>
+	
+	<select id="searchByTitle" resultType="ignis.bean.ig_review" parameterType="java.util.HashMap">
+		SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate 
+		FROM( SELECT ROWNUM rnum, rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate
+			FROM ( SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate FROM ig_review 
+				WHERE rb_title LIKE '%'||#{content}||'%' 
+				ORDER BY rb_regdate DESC ) ) WHERE rnum between #{begin} and #{end}
+	</select>
+	<select id="countByTitle" resultType="int">
+		SELECT count(*) FROM ig_review WHERE rb_title LIKE '%'||#{content}||'%'
+	</select>
+	<select id="searchByWriter" resultType="ignis.bean.ig_review" parameterType="java.util.HashMap">
+		SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate 
+		FROM( SELECT ROWNUM rnum, rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate
+			FROM ( SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate FROM ig_review 
+				WHERE m_name LIKE '%'||#{content}||'%' 
+				ORDER BY rb_regdate DESC ) ) WHERE rnum between #{begin} and #{end}
+	</select>
+	<select id="countByWriter" resultType="int">
+		SELECT count(*) FROM ig_review WHERE m_name LIKE '%'||#{content}||'%'
+	</select>
+	<select id="searchByDate" resultType="ignis.bean.ig_review" parameterType="java.util.HashMap">
+		SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate 
+		FROM( SELECT ROWNUM rnum, rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate
+			FROM ( SELECT rb_num, rb_title, m_name, rb_content, rb_file, rb_replycount, rb_readcount, rb_regdate FROM ig_review 
+				WHERE rb_regdate LIKE '%'||#{content}||'%' 
+				ORDER BY rb_regdate DESC ) ) WHERE rnum between #{begin} and #{end}
+	</select>
+	<select id="countByDate" resultType="int">
+		SELECT count(*) FROM ig_review WHERE rb_regdate LIKE '%'||#{content}||'%'
+	</select>
+	<select id="selectReviewListCount" resultType="int">
+		SELECT count(*) FROM ig_review
+	</select>
 </mapper>

@@ -1,11 +1,11 @@
 <%@page import="java.io.PrintWriter"%>
-<%@page import="ignis.dao.MemberDAO"%>
-<%@page import="ignis.bean.User" %>
+<%@page import="ignis.dao.EventDAO"%>
+<%@page import="ignis.bean.ig_evententry" %>
 <%@page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	MemberDAO memDao = MemberDAO.getInstance();
+	EventDAO eventDao = EventDAO.getInstance();
 	
 	String type = request.getParameter("type");
 	String content = request.getParameter("content");
@@ -18,9 +18,9 @@
 	int begin = (pageLink - 1) * ROW_PER_PAGE + 1;
 	int end = pageLink * ROW_PER_PAGE;
 	
-	List<User> userList = memDao.getSearchUser(type, content, begin, end);
+	List<ig_evententry> userList = eventDao.getSearchEntry(type, content, begin, end);
 	
-	int totalRows = memDao.getSearchCount(type, content);
+	int totalRows = eventDao.getSearchCount(type, content);
 	
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수

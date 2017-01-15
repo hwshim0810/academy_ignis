@@ -71,4 +71,6 @@
 		SELECT count(*) FROM ig_evententry
 		where eb_num = #{eb_num}
 	</select>
+	
+
 </mapper>

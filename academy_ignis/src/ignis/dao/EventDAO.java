@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
+import ignis.bean.User;
 import ignis.bean.ig_event;
 import ignis.bean.ig_evententry;
 import ignis.bean.ig_review;
@@ -188,39 +189,6 @@ public class EventDAO {
 		return true;
 	}
 	
-//	public Map<String, Object> selectEntryList(int begin, int end) {
-//		SqlSession ss = FactoryService.getFactory().openSession();
-//		Map<String, Object> resultMap = new HashMap<>();
-//		HashMap<String, Object> map = new HashMap<>();
-//		
-//		map.put("begin", begin);
-//		map.put("end", end);
-//		
-//		resultMap = ss.selectMap("event.selectEntryList", map, "eb_num");
-//		
-//		return resultMap;
-//	}
-	
-//	public HashMap<String, Object> entryList(int begin, int end){
-//		SqlSession ss = FactoryService.getFactory().openSession(true);
-//		
-//		HashMap<String, Object> resultMap = new HashMap<>();
-//		HashMap<String, Integer> map = new HashMap<>();
-//		
-//		map.put("begin", begin);
-//		map.put("end", end);
-//		
-//		List<ig_evententry> entrylist = ss.selectList("event.eventEntryList", map);
-//		List<ig_event> eventlist = ss.selectList("event.eventList", map);
-//		
-//		resultMap.put("entrylist", entrylist);
-//		resultMap.put("eventlist", eventlist);
-//		
-//		ss.close();
-//		
-//		return resultMap;
-//	} 
-	
 	public List<ig_evententry> eventEntryList(int begin, int end){
 		SqlSession ss = FactoryService.getFactory().openSession(true);
 		
@@ -276,6 +244,66 @@ public class EventDAO {
 		int count = ss.selectOne("event.eventEntryCount", eb_num);
 		ss.close();
 		
+		return count;
+	}
+	
+	// 응모 이벤트 관리 검색기능 
+	public List<ig_evententry> getSearchEntry(String type, String content, int begin, int end) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		HashMap<String, Object> map = new HashMap<>();
+		//List<ig_event> list = null;
+		List<ig_evententry> list1 = null;
+		
+		if (!type.equals("entry_all")) map.put("content", content);
+		
+		map.put("begin", begin);	
+		map.put("end", end);
+		
+		switch (type) {
+		case "entry_title":
+			//list = ss.selectList("event.searchEntryByTitle", map);
+			break;
+			
+		case "entry_id":
+			list1 = ss.selectList("event.searchEntryById", map);
+			break;
+			
+		default:
+			break;
+		}
+		
+		ss.close();
+		
+		return list1;
+	}
+	
+	public int getSearchCount(String type, String content) {
+		SqlSession ss = FactoryService.getFactory().openSession();
+		
+		int count = 0;
+		
+		switch (type) {
+		case "m_id":
+			count = ss.selectOne("member.countById", content);
+			break;
+		case "m_name":
+			count = ss.selectOne("member.countByName", content);
+			break;
+		case "m_phone":
+			count = ss.selectOne("member.countByPhone", content);
+			break;
+		case "m_email":
+			count = ss.selectOne("member.countByEmail", content);
+			break;
+		case "all":
+			count = ss.selectOne("member.selectUserCount");
+			break;
+		
+		default:
+			break;
+		}
+		
+		ss.close();
 		return count;
 	}
 }
