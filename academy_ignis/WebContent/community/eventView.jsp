@@ -31,6 +31,7 @@
 	String endDate = view.getEb_period().substring(13);
 	Date endDay = formatter.parse(endDate);
 	int result = today.compareTo(endDay);
+	int entryCount = eventDao.eventEntryCount(num);
 %>
 
 <!DOCTYPE html>
@@ -68,13 +69,15 @@
 							이그니스 치과
 						</td>
 						<th>당첨자 수</th>
-						<td><%= view.getEb_winner() %></td>
+						<td><%= view.getEb_winner() + entryCount %></td>
 					</tr>
 					<tr>
 						<th>이벤트 기간</th>
-						<td colspan="3"><%= view.getEb_period() %></td>
+						<td><%= view.getEb_period() %></td>
 						<th>발표 날짜</th>
 						<td><%= view.getEb_announceday() %></td>
+						<th>응모자 수</th>
+						<td><%= entryCount %></td>
 					</tr>
 					<tr>
 						<th>이벤트 내용</th>

@@ -43,91 +43,92 @@
 	<%pageContext.include("leftList.jsp"); %> 
 	<div class="col-xs-12 col-sm-12 col-md-10">
 		<h3>EVENT</h3><hr>
-		<table class="table table-responsive" style="text-align : center;">
-			<caption class="sr-only">이벤트 게시판</caption>
-			<thead>
+		<div id="ContentArea">
+			<table class="table table-responsive" style="text-align : center;">
+				<caption class="sr-only">이벤트 게시판</caption>
+				<thead>
+					<tr>
+						<th class="hidden-xs" style="text-align : center;">No</th>
+						<th style="text-align : center;">제목</th>
+						<th style="text-align : center;">기간</th>
+						<th style="text-align : center;">응모가능수</th>
+						<th class="hidden-xs" style="text-align : center;">등록일</th>
+						<th class="hidden-xs" style="text-align : center;">조회수</th>
+					</tr>
+				</thead>
+				<tbody>
+				<%
+					Iterator<ig_event> it = list.iterator();
+					int cnt = 0;
+					int no = list.size();
+					while(it.hasNext()){
+						cnt++;
+						ig_event event = it.next();				
+				%>
+				<%
+					java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
+					Date today = new Date();
+					String endDate = event.getEb_period().substring(13);
+					Date endDay = formatter.parse(endDate);
+					int result = today.compareTo(endDay);
+				%>
 				<tr>
-					<th class="hidden-xs" style="text-align : center;">No</th>
-					<th style="text-align : center;">제목</th>
-					<th style="text-align : center;">기간</th>
-					<th style="text-align : center;">응모가능수</th>
-					<th class="hidden-xs" style="text-align : center;">등록일</th>
-					<th class="hidden-xs" style="text-align : center;">조회수</th>
-				</tr>
-			</thead>
-			<tbody>
-			<%
-				Iterator<ig_event> it = list.iterator();
-				int cnt = 0;
-				int no = list.size();
-				while(it.hasNext()){
-					cnt++;
-					ig_event event = it.next();				
-			%>
-			<%
-				java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy-MM-dd");
-				Date today = new Date();
-				String endDate = event.getEb_period().substring(13);
-				Date endDay = formatter.parse(endDate);
-				int result = today.compareTo(endDay);
-			%>
-			<tr>
-				<td class="hidden-xs"><%= no %></td>
-				<td style="text-align : left;">
-					<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
-						<%= event.getEb_title() %>
-					</a>
-				</td>
-				<td><%= event.getEb_period() %></td>
-				<td style="color : #f00;">
-					<% if(result > 0){ %>
-						이벤트 마감
-					<% } else { 
-						 if( event.getEb_winner() > 0) { %>
-							<%= event.getEb_winner() %>
-						<% } else { %>
+					<td class="hidden-xs"><%= no %></td>
+					<td style="text-align : left;">
+						<a href="/academy_ignis/EventView?login=member&pageNo=<%= pageNo %>&num=<%= event.getEb_num()%> ">
+							<%= event.getEb_title() %>
+						</a>
+					</td>
+					<td><%= event.getEb_period() %></td>
+					<td style="color : #f00;">
+						<% if(result > 0){ %>
 							이벤트 마감
+						<% } else { 
+							 if( event.getEb_winner() > 0) { %>
+								<%= event.getEb_winner() %>
+							<% } else { %>
+								이벤트 마감
+							<% } %>
 						<% } %>
-					<% } %>
-				</td>
-				<td class="hidden-xs"><%= event.getEb_regdate() %></td>
-				<td class="hidden-xs"><%= event.getEb_readcount() %></td>
-			</tr>
-			<%
-					no--;
-				}
-				System.out.println(cnt);
-				if (cnt == 0) {
-			%>
-			<tr>
-				<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
-			</tr>
-			<% }%>
-			</tbody>
-		</table>
-		<ul class="pager">
-		  <li><a href="/academy_ignis/Event?login=member&pageNo=1">첫 페이지</a></li>
-		  <li>
-		  	<% if (prevPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
-		  </li>
-		 	<% for (int i = beginPage; i <= endPage; i++) { %>
-		  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=i %>"><%=i %></a></li>
-		  	<% } %>
-		  <li>
-		 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
-		  </li>
-		  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
-		</ul>
+					</td>
+					<td class="hidden-xs"><%= event.getEb_regdate() %></td>
+					<td class="hidden-xs"><%= event.getEb_readcount() %></td>
+				</tr>
+				<%
+						no--;
+					}
+					System.out.println(cnt);
+					if (cnt == 0) {
+				%>
+				<tr>
+					<td colspan="5">현재 등록된 이벤트가 없습니다.</td>
+				</tr>
+				<% }%>
+				</tbody>
+			</table>
+			<ul class="pager">
+			  <li><a href="/academy_ignis/Event?login=member&pageNo=1">첫 페이지</a></li>
+			  <li>
+			  	<% if (prevPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=prevPage %>">◁</a><% } %>
+			  </li>
+			 	<% for (int i = beginPage; i <= endPage; i++) { %>
+			  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=i %>"><%=i %></a></li>
+			  	<% } %>
+			  <li>
+			 	 <% if (nextPage != 0) { %><a href="/academy_ignis/Event?login=member&pageNo=<%=nextPage%>">▷</a><% } %>
+			  </li>
+			  <li><a href="/academy_ignis/Event?login=member&pageNo=<%=totalPages %>">마지막 페이지</a></li>
+			</ul>
+		</div>
 		<form class="form-inline">
-			<select name="eventSearch" class="form-control" id="eventSearch">
-				<option value="">전체</option>
-				<option value="title">제목</option>
-				<option value="regdate">등록일</option>
+			<select class="form-control" name="eventSearch" id="eventSearch">
+				<option value="event_all">전체</option>
+				<option value="event_title">제목</option>
 			</select>
 			<div class="form-group">
-				<input type="text" class="form-control" id="searchEvent">
+				<input type="text" class="form-control" name="searchEvent" id="searchEvent">
 			</div>
-			<button type="submit" class="btn btn-default">검색</button>
+			<a type="button" class="btn btn-default" id="searchBtn">검색</a>
 		</form>
 	</div>
 </div>
@@ -142,6 +143,7 @@
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/jquery-confirm.min.js"></script>
 <script src="/academy_ignis/script/messagebox.js" type="text/javascript"></script>
 <script type="text/javascript" charset="utf-8" src="/academy_ignis/script/index_login.js"></script>
+<script type="text/javascript" charset="utf-8" src="/academy_ignis/script/search_event_client.js"></script>
 <%
 	if (id != null) {
 %>		<script type="text/javascript">userLogin();</script>
