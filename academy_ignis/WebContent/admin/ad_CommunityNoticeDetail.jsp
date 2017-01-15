@@ -5,8 +5,8 @@
 <%
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
-	if ((Integer)session.getAttribute("m_level") <3) 
-		response.sendRedirect("./login");
+	if ((Integer)session.getAttribute("m_level") <3) {
+		response.sendRedirect("./login"); return;}
     	%>
 <!DOCTYPE html>
 <html>

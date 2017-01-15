@@ -61,9 +61,24 @@ public class QnaBiz {
 		return listCount;
 	}
 
-	public List<ig_qna> selectDetail(int nb_num) {
+	public List<ig_qna> selectDetail(HttpServletRequest request, HttpServletResponse response) {
 		QnaDAO qnaDao = new QnaDAO();
-		List<ig_qna> list = qnaDao.selectDetail(nb_num);
+		
+		int qb_num=1;//상세정보 요청 number
+		if(request.getParameter("qb_num")!=null){
+			qb_num=Integer.parseInt(request.getParameter("qb_num"));
+		}
+		List<ig_qna> list = qnaDao.selectDetail(qb_num);
+		int readCount_change=qnaDao.updateCount(qb_num);//조회수 +1
+		int qb_groupCount=qnaDao.qb_groupCount(qb_num);//답변이 있는가 확인.2는 답변 있음
+		String replyOwenr=qnaDao.replyOwenr(qb_num);//답변의 문의자 ID
+		
+		if(readCount_change>0){System.out.println("readcount +1 성공");
+		}else{System.out.println("readcount +1 실패");}
+
+		request.setAttribute("qb_groupCount", qb_groupCount);
+		request.setAttribute("replyOwenr", replyOwenr);
+		request.setAttribute("qnaDetail", list);
 		return list;
 	}
 

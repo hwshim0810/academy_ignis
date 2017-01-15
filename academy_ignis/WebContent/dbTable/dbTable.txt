@@ -21,6 +21,9 @@ conn ignis/1234
 
 //삭제용
 
+
+
+
 drop table ig_notice purge;
 drop table ig_evententry purge;
 drop table ig_event purge;
@@ -173,6 +176,8 @@ INSERT INTO IG_notice VALUES ( nb_num.nextval, '진료시간 변경안내', '어
 
 
 INSERT INTO IG_member VALUES ( 'admin','admin','관리자','850101','서울',01011112222,'a@a.com',3, SYSDATE );
+INSERT INTO IG_member VALUES ( 'aaa','aaa','이름a','850101','서울',01011112222,'a@a.com',2, SYSDATE );
+INSERT INTO IG_member VALUES ( 'bbb','bbb','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa2211','11111111','홍길동','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'bbb22221','11111111','고길등','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'aaa111','aaa1111','이사람','850101','서울',01011112222,'a@a.com',2, SYSDATE );
@@ -201,7 +206,6 @@ INSERT INTO IG_member VALUES ( 'useryyy','bbb222','이름b','850101','서울',01
 INSERT INTO IG_member VALUES ( 'userttt','bbb222','이거야','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userwww','bbb222','심현우','880801','서울시 강남구',01011112222,'ee@ee.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userrrr','bbb222','김혜경','941201','서울',01011112222,'ee@ee.com',2, SYSDATE );
-INSERT INTO IG_member VALUES ( 'userwww','bbb222','이영광','890101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userqqq','bbb222','이름b','850101','서울',01011112222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'usersss','bbb222','너이름','900101','서울',01033332222,'a@a.com',2, SYSDATE );
 INSERT INTO IG_member VALUES ( 'userxxx','bbb222','어디지','901101','서울',01011112222,'a@a.com',2, SYSDATE );

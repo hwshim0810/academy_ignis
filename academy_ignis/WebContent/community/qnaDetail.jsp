@@ -6,11 +6,12 @@
     int pagenum=1;//현재 페이지
     pagenum=(Integer)request.getAttribute("pagenum");
     String id = null;
-    if (!(session.getAttribute("m_id") !=null)) {
+    if ((String)session.getAttribute("m_id") ==null) {
 		out.println("<script>");
 		out.println("alert('로그인후 이용해주시기 바랍니다.');");
 		out.println("location.href='/academy_ignis/login?page=qnaDetail&pagenum="+pagenum+"';");
 		out.println("</script>");
+		return;
     } else {
 		id = (String) session.getAttribute("m_id");
     }
@@ -55,6 +56,7 @@
 			    			out.println("alert('비공개 문의는 본인만 보기 가능합니다..');");
 			    			out.println("location.href='/academy_ignis/qna';");
 			    			out.println("</script>");
+			    			return;
 			    		}
 			    		}
 			    	}

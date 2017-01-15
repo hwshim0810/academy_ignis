@@ -3,11 +3,12 @@
 <%
 	String id = null;
 
-    if(session.getAttribute("m_id") ==null){
+    if((String)session.getAttribute("m_id") ==null){
 		out.println("<script>");
 		out.println("alert('로그인후 이용해주시기 바랍니다.');");
 		out.println("location.href='/academy_ignis/login?page=qnaInsertView';");
 		out.println("</script>");
+		return;
     } else {
     	id = (String) session.getAttribute("m_id");    	
     }
