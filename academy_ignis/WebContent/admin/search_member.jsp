@@ -62,7 +62,7 @@
 		</thead>
 		<tbody>
 		<% 
-			if (userList != null) {
+			if (userList.size() > 0) {
 				for (int i = 0; i < userList.size(); i++) {
 					User user = userList.get(i);
 		%>
@@ -78,9 +78,15 @@
 		</tr>
 		<%
 				}
-			} 
+			} else {
+				prevPage = 0;
+				endPage = 1;
+				nextPage = 0;
 		%>
-		</tbody>
+		<tr>
+			<td colspan="8" style="text-align: center; padding: 10% 0;">검색 결과가 존재하지 않습니다.</td>
+		</tr>
+		<% } %>
 	</table>
 </div>
 <ul class="pager">

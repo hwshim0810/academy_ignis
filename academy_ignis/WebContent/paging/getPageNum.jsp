@@ -20,7 +20,7 @@
 	int end = pageNo * ROW_PER_PAGE;
 	
 	//요부분도 적당한 DAO로 수정해서 쓸것
-
+	int totalRows = 0; //실사용시제거
 	int totalPages = (int) Math.ceil((double) totalRows / ROW_PER_PAGE);
 	// 전체 페이지 갯수
 
